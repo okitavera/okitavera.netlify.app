@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="title" content="{{ posttitle or renderData.title or title or metadata.title }}">
-  <meta name="description" content="{{ description or metadata.description or (metadata.author.name | lastWord + '\'s Github Pages') }}" >
+  <meta name="description" content="{{ description or metadata.description or (metadata.author.name | lastWord + '\'s Website') }}" >
   <meta name="theme-color" content="#f47"/>
   <meta content="{{ metadata.title }}" property="og:site_name">
   <meta content="{{ renderData.title or title or metadata.title }}" property="og:title">
   <meta content="{{ metadata.url | getHostnameFromUrl }}" property="og:url">
-  <meta content="{{ description or metadata.description or (metadata.author.name | lastWord + '\'s Github Pages') }}" property="og:description">
+  <meta content="{{ description or metadata.description or (metadata.author.name | lastWord + '\'s Website') }}" property="og:description">
   {% if date %}
     <meta content="{{ date }}" property="article:published_time">
     <meta content="{{ metadata.url }}" property="article:author">
