@@ -13,7 +13,7 @@
           <img width="100%" data-src="{{ splash.url }}" class="---ll"/>
           {% endif %}
           {% if splash.credit %}
-          <figcaption><span class="credit">{{ splash.credit }}</span></figcaption>
+          <figcaption><span class="credit">{{ splash.credit | urlize | safe }}</span></figcaption>
           {% endif %}
         </figure>
         {% endif %}
