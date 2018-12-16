@@ -1,0 +1,7 @@
+User-Agent: *
+Disallow: 
+Allow: /
+Disallow: /articles/tags/all
+Disallow: /articles/tags/tags
+
+Sitemap: https://okitavera.me/sitemap.xml

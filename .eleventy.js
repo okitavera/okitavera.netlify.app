@@ -11,6 +11,7 @@ module.exports = (eleventy) => {
   // so we only copy imgs and fonts
   eleventy.addPassthroughCopy("assets/img");
   eleventy.addPassthroughCopy("assets/fonts");
+  eleventy.addPassthroughCopy("robots.txt");
   eleventy.addPlugin(pluginRss);
   eleventy.addPlugin(pluginSyntaxHighlight);
 
