@@ -1,4 +1,4 @@
-/* The Compromise
+/*! The Compromise
  * Critical FOFT with preload, with a polyfill fallback emulating font-display: optional
  * https://github.com/zachleat/web-font-loading-recipes
  */

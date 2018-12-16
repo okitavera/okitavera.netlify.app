@@ -23,11 +23,12 @@
 	<link rel="preload" href="/assets/fonts/woff2/SourceSansPro-SubsetOptimized.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="alternate" type="application/rss+xml" title="{{ metadata.feed.title }}" href="{{ metadata.feed.path | url }}">
     {% include 'comps/favicon.njk' %}
-  <style>
-    {% include 'comps/Illuminate.css' %}
-  </style>
   <script>
-    {% include 'comps/thecompromise.js' %}
-	</script>
+    {% include "comps/generated/thecompromise-fonts.js" %}
+  </script>
+  <style>
+    {% include 'comps/generated/Illuminate.css' %}
+  </style>
+  <script type="text/javascript" src="/assets/js/lazyload.min.js"></script>
 </head>
 <body>

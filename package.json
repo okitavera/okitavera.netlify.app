@@ -2,14 +2,6 @@
   "name": "okitavera.me",
   "version": "1.0.0",
   "description": "My personal pages - powered by eleventy",
-  "dependencies": {
-    "autoprefixer": "^9.4.2",
-    "css-mqpacker": "^7.0.0",
-    "cssnano": "^4.1.7",
-    "gulp-postcss": "^8.0.0",
-    "smooth-scroll": "^15.0.0",
-    "vanilla-lazyload": "^8.17.0"
-  },
   "devDependencies": {
     "@11ty/eleventy": "^0.6.0",
     "@11ty/eleventy-plugin-rss": "^1.0.3",
@@ -17,15 +9,22 @@
     "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/register": "^7.0.0",
+    "autoprefixer": "^9.4.2",
+    "css-mqpacker": "^7.0.0",
+    "cssnano": "^4.1.7",
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-clean": "^0.4.0",
+    "gulp-postcss": "^8.0.0",
     "gulp-stylus": "^2.7.0",
+    "gulp-uglify": "^3.0.1",
     "html-minifier": "^3.5.21",
     "luxon": "^1.8.0",
     "markdown-it": "^8.4.2",
     "markdown-it-anchor": "^5.0.2",
-    "stylus": "^0.54.5"
+    "smooth-scroll": "^15.0.0",
+    "stylus": "^0.54.5",
+    "vanilla-lazyload": "^8.17.0"
   },
   "scripts": {
     "build": "gulp",

@@ -4,6 +4,7 @@ import gulp from "gulp";
 import babel from "gulp-babel";
 import clean from "gulp-clean";
 import stylus from "gulp-stylus";
+import uglify from "gulp-uglify";
 import postcss from "gulp-postcss";
 import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
@@ -13,9 +14,16 @@ const BUILD_DIR = "dist";
 // google site verification
 const ghash = "google9ab7bf08387cc375";
 
+const uglifyopt = {
+  output: {
+    // don't drop comments with "!"
+    comments: /^!/
+  }
+};
+
 const cleanup = () =>
   gulp
-    .src([BUILD_DIR, "modules/comps/Illuminate.css"], {
+    .src([BUILD_DIR, "modules/comps/generated"], {
       force: true,
       read: false,
       allowEmpty: true
@@ -31,28 +39,30 @@ const stylusbuild = () =>
       })
     )
     .pipe(postcss([autoprefixer, cssnano, mqpacker]))
-    .pipe(gulp.dest("modules/comps/"));
+    .pipe(gulp.dest("modules/comps/generated"));
 
 const styluswatch = () => gulp.watch("assets/stylus/**", stylusbuild);
 
-const extasset = (repo, file) =>
+const jsAssets = () =>
   gulp
-    .src(`node_modules/${repo}/${file}`)
-    .pipe(gulp.dest(`${BUILD_DIR}/assets/js`));
-
-const assets = (done) => {
-  extasset("vanilla-lazyload", "dist/**");
-  extasset("smooth-scroll", "dist/**");
-  return done();
-};
-
-const nextjs = () =>
-  gulp
-    .src("assets/js/**")
+    .src([
+      "node_modules/vanilla-lazyload/dist/lazyload.min.js",
+      "node_modules/smooth-scroll/dist/smooth-scroll.polyfills.min.js",
+      "assets/js/critical-foft-preload-fallback-optional.js"
+    ])
     .pipe(babel())
+    .pipe(uglify(uglifyopt))
     .pipe(gulp.dest(`${BUILD_DIR}/assets/js`));
 
-const nextjswatch = () => gulp.watch("assets/js/**", nextjs);
+const jsInline = () =>
+  gulp
+    .src(["assets/js/okitavera.js", "assets/js/thecompromise-fonts.js"])
+    .pipe(babel())
+    .pipe(uglify(uglifyopt))
+    .pipe(gulp.dest("modules/comps/generated"));
+
+// only watch inlined js
+const jsWatch = () => gulp.watch("assets/js/**", jsInline);
 
 const personal = (done) => {
   !fs.existsSync(BUILD_DIR) && fs.mkdirSync(BUILD_DIR);
@@ -63,7 +73,7 @@ const personal = (done) => {
   );
 };
 
-const prepareAssets = gulp.parallel(stylusbuild, personal, assets, nextjs);
+const prepareAssets = gulp.parallel(stylusbuild, personal, jsAssets, jsInline);
 
 const eleventy = (options = "") => {
   let cmd = (done) =>
@@ -79,7 +89,7 @@ gulp.task(
   gulp.series(
     cleanup,
     prepareAssets,
-    gulp.parallel(styluswatch, nextjswatch, eleventy("--serve"))
+    gulp.parallel(styluswatch, jsWatch, eleventy("--serve"))
   )
 );
 
