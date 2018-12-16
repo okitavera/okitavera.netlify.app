@@ -1,0 +1,2 @@
+// ignore generated css from git without ignored by 11ty --watch
+*.css

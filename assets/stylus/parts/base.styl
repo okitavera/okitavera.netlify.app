@@ -1,0 +1,107 @@
+*,
+*:after,
+*:before
+  box-sizing inherit
+
+html,
+body
+  display flex
+  flex-direction column
+  overflow-x hidden
+  box-sizing border-box
+  min-height 100vh
+  background $colorLight[1]
+  color $colorDark[2]
+  letter-spacing 0.01em
+  font-weight 400
+  font-size 16px
+  line-height 1.8
+
+.main-footer
+  margin-top auto // push the main footer to the bottom
+
+blockquote
+  position relative
+  display inline-block
+  margin 0 1rem 1rem 0
+  padding 0.2rem 3rem
+  background $colorLight[0]
+  box-shadow 0 1px 1px rgba(0, 0, 0, 0.125)
+  color #555555
+  font-style italic
+
+blockquote::before
+  position absolute
+  top -10px
+  left 10px
+  color lighten($colorAccent, 30%)
+  content '\201C'
+  font-size 4em
+
+blockquote span
+  display block
+  margin-top 0.5em
+  color $colorDark[1]
+  text-align right
+  font-size 80%
+
+hr
+  margin 1rem 0
+  border 0
+  border-top 1px solid $colorLight[3]
+
+dl,
+ol,
+ul
+  margin-top 0
+  padding-left 0
+  list-style none
+  dl,
+  ol,
+  ul
+    margin 1rem 0 1rem 2rem
+    font-size 90%
+
+ol
+  list-style decimal inside
+
+ul
+  list-style circle inside
+
+fieldset,
+input,
+select,
+textarea
+  margin-bottom 1.5rem
+
+blockquote,
+dl,
+figure,
+form,
+ol,
+p,
+pre,
+table,
+ul
+  margin-bottom 1rem
+
+p
+  max-width 100%
+  word-wrap break-word
+  img
+    max-width 100%
+
+// Prevents img without src to appear
+img:not([src])
+  visibility hidden
+
+// fire the IntersectionObserver in EdgeHTML
+img[data-src],
+img[data-srcset]
+  display block
+  min-height 1px
+
+// Fixes Firefox anomaly during image load
+@-moz-document url-prefix()
+  img:-moz-loading
+    visibility hidden

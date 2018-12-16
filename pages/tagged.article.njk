@@ -1,0 +1,42 @@
+---
+permalink: /article/tags/{{ tag }}/
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+layout: plain.njk
+renderData:
+  title: Tagged “{{ tag }}”
+---
+{% set articles = collections[ tag ] %}
+<section class="article-index">
+  <div class="container no-padding-y">
+    <h1 class="text-thin center">TAGGED<b>ARTICLES</b></h1>
+    <div class="center">
+      {% for _tag in collections.tags %}
+        <a href="/article/tags/{{ _tag }}" class="button button-small{% if tag == _tag %}{% else %} button-outline{% endif %}">{{ _tag }}</a>
+      {% endfor %}
+    </div>
+    <div class="sp"></div>
+    <div class="row">
+    {% for post in articles | reverse %}
+    <div class="col card">
+    <a href="{{ post.url | url }}">
+        <figure class="card-thumbnail bg-dark-0">
+        {% if post.data.splash.url %}
+          <img class="---ll" data-src="{{ post.data.splash.url }}">
+        {% else %}
+          <img class="---ll" data-src="/assets/img/book.svg" height="100%">
+        {% endif %}
+        </figure>
+        <div class="card-context">
+          <time class="text-smaller" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+          <div class="text-dark-2">{{ post.data.title }}</div>
+        </div>
+    </a>
+    </div>
+    {% endfor %}
+    </div>
+  </div>
+  <div class="sp sp-l"></div>
+</section>

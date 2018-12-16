@@ -1,0 +1,75 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+  display block
+  font-weight normal
+  b
+    font-weight 700
+    font-size 0.95em // maintain height with normal text
+
+h1
+  margin 0.67em 0
+  font-size 2em
+
+h2
+  margin 0.83em 0
+  font-size 1.5em
+
+h3
+  margin 1em 0
+  font-size 1.17em
+
+h4
+  margin 1.33em 0
+  font-size 1em
+
+h5
+  margin 1.67em 0
+  font-size 0.83em
+
+h6
+  margin 2.33em 0
+  font-size 0.67em
+
+small
+  font-size 0.75em
+
+a
+  color $colorAccent
+  text-decoration none
+  &:focus,
+  &:hover
+    color $colorDark[2]
+
+.typo-mono
+  font-family $font_mono
+
+.text-uppercase
+  text-transform uppercase
+
+.text-smaller
+  font-size 80%
+
+.text-bigger
+  font-size 120%
+
+.text-thin
+  font-weight 300
+
+.center
+  text-align center
+
+.left
+  text-align left
+
+.right
+  text-align right
+
+.hashed
+  &::before
+    padding-right 0.3em
+    content '#'
+    opacity 0.5

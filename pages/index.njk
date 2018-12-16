@@ -1,0 +1,84 @@
+---
+permalink: /
+---
+{% include "head.njk" %}
+{% set nav_class = "clears" %}
+<section class="start bg-dark-0">
+  <div class="container height-stretch no-padding-x no-padding-y">
+  {% include "navs.njk" %}
+    <div class="row items-mid animated fadeIn">
+      <div class="col center">
+        <figure class="ovlogo-canvas">
+          {% include 'comps/okitavera.min.svg' %}
+        </figure>
+        <h5 class="animated fadeInUp">
+          <b class="text-uppercase text-light-2">UX | kotlin & android dev | arch</b>
+        </h5>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="welcome bg-accent text-light-0">
+  <div class="container">
+    <div class="row fx-nowrap items-mid">
+      <div class="col center">
+        <h1 class="text-thin no-padding-y text-uppercase">HELLO THERE!</h1>
+        <p class="text-bigger">
+          Welcome to my page :) . You can also jump into the my list of
+          <a class="button button-small button-ulined" href="#sideprojects">#sideprojects</a>
+          or <a class="button button-small button-ulined" href="#recentarticles">#recentarticles</a> below.
+        </p>
+        <div class="sp"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="about bg-light-0" id="about">
+  <div class="container">
+    <div class="row fx-nowrap items-mid">
+      <div class="col center side-padding">
+        <img class="circle ---ll" alt="Prettiest human in the world" data-src="{{ metadata.author.photo }}?s=150"/>
+      </div>
+      <div class="col side-padding">
+        <h1 class="text-thin"><b>ABOUT</b>ME</h1>
+        <p class="left text-bigger">
+          I am an Indonesian UX Designer and Kotlin-Android Developer.<br>
+          Honestly, I do code for fun, just an another hobbies afterworks besides watching videos or plays some melodic decadence metal music.<br>
+          Primarily use Kotlin for Android development, but also do a bash and python for scripting.<br>
+          Also I am the master of mixing chocolate and coffee.
+        </p>
+      </div>
+    </div>
+  </div>
+<div class="sp"></div>
+</section>
+<section class="side-project-title bg-light-2" id="sideprojects">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="text-thin no-padding-y">SIDE<b>PROJECTS</b></h1>
+      </div>
+    </div>
+    <div class="row items-stretch">
+      {% for project in collections.projects %}
+      <div class="col col-eq card bg-dark-0 text-light-0">
+        <figure class="card-thumbnail">
+          <img class="---ll" data-src="{{ project.data.img }}">
+        </figure>
+        <div class="card-context">
+          <h3 class="text-thin no-margin-y text-uppercase">{{ project.data.name }}</h3>
+          <span class="text-smaller">{{ project.data.desc }}</span>
+        </div>
+        <div class="card-footer">
+          {{ project.templateContent | safe }}
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+<div class="sp"></div>
+</section>
+<div class="bg-light">
+{% include "recentarticle.njk" %}
+</div>
+{% include "foot.njk" %}

@@ -1,0 +1,16 @@
+---
+permalink: /article/tags/
+layout: plain.njk
+title: Tags
+---
+<section class="article-index">
+  <div class="container">
+    <h1 class="text-thin center">TAGGED<b>ARTICLES</b></h1>
+    <div class="center">
+      {% for _tag in collections.tags %}
+        <a href="/article/tags/{{ _tag }}" class="button button-small{% if tag == _tag %}{% else %} button-outline{% endif %}">{{ _tag }}</a>
+      {% endfor %}
+    </div>
+    <div class="sp sp-l"></div>
+  </div>
+</section>

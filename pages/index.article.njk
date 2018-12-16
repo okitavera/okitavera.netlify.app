@@ -1,0 +1,32 @@
+---
+layout: plain.njk
+permalink: /article/
+title: Article Index
+---
+{% set articles = collections.posts %}
+<section class="article-index">
+  <div class="container no-padding-y">
+    <h1 class="text-thin center">
+      <span class="text-bigger">ALL<b>ARTICLES</b></span>
+    </h1>
+    <div class="row">
+      {% for post in articles | reverse %}
+      <div class="col card">
+      <a href="{{ post.url | url }}">
+          <figure class="card-thumbnail bg-dark-0">
+          {% if post.data.splash.url %}
+            <img class="---ll" data-src="{{ post.data.splash.url }}">
+          {% else %}
+            <img class="---ll" data-src="/assets/img/book.svg">
+          {% endif %}
+          </figure>
+          <div class="card-context">
+            <time class="text-smaller" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+            <div class="text-dark-2">{{ post.data.title }}</div>
+          </div>
+      </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

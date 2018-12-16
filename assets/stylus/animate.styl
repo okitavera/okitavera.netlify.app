@@ -1,0 +1,48 @@
+/*
+ * animate.css -https://daneden.github.io/animate.css/
+ * Version - 3.7.0
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ *
+ * Copyright (c) 2018 Daniel Eden
+ */
+@keyframes fadeIn
+  from
+    opacity 0
+  to
+    opacity 1
+
+.fadeIn
+  animation-name fadeIn
+
+@keyframes fadeInUp
+  from
+    opacity 0
+    transform translate3d(0, 100%, 0)
+  to
+    opacity 1
+    transform translate3d(0, 0, 0)
+
+.fadeInUp
+  animation-name fadeInUp
+
+@keyframes zoomOut
+  from
+    opacity 0
+    transform scale3d(2, 2, 2)
+  to
+    opacity 1
+
+.zoomOut
+  animation-name zoomOut
+
+.animated
+  animation-duration 1s
+  animation-fill-mode both
+
+.animated.fast
+  animation-duration 800ms
+
+@media (prefers-reduced-motion: )
+  .animated
+    transition none !important
+    animation unset !important

@@ -1,0 +1,132 @@
+pre,
+code
+  margin 0
+  padding 0
+  border 0
+  background #ecedee
+  color #555
+  text-align left
+  text-shadow 0 1px white
+  white-space pre
+  word-spacing normal
+  word-break normal
+  tab-size 2
+  hyphens none
+  font-size 0.8rem
+  font-family $font_mono
+  line-height 1.7
+  direction ltr
+
+pre
+  overflow auto
+  margin 0 0 2em
+  padding 1em 0
+  box-shadow 0 1px 1px rgba(0, 0, 0, 0.125)
+
+code
+  padding 5px 5px 1px
+  box-shadow 0 1px 1px rgba(0, 0, 0, 0.125)
+
+pre>code
+  padding 0
+  box-shadow none
+
+pre:not([class])
+  >code
+    display inline-block
+    padding 0.1em 1.5em
+    min-width 100%
+
+code::selection,
+pre::selection
+  background #b3d4fc
+  text-shadow none
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata
+  color #777
+
+.token.punctuation
+  color #777
+
+.namespace
+  opacity 0.7
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted
+  color #DA564A
+
+.token.scope,
+.token.attr-name
+  color #DA564A
+
+.token.selector,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted
+  color #2E7D32
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string
+  color #555
+
+.token.atrule,
+.token.attr-value,
+.token.keyword
+  color #07a
+
+.token.function
+  color #555
+
+.token.regex,
+.token.important,
+.token.variable
+  color #4EA1DF
+
+.token.important,
+.token.bold
+  font-weight bold
+
+.token.italic
+  font-style italic
+
+.token.entity
+  cursor help
+
+.line-highlight
+  background rgba(6, 6, 6, 0.2)
+
+.codeheader
+  overflow-x hidden
+  margin-bottom -3px
+  padding 0.5em
+  color #746f72
+  text-align right
+  text-overflow ellipsis
+  white-space nowrap
+  font-weight 700
+  font-size 0.7em
+  font-family $font_mono
+  span
+    text-transform uppercase
+
+.highlight-line
+  display inline-block
+  padding 0.1em 1.5em
+  min-width 100%
+  text-decoration none
+  font-size 0.8rem
+  &:empty
+    &:before
+      content ' '

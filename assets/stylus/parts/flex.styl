@@ -1,0 +1,65 @@
+.container
+  display flex
+  flex-flow column nowrap
+  margin 0 auto
+  padding 1rem
+  max-width $containerMaxWidth
+  width 100%
+  &.legacy
+    display block
+
+.row
+  display flex
+  flex 1
+  flex-flow row wrap
+  margin 0
+  padding 0
+  width 100%
+  .col
+    display block
+    flex 1 1 auto
+    &.col-sink
+      flex 0 1 auto
+    &.col-eq
+      flex 1
+    &.col-full
+      flex 1 0 100%
+
+@media screen and (max-width: $flexTreshold)
+  .row
+    flex-flow column
+    &.ignore-mobile
+      flex-flow row wrap
+
+.fx-wrap
+  flex-wrap wrap
+
+.fx-nowrap
+  flex-wrap nowrap
+
+.fx-nogrow
+  flex-grow 0 !important
+
+.self-start
+  align-self flex-start
+
+.self-end
+  align-self flex-end
+
+.self-mid
+  align-self center
+
+.items-start
+  align-items flex-start
+
+.items-end
+  align-items flex-end
+
+.items-mid
+  align-items center
+
+.items-stretch
+  align-items stretch
+
+.items-baseline
+  align-items baseline

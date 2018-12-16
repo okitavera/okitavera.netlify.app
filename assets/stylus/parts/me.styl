@@ -1,0 +1,223 @@
+.article-index
+  .row
+    justify-content center
+  .col
+    flex 0 1 30%
+    margin-bottom 1rem
+    background-color $colorLight[0]
+    img
+      width 100%
+
+.owo
+  padding 1rem
+  text-align center
+  opacity 0
+  &:hover
+    opacity 1
+
+.copyright
+  padding-top 2rem
+  text-transform uppercase
+  letter-spacing 2px
+  font-size 0.9rem
+  .jumps a
+    padding 2px 0.6rem
+    color $colorLight[2]
+    font-size 0.8rem
+
+.post-credit-wrapper
+  display flex
+  align-items center
+  .post-credit
+    display inline-block
+    padding-left 1em
+    > *
+      margin 0
+      padding 0
+    :first-child
+      text-transform uppercase
+      font-weight 700 !important
+    :last-child
+      color $colorDark[1]
+
+.codeheader
+  margin-top -0.5rem
+
+.paper
+  padding 5rem
+  background-color $colorLight[0]
+  font-size 1.1em
+  &.paper-art
+    overflow hidden
+    padding 0 !important
+    border-radius 13px 13px 0 0
+    figure
+      margin 0
+      padding 0
+      img
+        display block
+      figcaption
+        display block
+        overflow hidden
+        padding 1rem
+        text-align right
+        text-overflow ellipsis
+        white-space pre
+        letter-spacing 1px
+        font-size 60%
+        a
+          color $colorDark[1]
+  &.paper-title
+    padding-bottom 0
+    h1,
+    time
+      margin 0
+      padding 0
+      text-transform uppercase
+      font-weight bold
+    h1
+      max-width 90%
+      font-size 4rem
+      line-height 1.2
+    time
+      padding-left 0.1em
+    &.no-art
+      padding-top 3rem
+      border-radius 13px 13px 0 0
+  &.paper-article
+    padding-top 1.5rem
+    padding-bottom 0
+    border-radius 0 0 13px 13px
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6
+      .direct-link
+        position relative
+        top -0.2em
+        visibility hidden
+        color lighten($colorAccent, 30%)
+        font-size 0.8em
+      &:hover > .direct-link
+        visibility visible
+
+@media screen and (max-width: $paperMaxWidth + 155px)
+  .paper
+    &.paper-art,
+    &.paper-title
+      &.no-art
+        border-radius 0
+      h1
+        font-size 3rem
+
+@media screen and (max-width: $flexTreshold + 200px)
+  .paper
+    padding 3rem
+    &.paper-title h1
+      font-size 2.5rem
+
+@media screen and (max-width: $flexTreshold + 100px)
+  .paper
+    padding 2rem
+    &.paper-title h1
+      font-size 2rem
+
+@media screen and (max-width: $flexTreshold)
+  .paper
+    padding 1rem
+    &.paper-title h1
+      font-size 1.7rem
+
+.ovlogo-canvas
+  display block
+  margin 0
+  padding 1rem 0
+  svg
+    max-width 512px
+    max-height auto
+    width 100%
+    height auto
+    transform rotate(-10deg)
+    .L1,
+    .L2
+      animation dash 2s cubic-bezier(0.6, 0.5, 0.8, 0.9) forwards
+      stroke-dasharray 400
+      stroke-dashoffset 400
+      stroke $colorAccent
+      stroke-opacity 1
+    .L2
+      animation dash 3s cubic-bezier(0.4, 0.9, 0.9, 0.8) forwards
+      animation-delay 1.78s
+      stroke-dasharray 544
+      stroke-dashoffset 544
+      stroke $colorLight[1]
+    .LSHDW
+      opacity 0
+      fill 0
+
+@keyframes dash
+  to
+    stroke-dashoffset 0
+
+.friends
+  .col
+    text-align center
+    a
+      position relative
+      display inline-block
+      margin 1rem
+      img,
+      span
+        position relative
+        display block
+        width 128px
+        height 128px
+      span
+        position absolute
+        top 0
+        left 0
+        border-radius 50%
+        background-color rgba($colorDark[0], 0.5)
+        opacity 0
+        transition 0.2s ease-out all
+      b
+        position relative
+        top calc(128px / 2 - 1rem)
+        color $colorLight[2]
+        text-transform uppercase
+      &:hover
+        span
+          opacity 1
+
+.backtotop
+  position fixed
+  right 5rem
+  bottom 5rem
+  visibility hidden
+  width 3rem
+  height 3rem
+  border-radius 50%
+  background $colorDark[2]
+  box-shadow 0 0 10px 0 rgba(0, 0, 0, 0.11)
+  color $colorLight[2]
+  text-align center
+  line-height 3rem
+  opacity 0
+  transition 0.2s ease-out all
+  transform rotate(-90deg)
+
+@media screen and (max-width: $flexTreshold)
+  .backtotop
+    right 1rem
+    bottom 2rem
+  .ovlogo-canvas
+    svg
+      max-width 100%
+      max-height auto
+      width 100%
+      height auto
+  .start
+    .row
+      flex-direction row

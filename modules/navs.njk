@@ -1,0 +1,41 @@
+<header class="nav {{ nav_class }}">
+	<div class="container legacy no-padding-y">
+		<div class="row items-mid">
+			<div class="col">
+				<a class="text-thin logo" href="{{ '/' | url }}">
+					<b>O</b>V
+				</a>
+			</div>
+			<div class="col right">
+				<span class="links">
+          <a href="{{ '/#about' | url }}">ABOUT</a>
+        </span>
+        &nbsp;
+				<span class="links">
+          <a href="{{ '/article/' | url }}">BLOG</a>
+        </span>
+        &nbsp;
+				<span class="links">
+          <a href="{{ '/#sideprojects' | url }}">PROJECTS</a>
+        </span>
+			</div>
+			<div class="col col-sink right mobile-menu-btn">
+				<a id="ovm--btn">
+					<span class="ovms"></span>
+					<span class="ovms"></span>
+				</a>
+			</div>
+		</div>
+	</div>
+</header>
+<div class="mobile-menu">
+	<div class="container">
+		<div class="row ignore-mobile items-mid">
+			<div class="col center">
+				<a href="{{ '/#about' | url }}">ABOUT</a><br>
+				<a href="{{ '/article/' | url }}">BLOG</a><br>
+				<a href="{{ '/#sideprojects' | url }}">PROJECTS</a>
+			</div>
+		</div>
+	</div>
+</div>

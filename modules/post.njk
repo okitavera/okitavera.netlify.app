@@ -1,0 +1,58 @@
+{% set posttitle = title + ' - ' + metadata.title %}
+{% set disqus = "true" %}
+{% include "head.njk" %}
+{% include "navs.njk" %}
+<div class="animated fadeIn" >
+<div>
+  <section class="container no-padding-y no-padding-x">
+    <div class="row paper paper-art">
+      <div class="col">
+        {% if splash %}
+        <figure class="splash">
+          {% if splash.url %}
+          <img width="100%" data-src="{{ splash.url }}" class="---ll"/>
+          {% endif %}
+          {% if splash.credit %}
+          <figcaption><span class="credit">{{ splash.credit }}</span></figcaption>
+          {% endif %}
+        </figure>
+        {% endif %}
+      </div>
+    </div>
+    <header class="row paper paper-title {% if not splash.url %}no-art{% endif %}">
+      <div class="col animated zoomOut fast">
+        <time class="hashed" datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+        <h1>{{ title }}</h1>
+      </div>
+    </header>
+  </section>
+</div></div>
+<section class="container no-padding-y no-padding-x">
+  <article class="paper paper-article">
+    {{ content | safe }}
+    <br>
+    <small>
+    <span href="/article/tags" class="button button-clear button-small">tagged in </span>
+    {% for tag in tags %}
+      {%- if tag != "post" -%}
+      <a href="/article/tags/{{ tag }}/" class="button button-small">{{ tag }}</a>
+      {%- endif -%}
+    {% endfor %}
+    </small>
+    <hr>
+    <footer class="post-credit-wrapper no-padding-y">
+      <img class="circle" width="64" src="{{ metadata.author.photo }}"/>
+      <div class="post-credit">
+        <h6>written by</h6>
+        <h3>{{ metadata.author.name }}</h3>
+      </div>
+    </footer>
+    <div class="sp"></div>
+    {% if metadata.disqus.username and metadata.disqus.enable == "true" %}
+    <div id="disqus_thread"></div>
+    {% endif %}
+  <div class="sp"></div>
+  </article>
+</section>
+{% include "recentarticle.njk" %}
+{% include "foot.njk" %}

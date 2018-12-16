@@ -1,0 +1,5 @@
+{% set posttitle = (renderData.title or title) + ' - ' + metadata.title %}
+{% include "head.njk" %}
+{% include "navs.njk" %}
+{{ content | safe }}
+{% include "foot.njk" %}

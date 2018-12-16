@@ -1,0 +1,25 @@
+---
+permalink: /friends/
+layout: plain.njk
+title: Friends Link
+---
+<div class="bg-light">
+  <div class="container friends">
+    <div class="row">
+      <div class="col">
+        <h1 class="text-thin">FRIENDS<b>LINK</b></h1>
+        <p class="text-bigger">
+          A list of my friends (that had a website or repository) who <br>helps me struggling with code and linux stuff.<br>
+        </p>
+        <div class="sp sp-l"></div>
+        {% for friend in friendlists.friends | sort(false, false, 'name')%}
+        <a rel="noopener" href="{{ friend.url }}" alt="{{ friend.name }}" aria-label="{{ friend.name }}" target="_blank">
+          <img width="128" height="128" class="circle ---ll" data-src="{{ friend.img }}">
+          <span><b>{{ friend.name }}</b></span>
+        </a>
+        {% endfor %}
+      </div>
+    <div class="sp sp-l"></div>
+    </div>
+  </div>
+</div>

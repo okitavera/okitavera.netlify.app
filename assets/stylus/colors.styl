@@ -1,0 +1,22 @@
+$colorAccent = #f0405a
+$colorLight = #fafafa, #f5f5f5, #eeeeee, #e0e0e0, #bdbdbd
+$colorDark = #212121, #424242, #616161, #757575, #9e9e9e
+
+.bg-accent
+  background-color $colorAccent
+
+.text-accent,
+.text-accent *
+  color $colorAccent
+
+for i in (0 .. 5)
+  .bg-light-{i}
+    background-color $colorLight[i]
+  .bg-dark-{i}
+    background-color $colorDark[i]
+  .text-light-{i},
+  .text-light-{i} *
+    color $colorLight[i]
+  .text-dark-{i},
+  .text-dark-{i} *
+    color $colorDark[i]

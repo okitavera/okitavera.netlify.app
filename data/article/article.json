@@ -1,0 +1,4 @@
+{
+  "permalink": "/article/{{ title | slug | prettySlug }}/",
+  "layout": "post"
+}
