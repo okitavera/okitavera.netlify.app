@@ -15,10 +15,6 @@ module.exports = (eleventy) => {
   eleventy.addPlugin(pluginRss);
   eleventy.addPlugin(pluginSyntaxHighlight);
 
-  eleventy.addFilter("lastWord", (words) => {
-    return words.split(" ").splice(-1);
-  });
-
   eleventy.addFilter("readableDate", (dateObj) => {
     return DateTime.fromJSDate(dateObj, {zone: "utc"}).toFormat(
       "LLLL dd, yyyy"
@@ -27,10 +23,6 @@ module.exports = (eleventy) => {
 
   eleventy.addFilter("htmlDateString", (dateObj) => {
     return DateTime.fromJSDate(dateObj).toFormat("yyyy-LL-dd");
-  });
-
-  eleventy.addFilter("getHostnameFromUrl", (base) => {
-    return new URL(base).hostname;
   });
 
   eleventy.addFilter("prettySlug", (slug) => {
@@ -101,8 +93,7 @@ module.exports = (eleventy) => {
       let minified = htmlmin.minify(content, {
         useShortDoctype: true,
         removeComments: true,
-        collapseWhitespace: true,
-        minifyJS: true
+        collapseWhitespace: true
       });
       return minified;
     }
@@ -124,7 +115,7 @@ module.exports = (eleventy) => {
   );
 
   return {
-    templateFormats: ["md", "njk", "html", "liquid"],
+    templateFormats: ["md", "njk"],
     pathPrefix: "/",
     markdownTemplateEngine: "liquid",
     htmlTemplateEngine: "njk",
