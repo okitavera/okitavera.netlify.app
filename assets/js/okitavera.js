@@ -29,4 +29,25 @@
       );
     }
   }, 250);
+
+  new LazyLoad({
+    elements_selector: ".---ll"
+  });
+
+  new SmoothScroll('a[href*="#"]', {
+    topOnEmptyHash: true,
+    easing: "easeOutQuint",
+    updateURL: true,
+    popstate: true,
+    emitEvents: true,
+    speed: 500,
+    speedAsDuration: true
+  });
+
+  if (document.querySelector(".disqus_thread") !== null) {
+    const script = document.createElement("script");
+    script.src = "https://{{ metadata.disqus.username }}.disqus.com/embed.js";
+    script.setAttribute("data-timestamp", +new Date());
+    (document.head || document.body).appendChild(s);
+  }
 })(window, document);
