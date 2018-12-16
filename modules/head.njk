@@ -5,24 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="title" content="{{ posttitle or renderData.title or title or metadata.title }}">
   <meta name="description" content="{{ description or metadata.description or (metadata.author.name + '\'s Website') }}" >
-  <meta content="{{ metadata.title }}" property="og:site_name">
-  <meta content="{{ renderData.title or title or metadata.title }}" property="og:title">
-  <meta content="{{ metadata.url }}" property="og:url">
-  <meta content="{{ description or metadata.description or (metadata.author.name + '\'s Website') }}" property="og:description">
-  {% if date %}
-    <meta content="{{ date }}" property="article:published_time">
-    <meta content="{{ metadata.url }}" property="article:author">
-  {% endif %}
-  {% if tags %}
-    {% for tag in tags %}
-    <meta content="{{ tag }}" property="article:tag">
-    {% endfor %}
-  {% endif %}
-  <meta content="{{ splash.url or metadata.author.photo }}" property="og:image">
+  {% include 'comps/metasocial.njk' %}
   <title>{{ posttitle or renderData.title or title or metadata.title }}</title>
 	<link rel="preload" href="/assets/fonts/woff2/SourceSansPro-SubsetOptimized.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="alternate" type="application/rss+xml" title="{{ metadata.feed.title }}" href="{{ metadata.feed.path | url }}">
-    {% include 'comps/favicon.njk' %}
+  {% include 'comps/favicon.njk' %}
   <script>
     {% include "comps/generated/thecompromise-fonts.js" %}
   </script>
