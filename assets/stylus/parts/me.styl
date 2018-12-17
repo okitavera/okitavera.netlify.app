@@ -62,7 +62,6 @@
         left 0
         display block
         width 101%
-        transition 0.18s ease-out
       figcaption
         display block
         overflow hidden
@@ -188,7 +187,7 @@
         border-radius 50%
         background-color rgba($colorDark[0], 0.5)
         opacity 0
-        transition 0.2s ease-out all
+        transition 0.25s ease-out all
       b
         position relative
         top calc(128px / 2 - 1rem)
@@ -212,8 +211,15 @@
   text-align center
   line-height 3rem
   opacity 0
-  transition 0.2s ease-out all
+  transition 0.25s ease-out all
   transform rotate(-90deg)
+
+// smoothly fade when lazyload image are appears
+img[data-src]
+  opacity 0
+  transition 0.25s ease-out all
+  &.loaded
+    opacity 1
 
 @media screen and (max-width: $flexTreshold)
   .backtotop
