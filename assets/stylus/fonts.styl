@@ -6,6 +6,7 @@
   unicode-range U+A, U+20-5A, U+5E, U+5F, U+61-7A, U+7E
 
 @font-face
+  font-weight 400
   font-family SourceSansPro
   src url('/assets/fonts/woff2/SourceSansPro.woff2') format('woff2'), url('/assets/fonts/woff/SourceSansPro.woff') format('woff')
   font-display swap
@@ -65,10 +66,10 @@ $font_mono = Inconsolata, Menlo, monospace
  * https://github.com/zachleat/web-font-loading-recipes
  */
 .fnV1 body
-  font-family SourceSansProSubset
+  font-family SourceSansProSubset, sans-serif
 
 .fnV2 body
-  font-family SourceSansPro
+  font-family SourceSansPro, sans-serif
 
-.body
-  font-family Ubuntu, Cantarell, Roboto, Oxygen-Sans, 'Segoe UI', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif
+body
+  font-family Helvetica, Arial, sans-serif
