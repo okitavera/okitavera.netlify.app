@@ -3,24 +3,25 @@
  * https://github.com/zachleat/web-font-loading-recipes
  */
 
-(function() {
+(function () {
   "use strict";
   // Optimization for Repeat Views
   if (sessionStorage.fontsLoadedCriticalFoftPreloadFallback) {
-    document.documentElement.className += " fnV2";
+    document.documentElement.className += " webfont-stage-2";
     return;
   } else if ("fonts" in document) {
-    document.fonts.load("1em SourceSansProSubset").then(function() {
-      document.documentElement.className += " fnV1";
+    document.fonts.load("1em SourceSansProCriticalSubset").then(function () {
+      document.documentElement.className += " webfont-stage-1";
+      var latinFont = "SourceSansProLatinSubset"
       Promise.all([
-        document.fonts.load("400 1em SourceSansPro"),
-        document.fonts.load("700 1em SourceSansPro"),
-        document.fonts.load("300 1em SourceSansPro"),
-        document.fonts.load("italic 1em SourceSansPro"),
-        document.fonts.load("italic 700 1em SourceSansPro"),
-        document.fonts.load("italic 300 1em SourceSansPro")
-      ]).then(function() {
-        document.documentElement.className += " fnV2";
+        document.fonts.load("400 1em " + latinFont),
+        document.fonts.load("700 1em " + latinFont),
+        document.fonts.load("300 1em " + latinFont),
+        document.fonts.load("italic 1em " + latinFont),
+        document.fonts.load("italic 700 1em " + latinFont),
+        document.fonts.load("italic 300 1em " + latinFont)
+      ]).then(function () {
+        document.documentElement.className += " webfont-stage-2";
         // Optimization for Repeat Views
         sessionStorage.fontsLoadedCriticalFoftPreloadFallback = true;
       });

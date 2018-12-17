@@ -1,60 +1,59 @@
 // --layout-features-='liga' and --no-hinting optimization
 @font-face
   font-weight 400
-  font-family SourceSansProSubset
-  src url('/assets/fonts/woff2/SourceSansPro-SubsetOptimized.woff2') format('woff2'), url('/assets/fonts/woff/SourceSansPro-SubsetOptimized.woff') format('woff')
-  unicode-range U+A, U+20-5A, U+5E, U+5F, U+61-7A, U+7E
+  font-family SourceSansProCriticalSubset
+  src url('/assets/fonts/SourceSansPro-CriticalSubset.woff2') format('woff2'), url('/assets/fonts/woff/SourceSansPro-CriticalSubset.woff') format('woff')
 
 @font-face
   font-weight 400
-  font-family SourceSansPro
-  src url('/assets/fonts/woff2/SourceSansPro.woff2') format('woff2'), url('/assets/fonts/woff/SourceSansPro.woff') format('woff')
+  font-family SourceSansProLatinSubset
+  src url('/assets/fonts/SourceSansPro-LatinSubset.woff2') format('woff2'), url('/assets/fonts/woff/SourceSansPro-LatinSubset.woff') format('woff')
   font-display swap
 
 @font-face
   font-weight 700
-  font-family SourceSansPro
-  src url('/assets/fonts/woff2/SourceSansPro-Bold.woff2') format('woff2'), url('/assets/fonts/woff/SourceSansPro-Bold.woff') format('woff')
+  font-family SourceSansProLatinSubset
+  src url('/assets/fonts/SourceSansPro-Bold-LatinSubset.woff2') format('woff2'), url('/assets/fonts/woff/SourceSansPro-Bold-LatinSubset.woff') format('woff')
   font-display swap
 
 @font-face
   font-style italic
-  font-family SourceSansPro
-  src url('/assets/fonts/woff2/SourceSansPro-Italic.woff2') format('woff2'), url('/assets/fonts/woff/SourceSansPro-Italic.woff') format('woff')
+  font-family SourceSansProLatinSubset
+  src url('/assets/fonts/SourceSansPro-Italic-LatinSubset.woff2') format('woff2'), url('/assets/fonts/woff/SourceSansPro-Italic-LatinSubset.woff') format('woff')
   font-display swap
 
 @font-face
   font-weight 700
   font-style italic
-  font-family SourceSansPro
-  src url('/assets/fonts/woff2/SourceSansPro-BoldItalic.woff2') format('woff2'), url('/assets/fonts/woff/SourceSansPro-BoldItalic.woff') format('woff')
+  font-family SourceSansProLatinSubset
+  src url('/assets/fonts/SourceSansPro-BoldItalic-LatinSubset.woff2') format('woff2'), url('/assets/fonts/woff/SourceSansPro-BoldItalic-LatinSubset.woff') format('woff')
   font-display swap
 
 @font-face
   font-weight 300
-  font-family SourceSansPro
-  src url('/assets/fonts/woff2/SourceSansPro-Light.woff2') format('woff2'), url('/assets/fonts/woff/SourceSansPro-Light.woff') format('woff')
+  font-family SourceSansProLatinSubset
+  src url('/assets/fonts/SourceSansPro-Light-LatinSubset.woff2') format('woff2'), url('/assets/fonts/woff/SourceSansPro-Light-LatinSubset.woff') format('woff')
   font-display swap
 
 @font-face
   font-weight 300
   font-style italic
-  font-family SourceSansPro
-  src url('/assets/fonts/woff2/SourceSansPro-LightItalic.woff2') format('woff2'), url('/assets/fonts/woff/SourceSansPro-LightItalic.woff') format('woff')
+  font-family SourceSansProLatinSubset
+  src url('/assets/fonts/SourceSansPro-LightItalic-LatinSubset.woff2') format('woff2'), url('/assets/fonts/woff/SourceSansPro-LightItalic-LatinSubset.woff') format('woff')
   font-display swap
 
 // Inconsolata for Code stuff
 @font-face
   font-weight 400
   font-family Inconsolata
-  src url('/assets/fonts/woff2/Inconsolata.woff2') format('woff2'), url('/assets/fonts/woff/Inconsolata.woff') format('woff')
+  src url('/assets/fonts/Inconsolata.woff2') format('woff2'), url('/assets/fonts/woff/Inconsolata.woff') format('woff')
   text-rendering optimizeLegibility
   font-display swap
 
 @font-face
   font-weight 700
   font-family Inconsolata
-  src url('/assets/fonts/woff2/Inconsolata-Bold.woff2') format('woff2'), url('/assets/fonts/woff/Inconsolata-Bold.woff') format('woff')
+  src url('/assets/fonts/Inconsolata-Bold.woff2') format('woff2'), url('/assets/fonts/woff/Inconsolata-Bold.woff') format('woff')
   text-rendering optimizeLegibility
   font-display swap
 
@@ -65,11 +64,11 @@ $font_mono = Inconsolata, Menlo, monospace
  * Critical FOFT with preload, with a polyfill fallback emulating font-display: optional
  * https://github.com/zachleat/web-font-loading-recipes
  */
-.fnV1 body
-  font-family SourceSansProSubset, sans-serif
+.webfont-stage-1 body
+  font-family SourceSansProCriticalSubset, sans-serif
 
-.fnV2 body
-  font-family SourceSansPro, sans-serif
+.webfont-stage-2 body
+  font-family SourceSansProLatinSubset, sans-serif
 
 body
   font-family Helvetica, Arial, sans-serif
