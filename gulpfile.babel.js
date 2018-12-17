@@ -12,12 +12,7 @@ import mqpacker from "css-mqpacker";
 const BUILD_DIR = "dist";
 // google site verification
 const GSV = "google9ab7bf08387cc375";
-const UGLIFY_OPT = {
-  output: {
-    // don't drop comments with "!"
-    comments: /^!/
-  }
-};
+const UGLIFY_OPT = {};
 
 // call eleventy with additional options
 const eleventy = (options = "") => {
