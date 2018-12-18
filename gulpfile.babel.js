@@ -1,4 +1,3 @@
-import fs from "fs";
 import {spawn} from "child_process";
 import merge from "merge-stream";
 import rimraf from "rimraf";
@@ -78,31 +77,18 @@ gulp.task("watch:js", () =>
   gulp.watch("assets/js/**", gulp.series("build:js"))
 );
 
-gulp.task("build:gsv", (done) => {
-  !fs.existsSync(metadata.site.output) && fs.mkdirSync(metadata.site.output);
-  fs.writeFile(
-    `${metadata.site.output}/${metadata.site.google_verification}.html`,
-    `google-site-verification: ${metadata.site.google_verification}.html`,
-    done
-  );
-});
-
 gulp.task("clean", (done) => rimraf(metadata.site.output, done));
 
 gulp.task(
   "serve",
   gulp.series(
     "clean",
-    gulp.parallel("build:stylus", "build:js", "build:gsv"),
+    gulp.parallel("build:stylus", "build:js"),
     gulp.parallel("watch:stylus", "watch:js", eleventy("--serve"))
   )
 );
 
 gulp.task(
   "default",
-  gulp.series(
-    "clean",
-    gulp.parallel("build:stylus", "build:js", "build:gsv"),
-    eleventy()
-  )
+  gulp.series("clean", gulp.parallel("build:stylus", "build:js"), eleventy())
 );
