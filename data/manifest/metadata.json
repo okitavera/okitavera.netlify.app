@@ -16,7 +16,7 @@
   "feed": {
     "title": "RSS Feed for okitavera's articles",
     "subtitle": "okitavera's personal pages",
-    "path": "/article/feed/"
+    "path": "/article/feed.xml"
   },
   "disqus": {
     "enable": "true",

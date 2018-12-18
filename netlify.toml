@@ -10,3 +10,7 @@
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "SAMEORIGIN"
     X-XSS-Protection = "1; mode=block"
+
+[[headers]]
+  for = "/article/feed/ /article/feed.xml 301"
+  [headers.values]
