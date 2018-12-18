@@ -7,7 +7,7 @@
   <meta name="description" content="{{ description or metadata.description or (metadata.author.name + '\'s Website') }}" >
   {% include 'comps/metasocial.njk' %}
   <title>{{ posttitle or renderData.title or title or metadata.title }}</title>
-	<link rel="preload" href="/assets/fonts/woff2/SourceSansPro-SubsetOptimized.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="/assets/fonts/SourceSansPro-CriticalSubset.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="alternate" type="application/rss+xml" title="{{ metadata.feed.title }}" href="{{ metadata.feed.path | url }}">
   {% include 'comps/favicon.njk' %}
   <script>
