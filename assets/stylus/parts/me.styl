@@ -118,13 +118,13 @@
       h1
         font-size 3rem
 
-@media screen and (max-width: $flexTreshold + 200px)
+@media screen and (min-width: $flexTreshold + 1px) and (max-width: $flexTreshold + 200px)
   .paper
     padding 3rem
     &.paper-title h1
       font-size 2.5rem
 
-@media screen and (max-width: $flexTreshold + 100px)
+@media screen and (min-width: $flexTreshold + 1px) and (max-width: $flexTreshold + 100px)
   .paper
     padding 2rem
     &.paper-title h1
