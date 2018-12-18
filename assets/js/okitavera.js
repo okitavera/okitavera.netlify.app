@@ -51,3 +51,9 @@
     (document.head || document.body).appendChild(s);
   }
 })(window, document);
+
+/*!
+ * Copyright (c) 2018 Nanda Okitavera
+ * MIT License
+ * https://github.com/okitavera/okitavera.me
+ */

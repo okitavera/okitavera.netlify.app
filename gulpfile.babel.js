@@ -1,7 +1,9 @@
 import fs from "fs";
 import {spawn} from "child_process";
+import merge from "merge-stream";
 import gulp from "gulp";
 import babel from "gulp-babel";
+import concat from "gulp-concat";
 import stylus from "gulp-stylus";
 import uglify from "gulp-uglify";
 import postcss from "gulp-postcss";
@@ -12,7 +14,12 @@ import mqpacker from "css-mqpacker";
 const BUILD_DIR = "dist";
 // google site verification
 const GSV = "google9ab7bf08387cc375";
-const UGLIFY_OPT = {};
+const UGLIFY_OPT = {
+  output: {
+    // don't drop comments with "!"
+    comments: /(?:^!|@(?:license|preserve))/i
+  }
+};
 
 // call eleventy with additional options
 const eleventy = (options = "") => {
@@ -40,29 +47,36 @@ gulp.task("watch:stylus", () =>
   gulp.watch("assets/stylus/**", gulp.series("build:stylus"))
 );
 
-gulp.task("build:js", () =>
-  gulp
+gulp.task("build:js", () => {
+  const pass = gulp
+    .src("assets/js/critical-foft-preload-fallback-optional.js")
+    .pipe(babel())
+    .pipe(uglify(UGLIFY_OPT))
+    .pipe(gulp.dest(`${BUILD_DIR}/assets/js`));
+
+  const bundle = gulp
     .src([
       "node_modules/vanilla-lazyload/dist/lazyload.min.js",
       "node_modules/smooth-scroll/dist/smooth-scroll.polyfills.min.js",
-      "assets/js/critical-foft-preload-fallback-optional.js"
+      "assets/js/okitavera.js"
     ])
     .pipe(babel())
     .pipe(uglify(UGLIFY_OPT))
-    .pipe(gulp.dest(`${BUILD_DIR}/assets/js`))
-);
+    .pipe(concat("bundle.js"))
+    .pipe(gulp.dest(`${BUILD_DIR}/assets/js`));
 
-gulp.task("build:injs", () =>
-  gulp
-    .src(["assets/js/okitavera.js", "assets/js/thecompromise-fonts.js"])
+  const inline = gulp
+    .src(["assets/js/thecompromise-fonts.js"])
     .pipe(babel())
     .pipe(uglify(UGLIFY_OPT))
-    .pipe(gulp.dest("modules/comps/generated"))
-);
+    .pipe(gulp.dest("modules/comps/generated"));
+
+  return merge(pass, bundle, inline);
+});
 
 // only watch inlined js
-gulp.task("watch:injs", () =>
-  gulp.watch("assets/js/**", gulp.series("build:injs"))
+gulp.task("watch:js", () =>
+  gulp.watch("assets/js/**", gulp.series("build:js"))
 );
 
 gulp.task("build:gsv", (done) => {
@@ -77,15 +91,15 @@ gulp.task("build:gsv", (done) => {
 gulp.task(
   "serve",
   gulp.series(
-    gulp.parallel("build:stylus", "build:js", "build:injs", "build:gsv"),
-    gulp.parallel("watch:stylus", "watch:injs", eleventy("--serve"))
+    gulp.parallel("build:stylus", "build:js", "build:gsv"),
+    gulp.parallel("watch:stylus", "watch:js", eleventy("--serve"))
   )
 );
 
 gulp.task(
   "default",
   gulp.series(
-    gulp.parallel("build:stylus", "build:js", "build:injs", "build:gsv"),
+    gulp.parallel("build:stylus", "build:js", "build:gsv"),
     eleventy()
   )
 );

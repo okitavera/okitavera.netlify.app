@@ -14,7 +14,7 @@
     "cssnano": "^4.1.7",
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0",
-    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
     "gulp-postcss": "^8.0.0",
     "gulp-stylus": "^2.7.0",
     "gulp-uglify": "^3.0.1",
@@ -22,11 +22,13 @@
     "luxon": "^1.8.0",
     "markdown-it": "^8.4.2",
     "markdown-it-anchor": "^5.0.2",
+    "merge-stream": "^1.0.1",
     "smooth-scroll": "^15.0.0",
     "stylus": "^0.54.5",
     "vanilla-lazyload": "^8.17.0"
   },
   "scripts": {
+    "clean": "rm -rf dist",
     "build": "gulp",
     "serve": "gulp serve"
   },
