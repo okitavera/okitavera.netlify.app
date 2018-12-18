@@ -59,10 +59,6 @@ module.exports = (eleventy) => {
     });
   });
 
-  eleventy.addShortcode("codeheader", (context = "Title", title) => {
-    return `<div class="codeheader"><span>${context}: </span>${title}</div>`;
-  });
-
   eleventy.addFilter("head", (array, n) => {
     if (n < 0) {
       return array.slice(n);

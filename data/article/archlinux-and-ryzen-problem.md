@@ -24,9 +24,9 @@ Nice, So apparently, I got a fucking lockups lol.
 I search about that, and the first fix was a setting the kernel params.
 So I edit the grub.cfg, save it, and reboot.
 
-{% codeheader "File" "/etc/grub/grub.cfg" %}
-
 ```bash
+# /etc/grub/grub.cfg
+
 GRUB_CMDLINE_LINUX_DEFAULT="quiet idle=nomwait"
 ```
 
@@ -42,9 +42,8 @@ I found the awesome python script for that, https://github.com/r4m0n/ZenStates-L
 And it works pretty well, there's no more lockups.
 So I decide to make it start on boot by creating the systemd service like this :
 
-{% codeheader "File" "/etc/systemd/system/zenstates.service" %}
-
 ```ini
+# /etc/systemd/system/zenstates.service
 [Unit]
 Description=Zen C6 States Disabler
 DefaultDependencies=no

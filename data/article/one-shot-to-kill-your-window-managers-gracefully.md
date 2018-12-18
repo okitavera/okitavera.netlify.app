@@ -33,10 +33,9 @@ But after you install those program, you also want to use that on every desktop 
 Yes, here it is.<br>
 We are just need to write a simple bash script that detecting what window manager are currently active!
 
-{% codeheader "File" "wm-exit.sh" %}
-
 ```bash
 #!/usr/bin/env bash
+# wm-exit.sh
 
 case $active_wm in
   "Openbox")
@@ -71,10 +70,9 @@ $ wmctrl -m
 Huuray!
 we got the name, so lets put that things into our script before.
 
-{% codeheader "File" "wm-exit.sh" %}
-
 ```bash
 #!/usr/bin/env bash
+# wm-exit.sh
 
 active_wm=$(wmctrl -m | awk '/Name: / {printf "%s\n", $NF}')
 case $active_wm in

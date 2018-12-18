@@ -19,8 +19,6 @@ And that's definitely gonna breaks your bash script if you had a special feature
 
 If you write a bash script and your script looks like this :
 
-{% codeheader "File" "my-magic-spells.sh" %}
-
 ```bash
 #!/bin/sh
 
@@ -33,8 +31,6 @@ Your script usually does not works well on every system that doesn't use bash as
 
 You should explicitly tell that your script are bash instead, like this :
 
-{% codeheader "File" "my-magic-spells.sh" %}
-
 ```bash
 #!/bin/bash
 
@@ -44,8 +40,6 @@ You should explicitly tell that your script are bash instead, like this :
 ## alternative ways
 
 Or if you're afraid about being a bash is not in the `/bin` folder, you can use the `env` instead
-
-{% codeheader "File" "my-magic-spells.sh" %}
 
 ```bash
 #!/usr/bin/env bash
