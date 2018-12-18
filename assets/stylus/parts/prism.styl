@@ -1,102 +1,92 @@
-pre,
-code
-  margin 0
-  padding 0
-  border 0
-  background #ecedee
-  color #555
+$colorBlue = #6196cc
+$colorCyan = #a7e7ff
+$colorGreen = #8ddb66
+$colorYellow = #eed53d
+$colorRed = #ee81a2
+$colorViolet = #aa7ee3
+
+code,
+pre
+  background none
+  color #ccc
   text-align left
-  text-shadow 0 1px white
   white-space pre
   word-spacing normal
+  word-wrap normal
   word-break normal
-  tab-size 2
+  tab-size 4
   hyphens none
-  font-size 0.8rem
+  letter-spacing 1px
+  font-size 12px
   font-family $font_mono
-  line-height 1.7
-  direction ltr
+  line-height 1.5
+  cursor text
 
+/* Code blocks */
 pre
   overflow auto
-  margin 0 0 2em
-  padding 1em 0
-  box-shadow 0 1px 1px rgba(0, 0, 0, 0.125)
+  margin 0.5em -1rem
+  padding 2em 3em
 
-code
-  padding 5px 5px 1px
-  box-shadow 0 1px 1px rgba(0, 0, 0, 0.125)
+:not(pre) > code,
+pre
+  background $colorDark[1]
 
-pre>code
-  padding 0
-  box-shadow none
-
-pre:not([class])
-  >code
-    display inline-block
-    padding 0.1em 1.5em
-    min-width 100%
-
-code::selection,
-pre::selection
-  background #b3d4fc
-  text-shadow none
+/* Inline code */
+:not(pre) > code
+  padding 3px 6px
+  background $colorLight[1]
+  color inherit
+  white-space normal
 
 .token.comment,
+.token.block-comment,
 .token.prolog,
 .token.doctype,
 .token.cdata
-  color #777
+  color $colorLight[4]
 
 .token.punctuation
-  color #777
+  color $colorLight[3]
 
-.namespace
-  opacity 0.7
-
-.token.property,
 .token.tag,
+.token.attr-name,
+.token.namespace,
+.token.deleted
+  color $colorRed
+
+.token.function-name
+  color $colorBlue
+
 .token.boolean,
 .token.number,
-.token.constant,
-.token.symbol,
-.token.deleted
-  color #DA564A
+.token.function
+  color $colorYellow
 
-.token.scope,
-.token.attr-name
-  color #DA564A
+.token.property,
+.token.class-name,
+.token.constant,
+.token.symbol
+  color $colorYellow
 
 .token.selector,
+.token.important,
+.token.atrule,
+.token.keyword,
+.token.builtin
+  color $colorRed
+
 .token.string,
 .token.char,
-.token.builtin,
-.token.inserted
-  color #2E7D32
+.token.attr-value,
+.token.regex,
+.token.variable
+  color $colorViolet
 
 .token.operator,
 .token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string
-  color #555
-
-.token.atrule,
-.token.attr-value,
-.token.keyword
-  color #07a
-
-.token.function
-  color #555
-
-.token.regex,
-.token.important,
-.token.variable
-  color #4EA1DF
-
-.token.important,
-.token.bold
-  font-weight bold
+.token.url
+  color $colorCyan
 
 .token.italic
   font-style italic
@@ -104,29 +94,5 @@ pre::selection
 .token.entity
   cursor help
 
-.line-highlight
-  background rgba(6, 6, 6, 0.2)
-
-.codeheader
-  overflow-x hidden
-  margin-bottom -3px
-  padding 0.5em
-  color #746f72
-  text-align right
-  text-overflow ellipsis
-  white-space nowrap
-  font-weight 700
-  font-size 0.7em
-  font-family $font_mono
-  span
-    text-transform uppercase
-
-.highlight-line
-  display inline-block
-  padding 0.1em 1.5em
-  min-width 100%
-  text-decoration none
-  font-size 0.8rem
-  &:empty
-    &:before
-      content ' '
+.token.inserted
+  color $colorGreen
