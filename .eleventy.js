@@ -44,19 +44,6 @@ module.exports = (eleventy) => {
           tags = [tags];
         }
 
-        tags = tags.filter((item) => {
-          switch (item) {
-            // this list should match the `filter` list in tags.njk
-            case "all":
-            case "nav":
-            case "post":
-            case "posts":
-              return false;
-          }
-
-          return true;
-        });
-
         for (const tag of tags) {
           tagSet.add(tag);
         }
@@ -84,12 +71,7 @@ module.exports = (eleventy) => {
   });
 
   eleventy.addTransform("htmlmin", (content, outputPath) => {
-    // atom feed can't be minified
-    if (
-      outputPath &&
-      outputPath.endsWith(".html") &&
-      !outputPath.includes("/feed/")
-    ) {
+    if (outputPath && outputPath.endsWith(".html")) {
       let minified = htmlmin.minify(content, {
         useShortDoctype: true,
         removeComments: true,
