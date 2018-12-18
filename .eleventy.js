@@ -125,7 +125,7 @@ module.exports = (eleventy) => {
       input: ".",
       includes: "modules",
       data: "data/manifest",
-      output: "dist"
+      output: require("./data/manifest/metadata.json").site.output
     }
   };
 };

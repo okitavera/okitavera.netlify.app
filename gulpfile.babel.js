@@ -1,6 +1,7 @@
 import fs from "fs";
 import {spawn} from "child_process";
 import merge from "merge-stream";
+import rimraf from "rimraf";
 import gulp from "gulp";
 import babel from "gulp-babel";
 import concat from "gulp-concat";
@@ -10,10 +11,8 @@ import postcss from "gulp-postcss";
 import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
 import mqpacker from "css-mqpacker";
+import metadata from "./data/manifest/metadata.json";
 
-const BUILD_DIR = "dist";
-// google site verification
-const GSV = "google9ab7bf08387cc375";
 const UGLIFY_OPT = {
   output: {
     // don't drop comments with "!"
@@ -52,7 +51,7 @@ gulp.task("build:js", () => {
     .src("assets/js/critical-foft-preload-fallback-optional.js")
     .pipe(babel())
     .pipe(uglify(UGLIFY_OPT))
-    .pipe(gulp.dest(`${BUILD_DIR}/assets/js`));
+    .pipe(gulp.dest(`${metadata.site.output}/assets/js`));
 
   const bundle = gulp
     .src([
@@ -63,7 +62,7 @@ gulp.task("build:js", () => {
     .pipe(babel())
     .pipe(uglify(UGLIFY_OPT))
     .pipe(concat("bundle.js"))
-    .pipe(gulp.dest(`${BUILD_DIR}/assets/js`));
+    .pipe(gulp.dest(`${metadata.site.output}/assets/js`));
 
   const inline = gulp
     .src(["assets/js/thecompromise-fonts.js"])
@@ -74,23 +73,26 @@ gulp.task("build:js", () => {
   return merge(pass, bundle, inline);
 });
 
-// only watch inlined js
+// only watch custom js
 gulp.task("watch:js", () =>
   gulp.watch("assets/js/**", gulp.series("build:js"))
 );
 
 gulp.task("build:gsv", (done) => {
-  !fs.existsSync(BUILD_DIR) && fs.mkdirSync(BUILD_DIR);
+  !fs.existsSync(metadata.site.output) && fs.mkdirSync(metadata.site.output);
   fs.writeFile(
-    `${BUILD_DIR}/${GSV}.html`,
-    `google-site-verification: ${GSV}.html`,
+    `${metadata.site.output}/${metadata.site.google_verification}.html`,
+    `google-site-verification: ${metadata.site.google_verification}.html`,
     done
   );
 });
 
+gulp.task("clean", (done) => rimraf(metadata.site.output, done));
+
 gulp.task(
   "serve",
   gulp.series(
+    "clean",
     gulp.parallel("build:stylus", "build:js", "build:gsv"),
     gulp.parallel("watch:stylus", "watch:js", eleventy("--serve"))
   )
@@ -99,6 +101,7 @@ gulp.task(
 gulp.task(
   "default",
   gulp.series(
+    "clean",
     gulp.parallel("build:stylus", "build:js", "build:gsv"),
     eleventy()
   )

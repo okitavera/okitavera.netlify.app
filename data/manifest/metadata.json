@@ -9,6 +9,10 @@
     "photo": "https://avatars0.githubusercontent.com/u/9277632",
     "twitter": "okitavera"
   },
+  "site": {
+    "output": "./dist",
+    "google_verification": "google9ab7bf08387cc375"
+  },
   "feed": {
     "title": "RSS Feed for okitavera's articles",
     "subtitle": "okitavera's personal pages",
