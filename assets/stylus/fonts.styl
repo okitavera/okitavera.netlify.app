@@ -42,23 +42,16 @@
   src url('/assets/fonts/SourceSansPro-LightItalic-LatinSubset.woff2') format('woff2'), url('/assets/fonts/SourceSansPro-LightItalic-LatinSubset.woff') format('woff')
   font-display swap
 
-// Inconsolata for Code stuff
+// FiraCode for Code stuff
 @font-face
   font-weight 400
-  font-family Inconsolata
-  src url('/assets/fonts/Inconsolata.woff2') format('woff2'), url('/assets/fonts/Inconsolata.woff') format('woff')
-  text-rendering optimizeLegibility
-  font-display swap
-
-@font-face
-  font-weight 700
-  font-family Inconsolata
-  src url('/assets/fonts/Inconsolata-Bold.woff2') format('woff2'), url('/assets/fonts/Inconsolata-Bold.woff') format('woff')
-  text-rendering optimizeLegibility
+  font-family FiraCode
+  src url('/assets/fonts/FiraCode-Medium.woff2') format('woff2'), url('/assets/fonts/FiraCode-Medium.woff') format('woff')
+  font-feature-settings 'calt' 1 // the cool-stuff from FiraCode
   font-display swap
 
 // for later usage (custom-classes and prism)
-$font_mono = Inconsolata, Menlo, monospace
+$font_mono = FiraCode, Menlo, monospace
 
 /* The Compromise
  * Critical FOFT with preload, with a polyfill fallback emulating font-display: optional
