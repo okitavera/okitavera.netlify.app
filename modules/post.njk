@@ -48,7 +48,7 @@
     </footer>
     <div class="sp"></div>
     {% if metadata.disqus.username and metadata.disqus.enable == "true" %}
-    <div id="disqus_thread"></div>
+    <div id="disqus_thread" data-disqus-username="{{ metadata.disqus.username }}"></div>
     {% endif %}
   <div class="sp"></div>
   </article>

@@ -53,7 +53,10 @@ new SmoothScroll('a[href*="#"]', {
 
   if (document.querySelector("#disqus_thread") !== null) {
     const script = document.createElement("script");
-    script.src = "https://{{ metadata.disqus.username }}.disqus.com/embed.js";
+    const username = document
+      .querySelector("#disqus_thread")
+      .getAttribute("data-disqus-username");
+    script.src = `https://${username}.disqus.com/embed.js`;
     script.setAttribute("data-timestamp", +new Date());
     (document.head || document.body).appendChild(script);
   }
