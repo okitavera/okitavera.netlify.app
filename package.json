@@ -2,14 +2,15 @@
   "name": "okitavera.me",
   "version": "1.0.0",
   "description": "My personal pages - powered by eleventy",
-  "devDependencies": {
+  "homepage": "https://okitavera.me",
+  "browserslist": ">0.25%",
+  "dependencies": {
     "@11ty/eleventy": "^0.6.0",
     "@11ty/eleventy-plugin-rss": "^1.0.3",
     "@11ty/eleventy-plugin-syntaxhighlight": "^2.0.0",
     "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/register": "^7.0.0",
-    "autoprefixer": "^9.4.2",
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.7",
     "gulp": "^4.0.0",
@@ -23,6 +24,7 @@
     "markdown-it": "^8.4.2",
     "markdown-it-anchor": "^5.0.2",
     "merge-stream": "^1.0.1",
+    "postcss-preset-env": "^6.5.0",
     "rimraf": "^2.6.2",
     "smooth-scroll": "^15.0.0",
     "stylus": "^0.54.5",
@@ -42,10 +44,5 @@
     "11ty"
   ],
   "author": "Nanda Okitavera",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/okitavera/okitavera.me/issues"
-  },
-  "homepage": "https://github.com/okitavera/okitavera.me",
-  "browserslist": ">0.25%"
+  "license": "MIT"
 }

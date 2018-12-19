@@ -7,7 +7,7 @@ import concat from "gulp-concat";
 import stylus from "gulp-stylus";
 import uglify from "gulp-uglify";
 import postcss from "gulp-postcss";
-import autoprefixer from "autoprefixer";
+import postcssPresetEnv from "postcss-preset-env";
 import cssnano from "cssnano";
 import mqpacker from "css-mqpacker";
 import metadata from "./data/manifest/metadata.json";
@@ -37,7 +37,7 @@ gulp.task("build:stylus", () =>
         compress: true
       })
     )
-    .pipe(postcss([autoprefixer, cssnano, mqpacker]))
+    .pipe(postcss([postcssPresetEnv, cssnano, mqpacker]))
     .pipe(gulp.dest("modules/comps/generated"))
 );
 
