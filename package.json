@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "My personal pages - powered by eleventy",
   "homepage": "https://okitavera.me",
-  "browserslist": ">0.25%",
   "dependencies": {
     "@11ty/eleventy": "^0.6.0",
     "@11ty/eleventy-plugin-rss": "^1.0.3",
