@@ -29,7 +29,7 @@
     // use fallback
     var ref = document.getElementsByTagName("script")[0];
     var script = document.createElement("script");
-    script.src = "/assets/js/critical-foft-preload-fallback-optional.js";
+    script.src = "/assets/js/compromiseFallback.js";
     script.async = true;
     ref.parentNode.insertBefore(script, ref);
   }

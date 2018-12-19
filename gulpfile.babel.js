@@ -1,26 +1,16 @@
 import {readFileSync} from "fs";
 import {spawn} from "child_process";
-import merge from "merge-stream";
 import rimraf from "rimraf";
 import gulp from "gulp";
-import babel from "gulp-babel";
-import concat from "gulp-concat";
 import stylus from "gulp-stylus";
-import uglify from "gulp-uglify";
 import postcss from "gulp-postcss";
 import postcssPresetEnv from "postcss-preset-env";
 import cssnano from "cssnano";
 import mqpacker from "css-mqpacker";
+import webpack from "webpack";
 
 // read the file instead requiring directly
 const metadata = JSON.parse(readFileSync("./data/manifest/metadata.json"));
-
-const UGLIFY_OPT = {
-  output: {
-    // don't drop comments with "!"
-    comments: /(?:^!|@(?:license|preserve))/i
-  }
-};
 
 // call eleventy with additional options
 const eleventy = (options = "") => {
@@ -48,32 +38,16 @@ gulp.task("watch:stylus", () =>
   gulp.watch("assets/stylus/**", gulp.series("build:stylus"))
 );
 
-gulp.task("build:js", () => {
-  const pass = gulp
-    .src("assets/js/critical-foft-preload-fallback-optional.js")
-    .pipe(babel())
-    .pipe(uglify(UGLIFY_OPT))
-    .pipe(gulp.dest(`${metadata.site.output}/assets/js`));
-
-  const bundle = gulp
-    .src([
-      "node_modules/vanilla-lazyload/dist/lazyload.min.js",
-      "node_modules/smooth-scroll/dist/smooth-scroll.polyfills.min.js",
-      "assets/js/okitavera.js"
-    ])
-    .pipe(babel())
-    .pipe(uglify(UGLIFY_OPT))
-    .pipe(concat("bundle.js"))
-    .pipe(gulp.dest(`${metadata.site.output}/assets/js`));
-
-  const inline = gulp
-    .src(["assets/js/thecompromise-fonts.js"])
-    .pipe(babel())
-    .pipe(uglify(UGLIFY_OPT))
-    .pipe(gulp.dest("modules/comps/generated"));
-
-  return merge(pass, bundle, inline);
-});
+gulp.task(
+  "build:js",
+  () =>
+    new Promise((done) =>
+      webpack(require("./webpack.config.js"), (err) => {
+        if (err) console.log("Webpack", err);
+        done();
+      })
+    )
+);
 
 // only watch custom js
 gulp.task("watch:js", () =>

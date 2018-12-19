@@ -1,3 +1,24 @@
+/*!
+ * Copyright (c) 2018 Nanda Okitavera
+ * MIT License
+ * https://github.com/okitavera/okitavera.me
+ */
+
+import LazyLoad from "vanilla-lazyload";
+import SmoothScroll from "smooth-scroll";
+new LazyLoad({
+  elements_selector: ".---ll"
+});
+new SmoothScroll('a[href*="#"]', {
+  topOnEmptyHash: true,
+  easing: "easeOutQuint",
+  updateURL: true,
+  popstate: true,
+  emitEvents: true,
+  speed: 500,
+  speedAsDuration: true
+});
+
 (() => {
   const visible = (el, state) => {
     el.style.visibility = state === 1 ? "visible" : "hidden";
@@ -30,30 +51,10 @@
     }
   }, 250);
 
-  new LazyLoad({
-    elements_selector: ".---ll"
-  });
-
-  new SmoothScroll('a[href*="#"]', {
-    topOnEmptyHash: true,
-    easing: "easeOutQuint",
-    updateURL: true,
-    popstate: true,
-    emitEvents: true,
-    speed: 500,
-    speedAsDuration: true
-  });
-
   if (document.querySelector("#disqus_thread") !== null) {
     const script = document.createElement("script");
     script.src = "https://{{ metadata.disqus.username }}.disqus.com/embed.js";
     script.setAttribute("data-timestamp", +new Date());
-    (document.head || document.body).appendChild(s);
+    (document.head || document.body).appendChild(script);
   }
-})(window, document);
-
-/*!
- * Copyright (c) 2018 Nanda Okitavera
- * MIT License
- * https://github.com/okitavera/okitavera.me
- */
+})();
