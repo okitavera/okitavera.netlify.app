@@ -1,7 +1,7 @@
 import path from "path";
 
 var config = {
-  mode: "development",
+  mode: "production",
   resolve: {
     alias: {
       manifest: path.resolve(__dirname, "./data/manifest")
@@ -38,8 +38,7 @@ var external = Object.assign({}, config, {
   output: {
     path: path.resolve(__dirname, "./dist/assets/js"),
     filename: "[name].js"
-  },
-  devtool: "source-map"
+  }
 });
 
 module.exports = [inline, external];
