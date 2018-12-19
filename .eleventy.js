@@ -1,3 +1,4 @@
+const {readFileSync} = require("fs");
 const {DateTime} = require("luxon");
 const {URL} = require("url");
 const htmlmin = require("html-minifier");
@@ -7,6 +8,8 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = (eleventy) => {
+  // read some data directly for later use
+  const metadata = JSON.parse(readFileSync("./data/manifest/metadata.json"));
   // js and styluses are processed by gulp
   // so we only copy imgs and fonts
   eleventy.addPassthroughCopy("assets/img");
@@ -103,7 +106,7 @@ module.exports = (eleventy) => {
       input: ".",
       includes: "modules",
       data: "data/manifest",
-      output: require("./data/manifest/metadata.json").site.output
+      output: metadata.site.output
     }
   };
 };

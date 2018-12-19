@@ -1,3 +1,4 @@
+import {readFileSync} from "fs";
 import {spawn} from "child_process";
 import merge from "merge-stream";
 import rimraf from "rimraf";
@@ -10,7 +11,9 @@ import postcss from "gulp-postcss";
 import postcssPresetEnv from "postcss-preset-env";
 import cssnano from "cssnano";
 import mqpacker from "css-mqpacker";
-import metadata from "./data/manifest/metadata.json";
+
+// read the file instead requiring directly
+const metadata = JSON.parse(readFileSync("./data/manifest/metadata.json"));
 
 const UGLIFY_OPT = {
   output: {
