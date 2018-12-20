@@ -1,5 +1,5 @@
-import {readFileSync} from "fs";
-import {spawn} from "child_process";
+import { readFileSync } from "fs";
+import { spawn } from "child_process";
 import rimraf from "rimraf";
 import gulp from "gulp";
 import stylus from "gulp-stylus";
@@ -15,7 +15,7 @@ const metadata = JSON.parse(readFileSync("./data/manifest/metadata.json"));
 // call eleventy with additional options
 const eleventy = (options = "") => {
   let cmd = (done) =>
-    spawn("eleventy", options.split(), {stdio: "inherit"}).on("close", (code) =>
+    spawn("eleventy", options.split(), { stdio: "inherit" }).on("close", (code) =>
       done(code)
     );
   cmd.displayName = "eleventy" + options;
@@ -42,8 +42,9 @@ gulp.task(
   "build:js",
   () =>
     new Promise((done) =>
-      webpack(require("./webpack.config.js"), (err) => {
+      webpack(require("./webpack.config.js"), (err, stats) => {
         if (err) console.log("Webpack", err);
+        console.log(stats.toString())
         done();
       })
     )
