@@ -1,3 +1,4 @@
+import "@babel/polyfill";
 import LazyLoad from "vanilla-lazyload";
 import SmoothScroll from "smooth-scroll";
 
