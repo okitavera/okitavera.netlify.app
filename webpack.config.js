@@ -22,7 +22,7 @@ var config = {
 
 var inline = Object.assign({}, config, {
   entry: {
-    compromiseFontStrategy: "./assets/js/compromiseFontStrategy.js"
+    FontLoader: "./assets/js/FontLoader.js"
   },
   output: {
     path: path.resolve(__dirname, "./modules/comps/generated"),
@@ -32,8 +32,8 @@ var inline = Object.assign({}, config, {
 
 var external = Object.assign({}, config, {
   entry: {
-    bundle: "./assets/js/okitavera.js",
-    fallback: "./assets/js/compromiseFallback.js"
+    Okitavera: "./assets/js/Okitavera.js",
+    FontLoaderFallback: "./assets/js/FontLoaderFallback.js"
   },
   output: {
     path: path.resolve(__dirname, "./dist/assets/js"),

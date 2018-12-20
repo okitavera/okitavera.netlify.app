@@ -8,39 +8,33 @@
   font-weight 400
   font-family SourceSansProLatinSubset
   src url('/assets/fonts/SourceSansPro-LatinSubset.woff2') format('woff2'), url('/assets/fonts/SourceSansPro-LatinSubset.woff') format('woff')
-  font-display swap
 
 @font-face
   font-weight 700
   font-family SourceSansProLatinSubset
   src url('/assets/fonts/SourceSansPro-Bold-LatinSubset.woff2') format('woff2'), url('/assets/fonts/SourceSansPro-Bold-LatinSubset.woff') format('woff')
-  font-display swap
 
 @font-face
   font-style italic
   font-family SourceSansProLatinSubset
   src url('/assets/fonts/SourceSansPro-Italic-LatinSubset.woff2') format('woff2'), url('/assets/fonts/SourceSansPro-Italic-LatinSubset.woff') format('woff')
-  font-display swap
 
 @font-face
   font-weight 700
   font-style italic
   font-family SourceSansProLatinSubset
   src url('/assets/fonts/SourceSansPro-BoldItalic-LatinSubset.woff2') format('woff2'), url('/assets/fonts/SourceSansPro-BoldItalic-LatinSubset.woff') format('woff')
-  font-display swap
 
 @font-face
   font-weight 300
   font-family SourceSansProLatinSubset
   src url('/assets/fonts/SourceSansPro-Light-LatinSubset.woff2') format('woff2'), url('/assets/fonts/SourceSansPro-Light-LatinSubset.woff') format('woff')
-  font-display swap
 
 @font-face
   font-weight 300
   font-style italic
   font-family SourceSansProLatinSubset
   src url('/assets/fonts/SourceSansPro-LightItalic-LatinSubset.woff2') format('woff2'), url('/assets/fonts/SourceSansPro-LightItalic-LatinSubset.woff') format('woff')
-  font-display swap
 
 // FiraCode for Code stuff
 @font-face
@@ -53,10 +47,6 @@
 // for later usage (custom-classes and prism)
 $font_mono = FiraCode, Menlo, monospace
 
-/* The Compromise
- * Critical FOFT with preload, with a polyfill fallback emulating font-display: optional
- * https://github.com/zachleat/web-font-loading-recipes
- */
 .webfont-stage-1 body
   font-family SourceSansProCriticalSubset, sans-serif
 
@@ -64,4 +54,4 @@ $font_mono = FiraCode, Menlo, monospace
   font-family SourceSansProLatinSubset, sans-serif
 
 body
-  font-family Helvetica, Arial, sans-serif
+  font-family sans-serif
