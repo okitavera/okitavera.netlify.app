@@ -35,6 +35,7 @@ var inline = Object.assign({}, config, {
 var external = Object.assign({}, config, {
   entry: {
     Okitavera: "./assets/js/Okitavera.js",
+    FontLoaderData: "./assets/js/FontLoaderData.js",
     FontLoaderFallback: "./assets/js/FontLoaderFallback.js"
   },
   output: {
