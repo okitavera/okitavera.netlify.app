@@ -24,9 +24,10 @@ renderData:
     <a href="{{ post.url | url }}">
         <figure class="card-thumbnail bg-dark-0">
         {% if post.data.splash.url %}
-          <img class="---ll" data-src="{{ post.data.splash.url }}">
+          <img class="lqip" width="100%" src="{{ post.data.splash.url | getLowQualityURL }}">
+          <img class="imlazy" data-src="{{ post.data.splash.url }}">
         {% else %}
-          <img class="---ll" data-src="/assets/img/book.svg" height="100%">
+          <img class="imlazy" data-src="/assets/img/book.svg" height="100%">
         {% endif %}
         </figure>
         <div class="card-context">

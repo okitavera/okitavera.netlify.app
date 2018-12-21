@@ -59,17 +59,17 @@
         left 0
         display block
         width 101%
-      figcaption
-        display block
-        overflow hidden
-        padding 1rem
-        text-align right
-        text-overflow ellipsis
-        white-space pre
-        letter-spacing 1px
-        font-size 60%
-        a
-          color $colorDark[1]
+    .splash-credit
+      display block
+      overflow hidden
+      padding 1rem
+      text-align right
+      text-overflow ellipsis
+      white-space pre
+      letter-spacing 1px
+      font-size 60%
+      a
+        color $colorDark[1]
   &.paper-title
     padding-bottom 0
     h1,
@@ -211,12 +211,17 @@
   transition 0.25s ease-out all
   transform rotate(-90deg)
 
-// smoothly fade when lazyload image are appears
-img[data-src]
-  opacity 0
-  transition 0.25s ease-out all
-  &.loaded
-    opacity 1
+// smoothly fade when imlazy image are appears
+figure
+  overflow hidden
+  .lqip
+    filter blur(16px)
+    transform scale(1.1)
+  .imlazy
+    opacity 0
+    transition 0.25s ease-out all
+    &.loaded
+      opacity 1
 
 @media screen and (max-width: $flexTreshold)
   .backtotop

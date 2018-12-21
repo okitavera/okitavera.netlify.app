@@ -5,7 +5,7 @@ tags:
   - zsh
   - linux
 splash:
-  url: "/assets/img/articles/splashes/zplug.jpg"
+  url: "/assets/img/thumbnails/zplug.jpg"
   credit: "Background from: https://unsplash.com/photos/7P8p1NBk37U"
 ---
 

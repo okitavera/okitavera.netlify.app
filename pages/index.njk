@@ -37,7 +37,7 @@ permalink: /
   <div class="container">
     <div class="row fx-nowrap items-mid">
       <div class="col center side-padding">
-        <img class="circle ---ll" alt="Prettiest human in the world" data-src="{{ metadata.author.photo }}?s=150"/>
+        <img class="circle imlazy" alt="Prettiest human in the world" data-src="{{ metadata.author.photo }}?s=150"/>
       </div>
       <div class="col side-padding">
         <h1 class="text-thin"><b>ABOUT</b>ME</h1>
@@ -63,7 +63,8 @@ permalink: /
       {% for project in collections.projects %}
       <div class="col col-eq card bg-dark-0 text-light-0">
         <figure class="card-thumbnail">
-          <img class="---ll" data-src="{{ project.data.img }}">
+          <img class="lqip" width="100%" src="{{ project.data.img | getLowQualityURL }}">
+          <img class="imlazy" data-src="{{ project.data.img }}">
         </figure>
         <div class="card-context">
           <h3 class="text-thin no-margin-y text-uppercase">{{ project.data.name }}</h3>

@@ -6,7 +6,7 @@ tags:
   - linux
   - windowmanager
 splash:
-  url: "/assets/img/articles/splashes/logout-ui-reorr.jpg"
+  url: "/assets/img/thumbnails/logout-ui-reorr.jpg"
   credit: "Image Credit : https://www.deviantart.com/reorr/art/mek-oes-mohave-768247044"
 ---
 

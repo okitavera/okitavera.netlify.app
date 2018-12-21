@@ -3,7 +3,7 @@ import LazyLoad from "vanilla-lazyload";
 import SmoothScroll from "smooth-scroll";
 
 new LazyLoad({
-  elements_selector: ".---ll"
+  elements_selector: ".imlazy"
 });
 
 new SmoothScroll('a[href*="#"]', {

@@ -8,6 +8,9 @@ import postcssPresetEnv from "postcss-preset-env";
 import cssnano from "cssnano";
 import mqpacker from "css-mqpacker";
 import webpack from "webpack";
+import flatMap from 'flat-map';
+import scaleImages from 'gulp-scale-images';
+
 
 // read the file instead requiring directly
 const metadata = JSON.parse(readFileSync("./data/manifest/metadata.json"));
@@ -55,18 +58,31 @@ gulp.task("watch:js", () =>
   gulp.watch("assets/js/**", gulp.series("build:js"))
 );
 
+gulp.task("build:lqip", () => {
+  const scaleopts = (file, done) => {
+    const pict = file.clone()
+    pict.scale = { maxWidth: 16 }
+    done(null, pict)
+  };
+  return gulp.src('assets/img/thumbnails/*.jpg')
+    .pipe(flatMap(scaleopts))
+    .pipe(scaleImages())
+    .pipe(gulp.dest(metadata.site.output + "/assets/img/thumbnails"))
+
+});
+
 gulp.task("clean", (done) => rimraf(metadata.site.output, done));
 
 gulp.task(
   "serve",
   gulp.series(
     "clean",
-    gulp.parallel("build:stylus", "build:js"),
+    gulp.parallel("build:stylus", "build:js", "build:lqip"),
     gulp.parallel("watch:stylus", "watch:js", eleventy("--serve"))
   )
 );
 
 gulp.task(
   "default",
-  gulp.series("clean", gulp.parallel("build:stylus", "build:js"), eleventy())
+  gulp.series("clean", gulp.parallel("build:stylus", "build:js", "build:lqip"), eleventy())
 );

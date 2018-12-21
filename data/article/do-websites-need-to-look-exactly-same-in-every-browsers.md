@@ -5,7 +5,7 @@ tags:
   - web-development
   - shitpost
 splash:
-  url: "/assets/img/articles/splashes/pewds-hmm.jpg"
+  url: "/assets/img/thumbnails/pewds-hmm.jpg"
   credit: "Image is demonetized."
 ---
 
