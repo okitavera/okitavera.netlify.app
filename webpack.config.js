@@ -1,13 +1,9 @@
 import path from "path";
 import webpack from "webpack";
+import metadata from "./data/manifest/metadata.json";
 
 var config = {
   mode: "production",
-  resolve: {
-    alias: {
-      manifest: path.resolve(__dirname, "./data/manifest")
-    }
-  },
   module: {
     rules: [
       {
@@ -21,7 +17,7 @@ var config = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      disqusdata: JSON.stringify(require("./data/manifest/metadata.json").disqus)
+      disqusdata: JSON.stringify(metadata.disqus)
     })
   ]
 };
@@ -42,7 +38,7 @@ var external = Object.assign({}, config, {
     FontLoaderFallback: "./assets/js/FontLoaderFallback.js"
   },
   output: {
-    path: path.resolve(__dirname, "./dist/assets/js"),
+    path: path.resolve(__dirname, `${metadata.site.output}/assets/js`),
     filename: "[name].js"
   }
 });
