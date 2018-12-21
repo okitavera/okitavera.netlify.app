@@ -1,6 +1,7 @@
 import path from "path";
 import webpack from "webpack";
 import metadata from "./data/manifest/metadata.json";
+import TerserPlugin from 'terser-webpack-plugin';
 
 var config = {
   mode: "production",
@@ -19,7 +20,19 @@ var config = {
     new webpack.DefinePlugin({
       disqusdata: JSON.stringify(metadata.disqus)
     })
-  ]
+  ],
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        parallel: true,
+        terserOptions: {
+          output: {
+            comments: false
+          }
+        }
+      })
+    ]
+  }
 };
 
 var inline = Object.assign({}, config, {
