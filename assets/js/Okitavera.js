@@ -1,13 +1,10 @@
 import "@babel/polyfill";
 import "scroll-behavior-polyfill";
-import LazyLoad from "vanilla-lazyload";
+import PictPaint from "./PicturePainter";
 
-new LazyLoad({
-  elements_selector: ".imlazy"
-});
+new PictPaint('.imlazy');
 
 document.documentElement.style.scrollBehavior = "smooth";
-
 const visible = (el, state) => {
   el.style.visibility = state === 1 ? "visible" : "hidden";
   el.style.opacity = state;

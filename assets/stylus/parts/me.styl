@@ -219,8 +219,8 @@ figure
     transform scale(1.1)
   .imlazy
     opacity 0
-    transition 0.25s ease-out all
-    &.loaded
+    transition 0.2s ease-out all
+    &[data-loaded='true']
       opacity 1
 
 @media screen and (max-width: $flexTreshold)

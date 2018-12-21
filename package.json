@@ -29,7 +29,6 @@
     "scroll-behavior-polyfill": "^1.0.2",
     "stylus": "^0.54.5",
     "terser-webpack-plugin": "^1.1.0",
-    "vanilla-lazyload": "^8.17.0",
     "webpack": "^4.27.1"
   },
   "scripts": {
