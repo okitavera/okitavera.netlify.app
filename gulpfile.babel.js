@@ -1,4 +1,4 @@
-import { readFileSync } from "fs";
+import fs from "fs";
 import { spawn } from "child_process";
 import rimraf from "rimraf";
 import gulp from "gulp";
@@ -13,7 +13,7 @@ import scaleImages from 'gulp-scale-images';
 
 
 // read the file instead requiring directly
-const metadata = JSON.parse(readFileSync("./data/manifest/metadata.json"));
+const metadata = JSON.parse(fs.readFileSync("./data/manifest/metadata.json"));
 
 // call eleventy with additional options
 const eleventy = (options = "") => {
@@ -53,9 +53,19 @@ gulp.task(
     )
 );
 
+gulp.task("build:jscomments", (done) => {
+  const license = fs.readFileSync("./LICENSE", 'utf-8');
+  const files = [
+    `${metadata.site.output}/assets/js/Okitavera.js`,
+    `modules/comps/generated/FontLoader.js`,
+  ];
+  files.forEach((file) => fs.appendFileSync(file, `\n/*\n${license}\n*/\n`));
+  return done();
+});
+
 // only watch custom js
 gulp.task("watch:js", () =>
-  gulp.watch("assets/js/**", gulp.series("build:js"))
+  gulp.watch("assets/js/**", gulp.series("build:js", "build:jscomments"))
 );
 
 gulp.task("build:lqip", () => {
@@ -71,18 +81,22 @@ gulp.task("build:lqip", () => {
 
 });
 
-gulp.task("clean", (done) => rimraf(metadata.site.output, done));
+gulp.task("clean", (done) => {
+  rimraf(metadata.site.output, done);
+  rimraf("modules/comps/generated", done);
+});
 
 gulp.task(
   "serve",
   gulp.series(
     "clean",
     gulp.parallel("build:stylus", "build:js", "build:lqip"),
+    "build:jscomments",
     gulp.parallel("watch:stylus", "watch:js", eleventy("--serve"))
   )
 );
 
 gulp.task(
   "default",
-  gulp.series("clean", gulp.parallel("build:stylus", "build:js", "build:lqip"), eleventy())
+  gulp.series("clean", gulp.parallel("build:stylus", "build:js", "build:lqip"), "build:jscomments", eleventy())
 );
