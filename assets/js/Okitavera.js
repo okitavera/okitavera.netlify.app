@@ -1,20 +1,12 @@
 import "@babel/polyfill";
+import "scroll-behavior-polyfill";
 import LazyLoad from "vanilla-lazyload";
-import SmoothScroll from "smooth-scroll";
 
 new LazyLoad({
   elements_selector: ".imlazy"
 });
 
-new SmoothScroll('a[href*="#"]', {
-  topOnEmptyHash: true,
-  easing: "easeOutQuint",
-  updateURL: true,
-  popstate: true,
-  emitEvents: true,
-  speed: 500,
-  speedAsDuration: true
-});
+document.documentElement.style.scrollBehavior = "smooth";
 
 const visible = (el, state) => {
   el.style.visibility = state === 1 ? "visible" : "hidden";
