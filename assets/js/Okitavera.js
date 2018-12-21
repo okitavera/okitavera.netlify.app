@@ -53,10 +53,9 @@ function loadDisqus() {
   if (!window.disqusFrame) {
     document.getElementById("btnDQ").style.display = "none";
     window.disqusFrame = true;
-    const username = document.getElementById(dqFrame).getAttribute("data-disqus-username");
     const script = document.createElement("script");
     script.type = "text/javascript";
-    script.src = `https://${username}.disqus.com/embed.js`;
+    script.src = `https://${disqusdata.username}.disqus.com/embed.js`;
     script.async = true;
     script.setAttribute("data-timestamp", +new Date());
     (document.head || document.body).appendChild(script);

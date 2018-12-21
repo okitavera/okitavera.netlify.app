@@ -1,4 +1,5 @@
 import path from "path";
+import webpack from "webpack";
 
 var config = {
   mode: "production",
@@ -17,7 +18,12 @@ var config = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      disqusdata: JSON.stringify(require("./data/manifest/metadata.json").disqus)
+    })
+  ]
 };
 
 var inline = Object.assign({}, config, {
