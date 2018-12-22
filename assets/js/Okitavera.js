@@ -1,8 +1,7 @@
 import "@babel/polyfill";
 import "scroll-behavior-polyfill";
-import PictPaint from "./PicturePainter";
-
-new PictPaint('.imlazy');
+import picturePainter from "./PicturePainter";
+import disqusLoader from "./DisqusLoader";
 
 document.documentElement.style.scrollBehavior = "smooth";
 const visible = (el, state) => {
@@ -36,35 +35,10 @@ setInterval(() => {
   }
 }, 250);
 
-const dqFrame = "disqus_thread";
-
-function loadDisqus() {
-  if (!window.disqusFrame) {
-    document.getElementById("btnDQ").style.display = "none";
-    window.disqusFrame = true;
-    const script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src = `https://${disqusdata.username}.disqus.com/embed.js`;
-    script.async = true;
-    script.setAttribute("data-timestamp", +new Date());
-    (document.head || document.body).appendChild(script);
-  }
-}
-
-if (/bot|google|baidu|bing|msn|duckduckgo|slurp|yandex/i.test(navigator.userAgent)) {
-  loadDisqus();
-} else if (document.getElementById(dqFrame)) {
-  window.disqusFrame = false;
-  if (!document.getElementById("btnDQ")) {
-    const btn = document.createElement("button");
-    btn.className = "button button-outline"
-    btn.id = "btnDQ";
-    btn.innerText = "view comments";
-    btn.onclick = () => loadDisqus();
-    document.getElementById(dqFrame).appendChild(btn);
-    document.getElementById(dqFrame).align = "center";
-  }
-}
+window.addEventListener("load", () => {
+  picturePainter('.imlazy');
+  disqusLoader(disqusdata.username);
+});
 
 /*!
  * Copyright (c) 2018 Nanda Okitavera
