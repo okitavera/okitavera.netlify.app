@@ -1,0 +1,13 @@
+{
+  "editor.formatOnSave": true,
+  "stylusSupremacy.alwaysUseNoneOverZero": true,
+  "stylusSupremacy.alwaysUseZeroWithoutUnit": true,
+  "stylusSupremacy.insertBraces": false,
+  "stylusSupremacy.insertColons": false,
+  "stylusSupremacy.insertLeadingZeroBeforeFraction": false,
+  "stylusSupremacy.insertNewLineBetweenSelectors": true,
+  "stylusSupremacy.insertSemicolons": false,
+  "stylusSupremacy.reduceMarginAndPaddingValues": true,
+  "stylusSupremacy.insertNewLineAroundBlocks": "root",
+  "files.insertFinalNewline": true
+}

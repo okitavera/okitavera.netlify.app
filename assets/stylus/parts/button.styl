@@ -4,10 +4,10 @@ input[type='button'],
 input[type='submit']
   display inline-block
   margin 2px
-  padding 0.1em 0.8em
+  padding .1em .8em
   border 1px solid $colorAccent
   background $colorAccent
-  box-shadow 0 2px 1px rgba(0, 0, 0, 0.125)
+  box-shadow 0 2px 1px rgba(0, 0, 0, .125)
   color $colorLight[1]
   text-align center
   text-decoration none
@@ -16,17 +16,17 @@ input[type='submit']
   font-weight 400
   cursor pointer
   &[disabled]
-    opacity 0.5
+    opacity .5
     cursor default
   &.button-outline
     background-color transparent
     box-shadow none
     color $colorAccent
   &.button-ulined
-    margin 0.1em 0.8em
+    margin .1em .8em
     padding 0
     border none
-    border-bottom 0.2em solid $colorLight[1]
+    border-bottom .2em solid $colorLight[1]
     background-color transparent
     box-shadow none
   &.button-clear
@@ -35,9 +35,9 @@ input[type='submit']
     box-shadow none
     color $colorAccent
   &.button-small
-    font-size 0.8rem
+    font-size .8rem
   &:focus,
   &:hover
-    outline 0
+    outline none
     color $colorLight[1]
-    opacity 0.75
+    opacity .75

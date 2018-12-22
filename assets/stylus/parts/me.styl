@@ -19,11 +19,11 @@
   padding-top 2rem
   text-transform uppercase
   letter-spacing 2px
-  font-size 0.9rem
+  font-size .9rem
   .jumps a
-    padding 2px 0.6rem
+    padding 2px .6rem
     color $colorLight[2]
-    font-size 0.8rem
+    font-size .8rem
 
 .post-credit-wrapper
   display flex
@@ -84,7 +84,7 @@
       font-size 4rem
       line-height 1.2
     time
-      padding-left 0.1em
+      padding-left .1em
     &.no-art
       padding-top 3rem
       border-radius 13px 13px 0 0
@@ -107,10 +107,10 @@
     h6
       .direct-link
         position relative
-        top -0.2em
+        top -.2em
         visibility hidden
         color lighten($colorAccent, 30%)
-        font-size 0.8em
+        font-size .8em
       &:hover > .direct-link
         visibility visible
 
@@ -171,13 +171,13 @@
     transform rotate(-10deg)
     .L1,
     .L2
-      animation dash 2s cubic-bezier(0.6, 0.5, 0.8, 0.9) forwards
+      animation dash 2s cubic-bezier(.6, .5, .8, .9) forwards
       stroke-dasharray 400
       stroke-dashoffset 400
       stroke $colorAccent
       stroke-opacity 1
     .L2
-      animation dash 3s cubic-bezier(0.4, 0.9, 0.9, 0.8) forwards
+      animation dash 3s cubic-bezier(.4, .9, .9, .8) forwards
       animation-delay 1.78s
       stroke-dasharray 544
       stroke-dashoffset 544
@@ -208,9 +208,9 @@
         top 0
         left 0
         border-radius 50%
-        background-color rgba($colorDark[0], 0.5)
+        background-color rgba($colorDark[0], .5)
         opacity 0
-        transition 0.25s ease-out all
+        transition .25s ease-out all
       b
         position relative
         top calc(128px / 2 - 1rem)
@@ -229,13 +229,19 @@
   height 3rem
   border-radius 50%
   background $colorDark[2]
-  box-shadow 0 0 10px 0 rgba(0, 0, 0, 0.11)
+  box-shadow 0 0 10px 0 rgba(0, 0, 0, .11)
   color $colorLight[2]
   text-align center
   line-height 3rem
   opacity 0
-  transition 0.25s ease-out all
+  transition .25s ease-out all
   transform rotate(-90deg)
+  &:hover
+    background-color $colorAccent
+    color $colorLight[1]
+  &:active,
+  &:focus
+    outline none
 
 // smoothly fade when imlazy image are appears
 figure
@@ -245,7 +251,7 @@ figure
     transform scale(1.1)
   .imlazy
     opacity 0
-    transition 0.2s ease-out all
+    transition .2s ease-out all
     &[data-loaded='true']
       opacity 1
 
