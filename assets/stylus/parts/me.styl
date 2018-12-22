@@ -41,7 +41,8 @@
       color $colorDark[1]
 
 .paper
-  padding 5rem
+  margin 0
+  padding 4rem
   background-color $colorLight[0]
   font-size 1.1em
   &.paper-art
@@ -88,9 +89,16 @@
       padding-top 3rem
       border-radius 13px 13px 0 0
   &.paper-article
+    overflow-x hidden
     padding-top 1.5rem
     padding-bottom 0
     border-radius 0 0 13px 13px
+    >pre
+      overflow-x auto
+      margin-right -4rem
+      margin-left -4rem
+      padding-right 4rem
+      padding-left 4rem
     h1,
     h2,
     h3,
@@ -120,18 +128,36 @@
     padding 3rem
     &.paper-title h1
       font-size 2.5rem
+    &.paper-article>pre
+      overflow-x auto
+      margin-right -3rem
+      margin-left -3rem
+      padding-right 3rem
+      padding-left 3rem
 
 @media screen and (min-width: $flexTreshold + 1px) and (max-width: $flexTreshold + 100px)
   .paper
     padding 2rem
     &.paper-title h1
       font-size 2rem
+    &.paper-article>pre
+      overflow-x auto
+      margin-right -2rem
+      margin-left -2rem
+      padding-right 2rem
+      padding-left 2rem
 
 @media screen and (max-width: $flexTreshold)
   .paper
     padding 1rem
     &.paper-title h1
       font-size 1.7rem
+    &.paper-article>pre
+      overflow-x auto
+      margin-right -1rem
+      margin-left -1rem
+      padding-right 1rem
+      padding-left 1rem
 
 .ovlogo-canvas
   display block

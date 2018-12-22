@@ -32,7 +32,6 @@
     {{ content | safe }}
     <br>
     <small>
-    <span href="/article/tags" class="button button-clear button-small">tagged in </span>
     {% for tag in tags %}
       {%- if tag != "post" -%}
       <a href="/article/tags/{{ tag }}/" class="button button-small">{{ tag }}</a>
