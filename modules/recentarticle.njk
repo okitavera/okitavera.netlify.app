@@ -7,7 +7,6 @@
       <div class="col col-eq card bg-light-0"><a href="{{ post.url | url }}">
         <figure class="card-thumbnail bg-dark-0">
         {% if post.data.splash.url %}
-          <img class="lqip" width="100%" src="{{ post.data.splash.url | getLowQualityURL }}">
           <img class="imlazy" data-src="{{ post.data.splash.url }}">
         {% endif %}
         </figure>

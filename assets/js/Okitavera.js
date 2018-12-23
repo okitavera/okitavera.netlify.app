@@ -1,7 +1,7 @@
 import "@babel/polyfill";
 import "scroll-behavior-polyfill";
 import LazyLoad from "vanilla-lazyload";
-
+import DisqusLoader from "./DisqusLoader";
 new LazyLoad({
   elements_selector: ".imlazy"
 });
@@ -40,7 +40,7 @@ setInterval(() => {
 }, 250);
 
 window.addEventListener("load", () => {
-  disqusLoader(disqusdata.username);
+  DisqusLoader(disqusdata.username);
 });
 
 /*!

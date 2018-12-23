@@ -8,9 +8,6 @@ import postcssPresetEnv from "postcss-preset-env";
 import cssnano from "cssnano";
 import mqpacker from "css-mqpacker";
 import webpack from "webpack";
-import flatMap from 'flat-map';
-import scaleImages from 'gulp-scale-images';
-
 
 // read the file instead requiring directly
 const metadata = JSON.parse(fs.readFileSync("./data/manifest/metadata.json"));
@@ -68,19 +65,6 @@ gulp.task("watch:js", () =>
   gulp.watch("assets/js/**", gulp.series("build:js", "build:jscomments"))
 );
 
-gulp.task("build:lqip", () => {
-  const scaleopts = (file, done) => {
-    const pict = file.clone()
-    pict.scale = { maxWidth: 16 }
-    done(null, pict)
-  };
-  return gulp.src('assets/img/thumbnails/*.jpg')
-    .pipe(flatMap(scaleopts))
-    .pipe(scaleImages())
-    .pipe(gulp.dest(metadata.site.output + "/assets/img/thumbnails"))
-
-});
-
 gulp.task("clean", (done) => {
   rimraf(metadata.site.output, done);
   rimraf("modules/comps/generated", done);
@@ -90,7 +74,7 @@ gulp.task(
   "serve",
   gulp.series(
     "clean",
-    gulp.parallel("build:stylus", "build:js", "build:lqip"),
+    gulp.parallel("build:stylus", "build:js"),
     "build:jscomments",
     gulp.parallel("watch:stylus", "watch:js", eleventy("--serve"))
   )
@@ -98,5 +82,5 @@ gulp.task(
 
 gulp.task(
   "default",
-  gulp.series("clean", gulp.parallel("build:stylus", "build:js", "build:lqip"), "build:jscomments", eleventy())
+  gulp.series("clean", gulp.parallel("build:stylus", "build:js"), "build:jscomments", eleventy())
 );

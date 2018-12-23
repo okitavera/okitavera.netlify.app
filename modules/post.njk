@@ -9,7 +9,6 @@
         {% if splash %}
         <figure class="splash">
           {% if splash.url %}
-          <img class="lqip" width="100%" src="{{ splash.url | getLowQualityURL }}"/>
           <img class="imlazy" width="100%" data-src="{{ splash.url }}"/>
           {% endif %}
         </figure>

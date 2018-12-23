@@ -63,7 +63,6 @@ permalink: /
       {% for project in collections.projects %}
       <div class="col col-eq card bg-dark-0 text-light-0">
         <figure class="card-thumbnail">
-          <img class="lqip" width="100%" src="{{ project.data.img | getLowQualityURL }}">
           <img class="imlazy" data-src="{{ project.data.img }}">
         </figure>
         <div class="card-context">
