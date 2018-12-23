@@ -36,9 +36,9 @@
   "scripts": {
     "clean": "gulp clean",
     "build": "gulp",
-    "build:thumbnails": "gulp build:thumbnails",
+    "build:init": "gulp fetch:avatars && gulp build:thumbnails && gulp",
     "serve": "gulp serve",
-    "serve:fresh": "gulp build:thumbnails && gulp serve"
+    "serve:init": "gulp fetch:avatars && gulp build:thumbnails && gulp serve"
   },
   "repository": {
     "type": "git",

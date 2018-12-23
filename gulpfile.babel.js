@@ -81,6 +81,24 @@ gulp.task("build:thumbnails", (done) => {
     .pipe(gulp.dest("assets/img/thumbnails"));
 });
 
+gulp.task("fetch:avatars", (done) => {
+  const avapath = "assets/img/avatars";
+  const ava = JSON.parse(fs.readFileSync("./data/manifest/friendlists.json"))
+    .friends;
+
+  !fs.existsSync(avapath) && fs.mkdirSync(avapath);
+
+  ava.forEach((i) => {
+    const options = `${i.img} -O ${avapath}/${i.name}.png`;
+    spawn("wget", options.split(" "), { stdio: "inherit" });
+  });
+
+  const options = `${metadata.author.photo} -O ${avapath}/me.png`;
+  spawn("wget", options.split(" "), { stdio: "inherit" });
+
+  return done();
+});
+
 gulp.task("clean", (done) => {
   rimraf(metadata.site.output, done);
   rimraf("modules/comps/generated", done);
