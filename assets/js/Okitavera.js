@@ -1,9 +1,13 @@
 import "@babel/polyfill";
 import "scroll-behavior-polyfill";
-import picturePainter from "./PicturePainter";
-import disqusLoader from "./DisqusLoader";
+import LazyLoad from "vanilla-lazyload";
+
+new LazyLoad({
+  elements_selector: ".imlazy"
+});
 
 document.documentElement.style.scrollBehavior = "smooth";
+
 const visible = (el, state) => {
   el.style.visibility = state === 1 ? "visible" : "hidden";
   el.style.opacity = state;
@@ -36,7 +40,6 @@ setInterval(() => {
 }, 250);
 
 window.addEventListener("load", () => {
-  picturePainter('.imlazy');
   disqusLoader(disqusdata.username);
 });
 
