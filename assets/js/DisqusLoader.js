@@ -13,13 +13,17 @@ module.exports = (username) => {
   }
   const dqFrame = "disqus_thread";
   if (document.getElementById(dqFrame)) {
-    if (/bot|google|baidu|bing|msn|duckduckgo|slurp|yandex/i.test(navigator.userAgent)) {
+    if (
+      /bot|google|baidu|bing|msn|duckduckgo|slurp|yandex/i.test(
+        navigator.userAgent
+      )
+    ) {
       loadDisqus();
     } else {
       window.disqusFrame = false;
       if (!document.getElementById("btnDQ")) {
         const btn = document.createElement("button");
-        btn.className = "button button-outline"
+        btn.className = "button button-outline";
         btn.id = "btnDQ";
         btn.innerText = "view comments";
         btn.onclick = () => loadDisqus();
@@ -28,5 +32,4 @@ module.exports = (username) => {
       }
     }
   }
-
-}
+};

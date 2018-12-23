@@ -1,7 +1,7 @@
 import path from "path";
 import webpack from "webpack";
 import metadata from "./data/manifest/metadata.json";
-import TerserPlugin from 'terser-webpack-plugin';
+import TerserPlugin from "terser-webpack-plugin";
 
 var config = {
   mode: "production",
