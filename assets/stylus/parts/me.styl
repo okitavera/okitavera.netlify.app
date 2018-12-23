@@ -48,18 +48,13 @@
   &.paper-art
     overflow hidden
     padding 0
-    border-radius 13px 13px 0 0
     figure
-      position relative
       margin 0
       padding 0
-      padding-top (9 / 16) * 100% // maintaining aspect-ratio 16:9
-      img
-        position absolute
-        top 0
-        left 0
-        display block
-        width 101%
+      padding 35% 0 0
+      background-position top center
+      background-size 100%
+      background-repeat no-repeat
     .splash-credit
       display block
       overflow hidden
@@ -72,7 +67,7 @@
       a
         color $colorDark[1]
   &.paper-title
-    padding-bottom 0
+    border-radius 13px 13px 0 0
     h1,
     time
       margin 0
@@ -85,12 +80,9 @@
       line-height 1.2
     time
       padding-left .1em
-    &.no-art
-      padding-top 3rem
-      border-radius 13px 13px 0 0
   &.paper-article
     overflow-x hidden
-    padding-top 1.5rem
+    padding-top 0
     padding-bottom 0
     border-radius 0 0 13px 13px
     >pre
@@ -121,13 +113,13 @@
       &.no-art
         border-radius 0
       h1
-        font-size 3rem
+        font-size 2.5rem
 
 @media screen and (min-width: $flexTreshold + 1px) and (max-width: $flexTreshold + 200px)
   .paper
     padding 3rem
     &.paper-title h1
-      font-size 2.5rem
+      font-size 2rem
     &.paper-article>pre
       overflow-x auto
       margin-right -3rem
@@ -139,7 +131,7 @@
   .paper
     padding 2rem
     &.paper-title h1
-      font-size 2rem
+      font-size 1.75rem
     &.paper-article>pre
       overflow-x auto
       margin-right -2rem
@@ -151,7 +143,7 @@
   .paper
     padding 1rem
     &.paper-title h1
-      font-size 1.7rem
+      font-size 1.5rem
     &.paper-article>pre
       overflow-x auto
       margin-right -1rem

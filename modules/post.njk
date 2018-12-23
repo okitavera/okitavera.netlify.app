@@ -4,13 +4,16 @@
 <div>
 <div>
   <section class="container no-padding-y no-padding-x">
+    <header class="row paper paper-title">
+      <div class="col">
+        <time class="hashed" datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+        <h1>{{ title }}</h1>
+      </div>
+    </header>
     <div class="row paper paper-art">
       <div class="col">
         {% if splash %}
-        <figure class="splash">
-          {% if splash.url %}
-          <img class="imlazy" width="100%" data-src="{{ splash.url }}"/>
-          {% endif %}
+        <figure class="splash imlazy" data-parallax data-bg="url({{ splash.url }})">
         </figure>
         {% if splash.credit %}
         <div class="splash-credit">{{ splash.credit | urlize | safe }}</div>
@@ -18,12 +21,6 @@
         {% endif %}
       </div>
     </div>
-    <header class="row paper paper-title {% if not splash.url %}no-art{% endif %}">
-      <div class="col">
-        <time class="hashed" datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
-        <h1>{{ title }}</h1>
-      </div>
-    </header>
   </section>
 </div></div>
 <section class="container no-padding-y no-padding-x">

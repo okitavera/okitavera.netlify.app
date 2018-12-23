@@ -43,6 +43,25 @@ window.addEventListener("load", () => {
   DisqusLoader(disqusdata.username);
 });
 
+if (document.querySelector("[data-parallax]")) {
+  window.addEventListener("scroll", function () {
+    const moveBackground = () => {
+      var img = document.querySelector("[data-parallax]");
+      var yPos = window.pageYOffset / 6;
+      img.style.backgroundPosition = `0% -${yPos}px`;
+    }
+    if (!window.requestAnimationFrame) {
+      var lastAnim = 0;
+      const currAnim = new Date().getTime();
+      const timeToCall = Math.max(0, 16 - (currAnim - lastAnim));
+      const id = window.setTimeout(moveBackground, timeToCall);
+      lastAnim = currAnim + timeToCall;
+    } else {
+      window.requestAnimationFrame(moveBackground);
+    }
+  }, { passive: true });
+}
+
 /*!
  * Copyright (c) 2018 Nanda Okitavera
  * MIT License
