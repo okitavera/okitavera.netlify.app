@@ -5,8 +5,9 @@ tags:
   - rxvt-unicode
   - linux
 splash:
-  url: "/assets/img/thumbnails/urxvt.jpg"
+  url: "/assets/img/banners/urxvt.jpg"
 ---
+
 I've been so many years with this terminal emulator, maybe the first time I use rxvt-unicode (or urxvt - for short) is maybe 2 or 3 months after my first touch with the linux desktop world.
 I love the fact that this terminal emulator is a beast, it's like driving on Ludicrous+ mode, it just quick and fast.
 And the most important things that I really like was the fact that it has so many things that you can customize,
@@ -21,11 +22,13 @@ One of the options that urxvt has is the customizable cursor, you can either cho
 
 ![](/assets/img/articles/urxvt-cursor-default.png)
 <small>default cursor options</small>
+
 </center>
 
 And yeah, sadly there is no option for the I-beam cursor.
 
 ## Shell Trick
+
 Suprisingly, you can still change the cursor via .bashrc or your prefered shell-rc by appending some weird unicode stuff like this :
 
 ```bash
@@ -38,6 +41,7 @@ printf '\033[5 q\r'
 
 ![](/assets/img/articles/urxvt-cursor-ibeam.png)
 <small>well, that's easy</small>
+
 </center>
 
 but what if you're not using bash for your interactive shell ?

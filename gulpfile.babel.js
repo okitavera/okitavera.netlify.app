@@ -8,6 +8,7 @@ import postcssPresetEnv from "postcss-preset-env";
 import cssnano from "cssnano";
 import mqpacker from "css-mqpacker";
 import webpack from "webpack";
+import responsive from "gulp-responsive";
 
 // read the file instead requiring directly
 const metadata = JSON.parse(fs.readFileSync("./data/manifest/metadata.json"));
@@ -15,8 +16,9 @@ const metadata = JSON.parse(fs.readFileSync("./data/manifest/metadata.json"));
 // call eleventy with additional options
 const eleventy = (options = "") => {
   let cmd = (done) =>
-    spawn("eleventy", options.split(), { stdio: "inherit" }).on("close", (code) =>
-      done(code)
+    spawn("eleventy", options.split(), { stdio: "inherit" }).on(
+      "close",
+      (code) => done(code)
     );
   cmd.displayName = "eleventy" + options;
   return cmd;
@@ -44,26 +46,40 @@ gulp.task(
     new Promise((done) =>
       webpack(require("./webpack.config.js"), (err, stats) => {
         if (err) console.log("Webpack", err);
-        console.log(stats.toString())
+        console.log(stats.toString());
         done();
       })
     )
 );
 
 gulp.task("build:jscomments", (done) => {
-  const license = fs.readFileSync("./LICENSE", 'utf-8');
+  const license = fs.readFileSync("./LICENSE", "utf-8");
   const files = [
     `${metadata.site.output}/assets/js/Okitavera.js`,
-    `modules/comps/generated/FontLoader.js`,
+    `modules/comps/generated/FontLoader.js`
   ];
   files.forEach((file) => fs.appendFileSync(file, `\n/*\n${license}\n*/\n`));
   return done();
 });
 
-// only watch custom js
 gulp.task("watch:js", () =>
   gulp.watch("assets/js/**", gulp.series("build:js", "build:jscomments"))
 );
+
+gulp.task("build:thumbnails", (done) => {
+  rimraf("assets/thumbnails", done);
+  return gulp
+    .src("assets/img/banners/*.{png,jpg}")
+    .pipe(
+      responsive({
+        "*": {
+          width: "320",
+          quality: 80
+        }
+      })
+    )
+    .pipe(gulp.dest("assets/img/thumbnails"));
+});
 
 gulp.task("clean", (done) => {
   rimraf(metadata.site.output, done);
@@ -82,5 +98,10 @@ gulp.task(
 
 gulp.task(
   "default",
-  gulp.series("clean", gulp.parallel("build:stylus", "build:js"), "build:jscomments", eleventy())
+  gulp.series(
+    "clean",
+    gulp.parallel("build:stylus", "build:js"),
+    "build:jscomments",
+    eleventy()
+  )
 );

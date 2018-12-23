@@ -15,7 +15,7 @@ title: Article Index
       <a href="{{ post.url | url }}">
           <figure class="card-thumbnail bg-dark-0">
           {% if post.data.splash.url %}
-            <img class="imlazy" data-src="{{ post.data.splash.url }}">
+            <img class="imlazy" data-src="{{ post.data.splash.url | thumbnailURL }}">
           {% else %}
             <img class="imlazy" data-src="/assets/img/book.svg">
           {% endif %}

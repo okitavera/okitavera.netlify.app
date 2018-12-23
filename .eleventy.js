@@ -1,6 +1,6 @@
-const {readFileSync} = require("fs");
-const {DateTime} = require("luxon");
-const {URL} = require("url");
+const { readFileSync } = require("fs");
+const { DateTime } = require("luxon");
+const { URL } = require("url");
 const htmlmin = require("html-minifier");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
@@ -19,7 +19,7 @@ module.exports = (eleventy) => {
   eleventy.addPlugin(pluginSyntaxHighlight);
 
   eleventy.addFilter("readableDate", (dateObj) => {
-    return DateTime.fromJSDate(dateObj, {zone: "utc"}).toFormat(
+    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
       "LLLL dd, yyyy"
     );
   });
@@ -30,6 +30,9 @@ module.exports = (eleventy) => {
 
   eleventy.addFilter("prettySlug", (slug) => {
     return slug.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, "");
+  });
+  eleventy.addFilter("thumbnailURL", (path) => {
+    return path.replace("/banners/", "/thumbnails/");
   });
 
   eleventy.addCollection("posts", (collection) => {

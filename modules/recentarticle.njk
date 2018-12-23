@@ -7,7 +7,7 @@
       <div class="col col-eq card bg-light-0"><a href="{{ post.url | url }}">
         <figure class="card-thumbnail bg-dark-0">
         {% if post.data.splash.url %}
-          <img class="imlazy" data-src="{{ post.data.splash.url }}">
+          <img class="imlazy" data-src="{{ post.data.splash.url | thumbnailURL }}">
         {% endif %}
         </figure>
         <div class="card-context">

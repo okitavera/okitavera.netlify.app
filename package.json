@@ -30,10 +30,15 @@
     "vanilla-lazyload": "^8.17.0",
     "webpack": "^4.27.1"
   },
+  "devDependencies": {
+    "gulp-responsive": "^2.11.0"
+  },
   "scripts": {
     "clean": "gulp clean",
     "build": "gulp",
-    "serve": "gulp serve"
+    "build:thumbnails": "gulp build:thumbnails",
+    "serve": "gulp serve",
+    "serve:fresh": "gulp build:thumbnails && gulp serve"
   },
   "repository": {
     "type": "git",
