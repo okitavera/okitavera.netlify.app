@@ -1,5 +1,10 @@
 {% set posttitle = (renderData.title or title) + ' - ' + metadata.title %}
+<!doctype html>
+<html lang="en">
 {% include "head.njk" %}
+<body>
 {% include "navs.njk" %}
 {{ content | safe }}
 {% include "foot.njk" %}
+</body>
+</html>
