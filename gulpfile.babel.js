@@ -4,9 +4,10 @@ import rimraf from "rimraf";
 import gulp from "gulp";
 import stylus from "gulp-stylus";
 import postcss from "gulp-postcss";
-import postcssPresetEnv from "postcss-preset-env";
-import cssnano from "cssnano";
-import mqpacker from "css-mqpacker";
+import cssEnv from "postcss-preset-env";
+import cssNano from "cssnano";
+import cssMqpacker from "css-mqpacker";
+import cssNormalize from "postcss-normalize";
 import webpack from "webpack";
 import responsive from "gulp-responsive";
 
@@ -24,17 +25,26 @@ const eleventy = (options = "") => {
   return cmd;
 };
 
-gulp.task("build:stylus", () =>
-  gulp
+gulp.task("build:stylus", () => {
+  return gulp
     .src("assets/stylus/Illuminate.styl")
     .pipe(
       stylus({
         compress: true
       })
     )
-    .pipe(postcss([postcssPresetEnv, cssnano, mqpacker]))
-    .pipe(gulp.dest("modules/comps/generated"))
-);
+    .pipe(
+      postcss([
+        cssNormalize({
+          forceImport: true
+        }),
+        cssMqpacker,
+        cssEnv,
+        cssNano
+      ])
+    )
+    .pipe(gulp.dest("modules/comps/generated"));
+});
 
 gulp.task("watch:stylus", () =>
   gulp.watch("assets/stylus/**", gulp.series("build:stylus"))
