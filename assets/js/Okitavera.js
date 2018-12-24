@@ -2,7 +2,6 @@ import "@babel/polyfill";
 import "scroll-behavior-polyfill";
 import LazyLoad from "vanilla-lazyload";
 import DisqusLoader from "./DisqusLoader";
-import readingTime from "reading-time";
 
 new LazyLoad({
   elements_selector: ".imlazy"
@@ -66,12 +65,6 @@ if (document.querySelector("[data-parallax]")) {
     },
     { passive: true }
   );
-}
-
-if (document.querySelector(".paper-article")) {
-  const text = document.querySelector(".paper-article").innerHTML;
-  const stats = readingTime(text);
-  document.querySelector(".paper-title time").append(" | " + stats.text);
 }
 
 /*!

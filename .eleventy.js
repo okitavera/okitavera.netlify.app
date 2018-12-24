@@ -6,6 +6,7 @@ const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const readingTime = require("reading-time");
 
 module.exports = (eleventy) => {
   // read some data directly for later use
@@ -33,6 +34,17 @@ module.exports = (eleventy) => {
   });
   eleventy.addFilter("thumbnailURL", (path) => {
     return path.replace("/banners/", "/thumbnails/");
+  });
+
+  eleventy.addFilter("getReadingTime", (content, format) => {
+    const reader = readingTime(content);
+    const options = {
+      "%M": reader.minutes,
+      "%W": reader.words
+    };
+    return format.replace(/%M|%W/gi, (match) => {
+      return options[match];
+    });
   });
 
   eleventy.addCollection("posts", (collection) => {

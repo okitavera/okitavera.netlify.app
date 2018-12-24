@@ -8,6 +8,7 @@
       <div class="col">
         <time class="hashed" datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
         <h1>{{ title }}</h1>
+        <span>~ {{ content | getReadingTime("%W words, %M minutes to read") }}</span>
       </div>
     </header>
     <div class="row paper paper-art">
