@@ -4,29 +4,26 @@
 {% include "head.njk" %}
 <body>
 {% include "navs.njk" %}
-<div>
-<div>
-  <section class="container no-padding-y no-padding-x">
-    <header class="row paper paper-title">
-      <div class="col">
-        <time class="hashed" datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
-        <h1>{{ title }}</h1>
-        <span>~ {{ content | getReadingTime("%W words, %M minutes to read") }}</span>
-      </div>
-    </header>
-    <div class="row paper paper-art">
-      <div class="col">
-        {% if splash %}
-        <figure class="splash imlazy" data-parallax data-bg="url({{ splash.url }})">
-        </figure>
-        {% if splash.credit %}
-        <div class="splash-credit">{{ splash.credit | urlize | safe }}</div>
-        {% endif %}
-        {% endif %}
-      </div>
+<section class="container no-padding-y no-padding-x">
+  <header class="row paper paper-title">
+    <div class="col">
+      <time class="hashed" datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+      <h1>{{ title }}</h1>
+      <span>~ {{ content | getReadingTime("%W words, %M minutes to read") }}</span>
     </div>
-  </section>
-</div></div>
+  </header>
+  <div class="row paper paper-art">
+    <div class="col">
+      {% if splash %}
+      <figure class="splash imlazy" data-parallax data-bg="url({{ splash.url }})">
+      </figure>
+      {% if splash.credit %}
+      <div class="splash-credit">{{ splash.credit | urlize | safe }}</div>
+      {% endif %}
+      {% endif %}
+    </div>
+  </div>
+</section>
 <section class="container no-padding-y no-padding-x">
   <article class="paper paper-article">
     {{ content | safe }}

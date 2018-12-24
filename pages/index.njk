@@ -5,11 +5,11 @@ permalink: /
 <html lang="en">
 {% include "head.njk" %}
 <body>
-{% set nav_class = "clears" %}
+{% set nav_class = "clears absolute" %}
 <section class="start bg-dark-0">
-  <div class="container height-stretch no-padding-x no-padding-y">
+  <div class="container no-padding-x no-padding-y">
   {% include "navs.njk" %}
-    <div class="row items-mid animated fadeIn">
+    <div class="row height-stretch items-mid animated fadeIn">
       <div class="col center">
         <figure class="ovlogo-canvas">
           {% include 'comps/okitavera.min.svg' %}
@@ -64,18 +64,20 @@ permalink: /
     </div>
     <div class="row items-stretch">
       {% for project in collections.projects %}
-      <div class="col col-eq card bg-dark-0 text-light-0">
-        <figure class="card-thumbnail">
-          <img class="imlazy" data-src="{{ project.data.img }}">
-        </figure>
-        <div class="card-context">
-          <h3 class="text-thin no-margin-y text-uppercase">{{ project.data.name }}</h3>
-          <span class="text-smaller">{{ project.data.desc }}</span>
-        </div>
-        <div class="card-footer">
-          {{ project.templateContent | safe }}
-        </div>
-      </div>
+      <div class="col-1of3">
+        <div class="card-wrapper"><div class="card bg-dark-0 text-light-0">
+          <figure class="card-thumbnail">
+            <img class="imlazy" data-src="{{ project.data.img }}">
+          </figure>
+          <div class="card-context">
+            <h3 class="text-thin no-margin-y text-uppercase">{{ project.data.name }}</h3>
+            <span class="text-smaller">{{ project.data.desc }}</span>
+          </div>
+          <div class="card-footer">
+            {{ project.templateContent | safe }}
+          </div>
+      </div></div>
+    </div>
     {% endfor %}
     </div>
   </div>

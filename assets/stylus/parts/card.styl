@@ -1,15 +1,17 @@
-.card
-  display flex !important
+.card-wrapper
+  display flex
   flex-direction column
-  margin 0 1rem 0 0
-  padding 0
-  box-shadow 0 1px 5px $colorLight[3]
-  &:hover
-    .card-thumbnail img
+  margin 0
+  padding .5rem
+  height 100%
+  .card
+    display flex
+    flex-direction column
+    height 100%
+    box-shadow 0 1px 5px $colorLight[3]
+    &:hover .card-thumbnail img
       filter brightness(125%)
       transform scale(1.1)
-  &:last-child
-    margin 0
   .card-thumbnail
     position relative
     overflow hidden
