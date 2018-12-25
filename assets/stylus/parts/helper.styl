@@ -4,25 +4,19 @@
 .height-stretch
   min-height 100vh
 
-.no-padding-y
-  padding-top 0
-  padding-bottom 0
-
-.no-padding-x
-  padding-right 0
-  padding-left 0
-
-.no-margin-y
-  margin-top 0
-  margin-bottom 0
-
-.no-margin-x
-  margin-right 0
-  margin-left 0
-
-.side-padding
-  padding-right 1rem
-  padding-left 1rem
+for i in (0 .. 4)
+  .pad-y{i}
+    padding-top i rem
+    padding-bottom i rem
+  .pad-x{i}
+    padding-right i rem
+    padding-left i rem
+  .mgn-y{i}
+    margin-top i rem
+    margin-bottom i rem
+  .mgn-x{i}
+    margin-right i rem
+    margin-left i rem
 
 hr,
 div
