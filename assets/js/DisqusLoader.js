@@ -23,7 +23,7 @@ module.exports = (username) => {
       window.disqusFrame = false;
       if (!document.getElementById("btnDQ")) {
         const btn = document.createElement("button");
-        btn.className = "button button-outline";
+        btn.className = "btn btn-outline txt-uppercase";
         btn.id = "btnDQ";
         btn.innerText = "view comments";
         btn.onclick = () => loadDisqus();

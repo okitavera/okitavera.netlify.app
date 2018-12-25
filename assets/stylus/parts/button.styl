@@ -1,41 +1,38 @@
-.button,
+.btn,
 button,
 input[type='button'],
 input[type='submit']
   display inline-block
-  margin 2px
-  padding .1em .8em
-  border 1px solid $colorAccent
-  background $colorAccent
-  box-shadow 0 2px 1px rgba(0, 0, 0, .125)
+  margin 4px 2px
+  padding .6rem .9rem
+  border 1px solid transparent
+  background $colorDark[2]
   color $colorLight[1]
   text-align center
+  vertical-align middle
   text-decoration none
-  text-transform uppercase
+  line-height inherit
   white-space nowrap
+  font-size .9rem
   font-weight 400
   cursor pointer
   &[disabled]
     opacity .5
     cursor default
-  &.button-outline
+  &.btn-rad
+    border-radius 6px
+  &.btn-outline
     background-color transparent
-    box-shadow none
-    color $colorAccent
-  &.button-ulined
-    margin .1em .8em
-    padding 0
-    border none
-    border-bottom .2em solid $colorLight[1]
-    background-color transparent
-    box-shadow none
-  &.button-clear
+    color $colorDark[2]
+    border-radius 0
+    border 1px solid $colorDark[2]
+  &.btn-clear
     border-color transparent
     background-color transparent
-    box-shadow none
-    color $colorAccent
-  &.button-small
-    font-size .8rem
+    color $colorDark[2]
+  &.btn-small
+    font-size .7rem
+    padding .3rem .6rem
   &:focus,
   &:hover
     outline none
