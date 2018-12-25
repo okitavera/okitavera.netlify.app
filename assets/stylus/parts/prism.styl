@@ -7,7 +7,7 @@ pre
   word-spacing normal
   word-wrap normal
   word-break normal
-  tab-size 4
+  tab-size 1
   hyphens none
   letter-spacing 1px
   font-size 12px
@@ -23,69 +23,65 @@ pre
 
 :not(pre) > code,
 pre
-  background $colorDark[1]
+  background saturation(darken($colorPurple, 65%), 8%)
 
 /* Inline code */
 :not(pre) > code
   padding 3px 6px
-  background $colorLight[0]
+  background $colorLight[1]
   color inherit
   white-space normal
 
-.token.comment,
-.token.block-comment,
-.token.prolog,
-.token.doctype,
-.token.cdata
-  color $colorLight[2]
-
-.token.punctuation
-  color $colorLight[1]
-
-.token.tag,
-.token.attr-name,
-.token.namespace,
-.token.deleted
-  color $colorRed
-
-.token.function-name
-  color $colorBlue
-
-.token.boolean,
-.token.number,
-.token.function
-  color $colorYellow
-
-.token.property,
-.token.class-name,
-.token.constant,
-.token.symbol
-  color $colorYellow
-
-.token.selector,
-.token.important,
-.token.atrule,
-.token.keyword,
-.token.builtin
-  color $colorRed
-
-.token.string,
-.token.char,
-.token.attr-value,
-.token.regex,
-.token.variable
-  color $colorViolet
-
-.token.operator,
-.token.entity,
-.token.url
-  color $colorCyan
+.token.bold
+  font-weight bold
 
 .token.italic
   font-style italic
 
-.token.entity
-  cursor help
+.token.comment
+  color $colorLight[4]
 
-.token.inserted
-  color $colorGreen
+.token.prolog,
+.token.string
+  color $colorLight[1]
+
+.token.important
+  color lighten($colorPink, 40%)
+  font-weight bold
+
+.token.variable
+  color lighten($colorYellow, 40%)
+
+.token.number,
+.token.selector
+  color lighten($colorPurple, 40%)
+
+.token.operator,
+.token.entity,
+.token.url
+  color lighten($colorBlue, 40%)
+
+.token,
+.token.keyword,
+.token.builtin,
+.token.tag,
+.token.char
+  color lighten($colorPink, 40%)
+
+.token.regex,
+.token.atrule,
+.token.punctuation,
+.token.attr-value
+  color lighten($colorGreen, 40%)
+
+.token.class-name,
+.token.boolean,
+.token.constant,
+.token.property,
+.token.symbol
+  color lighten($colorOrange, 40%)
+
+.token.deleted,
+.token.function,
+.token.namespace
+  color lighten($colorRed, 40%)

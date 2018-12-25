@@ -80,3 +80,15 @@ a
 
 .txt-900
   font-weight 900
+
+.txt-accent,
+.txt-accent *
+  color $colorAccent
+
+for i in (0 .. 5)
+  .txt-light{i},
+  .txt-light{i} *
+    color $colorLight[i]
+  .txt-dark{i},
+  .txt-dark{i} *
+    color $colorDark[i]

@@ -1,0 +1,11 @@
+.bg-accent
+  background-color $colorAccent
+
+.bg-accent-half
+  halfground $colorAccent
+
+for i in (0 .. 5)
+  .bg-light{i}
+    background-color $colorLight[i]
+  .bg-dark{i}
+    background-color $colorDark[i]
