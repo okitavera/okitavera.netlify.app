@@ -4,7 +4,7 @@
 {% include "head.njk" %}
 <body>
 {% include "navs.njk" %}
-<section class="container no-padding-y no-padding-x">
+<section class="container pad-y0 pad-x0">
   <header class="row paper paper-title">
     <div class="col">
       <time class="hashed" datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
@@ -24,7 +24,7 @@
     </div>
   </div>
 </section>
-<section class="container no-padding-y no-padding-x">
+<section class="container pad-y0 pad-x0">
   <article class="paper paper-article">
     {{ content | safe }}
     <br>
@@ -36,7 +36,7 @@
     {% endfor %}
     </small>
     <hr>
-    <footer class="post-credit-wrapper no-padding-y">
+    <footer class="post-credit-wrapper pad-y0">
       <img class="circle" width="64" src="/assets/img/avatars/me.png"/>
       <div class="post-credit">
         <h6>written by</h6>

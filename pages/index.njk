@@ -6,8 +6,8 @@ permalink: /
 {% include "head.njk" %}
 <body>
 {% set nav_class = "clears absolute" %}
-<section class="start bg-dark-0">
-  <div class="container no-padding-x no-padding-y">
+<section class="start bg-dark0">
+  <div class="container pad-x0 pad-y0">
   {% include "navs.njk" %}
     <div class="row height-stretch items-mid animated fadeIn">
       <div class="col center">
@@ -15,18 +15,18 @@ permalink: /
           {% include 'comps/okitavera.min.svg' %}
         </figure>
         <h5 class="animated fadeInUp">
-          <b class="text-uppercase text-light-2">UX | kotlin & android dev | arch</b>
+          <b class="txt-uppercase txt-light2">UX | kotlin & android dev | arch</b>
         </h5>
       </div>
     </div>
   </div>
 </section>
-<section class="welcome bg-accent text-light-0">
+<section class="welcome bg-accent txt-light0">
   <div class="container">
     <div class="row fx-nowrap items-mid">
       <div class="col center">
-        <h1 class="text-thin no-padding-y text-uppercase">HELLO THERE!</h1>
-        <p class="text-bigger">
+        <h1 class="txt-thin pad-y0 txt-uppercase">HELLO THERE!</h1>
+        <p class="txt-bigger">
           Welcome to my page :) . You can also jump into the my list of
           <a class="button button-small button-ulined" href="#sideprojects">#sideprojects</a>
           or <a class="button button-small button-ulined" href="#recentarticles">#recentarticles</a> below.
@@ -36,15 +36,15 @@ permalink: /
     </div>
   </div>
 </section>
-<section class="about bg-light-0" id="about">
+<section class="about bg-light0" id="about">
   <div class="container">
     <div class="row fx-nowrap items-mid">
-      <div class="col center side-padding">
+      <div class="col center pad-x1">
         <img class="circle imlazy" alt="Prettiest human in the world" data-src="/assets/img/avatars/me.png"/>
       </div>
-      <div class="col side-padding">
-        <h1 class="text-thin"><b>ABOUT</b>ME</h1>
-        <p class="left text-bigger">
+      <div class="col pad-x1">
+        <h1 class="txt-thin"><b>ABOUT</b>ME</h1>
+        <p class="left txt-bigger">
           I am an Indonesian UX Designer and Kotlin-Android Developer.<br>
           Honestly, I do code for fun, just an another hobbies afterworks besides watching videos or plays some melodic decadence metal music.<br>
           Primarily use Kotlin for Android development, but also do a bash and python for scripting.<br>
@@ -55,23 +55,23 @@ permalink: /
   </div>
 <div class="sp"></div>
 </section>
-<section class="side-project-title bg-light-2" id="sideprojects">
+<section class="side-project-title bg-light2" id="sideprojects">
   <div class="container">
     <div class="row">
       <div class="col">
-        <h1 class="text-thin no-padding-y">SIDE<b>PROJECTS</b></h1>
+        <h1 class="txt-thin pad-y0">SIDE<b>PROJECTS</b></h1>
       </div>
     </div>
     <div class="row items-stretch">
       {% for project in collections.projects %}
       <div class="col-1of3">
-        <div class="card-wrapper"><div class="card bg-dark-0 text-light-0">
+        <div class="card-wrapper"><div class="card bg-dark0 txt-light0">
           <figure class="card-thumbnail">
             <img class="imlazy" data-src="{{ project.data.img }}">
           </figure>
           <div class="card-context">
-            <h3 class="text-thin no-margin-y text-uppercase">{{ project.data.name }}</h3>
-            <span class="text-smaller">{{ project.data.desc }}</span>
+            <h3 class="txt-thin mgn-y0 txt-uppercase">{{ project.data.name }}</h3>
+            <span class="txt-smaller">{{ project.data.desc }}</span>
           </div>
           <div class="card-footer">
             {{ project.templateContent | safe }}

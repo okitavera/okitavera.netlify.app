@@ -10,8 +10,8 @@ renderData:
 ---
 {% set articles = collections[ tag ] %}
 <section class="article-index">
-  <div class="container no-padding-y">
-    <h1 class="text-thin center">TAGGED<b>ARTICLES</b></h1>
+  <div class="container pad-y0">
+    <h1 class="txt-thin center">TAGGED<b>ARTICLES</b></h1>
     <div class="center">
       {% for _tag in collections.tags %}
         <a href="/article/tags/{{ _tag }}" class="button button-small{% if tag == _tag %}{% else %} button-outline{% endif %}">{{ _tag }}</a>
@@ -23,7 +23,7 @@ renderData:
     <div class="col-1of3">
       <div class="card-wrapper"><div class="card">
       <a href="{{ post.url | url }}">
-        <figure class="card-thumbnail bg-dark-0">
+        <figure class="card-thumbnail bg-dark0">
         {% if post.data.splash.url %}
           <img class="imlazy" data-src="{{ post.data.splash.url }}">
         {% else %}
@@ -31,8 +31,8 @@ renderData:
         {% endif %}
         </figure>
         <div class="card-context">
-          <time class="text-smaller" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
-          <div class="text-dark-2">{{ post.data.title }}</div>
+          <time class="txt-smaller" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+          <div class="txt-dark2">{{ post.data.title }}</div>
         </div>
       </a>
       </div></div>
