@@ -1,6 +1,6 @@
 {
-  "name": "",
-  "short_name": "",
+  "name": "Nanda Okitavera",
+  "short_name": "okitavera",
   "icons": [
     {
       "src": "/assets/img/favicon/android-chrome-192x192.png?v=2",
@@ -13,6 +13,6 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#ff4455",
-  "background_color": "#ff4455"
+  "theme_color": "#ff6d6d",
+  "background_color": "#ff6d6d"
 }

@@ -1,10 +1,3 @@
-$colorBlue = #6196cc
-$colorCyan = #a7e7ff
-$colorGreen = #8ddb66
-$colorYellow = #eed53d
-$colorRed = #ee81a2
-$colorViolet = #aa7ee3
-
 code,
 pre
   background none
@@ -35,7 +28,7 @@ pre
 /* Inline code */
 :not(pre) > code
   padding 3px 6px
-  background $colorLight[1]
+  background $colorLight[0]
   color inherit
   white-space normal
 
@@ -44,10 +37,10 @@ pre
 .token.prolog,
 .token.doctype,
 .token.cdata
-  color $colorLight[4]
+  color $colorLight[2]
 
 .token.punctuation
-  color $colorLight[3]
+  color $colorLight[1]
 
 .token.tag,
 .token.attr-name,
