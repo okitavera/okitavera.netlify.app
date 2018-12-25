@@ -11,7 +11,9 @@ renderData:
 {% set articles = collections[ tag ] %}
 <section class="article-index">
   <div class="container pad-y0">
-    <h1 class="txt-thin center">TAGGED<b>ARTICLES</b></h1>
+    <h1 class="center">
+      <span>TAGGED</span><span class="txt-900">ARTICLES</span>
+    </h1>
     <div class="center">
       {% for _tag in collections.tags %}
         <a href="/article/tags/{{ _tag }}" class="btn {% if tag == _tag %}{% else %} btn-outline{% endif %} btn-small txt-uppercase">{{ _tag }}</a>

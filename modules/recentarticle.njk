@@ -1,7 +1,7 @@
 {% set articles = collections.posts | head(-3) %}
 <section class="recent-article" id="recentarticles">
   <div class="container">
-    <h1 class="txt-thin"><b>RECENT</b>ARTICLES</h1>
+    <h1><span>RECENT</span><span class="txt-900">ARTICLES</span></h1>
     <div class="row">
       {% for post in articles | reverse %}
       <div class="col-1of3">
