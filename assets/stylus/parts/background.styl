@@ -4,8 +4,12 @@
 .bg-accent-half
   halfground $colorAccent
 
-for i in (0 .. 5)
+for i in (0 .. 4)
   .bg-light{i}
     background-color $colorLight[i]
   .bg-dark{i}
     background-color $colorDark[i]
+  .bg-light{i}-half
+    halfground $colorLight[i]
+  .bg-dark{i}-half
+    halfground $colorDark[i]
