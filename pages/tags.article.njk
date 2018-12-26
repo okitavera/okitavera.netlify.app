@@ -4,13 +4,11 @@ layout: plain.njk
 title: Tags
 ---
 <section class="article-index">
-  <div class="container">
-    <h1 class="center txt-300">TAGGED ARTICLES</h1>
-    <div class="center">
+  <div class="container center">
+    <h1 class="txt-300">TAGGED ARTICLES</h1>
       {% for _tag in collections.tags %}
-        <a href="/article/tags/{{ _tag }}" class="btn {% if tag == _tag %}{% else %} btn-outline{% endif %} btn-sm txt-uppercase">{{ _tag }}</a>
+        <a href="/article/tags/{{ _tag }}" class="btn txt-dark3 btn-sm txt-uppercase">{{ _tag }}</a>
       {% endfor %}
-    </div>
     <div class="sp sp-l"></div>
   </div>
 </section>

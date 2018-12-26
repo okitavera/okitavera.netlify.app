@@ -5,24 +5,24 @@ title: Article Index
 ---
 {% set articles = collections.posts %}
 <section class="article-index">
-  <div class="container">
-    <h1 class="center txt-300">ALL ARTICLES</h1>
+  <div class="container center">
+    <h1 class="txt-300">ALL ARTICLES</h1>
     <div class="row">
       {% for post in articles | reverse %}
       <div class="col-1of3">
         <div class="card-wrapper"><div class="card bg-light0">
-          <a href="{{ post.url | url }}">
-              <figure class="card-thumbnail bg-dark0">
-              {% if post.data.splash.url %}
-                <img class="imlazy" data-src="{{ post.data.splash.url | thumbnailURL }}">
-              {% else %}
-                <img class="imlazy" data-src="/assets/img/book.svg">
-              {% endif %}
-              </figure>
-              <div class="card-context">
-                <time class="txt-smaller" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
-                <div class="txt-dark2">{{ post.data.title }}</div>
-              </div>
+          <a href="{{ post.url }}">
+            <figure class="card-thumbnail bg-dark0">
+            {% if post.data.splash.url %}
+              <img class="imlazy" data-src="{{ post.data.splash.url | thumbnailURL }}">
+            {% else %}
+              <img class="imlazy" data-src="/assets/img/book.svg">
+            {% endif %}
+            </figure>
+            <div class="card-context">
+              <time class="txt-sm" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+              <div class="txt-dark2">{{ post.data.title }}</div>
+            </div>
           </a>
         </div></div>
       </div>

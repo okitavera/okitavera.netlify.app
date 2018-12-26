@@ -1,8 +1,8 @@
-{% set articles = collections.posts | head(-3) %}
 <section class="recent-article" id="recentarticles">
-  <div class="container">
-    <h1 class="pad-x1 txt-300">RECENT ARTICLES</h1>
+  <div class="container center">
+    <h1 class="left pad-x1 txt-300">RECENT ARTICLES</h1>
     <div class="row fx-content-mid">
+      {% set articles = collections.posts | head(-3) %}
       {% for post in articles | reverse %}
       <div class="col-1of3">
         <div class="card-wrapper"><div class="card bg-light0">
@@ -13,7 +13,7 @@
             {% endif %}
             </figure>
             <div class="card-context">
-              <time class="txt-smaller" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+              <time class="txt-sm" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
               <div class="txt-dark2">{{ post.data.title }}</div>
             </div>
           </a>
@@ -24,7 +24,7 @@
     <div class="row center">
       <div class="col">
         <div class="sp"></div>
-        <a href="/article/" class="btn btn-outline txt-uppercase">View more post</a>
+        <a href="/article/" class="btn">View More</a>
         <div class="sp"></div>
       </div>
     </div>

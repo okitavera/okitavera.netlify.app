@@ -10,13 +10,11 @@ renderData:
 ---
 {% set articles = collections[ tag ] %}
 <section class="article-index">
-  <div class="container pad-y0">
-    <h1 class="center txt-300">TAGGED ARTICLES</h1>
-    <div class="center">
+  <div class="container center pad-y0">
+    <h1 class="txt-300">TAGGED ARTICLES</h1>
       {% for _tag in collections.tags %}
-        <a href="/article/tags/{{ _tag }}" class="btn {% if tag == _tag %}{% else %} btn-outline{% endif %} btn-sm txt-uppercase">{{ _tag }}</a>
+        <a href="/article/tags/{{ _tag }}" class="btn {% if tag != _tag %}txt-dark3{% endif %} btn-sm txt-uppercase">{{ _tag }}</a>
       {% endfor %}
-    </div>
     <div class="sp"></div>
     <div class="row">
     {% for post in articles | reverse %}
@@ -31,7 +29,7 @@ renderData:
         {% endif %}
         </figure>
         <div class="card-context">
-          <time class="txt-smaller" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+          <time class="txt-sm" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
           <div class="txt-dark2">{{ post.data.title }}</div>
         </div>
       </a>

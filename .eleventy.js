@@ -1,6 +1,5 @@
 const { readFileSync } = require("fs");
 const { DateTime } = require("luxon");
-const { URL } = require("url");
 const htmlmin = require("html-minifier");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");

@@ -23,9 +23,9 @@ module.exports = (username) => {
       window.disqusFrame = false;
       if (!document.getElementById("btnDQ")) {
         const btn = document.createElement("button");
-        btn.className = "btn btn-outline txt-uppercase";
+        btn.className = "btn txt-accent";
         btn.id = "btnDQ";
-        btn.innerText = "view comments";
+        btn.innerText = "View Comments";
         btn.onclick = () => loadDisqus();
         document.getElementById(dqFrame).appendChild(btn);
         document.getElementById(dqFrame).align = "center";
