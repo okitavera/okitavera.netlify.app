@@ -4,6 +4,14 @@
 .height-stretch
   min-height 100vh
 
+for num in 20 30 40 50 60 70 80 90 100
+  div.hl-{num}
+    width unit(num, '%')
+    margin -1px auto 0
+    left 0
+    height 1px
+    background-color lighten($colorLight[4], 50%)
+
 for i in (0 .. 4)
   .pad-y{i}
     padding-top i rem

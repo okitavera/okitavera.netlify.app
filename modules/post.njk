@@ -5,7 +5,7 @@
 <body>
 <div class="wrapper">
 {% include "sidebar.njk" %}
-<main class="main-content">
+<main class="main-content bg-light0">
 <section class="container pad-y0 pad-x0">
   <header class="row paper paper-title">
     <div class="col">
@@ -37,7 +37,11 @@
       {%- endif -%}
     {% endfor %}
     </small>
-    <hr>
+    <div class="sp"></div>
+  </article>
+  <div class="hl-100"></div>
+  <article class="paper paper-article">
+    <div class="sp"></div>
     <footer class="post-credit-wrapper pad-y0">
       <img class="circle" width="64" src="/assets/img/avatars/me.png"/>
       <div class="post-credit">
@@ -52,6 +56,7 @@
   <div class="sp"></div>
   </article>
 </section>
+<div class="hl-50"></div>
 {% include "recentarticle.njk" %}
 {% include "foot.njk" %}
 </main>
