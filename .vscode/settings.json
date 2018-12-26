@@ -1,5 +1,6 @@
 {
   "editor.formatOnSave": true,
+  "files.insertFinalNewline": true,
   "stylusSupremacy.alwaysUseNoneOverZero": true,
   "stylusSupremacy.alwaysUseZeroWithoutUnit": true,
   "stylusSupremacy.insertBraces": false,
@@ -9,5 +10,5 @@
   "stylusSupremacy.insertSemicolons": false,
   "stylusSupremacy.reduceMarginAndPaddingValues": true,
   "stylusSupremacy.insertNewLineAroundBlocks": "root",
-  "files.insertFinalNewline": true
+  "stylusSupremacy.sortProperties": "grouped"
 }

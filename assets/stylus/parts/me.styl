@@ -1,12 +1,16 @@
 .me
-  border-radius 50%
-  display inline-block
   position relative
+  display inline-block
+  border-radius 50%
   line-height 1
   img
-    border-radius 50%
     display inline
+    border-radius 50%
     line-height 1
+
+@media screen and (max-width: $flexTreshold)
+  .me
+    margin-top 3rem
 
 .article-index
   .row
@@ -76,9 +80,9 @@
       font-weight 700
     h1
       max-width 90%
+      font-weight 900
       font-size 3rem
       line-height 1.2
-      font-weight 900
     time
       padding-left .1em
   &.paper-article
@@ -135,16 +139,16 @@
     .L1,
     .L2
       animation dash 2s cubic-bezier(.6, .5, .8, .9) forwards
+      stroke $colorAccent
       stroke-dasharray 400
       stroke-dashoffset 400
-      stroke $colorAccent
       stroke-opacity 1
     .L2
       animation dash 3s cubic-bezier(.4, .9, .9, .8) forwards
       animation-delay 1.78s
+      stroke $colorLight[1]
       stroke-dasharray 544
       stroke-dashoffset 544
-      stroke $colorLight[1]
     .LSHDW
       opacity 0
       fill 0

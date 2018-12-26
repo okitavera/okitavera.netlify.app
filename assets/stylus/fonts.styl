@@ -1,5 +1,5 @@
 // --layout-features-='liga' and --no-hinting optimization
-fontf(n, f, w)
+font-assets(n, f, w)
   font-weight w
   font-family n
   file = '/assets/fonts/' + f
@@ -8,50 +8,50 @@ fontf(n, f, w)
   src url(fwoff2) format('woff2'), url(fwoff) format('woff')
 
 @font-face
-  fontf LatoCriticalSubset 'Lato-400-CriticalSubset' 400
+  font-assets LatoCriticalSubset 'Lato-400-CriticalSubset' 400
   unicode-range U+21-23, U+25-29, U+2B-3A, U+3D, U+3F, U+41-5A, U+5F, U+61-7A
 
 @font-face
-  fontf LatoLatinSubset 'Lato-300-LatinSubset' 300
+  font-assets LatoLatinSubset 'Lato-300-LatinSubset' 300
   unicode-range U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
 
 @font-face
-  fontf LatoLatinSubset 'Lato-400-LatinSubset' 400
+  font-assets LatoLatinSubset 'Lato-400-LatinSubset' 400
   unicode-range U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
 
 @font-face
-  fontf LatoLatinSubset 'Lato-700-LatinSubset' 700
+  font-assets LatoLatinSubset 'Lato-700-LatinSubset' 700
   unicode-range U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
 
 @font-face
-  fontf LatoLatinSubset 'Lato-900-LatinSubset' 900
+  font-assets LatoLatinSubset 'Lato-900-LatinSubset' 900
   unicode-range U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
 
 @font-face
-  fontf LatoLatinSubset 'Lato-300i-LatinSubset' 300
-  unicode-range U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
   font-style italic
+  font-assets LatoLatinSubset 'Lato-300i-LatinSubset' 300
+  unicode-range U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
 
 @font-face
-  fontf LatoLatinSubset 'Lato-400i-LatinSubset' 400
-  unicode-range U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
   font-style italic
+  font-assets LatoLatinSubset 'Lato-400i-LatinSubset' 400
+  unicode-range U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
 
 @font-face
-  fontf LatoLatinSubset 'Lato-700i-LatinSubset' 700
-  unicode-range U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
   font-style italic
+  font-assets LatoLatinSubset 'Lato-700i-LatinSubset' 700
+  unicode-range U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
 
 @font-face
-  fontf LatoLatinSubset 'Lato-900i-LatinSubset' 900
-  unicode-range U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
   font-style italic
+  font-assets LatoLatinSubset 'Lato-900i-LatinSubset' 900
+  unicode-range U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
 
 // FiraCode for Code stuff
 @font-face
-  fontf FiraCode 'FiraCode-Medium' 400
-  font-feature-settings 'calt' 1 // the cool-stuff from FiraCode
+  font-assets FiraCode 'FiraCode-Medium' 400
   font-display swap
+  font-feature-settings 'calt' 1 // the cool-stuff from FiraCode
 
 // for later usage (custom-classes and prism)
 $font_mono = FiraCode, Menlo, monospace
