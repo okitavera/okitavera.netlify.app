@@ -4,6 +4,9 @@
 .bg-accent-half
   halfground $colorAccent
 
+.bg-accentlight-half
+  halfground lighten($colorAccent, 50%)
+
 for i in (0 .. 4)
   .bg-light{i}
     background-color $colorLight[i]
