@@ -1,8 +1,8 @@
 {% set articles = collections.posts | head(-3) %}
 <section class="recent-article" id="recentarticles">
   <div class="container">
-    <h1><span>RECENT</span><span class="txt-900">ARTICLES</span></h1>
-    <div class="row">
+    <h1 class="pad-x1 txt-300">RECENT ARTICLES</h1>
+    <div class="row fx-content-mid">
       {% for post in articles | reverse %}
       <div class="col-1of3">
         <div class="card-wrapper"><div class="card bg-light0">
