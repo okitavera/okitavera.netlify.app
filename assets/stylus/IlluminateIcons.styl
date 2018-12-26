@@ -1,0 +1,16 @@
+fea(name)
+  .fea-{name}
+    background-image fea-ico(name + '.svg')
+    background-repeat no-repeat
+    background-size contain
+    background-position center
+    padding .5em .75em
+    opacity .7
+    &.fea-inv
+      filter invert(100%)
+
+fea('twitter')
+fea('home')
+fea('book-open')
+fea('star')
+fea('user')

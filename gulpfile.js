@@ -25,14 +25,10 @@ const eleventy = (options = "") => {
   return cmd;
 };
 
-gulp.task("build:stylus", () => {
-  return gulp
+gulp.task("build:stylus", () =>
+  gulp
     .src("assets/stylus/Illuminate.styl")
-    .pipe(
-      stylus({
-        compress: true
-      })
-    )
+    .pipe(stylus())
     .pipe(
       postcss([
         cssNormalize({
@@ -43,11 +39,27 @@ gulp.task("build:stylus", () => {
         cssNano
       ])
     )
-    .pipe(gulp.dest("modules/comps/generated"));
-});
+    .pipe(gulp.dest("modules/comps/generated"))
+);
+
+gulp.task("build:feaicons", () =>
+  gulp
+    .src("assets/stylus/IlluminateIcons.styl")
+    .pipe(
+      stylus({
+        url: {
+          name: "fea-ico",
+          paths: [__dirname + "/node_modules/feather-icons/dist/icons"],
+          limit: false
+        }
+      })
+    )
+    .pipe(postcss([cssEnv, cssNano]))
+    .pipe(gulp.dest(`${metadata.site.output}/assets/css`))
+);
 
 gulp.task("watch:stylus", () =>
-  gulp.watch("assets/stylus/**", gulp.series("build:stylus"))
+  gulp.watch("assets/stylus/**", gulp.series("build:stylus", "build:feaicons"))
 );
 
 gulp.task(
@@ -118,7 +130,7 @@ gulp.task(
   "serve",
   gulp.series(
     "clean",
-    gulp.parallel("build:stylus", "build:js"),
+    gulp.parallel("build:stylus", "build:feaicons", "build:js"),
     "build:jscomments",
     gulp.parallel("watch:stylus", "watch:js", eleventy("--serve"))
   )
@@ -128,7 +140,7 @@ gulp.task(
   "default",
   gulp.series(
     "clean",
-    gulp.parallel("build:stylus", "build:js"),
+    gulp.parallel("build:stylus", "build:feaicons", "build:js"),
     "build:jscomments",
     eleventy()
   )
