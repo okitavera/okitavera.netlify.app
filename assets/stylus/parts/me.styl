@@ -7,16 +7,6 @@
     border-radius 50%
     display inline
     line-height 1
-  span
-    display inline
-    width 100%
-    height 100%
-    border-radius 50%
-    border 10px solid rgba($colorLight[0], .3)
-    position absolute
-    z-index 9
-    top 0
-    left 0
 
 .article-index
   .row
@@ -39,10 +29,8 @@
   padding-top 2rem
   text-transform uppercase
   letter-spacing 2px
-  font-size .9rem
   .jumps a
     padding 2px .6rem
-    font-size .8rem
 
 .post-credit-wrapper
   display flex
@@ -67,7 +55,7 @@
     padding 0
     figure
       clear-gaps()
-      padding 35% 0 0
+      padding 40% 0 0
       background-position top center
       background-size 100%
       background-repeat no-repeat
@@ -83,7 +71,6 @@
       a
         color $colorDark[1]
   &.paper-title
-    border-radius 13px 13px 0 0
     h1,
     time
       text-transform uppercase
@@ -99,7 +86,6 @@
     overflow-x hidden
     padding-top 0
     padding-bottom 0
-    border-radius 0 0 13px 13px
     >pre
       overflow-x auto
       margin-right -4rem
@@ -124,6 +110,10 @@
 @media screen and (max-width: $flexTreshold)
   .paper
     padding 1.4rem
+    &.paper-art
+      figure
+        padding-top (9 / 16) * 100%
+        background-position center !important // no need to parallax on mobile
     &.paper-title h1
       font-size 2rem
     &.paper-article>pre
@@ -202,16 +192,16 @@
   width 3rem
   height 3rem
   border-radius 50%
-  background $colorDark[2]
+  background-color $colorAccent
   box-shadow 0 0 10px 0 rgba(0, 0, 0, .11)
-  color $colorLight[2]
+  color $colorLight[1]
   text-align center
   line-height 3rem
   opacity 0
   transition .25s ease-out all
   transform rotate(-90deg)
   &:hover
-    background-color $colorAccent
+    background $colorDark[2]
     color $colorLight[1]
   &:active,
   &:focus
