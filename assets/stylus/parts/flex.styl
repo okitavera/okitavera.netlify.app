@@ -6,17 +6,17 @@
   width 100%
 
 .row
+  clear-gaps()
   display flex
   flex-direction row
   flex-wrap wrap
-  margin 0
-  padding 0
   width 100%
   .col
     flex 1 1 auto
   .col-1of3
     flex-basis (100% / 3)
     width (100% / 3)
+    min-width 240px
 
 @media screen and (max-width: $flexTreshold)
   .row
@@ -33,6 +33,9 @@
 
 .items-mid
   align-items center
+  justify-content center
+
+.fx-content-mid
   justify-content center
 
 .items-stretch

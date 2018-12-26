@@ -18,12 +18,27 @@ for i in (0 .. 4)
     margin-right i rem
     margin-left i rem
 
+@media screen and (max-width: $flexTreshold)
+  for i in (1 .. 4)
+    m = (i - .5)
+    .pad-y{i}
+      padding-top m rem
+      padding-bottom m rem
+    .pad-x{i}
+      padding-right m rem
+      padding-left m rem
+    .mgn-y{i}
+      margin-top m rem
+      margin-bottom m rem
+    .mgn-x{i}
+      margin-right m rem
+      margin-left m rem
+
 hr,
 div
   &.sp
+    clear-gaps()
     display block
-    margin 0
-    padding 0
     height 2rem
     border none
     &.sp-xl

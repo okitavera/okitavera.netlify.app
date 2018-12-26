@@ -1,0 +1,36 @@
+.wrapper
+  display flex
+  flex 1
+
+.main-content
+  width 75%
+  overflow-x hidden
+
+.sidebar
+  width 35%
+  min-width 350px
+  background-color lighten($colorPurple, 90%)
+  .container
+    position sticky
+    top 0
+    display flex
+    flex-direction column
+    justify-content center
+    min-height calc(100vh - 4rem)
+    .row
+      width 100%
+      flex-basis 100%
+      a
+        margin-right 1rem
+
+.main-footer
+  margin-top auto // push the main footer to the bottom
+
+@media screen and (max-width: $flexTreshold + (350px / 2))
+  .sidebar,
+  .main-content
+    width 100%
+  .wrapper
+    flex-direction column
+  .sidebar .container
+    min-height unset

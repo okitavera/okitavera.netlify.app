@@ -42,7 +42,6 @@
   font-size .9rem
   .jumps a
     padding 2px .6rem
-    color $colorLight[2]
     font-size .8rem
 
 .post-credit-wrapper
@@ -52,8 +51,7 @@
     display inline-block
     padding-left 1em
     > *
-      margin 0
-      padding 0
+      clear-gaps()
     :first-child
       text-transform uppercase
       font-weight 700 !important
@@ -68,8 +66,7 @@
     overflow hidden
     padding 0
     figure
-      margin 0
-      padding 0
+      clear-gaps()
       padding 35% 0 0
       background-position top center
       background-size 100%
@@ -89,8 +86,7 @@
     border-radius 13px 13px 0 0
     h1,
     time
-      margin 0
-      padding 0
+      clear-gaps()
       text-transform uppercase
       font-weight 700
     h1
@@ -126,14 +122,9 @@
       &:hover > .direct-link
         visibility visible
 
-@media screen and (max-width: $paperMaxWidth + 155px)
-  .paper
-    &.paper-art,
-    &.paper-title
-      &.no-art
-        border-radius 0
-      h1
-        font-size 2.5rem
+@media screen and (min-width: $flexTreshold + 200px) and (max-width: $paperMaxWidth + 155px)
+  .paper.paper-title h1
+    font-size 2.5rem
 
 @media screen and (min-width: $flexTreshold + 1px) and (max-width: $flexTreshold + 200px)
   .paper
@@ -147,29 +138,17 @@
       padding-right 3rem
       padding-left 3rem
 
-@media screen and (min-width: $flexTreshold + 1px) and (max-width: $flexTreshold + 100px)
-  .paper
-    padding 2rem
-    &.paper-title h1
-      font-size 1.75rem
-    &.paper-article>pre
-      overflow-x auto
-      margin-right -2rem
-      margin-left -2rem
-      padding-right 2rem
-      padding-left 2rem
-
 @media screen and (max-width: $flexTreshold)
   .paper
-    padding 1rem
+    padding 1.4rem
     &.paper-title h1
-      font-size 1.5rem
+      font-size 1.6rem
     &.paper-article>pre
       overflow-x auto
-      margin-right -1rem
-      margin-left -1rem
-      padding-right 1rem
-      padding-left 1rem
+      margin-right -1.4rem
+      margin-left -1.4rem
+      padding-right 1.4rem
+      padding-left 1.4rem
 
 .ovlogo-canvas
   display block

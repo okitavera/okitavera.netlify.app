@@ -3,8 +3,12 @@
 <html lang="en">
 {% include "head.njk" %}
 <body>
-{% include "navs.njk" %}
+<div class="wrapper">
+{% include "sidebar.njk" %}
+<main class="main-content">
 {{ content | safe }}
 {% include "foot.njk" %}
+</main>
+</div>
 </body>
 </html>

@@ -3,7 +3,9 @@
 <html lang="en">
 {% include "head.njk" %}
 <body>
-{% include "navs.njk" %}
+<div class="wrapper">
+{% include "sidebar.njk" %}
+<main class="main-content">
 <section class="container pad-y0 pad-x0">
   <header class="row paper paper-title">
     <div class="col">
@@ -52,5 +54,7 @@
 </section>
 {% include "recentarticle.njk" %}
 {% include "foot.njk" %}
+</main>
+</div>
 </body>
 </html>

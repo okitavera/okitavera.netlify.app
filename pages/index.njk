@@ -6,39 +6,14 @@ permalink: /
 {% include "head.njk" %}
 <body>
 {% set nav_class = "clears absolute" %}
-<section class="start bg-dark0">
-  <div class="container pad-x0 pad-y0">
-  {% include "navs.njk" %}
-    <div class="row height-stretch items-mid animated fadeIn">
+<div class="wrapper">
+{% include "sidebar.njk" %}
+<main class="main-content">
+<section class="about bg-light1" id="about">
+  <div class="container pad-x2 pad-y0" style="max-width:58rem">
+    <div class="row fx-nowrap items-mid">
       <div class="col center">
-        <div class="sp sp-xl"></div>
-        <figure class="ovlogo-canvas ">
-          {% include 'comps/okitavera.min.svg' %}
-        </figure>
-        <div class="sp sp-xl"></div>
-        <div class="pad-x1 animated fadeInUp">
-          <b class="txt-uppercase txt-light2">UX | kotlin & android dev | arch</b>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="about bg-light2" id="about">
-  <div class="container pad-y0" style="max-width:58rem">
-    <div class="row height-stretch fx-nowrap items-mid">
-      <div class="col center pad-x2 pad-y2">
-        <div class="me">
-          <img class="imlazy"
-            height="180"
-            width="180"
-            alt="Prettiest human in the world"
-            data-src="/assets/img/avatars/me.png"
-          >
-          <span></span>
-        </div>
-      </div>
-      <div class="col pad-x1 center">
-        <h1 class="left txt-900">Hello world, I am Nanda Okitavera</h1>
+        <h1 class="left txt-900">Hello world!</h1>
         <p class="left txt-bigger">
           I am UX Designer and Kotlin-Android Developer from an exotic country called Indonesia.<br>
           I do code, but as another hobbies afterworks besides watching videos or plays some melodic decadence metal music.<br>
@@ -50,16 +25,17 @@ permalink: /
   </div>
 <div class="sp"></div>
 </section>
-<section class="side-project-title bg-light1" id="sideprojects">
+<div class="bg-light0">
+{% include "recentarticle.njk" %}
+</div>
+<section class="side-project-title bg-light0" id="sideprojects">
   <div class="container">
-    <div class="row">
+    <div class="row pad-x1">
       <div class="col">
-        <h1 class="pad-y0">
-          <span>SIDE</span><span class="txt-900">PROJECTS</span>
-        </h1>
+        <h1 class="pad-y0 txt-300">FUN PROJECTS</h1>
       </div>
     </div>
-    <div class="row items-stretch">
+    <div class="row fx-content-mid">
       {% for project in collections.projects %}
       <div class="col-1of3">
         <div class="card-wrapper"><div class="card bg-dark0 txt-light0">
@@ -80,9 +56,8 @@ permalink: /
   </div>
 <div class="sp"></div>
 </section>
-<div class="bg-light0">
-{% include "recentarticle.njk" %}
-</div>
 {% include "foot.njk" %}
+</main>
+</div>
 </body>
 </html>
