@@ -1,9 +1,9 @@
-import path from "path";
-import webpack from "webpack";
-import metadata from "./data/manifest/metadata.json";
-import TerserPlugin from "terser-webpack-plugin";
+const path = require("path");
+const webpack = require("webpack");
+const metadata = require("./data/manifest/metadata.json");
+const TerserPlugin = require("terser-webpack-plugin");
 
-var config = {
+const config = {
   mode: "production",
   module: {
     rules: [
@@ -35,7 +35,7 @@ var config = {
   }
 };
 
-var inline = Object.assign({}, config, {
+const inline = Object.assign({}, config, {
   entry: {
     FontLoader: "./assets/js/FontLoader.js"
   },
@@ -45,7 +45,7 @@ var inline = Object.assign({}, config, {
   }
 });
 
-var external = Object.assign({}, config, {
+const external = Object.assign({}, config, {
   entry: {
     Okitavera: "./assets/js/Okitavera.js",
     FontLoaderData: "./assets/js/FontLoaderData.js",

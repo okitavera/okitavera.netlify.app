@@ -1,15 +1,15 @@
-import fs from "fs";
-import { spawn } from "child_process";
-import rimraf from "rimraf";
-import gulp from "gulp";
-import stylus from "gulp-stylus";
-import postcss from "gulp-postcss";
-import cssEnv from "postcss-preset-env";
-import cssNano from "cssnano";
-import cssMqpacker from "css-mqpacker";
-import cssNormalize from "postcss-normalize";
-import webpack from "webpack";
-import responsive from "gulp-responsive";
+const fs = require("fs");
+const spawn = require("child_process").spawn;
+const rimraf = require("rimraf");
+const gulp = require("gulp");
+const stylus = require("gulp-stylus");
+const postcss = require("gulp-postcss");
+const cssEnv = require("postcss-preset-env");
+const cssNano = require("cssnano");
+const cssMqpacker = require("css-mqpacker");
+const cssNormalize = require("postcss-normalize");
+const webpack = require("webpack");
+const responsive = require("gulp-responsive");
 
 // read the file instead requiring directly
 const metadata = JSON.parse(fs.readFileSync("./data/manifest/metadata.json"));

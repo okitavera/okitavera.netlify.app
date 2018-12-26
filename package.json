@@ -10,7 +10,6 @@
     "@babel/core": "^7.2.2",
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.2.0",
-    "@babel/register": "^7.0.0",
     "babel-loader": "^8.0.4",
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.7",
