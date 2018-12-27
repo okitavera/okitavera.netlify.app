@@ -56,6 +56,14 @@ if (document.querySelector("[data-parallax]")) {
   );
 }
 
+// preserve button color on hover
+document.querySelectorAll(".btn").forEach((btn) => {
+  const color = getComputedStyle(btn).color;
+  btn.onmouseover = () => {
+    btn.style.color = color;
+  };
+});
+
 /*!
  * Copyright (c) 2018 Nanda Okitavera
  * MIT License
