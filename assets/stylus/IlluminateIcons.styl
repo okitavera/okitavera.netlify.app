@@ -1,9 +1,11 @@
 fea(name)
   .fea-{name}
-    padding .5em .75em
+    display inline-block
+    width 1em !important
+    height 1em !important
     background-image fea-ico(name + '.svg')
     background-position center
-    background-size contain
+    background-size 1em !important
     background-repeat no-repeat
     opacity .7
     &.fea-inv
@@ -15,3 +17,5 @@ fea('book-open')
 fea('star')
 fea('user')
 fea('github')
+fea('clock')
+fea('calendar')

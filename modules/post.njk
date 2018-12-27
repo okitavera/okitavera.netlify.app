@@ -9,9 +9,9 @@
 <section class="container pad-y0 pad-x0">
   <header class="row paper paper-title">
     <div class="col">
-      <time class="hashed" datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+      <time datetime="{{ date | htmlDateString }}"><i class="fea-calendar"></i> {{ date | readableDate }}</time>
       <h1>{{ title }}</h1>
-      <span>~ {{ content | getReadingTime("%W words, %M minutes to read") }}</span>
+      <span><i class="fea-clock"></i> {{ content | getReadingTime("%W words, %M minutes to read") }}</span>
     </div>
   </header>
   <div class="row paper paper-art">
