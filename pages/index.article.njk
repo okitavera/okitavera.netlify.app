@@ -10,7 +10,7 @@ title: Article Index
     <div class="row">
       {% for post in articles | reverse %}
       <div class="col-1of3">
-        <div class="card-wrapper"><div class="card bg-light0">
+        <div class="card-wrapper"><div class="card">
           <a href="{{ post.url }}">
             <figure class="card-thumbnail bg-dark0">
             {% if post.data.splash.url %}
