@@ -7,7 +7,8 @@
     "name": "Nanda Okitavera",
     "email": "codeharuka.yusa@gmail.com",
     "photo": "https://github.com/okitavera.png?size=180",
-    "twitter": "okitavera"
+    "twitter": "okitavera",
+    "github": "https://github.com/okitavera"
   },
   "site": {
     "output": "./dist",
