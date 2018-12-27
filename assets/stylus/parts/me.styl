@@ -201,8 +201,8 @@
   border-radius 50%
   background-color $colorAccent
   box-shadow 0 0 10px 0 rgba(0, 0, 0, .11)
-  opacity 0
   transition .25s ease-out all
+  transform scale(0)
   i
     font-size 2rem
   &:hover
@@ -212,7 +212,7 @@
     outline none
   &.show
     visibility visible
-    opacity 1
+    transform scale(1)
 
 // smoothly fade when imlazy image are appears
 figure
@@ -225,7 +225,7 @@ figure
 
 @media screen and (max-width: $flexTreshold)
   .backtotop
-    right 1rem
+    right 2rem
     bottom 2rem
   .ovlogo-canvas
     svg
