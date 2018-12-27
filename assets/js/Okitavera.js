@@ -24,6 +24,7 @@ setInterval(() => {
 }, 250);
 
 window.addEventListener("load", () => {
+  document.body.classList.add("page-loaded");
   DisqusLoader(disqusdata.username);
 });
 

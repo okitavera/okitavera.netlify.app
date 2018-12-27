@@ -127,37 +127,6 @@
       padding-right 1.4rem
       padding-left 1.4rem
 
-.ovlogo-canvas
-  display block
-  margin 0
-  padding 1rem 0
-  svg
-    max-width 512px
-    max-height auto
-    width 100%
-    height auto
-    transform rotate(-10deg)
-    .L1,
-    .L2
-      animation dash 2s cubic-bezier(.6, .5, .8, .9) forwards
-      stroke $colorAccent
-      stroke-dasharray 400
-      stroke-dashoffset 400
-      stroke-opacity 1
-    .L2
-      animation dash 3s cubic-bezier(.4, .9, .9, .8) forwards
-      animation-delay 1.78s
-      stroke $colorLight[1]
-      stroke-dasharray 544
-      stroke-dashoffset 544
-    .LSHDW
-      opacity 0
-      fill 0
-
-@keyframes dash
-  to
-    stroke-dashoffset 0
-
 .friends
   .col
     text-align center
