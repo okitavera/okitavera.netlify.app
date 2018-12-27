@@ -6,12 +6,8 @@ const stylus = require("gulp-stylus");
 const postcss = require("gulp-postcss");
 const cssEnv = require("postcss-preset-env");
 const cssNano = require("cssnano");
-const cssMqpacker = require("css-mqpacker");
-const cssNormalize = require("postcss-normalize");
-const webpack = require("webpack");
-const responsive = require("gulp-responsive");
 
-// read the file instead requiring directly
+// read the file instead of requiring directly
 const metadata = JSON.parse(fs.readFileSync("./data/manifest/metadata.json"));
 
 // call eleventy with additional options
@@ -31,10 +27,10 @@ gulp.task("build:stylus", () =>
     .pipe(stylus())
     .pipe(
       postcss([
-        cssNormalize({
+        require("postcss-normalize")({
           forceImport: true
         }),
-        cssMqpacker,
+        require("css-mqpacker"),
         cssEnv,
         cssNano
       ])
@@ -66,7 +62,7 @@ gulp.task(
   "build:js",
   () =>
     new Promise((done) =>
-      webpack(require("./webpack.config.js"), (err, stats) => {
+      require("webpack")(require("./webpack.config.js"), (err, stats) => {
         if (err) console.log("Webpack", err);
         console.log(stats.toString());
         done();
@@ -93,7 +89,7 @@ gulp.task("build:thumbnails", (done) => {
   return gulp
     .src("assets/img/banners/*.{png,jpg}")
     .pipe(
-      responsive({
+      require("gulp-responsive")({
         "*": {
           width: "320",
           quality: 80

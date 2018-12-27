@@ -9,7 +9,7 @@ const config = {
     rules: [
       {
         test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
+        include: path.resolve(__dirname, "assets"),
         use: {
           loader: "babel-loader"
         }
