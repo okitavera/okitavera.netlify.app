@@ -192,24 +192,27 @@
   position fixed
   right 5rem
   bottom 5rem
+  display flex
   visibility hidden
+  justify-content center
+  align-items center
   width 3rem
   height 3rem
   border-radius 50%
   background-color $colorAccent
   box-shadow 0 0 10px 0 rgba(0, 0, 0, .11)
-  color $colorLight[1]
-  text-align center
-  line-height 3rem
   opacity 0
   transition .25s ease-out all
-  transform rotate(-90deg)
+  i
+    font-size 2rem
   &:hover
     background $colorDark[2]
-    color $colorLight[1]
   &:active,
   &:focus
     outline none
+  &.show
+    visibility visible
+    opacity 1
 
 // smoothly fade when imlazy image are appears
 figure

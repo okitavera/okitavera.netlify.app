@@ -9,23 +9,17 @@ new LazyLoad({
 
 document.documentElement.style.scrollBehavior = "smooth";
 
-const visible = (el, state) => {
-  if (el) {
-    el.style.visibility = state === 1 ? "visible" : "hidden";
-    el.style.opacity = state;
-  }
-};
-
 const body = document.documentElement || document.body;
 var scrolling = false;
 window.onscroll = () => (scrolling = true);
 setInterval(() => {
   if (scrolling) {
     scrolling = false;
-    visible(
-      document.querySelector(".backtotop"),
-      body.scrollTop > body.clientHeight / 4 ? 1 : 0
-    );
+    if (body.scrollTop > body.clientHeight / 4 ? 1 : 0) {
+      document.querySelector(".backtotop").classList.add("show");
+    } else {
+      document.querySelector(".backtotop").classList.remove("show");
+    }
   }
 }, 250);
 
