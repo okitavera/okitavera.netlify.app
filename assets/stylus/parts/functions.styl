@@ -1,0 +1,16 @@
+clear-gaps()
+  margin 0
+  padding 0
+
+halfground(color)
+  background linear-gradient(to top, color 15%, color 40%, transparent 40.1%, transparent 100%)
+
+font-assets(name, file, weight)
+  font-family name
+  if (match('i', weight))
+    font-style italic
+    weight = replace('i', '', weight)
+  font-weight unquote(weight)
+  f1 = '/assets/fonts/' + file + '.woff'
+  f2 = '/assets/fonts/' + file + '.woff2'
+  src url(f2) format('woff2'), url(f1) format('woff')
