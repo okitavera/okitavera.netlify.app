@@ -13,17 +13,16 @@ const metadata = JSON.parse(fs.readFileSync("./data/manifest/metadata.json"));
 // call eleventy with additional options
 const eleventy = (options = "") => {
   let cmd = (done) =>
-    spawn("eleventy", options.split(), { stdio: "inherit" }).on(
-      "close",
-      (code) => done(code)
-    );
-  cmd.displayName = "eleventy" + options;
+    spawn("./node_modules/.bin/eleventy", options.split(), {
+      stdio: "inherit"
+    }).on("close", (code) => done(code));
+  cmd.displayName = ("eleventy" + options).replace("--", ":");
   return cmd;
 };
 
-gulp.task("build:stylus", () =>
+gulp.task("build:css", () =>
   gulp
-    .src("assets/stylus/Illuminate.styl")
+    .src("./assets/stylus/Illuminate.styl")
     .pipe(stylus())
     .pipe(
       postcss([
@@ -35,12 +34,12 @@ gulp.task("build:stylus", () =>
         cssNano
       ])
     )
-    .pipe(gulp.dest("modules/comps/generated"))
+    .pipe(gulp.dest("./modules/comps/generated"))
 );
 
-gulp.task("build:feaicons", () =>
+gulp.task("build:cssicons", () =>
   gulp
-    .src("assets/stylus/IlluminateIcons.styl")
+    .src("./assets/stylus/IlluminateIcons.styl")
     .pipe(
       stylus({
         url: {
@@ -54,8 +53,8 @@ gulp.task("build:feaicons", () =>
     .pipe(gulp.dest(`${metadata.site.output}/assets/css`))
 );
 
-gulp.task("watch:stylus", () =>
-  gulp.watch("assets/stylus/**", gulp.series("build:stylus", "build:feaicons"))
+gulp.task("watch:css", () =>
+  gulp.watch("./assets/stylus/**", gulp.series("build:css", "build:cssicons"))
 );
 
 gulp.task(
@@ -74,20 +73,20 @@ gulp.task("build:jscomments", (done) => {
   const license = fs.readFileSync("./LICENSE", "utf-8");
   const files = [
     `${metadata.site.output}/assets/js/Okitavera.js`,
-    `modules/comps/generated/FontLoader.js`
+    `./modules/comps/generated/FontLoader.js`
   ];
   files.forEach((file) => fs.appendFileSync(file, `\n/*\n${license}\n*/\n`));
   return done();
 });
 
 gulp.task("watch:js", () =>
-  gulp.watch("assets/js/**", gulp.series("build:js", "build:jscomments"))
+  gulp.watch("./assets/js/**", gulp.series("build:js", "build:jscomments"))
 );
 
 gulp.task("build:thumbnails", (done) => {
-  rimraf("assets/thumbnails", done);
+  rimraf("./assets/thumbnails", done);
   return gulp
-    .src("assets/img/banners/*.{png,jpg}")
+    .src("./assets/img/banners/*.{png,jpg}")
     .pipe(
       require("gulp-responsive")({
         "*": {
@@ -96,11 +95,11 @@ gulp.task("build:thumbnails", (done) => {
         }
       })
     )
-    .pipe(gulp.dest("assets/img/thumbnails"));
+    .pipe(gulp.dest("./assets/img/thumbnails"));
 });
 
 gulp.task("fetch:avatars", (done) => {
-  const avapath = "assets/img/avatars";
+  const avapath = "./assets/img/avatars";
   const ava = JSON.parse(fs.readFileSync("./data/manifest/friendlists.json"))
     .friends;
 
@@ -119,16 +118,16 @@ gulp.task("fetch:avatars", (done) => {
 
 gulp.task("clean", (done) => {
   rimraf(metadata.site.output, done);
-  rimraf("modules/comps/generated", done);
+  rimraf("./modules/comps/generated", done);
 });
 
 gulp.task(
   "serve",
   gulp.series(
     "clean",
-    gulp.parallel("build:stylus", "build:feaicons", "build:js"),
+    gulp.parallel("build:css", "build:cssicons", "build:js"),
     "build:jscomments",
-    gulp.parallel("watch:stylus", "watch:js", eleventy("--serve"))
+    gulp.parallel("watch:css", "watch:js", eleventy("--serve"))
   )
 );
 
@@ -136,7 +135,7 @@ gulp.task(
   "default",
   gulp.series(
     "clean",
-    gulp.parallel("build:stylus", "build:feaicons", "build:js"),
+    gulp.parallel("build:css", "build:cssicons", "build:js"),
     "build:jscomments",
     eleventy()
   )
