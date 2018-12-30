@@ -63,17 +63,9 @@ a
 .right
   text-align right
 
-.txt-300
-  font-weight 300
-
-.txt-400
-  font-weight 400
-
-.txt-700
-  font-weight 700
-
-.txt-900
-  font-weight 900
+for weight in 300 400 700 900
+  .txt-{weight}
+    font-weight weight
 
 .txt-accent,
 .txt-accent *
