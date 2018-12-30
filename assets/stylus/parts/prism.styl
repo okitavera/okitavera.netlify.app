@@ -32,56 +32,56 @@ pre
   color inherit
   white-space normal
 
+.token.important,
 .token.bold
   font-weight bold
 
 .token.italic
   font-style italic
 
-.token.comment
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata
   color $colorLight[4]
 
-.token.prolog,
-.token.string
-  color $colorLight[1]
+.token.punctuation:last-child
+  color $colorLight[2]
 
-.token.important
-  color lighten($colorPink, 40%)
-  font-weight bold
-
-.token.variable
-  color lighten($colorYellow, 40%)
-
-.token.number,
-.token.selector
-  color lighten($colorPurple, 40%)
-
-.token.operator,
-.token.entity,
-.token.url
-  color lighten($colorBlue, 40%)
-
-.token,
-.token.keyword,
-.token.builtin,
-.token.tag,
-.token.char
-  color lighten($colorPink, 40%)
-
-.token.regex,
-.token.atrule,
-.token.punctuation,
-.token.attr-value
-  color lighten($colorGreen, 40%)
-
-.token.class-name,
-.token.boolean,
-.token.constant,
 .token.property,
-.token.symbol
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted
   color lighten($colorOrange, 40%)
 
-.token.deleted,
-.token.function,
-.token.namespace
-  color lighten($colorRed, 40%)
+.token.operator,
+.token.boolean,
+.token.number
+  color lighten($colorYellow, 40%)
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted
+  color lighten($colorGreen, 40%)
+
+.token.entity,
+.token.url,
+.token.variable
+  color $colorLight[2]
+
+.token.atrule,
+.token.attr-value,
+.token.function
+  color lighten($colorPink, 40%)
+
+.token.keyword
+  color lighten($colorBlue, 40%)
+
+.token.regex,
+.token.important,
+.token.punctuation
+  color lighten($colorPurple, 40%)
