@@ -28,6 +28,12 @@ window.addEventListener("load", () => {
   DisqusLoader(disqusdata.username);
 });
 
+document.querySelectorAll(".hider").forEach((child, i) => {
+  setTimeout(function() {
+    child.classList.add("reveal-it");
+  }, 250 * i);
+});
+
 if (document.querySelector("[data-parallax]")) {
   window.addEventListener(
     "scroll",
