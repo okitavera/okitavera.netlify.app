@@ -13,6 +13,7 @@ const metadata = JSON.parse(fs.readFileSync("./data/manifest/metadata.json"));
 // call eleventy with additional options
 const eleventy = (options = "") => {
   let cmd = (done) =>
+    // explicitly pointing to the .bin to allow us to run it without npx/yarn
     spawn("./node_modules/.bin/eleventy", options.split(), {
       stdio: "inherit"
     }).on("close", (code) => done(code));
@@ -20,6 +21,7 @@ const eleventy = (options = "") => {
   return cmd;
 };
 
+// build main stylesheet with stylus and postcss
 gulp.task("build:css", () =>
   gulp
     .src("./assets/stylus/Illuminate.styl")
@@ -27,7 +29,7 @@ gulp.task("build:css", () =>
     .pipe(
       postcss([
         require("postcss-normalize")({
-          forceImport: true
+          forceImport: true // automagically put normalize.css on the beginning of the css without importing manually
         }),
         require("css-mqpacker"),
         cssEnv,
@@ -37,6 +39,7 @@ gulp.task("build:css", () =>
     .pipe(gulp.dest("./modules/comps/generated"))
 );
 
+// build stylesheet for feather-icons
 gulp.task("build:cssicons", () =>
   gulp
     .src("./assets/stylus/IlluminateIcons.styl")
@@ -44,8 +47,8 @@ gulp.task("build:cssicons", () =>
       stylus({
         url: {
           name: "fea-ico",
-          paths: [__dirname + "/node_modules/feather-icons/dist/icons"],
-          limit: false
+          paths: [__dirname + "/node_modules/feather-icons/dist/icons"], // don't know why relative path doesn't works here
+          limit: false // disable 30KB file limits
         }
       })
     )
@@ -53,10 +56,12 @@ gulp.task("build:cssicons", () =>
     .pipe(gulp.dest(`${metadata.site.output}/assets/css`))
 );
 
+// stylesheets watcher
 gulp.task("watch:css", () =>
   gulp.watch("./assets/stylus/**", gulp.series("build:css", "build:cssicons"))
 );
 
+// transpile and bundle scripts for browser
 gulp.task(
   "build:js",
   () =>
@@ -69,6 +74,7 @@ gulp.task(
     )
 );
 
+// inject license comments to browser's scripts
 gulp.task("build:jscomments", (done) => {
   const license = fs.readFileSync("./LICENSE", "utf-8");
   const files = [
@@ -79,10 +85,12 @@ gulp.task("build:jscomments", (done) => {
   return done();
 });
 
+// browser's scripts watcher
 gulp.task("watch:js", () =>
   gulp.watch("./assets/js/**", gulp.series("build:js", "build:jscomments"))
 );
 
+// build mini-thumbnails for posts list
 gulp.task("build:thumbnails", (done) => {
   rimraf("./assets/thumbnails", done);
   return gulp
@@ -98,6 +106,7 @@ gulp.task("build:thumbnails", (done) => {
     .pipe(gulp.dest("./assets/img/thumbnails"));
 });
 
+// download people's avatars
 gulp.task("fetch:avatars", (done) => {
   const avapath = "./assets/img/avatars";
   const ava = JSON.parse(fs.readFileSync("./data/manifest/friendlists.json"))
@@ -116,11 +125,13 @@ gulp.task("fetch:avatars", (done) => {
   return done();
 });
 
+// cleaning up several output folders
 gulp.task("clean", (done) => {
   rimraf(metadata.site.output, done);
   rimraf("./modules/comps/generated", done);
 });
 
+// task for build and run those watchers
 gulp.task(
   "serve",
   gulp.series(
@@ -131,6 +142,8 @@ gulp.task(
   )
 );
 
+// default task
+// Only building files, typically for CI/Deployers
 gulp.task(
   "default",
   gulp.series(
