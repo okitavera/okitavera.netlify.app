@@ -33,8 +33,18 @@ They also has a feature that allow us to automatically deploy files to many prov
 
 First of all, create a repository for your website, usually `[username].github.io`.
 and then you should make a new branch for your source code, in this case, I create `dev` branch.
-
 And now you can clone the `dev` branch and push your code to it.
+
+```bash
+$ git clone https://github.com/slavqueen/slavqueen.github.io --branch 'dev'
+
+...make some changes
+
+$ git add .
+$ git commit -m 'First commit for the most beautiful web in the multiverse'
+$ git push
+$ firefox https://www.youtube.com/user/PewDiePie # subscribe to pewdiepie
+```
 
 "Wait, what happen with the `master` branch ?"
 
