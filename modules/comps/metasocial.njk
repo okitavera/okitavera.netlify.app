@@ -1,6 +1,6 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="{{ ('@' + metadata.author.twitter) or metadata.author.name }}">
-<meta name="twitter:title" content="{{ metadata.title }}">
+<meta name="twitter:title" content="{{ renderData.title or title or metadata.title }}">
 <meta name="twitter:description" content="{{ description or metadata.description or (metadata.author.name + Website') }}">
 <meta name="twitter:image" content="{{ splash.url or metadata.author.photo }}">
 <meta property="og:url" content="{{ metadata.url + page.url }}">
@@ -8,16 +8,4 @@
 <meta property="og:title" content="{{ renderData.title or title or metadata.title }}">
 <meta property="og:description" content="{{ description or metadata.description or (metadata.author.name + Website') }}">
 <meta property="og:image" content="{{ splash.url or metadata.author.photo }}" >
-{% if date %}{# check if page is blog post #}
-<meta content="article" property="og:type">
-<meta content="{{ date }}" property="article:published_time">
-<meta content="{{ metadata.url }}" property="article:author">
-  {% if tags %}
-    {% for tag in tags %}
-    <meta content="{{ tag }}" property="article:tag">
-    {% endfor %}
-  {% endif %}
-{% else %}
-{# set as normal page #}
 <meta property="og:type" content="website">
-{% endif %}
