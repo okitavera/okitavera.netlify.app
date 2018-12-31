@@ -40,7 +40,7 @@ And now you can clone the `dev` branch and push your code to it.
 
 In this case, we use the `master` as the place where your files are generated and should be served automatically by GitHub.
 
-## .travis.yml
+## Configure .travis.yml
 
 In order to make our repository deployed by Travis, we need to add some instruction for travis in a file called `.travis.yml`.
 
@@ -68,7 +68,7 @@ deploy:
 In this case, I use [eleventy](https://11ty.io) as example, so as you can see, it run as nodejs project.
 For more information about the languages that travis supported and the usages, you can visit https://docs.travis-ci.com/user/languages/
 
-## travis setting
+## GitHub Token for Travis
 
 As you can see in the `.travis.yml` before, there is a yaml key named `github_token` and it has `$GH_TOKEN` as the value.
 This token is used by travis to push the generated files into your `master` branch.
