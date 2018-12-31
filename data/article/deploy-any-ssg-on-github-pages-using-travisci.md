@@ -1,5 +1,6 @@
 ---
 title: "Deploy any Static-site generator on github pages using TravisCI"
+description: "In this article, Nanda Okitavera explaining step-by-step how to deploy any static-site generator on github pages automatically by the help of TravisCI Deployment feature."
 date: 2018-12-31
 tags:
   - JAMstack
