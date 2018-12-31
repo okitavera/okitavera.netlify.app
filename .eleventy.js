@@ -31,8 +31,14 @@ module.exports = (eleventy) => {
   eleventy.addFilter("prettySlug", (slug) => {
     return slug.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, "");
   });
+
   eleventy.addFilter("thumbnailURL", (path) => {
     return path.replace("/banners/", "/thumbnails/");
+  });
+
+  eleventy.addShortcode("copyrightYear", (firstYear) => {
+    const yrNow = new Date().getFullYear();
+    return firstYear.concat("-" + yrNow);
   });
 
   eleventy.addFilter("getReadingTime", (content, format) => {
