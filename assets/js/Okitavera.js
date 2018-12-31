@@ -7,66 +7,67 @@ new LazyLoad({
   elements_selector: ".imlazy"
 });
 
-document.documentElement.style.scrollBehavior = "smooth";
+document
+  .querySelectorAll(".hider")
+  .forEach((child, i) =>
+    setTimeout(() => child.classList.add("reveal-it"), 250 * i)
+  );
 
-const body = document.documentElement || document.body;
-var scrolling = false;
-window.onscroll = () => (scrolling = true);
-setInterval(() => {
-  if (scrolling) {
-    scrolling = false;
+// preserve button color on hover
+document.querySelectorAll(".btn").forEach((btn) => {
+  const color = getComputedStyle(btn).color;
+  btn.addEventListener("mouseover", () => {
+    btn.style.color = color;
+  });
+});
+
+function backToTopButton() {
+  setInterval(() => {
+    const body = document.documentElement || document.body;
     if (body.scrollTop > body.clientHeight / 4 ? 1 : 0) {
       document.querySelector(".backtotop").classList.add("show");
     } else {
       document.querySelector(".backtotop").classList.remove("show");
     }
-  }
-}, 250);
-
-window.addEventListener("load", () => {
-  document.body.classList.add("page-loaded");
-  DisqusLoader(disqusdata.username);
-});
-
-document.querySelectorAll(".hider").forEach((child, i) => {
-  setTimeout(function() {
-    child.classList.add("reveal-it");
-  }, 250 * i);
-});
-
-if (document.querySelector("[data-parallax]")) {
-  window.addEventListener(
-    "scroll",
-    () => {
-      const moveBackground = () => {
-        const img = document.querySelector("[data-parallax]");
-        const limit = img.offsetTop + img.offsetHeight;
-        if (window.pageYOffset < limit) {
-          img.style.backgroundPositionY = `-${window.pageYOffset / 6}px`;
-        } else {
-          img.style.backgroundPositionY = `0%`;
-        }
-      };
-      if (!window.requestAnimationFrame) {
-        var lastAnim = 0;
-        const currAnim = new Date().getTime();
-        const timeToCall = Math.max(0, 16 - (currAnim - lastAnim));
-        const id = window.setTimeout(moveBackground, timeToCall);
-        lastAnim = currAnim + timeToCall;
-      } else {
-        window.requestAnimationFrame(moveBackground);
-      }
-    },
-    { passive: true }
-  );
+  }, 250);
 }
 
-// preserve button color on hover
-document.querySelectorAll(".btn").forEach((btn) => {
-  const color = getComputedStyle(btn).color;
-  btn.onmouseover = () => {
-    btn.style.color = color;
-  };
+function moveBanner() {
+  const img = document.querySelector("[data-parallax]");
+  function moveBackground() {
+    const limit = img.offsetTop + img.offsetHeight;
+    if (window.pageYOffset < limit) {
+      img.style.backgroundPositionY = `-${window.pageYOffset / 6}px`;
+    } else {
+      img.style.backgroundPositionY = `0px`;
+    }
+  }
+  if (img && window.matchMedia("(min-width: 775px)").matches) {
+    if (!window.requestAnimationFrame) {
+      const currAnim = new Date().getTime();
+      let lastAnim = 0;
+      let timeToCall = Math.max(0, 16 - (currAnim - lastAnim));
+      setTimeout(moveBackground, timeToCall);
+      lastAnim = currAnim + timeToCall;
+    } else {
+      window.requestAnimationFrame(moveBackground);
+    }
+  }
+}
+
+window.addEventListener(
+  "scroll",
+  () => {
+    backToTopButton();
+    moveBanner();
+  },
+  { passive: true }
+);
+
+window.addEventListener("load", () => {
+  document.documentElement.style.scrollBehavior = "smooth";
+  document.body.classList.add("page-loaded");
+  DisqusLoader(disqusdata.username);
 });
 
 /*!
