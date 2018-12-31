@@ -78,17 +78,18 @@ deploy:
 In this case, I use [eleventy](https://11ty.io) as example, so as you can see, it run as nodejs project.
 For more information about the languages that travis supported and the usages, you can visit https://docs.travis-ci.com/user/languages/
 
+After that, you can push that file into `dev` branch to triggers the travis build.
+
 ## GitHub Token for Travis
 
 As you can see in the `.travis.yml` before, there is a yaml key named `github_token` and it has `$GH_TOKEN` as the value.
-This token is used by travis to push the generated files into your `master` branch.
-So it should be PRIVATE, DO NOT EVER PUT THE TOKEN DIRECTLY INTO YOUR `.travis.yml`.
+This token is used by travis to push the generated files into your `master` branch, so it should be PRIVATE.
 
-In order to set that, you can use the "Environment Variables" in your travis repository settings (https://travis-ci.com/[username]/[repo-name]/settings). And don't forget to set it hidden from the build logs.
+In order to set that variables, you can use the "Environment Variables" in your travis repository settings (https://travis-ci.com/[username]/[repo-name]/settings).
 
 ![deploy-ssg-travis-gh-token](/assets/img/articles/deploy-ssg-travis-gh-token.jpg)
 
-To get your GitHub token, you can visit https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/.
+And to get your GitHub token, you can visit https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/.
 
 After that, you can reload the build process.
 
