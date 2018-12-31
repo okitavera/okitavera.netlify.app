@@ -37,11 +37,15 @@ document.querySelectorAll(".hider").forEach((child, i) => {
 if (document.querySelector("[data-parallax]")) {
   window.addEventListener(
     "scroll",
-    function() {
+    () => {
       const moveBackground = () => {
-        var img = document.querySelector("[data-parallax]");
-        var yPos = window.pageYOffset / 6;
-        img.style.backgroundPosition = `0% -${yPos}px`;
+        const img = document.querySelector("[data-parallax]");
+        const limit = img.offsetTop + img.offsetHeight;
+        if (window.pageYOffset < limit) {
+          img.style.backgroundPositionY = `-${window.pageYOffset / 6}px`;
+        } else {
+          img.style.backgroundPositionY = `0%`;
+        }
       };
       if (!window.requestAnimationFrame) {
         var lastAnim = 0;
