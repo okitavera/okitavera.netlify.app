@@ -46,9 +46,10 @@
       clear-gaps()
     :first-child
       text-transform uppercase
-      font-weight 700 !important
+      font-weight 700
     :last-child
       color $colorDark[1]
+      font-weight 400
 
 .paper
   margin 0
@@ -117,7 +118,6 @@
     &.paper-art
       figure
         padding-top (9 / 16) * 100%
-        background-position center !important // no need to parallax on mobile
     &.paper-title h1
       font-size 2rem
     &.paper-article>pre

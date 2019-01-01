@@ -26,14 +26,13 @@
       a
         margin-right 1rem
 
-.reveal-it
-  opacity 1 !important
-  transform translateX(0) !important
-
 .hider
   opacity 0
   transition all .3s ease
   transform translateX(-40px)
+  &.reveal-it
+    opacity 1
+    transform translateX(0)
 
 .web-title
   text-transform uppercase
