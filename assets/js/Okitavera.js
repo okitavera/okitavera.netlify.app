@@ -3,10 +3,18 @@ import "scroll-behavior-polyfill";
 import LazyLoad from "vanilla-lazyload";
 import DisqusLoader from "./DisqusLoader";
 
-new LazyLoad({
-  elements_selector: ".imlazy"
-});
-
+try {
+  new LazyLoad({
+    elements_selector: ".imlazy"
+  });
+} catch (err) {
+  document.querySelectorAll(".imlazy").forEach((el) => {
+    const datasrc = el.getAttribute("data-src");
+    el.setAttribute("src", datasrc);
+    el.setAttribute("data-lazy", "false");
+    el.classList.add("loaded");
+  });
+}
 document
   .querySelectorAll(".hider")
   .forEach((child, i) =>
