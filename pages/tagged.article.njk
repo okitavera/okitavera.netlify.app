@@ -13,7 +13,7 @@ renderData:
   <div class="container center pad-y0">
     <h1 class="txt-300">TAGGED ARTICLES</h1>
       {% for _tag in collections.tags %}
-        <a href="/article/tags/{{ _tag }}" class="btn {% if tag == _tag %}txt-light bg-accent{% endif %} btn-sm txt-uppercase">{{ _tag }}</a>
+        <a href="/article/tags/{{ _tag }}/" class="btn {% if tag == _tag %}txt-light bg-accent{% endif %} btn-sm txt-uppercase">{{ _tag }}</a>
       {% endfor %}
     <div class="sp"></div>
     <div class="row">
