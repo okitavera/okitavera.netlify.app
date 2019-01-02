@@ -34,6 +34,21 @@
       "name": "aflasio",
       "url": "https://aflasio.com",
       "img": "https://graph.facebook.com/100005552809289/picture?type=square&width=128"
+    },
+    {
+      "name": "habibmustofa",
+      "url": "https://www.habib-mustofa.com/",
+      "img": "https://github.com/habibmustofa.png?size=128"
+    },
+    {
+      "name": "ypraw",
+      "url": "https://ypraw.gitlab.io",
+      "img": "https://github.com/ypraw.png?size=128"
+    },
+    {
+      "name": "drzaln",
+      "url": "https://drzaln.github.io",
+      "img": "https://github.com/drzaln.png?size=128"
     }
   ]
 }
