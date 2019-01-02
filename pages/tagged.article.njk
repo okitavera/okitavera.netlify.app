@@ -23,8 +23,14 @@ renderData:
       <a href="{{ post.url | url }}">
         <figure class="card-thumbnail bg-dark0">
         {% if post.data.splash.url %}
+          <noscript>
+            <img class="imlazy" src="{{ post.data.splash.url }}">
+          </noscript>
           <img class="imlazy" data-src="{{ post.data.splash.url }}">
         {% else %}
+          <noscript>
+            <img class="imlazy" src="/assets/img/book.svg" height="100%">
+          </noscript>
           <img class="imlazy" data-src="/assets/img/book.svg" height="100%">
         {% endif %}
         </figure>

@@ -135,12 +135,13 @@
       display inline-block
       margin 1rem
       img,
-      span
+      span:not(.overlay),
+      .overlay
         position relative
         display block
         width 128px
         height 128px
-      span
+      .overlay
         position absolute
         top 0
         left 0
@@ -154,7 +155,7 @@
         color $colorLight[2]
         text-transform uppercase
       &:hover
-        span
+        .overlay
           opacity 1
 
 .backtotop
