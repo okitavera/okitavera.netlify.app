@@ -42,7 +42,7 @@ module.exports = (eleventy) => {
   eleventy.addFilter("slug", (input) => {
     const options = {
       replacement: "-",
-      remove: /[&,+()$~%.'":*?<>{}]/g,
+      remove: /[&,+()#$~%.'":*?<>{}]/g,
       lower: true
     };
     return slugify(input, options);
