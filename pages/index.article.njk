@@ -14,15 +14,9 @@ title: Article Index
           <a href="{{ post.url }}">
             <figure class="card-thumbnail bg-dark0">
             {% if post.data.splash.url %}
-              <noscript>
-                <img class="imlazy" src="{{ post.data.splash.url | thumbnailURL }}">
-              </noscript>
-              <img class="imlazy" data-src="{{ post.data.splash.url | thumbnailURL }}">
+              {% fallbackImg post.data.splash.url | thumbnailURL, 'class="imlazy"'  %}
             {% else %}
-              <noscript>
-                <img class="imlazy" src="/assets/img/book.svg">
-              </noscript>
-              <img class="imlazy" data-src="/assets/img/book.svg">
+              {% fallbackImg '/assets/img/book.svg', 'class="imlazy"'  %}
             {% endif %}
             </figure>
             <div class="card-context">

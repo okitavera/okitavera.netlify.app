@@ -29,6 +29,16 @@ module.exports = (eleventy) => {
     return DateTime.fromJSDate(dateObj).toFormat("yyyy-LL-dd");
   });
 
+  eleventy.addShortcode("fallbackImg", (url, attr = "") => {
+    const fallbackImg = `
+    <noscript>
+      <img ${attr} src="${url}"/>
+    </noscript>
+    <img ${attr} data-src="${url}"/>
+    `;
+    return fallbackImg;
+  });
+
   eleventy.addFilter("slug", (input) => {
     const options = {
       replacement: "-",

@@ -14,10 +14,7 @@ title: Friends Link
         <div class="sp sp-l"></div>
         {% for friend in friendlists.friends | sort(false, false, 'name')%}
         <a rel="noopener" href="{{ friend.url }}" alt="{{ friend.name }}" aria-label="{{ friend.name }}" target="_blank">
-          <img width="128" height="128" class="circle imlazy" data-src="/assets/img/avatars/{{ friend.name }}.png">
-          <noscript>
-            <img width="128" height="128" class="circle imlazy" src="/assets/img/avatars/{{ friend.name }}.png">
-          </noscript>
+          {% fallbackImg '/assets/img/avatars/'+ friend.name +'.png', 'width="128" height="128" class="circle imlazy"'  %}
           <span class="overlay"><b>{{ friend.name }}</b></span>
         </a>
         {% endfor %}
