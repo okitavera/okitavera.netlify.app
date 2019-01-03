@@ -6,6 +6,7 @@ const markdownItAnchor = require("markdown-it-anchor");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const readingTime = require("reading-time");
+const slugify = require("slugify");
 
 module.exports = (eleventy) => {
   // read some data directly for later use
@@ -28,8 +29,13 @@ module.exports = (eleventy) => {
     return DateTime.fromJSDate(dateObj).toFormat("yyyy-LL-dd");
   });
 
-  eleventy.addFilter("prettySlug", (slug) => {
-    return slug.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, "");
+  eleventy.addFilter("slug", (input) => {
+    const options = {
+      replacement: "-",
+      remove: /[&,+()$~%.'":*?<>{}]/g,
+      lower: true
+    };
+    return slugify(input, options);
   });
 
   eleventy.addFilter("thumbnailURL", (path) => {
