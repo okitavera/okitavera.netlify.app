@@ -7,6 +7,7 @@
   <title>{{ posttitle or renderData.title or title or metadata.title }}</title>
 	<link rel="preload" href="/assets/fonts/Lato-400-CriticalSubset.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="alternate" type="application/rss+xml" title="{{ metadata.feed.title }}" href="{{ metadata.feed.path | url }}">
+  <link rel="manifest" href="/webmanifest.json">
   {% include 'comps/favicon.njk' %}
   <style>
     {% include 'comps/generated/Illuminate.css' %}
