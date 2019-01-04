@@ -38,6 +38,11 @@ function backToTopButton() {
       document.querySelector(".backtotop").classList.remove("show");
     }
   }, 250);
+  document.querySelector(".backtotop").addEventListener("click", (e) => {
+    e.preventDefault();
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+    history.replaceState(null, null, " ");
+  });
 }
 
 function moveBanner() {
