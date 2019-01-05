@@ -1,6 +1,6 @@
 [build]
   publish = "dist"
-  command = "yarn build"
+  command = "gulp default"
 
 [[headers]]
   for = "/*"
@@ -10,8 +10,3 @@
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "SAMEORIGIN"
     X-XSS-Protection = "1; mode=block"
-
-[[redirects]]
-  from = "/article/feed/"
-  to = "/article/feed.xml"
-  status = 301
