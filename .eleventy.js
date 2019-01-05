@@ -7,7 +7,7 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const readingTime = require("reading-time");
 const slugify = require("slugify");
-const pluginWorkbox = require("eleventy-plugin-workbox");
+const pluginPWA = require("eleventy-plugin-pwa");
 
 module.exports = (eleventy) => {
   // read some data directly for later use
@@ -20,7 +20,7 @@ module.exports = (eleventy) => {
   eleventy.addPassthroughCopy("robots.txt");
   eleventy.addPlugin(pluginRss);
   eleventy.addPlugin(pluginSyntaxHighlight);
-  eleventy.addPlugin(pluginWorkbox, {
+  eleventy.addPlugin(pluginPWA, {
     clientsClaim: true,
     skipWaiting: true
   });
