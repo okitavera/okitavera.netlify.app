@@ -7,6 +7,7 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const readingTime = require("reading-time");
 const slugify = require("slugify");
+const pluginWorkbox = require("eleventy-plugin-workbox");
 
 module.exports = (eleventy) => {
   // read some data directly for later use
@@ -19,6 +20,15 @@ module.exports = (eleventy) => {
   eleventy.addPassthroughCopy("robots.txt");
   eleventy.addPlugin(pluginRss);
   eleventy.addPlugin(pluginSyntaxHighlight);
+  eleventy.addPlugin(pluginWorkbox, {
+    clientsClaim: true,
+    skipWaiting: true
+  });
+
+  eleventy.addFilter("cacheBust", (str) => {
+    const dateNow = Date.now();
+    return str.concat(`?v=${dateNow}`);
+  });
 
   eleventy.addFilter("readableDate", (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(

@@ -13,6 +13,7 @@
     "babel-loader": "^8.0.4",
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.7",
+    "eleventy-plugin-workbox": "^1.0.1",
     "feather-icons": "^4.10.0",
     "fontfaceobserver": "^2.1.0",
     "gulp": "^4.0.0",
