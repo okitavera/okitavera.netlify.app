@@ -19,6 +19,7 @@
     "gulp": "^4.0.0",
     "gulp-postcss": "^8.0.0",
     "gulp-stylus": "^2.7.0",
+    "hard-source-webpack-plugin": "^0.13.1",
     "html-minifier": "^3.5.21",
     "luxon": "^1.8.0",
     "markdown-it": "^8.4.2",
