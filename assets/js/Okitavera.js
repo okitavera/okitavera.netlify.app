@@ -15,11 +15,6 @@ try {
     el.classList.add("loaded");
   });
 }
-document
-  .querySelectorAll(".hider")
-  .forEach((child, i) =>
-    setTimeout(() => child.classList.add("reveal-it"), 250 * i)
-  );
 
 // preserve button color on hover
 document.querySelectorAll(".btn").forEach((btn) => {
