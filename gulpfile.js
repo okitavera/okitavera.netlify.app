@@ -107,22 +107,45 @@ gulp.task("build:thumbnails", (done) => {
 });
 
 // download people's avatars
-gulp.task("fetch:avatars", (done) => {
-  const avapath = "./assets/img/avatars";
+const avapath = "./assets/img/avatars";
+gulp.task("ava:fetch", (done) => {
   const ava = JSON.parse(fs.readFileSync("./data/manifest/friendlists.json"))
     .friends;
 
   !fs.existsSync(avapath) && fs.mkdirSync(avapath);
 
   ava.forEach((i) => {
-    const options = `${i.img} -O ${avapath}/${i.name}.png`;
+    const options = `${i.img} -O ${avapath}/${
+      i.name
+    }.min.png -q --show-progress`;
     spawn("wget", options.split(" "), { stdio: "inherit" });
   });
 
-  const options = `${metadata.author.photo} -O ${avapath}/me.png`;
+  const options = `${
+    metadata.author.photo
+  } -O ${avapath}/me.png -q --show-progress`;
   spawn("wget", options.split(" "), { stdio: "inherit" });
 
   return done();
+});
+
+gulp.task("ava:normalize", () => {
+  return gulp
+    .src(`${avapath}/*.min.png`)
+    .pipe(
+      require("gulp-responsive")({
+        "*": {
+          width: "128",
+          format: "png",
+          quality: 80,
+          withMetadata: false,
+          progressive: true,
+          withoutEnlargement: false,
+          errorOnEnlargement: false
+        }
+      })
+    )
+    .pipe(gulp.dest("./assets/img/avatars"));
 });
 
 // cleaning up several output folders

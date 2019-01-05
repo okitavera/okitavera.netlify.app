@@ -40,7 +40,7 @@
   "scripts": {
     "clean": "gulp clean",
     "build": "gulp",
-    "build:images": "gulp fetch:avatars && gulp build:thumbnails",
+    "build:images": "gulp ava:fetch && gulp ava:normalize && gulp build:thumbnails",
     "serve": "gulp serve"
   },
   "repository": {
