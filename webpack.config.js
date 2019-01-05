@@ -42,7 +42,7 @@ const config = {
   }
 };
 
-const inline = Object.assign({}, config, {
+const inline = {
   entry: {
     FontLoader: "./assets/js/FontLoader.js"
   },
@@ -50,9 +50,9 @@ const inline = Object.assign({}, config, {
     path: path.resolve(__dirname, "./modules/comps/generated"),
     filename: "[name].js"
   }
-});
+};
 
-const external = Object.assign({}, config, {
+const external = {
   entry: {
     Okitavera: "./assets/js/Okitavera.js",
     FontLoaderData: "./assets/js/FontLoaderData.js",
@@ -62,6 +62,6 @@ const external = Object.assign({}, config, {
     path: path.resolve(__dirname, `${metadata.site.output}/assets/js`),
     filename: "[name].js"
   }
-});
+};
 
-module.exports = [inline, external];
+module.exports = [{ ...config, ...inline }, { ...config, ...external }];
