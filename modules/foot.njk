@@ -27,13 +27,3 @@
   </footer>
 <div class="owo">(つ▀¯▀)つ</div>
 </div>
-<script>
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker
-      .register("{{ '/service-worker.js' | cacheBust }}")
-      .then(function() {
-        console.log("ServiceWorker has been registered!");
-      })
-      .catch(console.error);
-  }
-</script>

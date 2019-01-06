@@ -25,11 +25,6 @@ module.exports = (eleventy) => {
     skipWaiting: true
   });
 
-  eleventy.addFilter("cacheBust", (str) => {
-    const dateNow = Date.now();
-    return str.concat(`?v=${dateNow}`);
-  });
-
   eleventy.addFilter("readableDate", (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
       "LLLL dd, yyyy"

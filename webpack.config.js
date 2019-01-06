@@ -20,7 +20,8 @@ const config = {
   plugins: [
     new HardSourceWebpackPlugin(),
     new webpack.DefinePlugin({
-      disqusdata: JSON.stringify(metadata.disqus)
+      disqusdata: JSON.stringify(metadata.disqus),
+      buildstamp: JSON.stringify(Date.now())
     })
   ],
   output: {
@@ -44,7 +45,7 @@ const config = {
 
 const inline = {
   entry: {
-    FontLoader: "./assets/js/FontLoader.js"
+    Critical: "./assets/js/Critical.js"
   },
   output: {
     path: path.resolve(__dirname, "./modules/comps/generated"),
