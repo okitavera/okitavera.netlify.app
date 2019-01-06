@@ -1,6 +1,7 @@
 const responsive = require("gulp-responsive");
 const spawn = require("child_process").spawn;
 const rimraf = require("rimraf");
+const fs = require("fs");
 
 module.exports = (gulp, metadata) => {
   // build mini-thumbnails for posts list
