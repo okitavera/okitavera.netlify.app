@@ -13,19 +13,20 @@
   overflow-x hidden
   width 75%
   .main-cover
-    position absolute
+    position fixed
     top 0
-    left 0
+    right 0
     z-index 9
-    width 100%
+    width calc(100% - 350px)
     height 100vh
     background #fff
     transform scaleX(1)
     transform-origin right
     animation growX cubic-bezier(.7, 0, .2, .7) .7s forwards
-    animation-delay .2s
+    animation-delay .15s
 
 .sidebar
+  z-index 10
   min-width 350px
   width 35%
   border-right 1px solid lighten($colorLight[4], 50%)
@@ -67,3 +68,6 @@
     flex-direction column
   .sidebar .container
     min-height unset
+  .main-content
+    .main-cover
+      width 100%
