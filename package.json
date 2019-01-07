@@ -17,6 +17,7 @@
     "feather-icons": "^4.10.0",
     "fontfaceobserver": "^2.1.0",
     "gulp": "^4.0.0",
+    "gulp-download2": "^1.0.2",
     "gulp-postcss": "^8.0.0",
     "gulp-stylus": "^2.7.0",
     "hard-source-webpack-plugin": "^0.13.1",

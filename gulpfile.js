@@ -1,13 +1,23 @@
 const gulp = require("gulp");
-const elv = require("./gulp/eleventy");
-const metadata = JSON.parse(
-  require("fs").readFileSync("./data/manifest/metadata.json")
-);
+global.fs = require("fs");
+global.spawn = require("child_process").spawn;
+global.rimraf = require("rimraf");
+global.metadata = JSON.parse(fs.readFileSync("./data/manifest/metadata.json"));
 
-require("./gulp/clean")(gulp, metadata);
-require("./gulp/stylesheet")(gulp, metadata);
-require("./gulp/scripts")(gulp, metadata);
-require("./gulp/images")(gulp, metadata);
+((dir) => {
+  fs.readdirSync(dir).forEach((file) => {
+    require(dir + file)(gulp);
+  });
+})("./gulp/");
+
+const elv = (options = "") => {
+  let cmd = (cb) =>
+    spawn(require.resolve(".bin/eleventy"), options.split(), {
+      stdio: "inherit"
+    }).on("close", (ret) => cb(ret));
+  cmd.displayName = ("eleventy" + options).replace("--", ":");
+  return cmd;
+};
 
 // task for build and resize thumbnails and avatars
 exports.images = gulp.series("thumbnails", "ava:fetch", "ava:normalize");

@@ -1,16 +1,14 @@
-const responsive = require("gulp-responsive");
-const spawn = require("child_process").spawn;
-const rimraf = require("rimraf");
-const fs = require("fs");
+const res = require("gulp-responsive");
+const dl = require("gulp-download2");
 
-module.exports = (gulp, metadata) => {
+module.exports = (gulp) => {
   // build mini-thumbnails for posts list
   gulp.task("thumbnails", (done) => {
     rimraf("./assets/thumbnails", done);
     return gulp
       .src("./assets/img/banners/*.{png,jpg}")
       .pipe(
-        responsive({
+        res({
           "*": {
             width: "320",
             quality: 80
@@ -25,29 +23,23 @@ module.exports = (gulp, metadata) => {
   gulp.task("ava:fetch", (done) => {
     const ava = JSON.parse(fs.readFileSync("./data/manifest/friendlists.json"))
       .friends;
-
+    const avalist = [];
     !fs.existsSync(avapath) && fs.mkdirSync(avapath);
 
     ava.forEach((i) => {
-      const options = `${i.img} -O ${avapath}/${
-        i.name
-      }.min.png -q --show-progress`;
-      spawn("wget", options.split(" "), { stdio: "inherit" });
+      avalist.push({
+        url: i.img,
+        file: `${i.name}.min.png`
+      });
     });
-
-    const options = `${
-      metadata.author.photo
-    } -O ${avapath}/me.png -q --show-progress`;
-    spawn("wget", options.split(" "), { stdio: "inherit" });
-
-    return done();
+    return dl(avalist).pipe(gulp.dest("./assets/img/avatars"));
   });
 
   gulp.task("ava:normalize", () => {
     return gulp
       .src(`${avapath}/*.min.png`)
       .pipe(
-        responsive({
+        res({
           "*": {
             width: "128",
             format: "png",
@@ -61,4 +53,6 @@ module.exports = (gulp, metadata) => {
       )
       .pipe(gulp.dest("./assets/img/avatars"));
   });
+
+  gulp.task("avatars", gulp.series("ava:fetch", "ava:normalize"));
 };

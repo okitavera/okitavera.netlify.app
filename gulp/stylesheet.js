@@ -7,7 +7,7 @@ const cssNormalize = require("postcss-normalize");
 const cssSVG = require("postcss-inline-svg");
 
 // build main stylesheet with stylus and postcss
-module.exports = (gulp, metadata) => {
+module.exports = (gulp) => {
   const cssNormalizeX = cssNormalize({
     forceImport: true
   });

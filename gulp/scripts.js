@@ -1,7 +1,6 @@
-const fs = require("fs");
 const webpack = require("webpack");
 
-module.exports = (gulp, metadata) => {
+module.exports = (gulp) => {
   // transpile and bundle scripts for browser
   gulp.task(
     "js",
