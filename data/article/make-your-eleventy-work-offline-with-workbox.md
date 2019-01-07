@@ -10,6 +10,7 @@ tags:
   - web-development
 splash:
   url: "/assets/img/banners/eleventy-offline.jpg"
+  credit: "an event that happens approximately 66 million years ago, chromiumized"
 ---
 
 After mobile first, offline first and progressive web apps (PWA) are the current trend at the moment.
