@@ -48,7 +48,7 @@ const inline = {
     Critical: "./assets/js/Critical.js"
   },
   output: {
-    path: path.resolve(__dirname, "./modules/comps/generated"),
+    path: path.resolve(__dirname, "./modules/partial/generated"),
     filename: "[name].js"
   }
 };

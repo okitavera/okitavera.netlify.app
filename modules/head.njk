@@ -3,18 +3,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="title" content="{{ posttitle or renderData.title or title or metadata.title }}">
   <meta name="description" content="{{ description or metadata.description or (metadata.author.name + '\'s Website') }}" >
-  {% include 'comps/metasocial.njk' %}
+  {% include 'partial/metasocial.njk' %}
   <title>{{ posttitle or renderData.title or title or metadata.title }}</title>
 	<link rel="preload" href="/assets/fonts/Lato-400-CriticalSubset.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="alternate" type="application/rss+xml" title="{{ metadata.feed.title }}" href="{{ metadata.feed.path | url }}">
   <link rel="manifest" href="/webmanifest.json">
-  {% include 'comps/favicon.njk' %}
+  {% include 'partial/favicon.njk' %}
   <style>
-    {% include 'comps/generated/Illuminate.css' %}
+    {% include 'partial/generated/Illuminate.css' %}
   </style>
   <link rel="stylesheet" type="text/css" href="/assets/css/IlluminateIcons.css">
   <script>
-    {% include "comps/generated/Critical.js" %}
+    {% include "partial/generated/Critical.js" %}
   </script>
   <script type="text/javascript" src="/assets/js/Okitavera.js" async defer></script>
 </head>

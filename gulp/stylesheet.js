@@ -21,7 +21,7 @@ module.exports = (gulp) => {
       .src("./assets/stylus/Illuminate.styl")
       .pipe(stylus())
       .pipe(postcss([cssNormalizeX, cssPacker, cssEnv, cssNano]))
-      .pipe(gulp.dest("./modules/comps/generated"))
+      .pipe(gulp.dest("./modules/partial/generated"))
   );
 
   // build stylesheet for feather-icons
