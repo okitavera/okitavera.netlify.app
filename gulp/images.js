@@ -1,7 +1,7 @@
 const res = require("gulp-responsive");
 const dl = require("gulp-download2");
 
-module.exports = (gulp) => {
+module.exports = ({ gulp, fs, rimraf }) => {
   // build mini-thumbnails for posts list
   gulp.task("thumbnails", (done) => {
     rimraf("./assets/thumbnails", done);
@@ -20,7 +20,7 @@ module.exports = (gulp) => {
 
   // download people's avatars
   const avapath = "./assets/img/avatars";
-  gulp.task("ava:fetch", (done) => {
+  gulp.task("ava:fetch", () => {
     const ava = JSON.parse(fs.readFileSync("./data/manifest/friendlists.json"))
       .friends;
     const avalist = [];

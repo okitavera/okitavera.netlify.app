@@ -1,12 +1,18 @@
 const gulp = require("gulp");
-global.fs = require("fs");
-global.spawn = require("child_process").spawn;
-global.rimraf = require("rimraf");
-global.metadata = JSON.parse(fs.readFileSync("./data/manifest/metadata.json"));
+const fs = require("fs");
+const spawn = require("child_process").spawn;
+const rimraf = require("rimraf");
+const metadata = JSON.parse(fs.readFileSync("./data/manifest/metadata.json"));
 
 ((dir) => {
   fs.readdirSync(dir).forEach((file) => {
-    require(dir + file)(gulp);
+    require(dir + file)({
+      gulp: gulp,
+      fs: fs,
+      spawn: spawn,
+      rimraf: rimraf,
+      metadata: metadata
+    });
   });
 })("./gulp/");
 
