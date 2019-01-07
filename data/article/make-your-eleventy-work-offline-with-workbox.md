@@ -122,6 +122,7 @@ module.exports = (eleventyConfig) => {
 And finally, we put a simple javascript into our header/footer to register the service-worker.
 
 ```html
+{% raw %}
 <script>
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker
@@ -132,6 +133,7 @@ And finally, we put a simple javascript into our header/footer to register the s
       .catch(console.error);
   }
 </script>
+{% endraw %}
 ```
 
 ## Final
