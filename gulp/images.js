@@ -21,7 +21,7 @@ module.exports = ({ gulp, fs, rimraf }) => {
   // download people's avatars
   const avapath = "./assets/img/avatars";
   gulp.task("ava:fetch", () => {
-    const ava = JSON.parse(fs.readFileSync("./data/manifest/friendlists.json"))
+    const ava = JSON.parse(fs.readFileSync("./manifest/friendlists.json"))
       .friends;
     const avalist = [];
     !fs.existsSync(avapath) && fs.mkdirSync(avapath);

@@ -11,7 +11,7 @@ const pluginPWA = require("eleventy-plugin-pwa");
 
 module.exports = (eleventy) => {
   // read some data directly for later use
-  const metadata = JSON.parse(readFileSync("./data/manifest/metadata.json"));
+  const metadata = JSON.parse(readFileSync("./manifest/metadata.json"));
   // js and styluses are processed by gulp
   // so we only copy imgs and fonts
   eleventy.addPassthroughCopy("assets/img");
@@ -147,7 +147,7 @@ module.exports = (eleventy) => {
     dir: {
       input: ".",
       includes: "modules",
-      data: "data/manifest",
+      data: "manifest",
       output: metadata.site.output
     }
   };

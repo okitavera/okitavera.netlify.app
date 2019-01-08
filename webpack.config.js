@@ -1,6 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
-const metadata = require("./data/manifest/metadata.json");
+const metadata = require("./manifest/metadata.json");
 const TerserPlugin = require("terser-webpack-plugin");
 const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
 

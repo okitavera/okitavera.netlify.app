@@ -2,7 +2,7 @@ const gulp = require("gulp");
 const fs = require("fs");
 const spawn = require("child_process").spawn;
 const rimraf = require("rimraf");
-const metadata = JSON.parse(fs.readFileSync("./data/manifest/metadata.json"));
+const metadata = JSON.parse(fs.readFileSync("./manifest/metadata.json"));
 
 ((dir) => {
   fs.readdirSync(dir).forEach((file) => {
