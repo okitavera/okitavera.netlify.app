@@ -1,10 +1,15 @@
+{% if permalink ==  "/" %}
+{% set title = metadata.title %}
+{% else %}
+{% set title = renderData.title or title or metadata.title %}
+{% endif %}
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="title" content="{{ posttitle or renderData.title or title or metadata.title }}">
+  <meta name="title" content="{{ title }}">
   <meta name="description" content="{{ description or metadata.description or (metadata.author.name + '\'s Website') }}" >
   {% include 'partial/metasocial.njk' %}
-  <title>{{ posttitle or renderData.title or title or metadata.title }}</title>
+  <title>{{ title }}</title>
 	<link rel="preload" href="/assets/fonts/Lato-400-CriticalSubset.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="alternate" type="application/rss+xml" title="{{ metadata.feed.title }}" href="{{ metadata.feed.path | url }}">
   <link rel="manifest" href="/webmanifest.json">

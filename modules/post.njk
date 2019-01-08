@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js">
-{% set posttitle = title + ' - ' + metadata.title %}
-{% include "head.njk" %}
-<body>
-<div class="wrapper">
-{% include "sidebar.njk" %}
-<main class="main-content bg-light0">
-<div class="main-cover"></div>
+---
+layout: plain.njk
+---
 <section class="container pad-y0 pad-x0">
   <header class="row paper paper-title">
     <div class="col">
-      <time datetime="{{ date | htmlDateString }}"><i class="fea-calendar"></i> {{ date | readableDate }}</time>
       <h1>{{ title }}</h1>
-      <span><i class="fea-clock"></i> {{ content | getReadingTime("%W words, %M minutes to read") }}</span>
+      <time datetime="{{ date | htmlDateString }}"><i class="fea-calendar"></i>&nbsp;&nbsp;{{ date | readableDate }}</time>
+      &nbsp;&nbsp;
+      <span><i class="fea-clock"></i>&nbsp;&nbsp;{{ content | getReadingTime("%M minutes to read") }}</span>
     </div>
   </header>
   <div class="row paper paper-art">
@@ -61,8 +56,3 @@
 </section>
 <div class="hl-50"></div>
 {% include "recentarticle.njk" %}
-{% include "foot.njk" %}
-</main>
-</div>
-</body>
-</html>
