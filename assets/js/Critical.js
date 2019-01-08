@@ -5,14 +5,8 @@ document.documentElement.className = document.documentElement.className.replace(
   "has-js"
 );
 
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker
-    .register(`/service-worker.js?v=${buildstamp}`)
-    .then(function() {
-      console.log("ServiceWorker has been registered!");
-    })
-    .catch(console.error);
-}
+"serviceWorker" in navigator &&
+  navigator.serviceWorker.register(`/service-worker.js?v=${buildstamp}`);
 
 const loadIcons = document.getElementsByTagName("link")[0];
 const IlluminateIcons = document.createElement("link");
