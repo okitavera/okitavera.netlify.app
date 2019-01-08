@@ -43,18 +43,9 @@ const config = {
   }
 };
 
-const inline = {
-  entry: {
-    Critical: "./assets/js/Critical.js"
-  },
-  output: {
-    path: path.resolve(__dirname, "./modules/partial/generated"),
-    filename: "[name].js"
-  }
-};
-
 const external = {
   entry: {
+    Critical: "./assets/js/Critical.js",
     Okitavera: "./assets/js/Okitavera.js",
     FontLoaderData: "./assets/js/FontLoaderData.js",
     FontLoaderFallback: "./assets/js/FontLoaderFallback.js"
@@ -65,4 +56,4 @@ const external = {
   }
 };
 
-module.exports = [{ ...config, ...inline }, { ...config, ...external }];
+module.exports = [{ ...config, ...external }];
