@@ -3,10 +3,12 @@ import "scroll-behavior-polyfill";
 import LazyLoad from "vanilla-lazyload";
 import DisqusLoader from "./DisqusLoader";
 
+const imgLoad = new LazyLoad({
+  elements_selector: ".imlazy"
+});
+
 try {
-  new LazyLoad({
-    elements_selector: ".imlazy"
-  });
+  imgLoad();
 } catch (err) {
   document.querySelectorAll(".imlazy").forEach((el) => {
     const datasrc = el.getAttribute("data-src");
@@ -76,6 +78,21 @@ window.addEventListener("load", () => {
   document.documentElement.style.scrollBehavior = "smooth";
   document.body.classList.add("page-loaded");
   DisqusLoader(disqusdata.username);
+  if ("fetch" in document) {
+    import("fetch-pjax").then((Fetcher) => {
+      new Fetcher({
+        ignoreSelector: "[data-is-nav]",
+        callbacks: {
+          onCompletePjax: () => {
+            imgLoad();
+            document.documentElement.style.scrollBehavior = "";
+            document.querySelector("main").scrollIntoView();
+            document.documentElement.style.scrollBehavior = "smooth";
+          }
+        }
+      });
+    });
+  }
 });
 
 /*!

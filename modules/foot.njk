@@ -1,4 +1,4 @@
-<a href="#" class="btn backtotop"><i class="fea-chevron-up" style="filter:invert(100%)"></i></a>
+<a href="#" class="btn backtotop" data-is-nav><i class="fea-chevron-up" style="filter:invert(100%)"></i></a>
 <div class="hl-100"></div>
 <div class="main-footer">
   <footer class="container copyright">
@@ -6,9 +6,9 @@
       <div class="jumps col center">
         <div class="sp"></div>
         <a href="/">Home</a>
-        <a href="/#about">About</a>
+        <a href="/#about" {% if permalink != "/" %}data-is-nav{% endif %}>About</a>
         <a href="/article/">Blog</a>
-        <a href="/#sideprojects">Projects</a>
+        <a href="/#sideprojects"  {% if permalink != "/" %}data-is-nav{% endif %}>Projects</a>
         <a href="/community/">Community</a>
         <a href="{{ metadata.feed.path }}">RSS</a>
       </div>
