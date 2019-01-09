@@ -9,7 +9,7 @@ const imgLoad = new LazyLoad({
 });
 
 try {
-  imgLoad();
+  imgLoad.update();
 } catch (err) {
   document.querySelectorAll(".imlazy").forEach((el) => {
     const datasrc = el.getAttribute("data-src");
@@ -83,7 +83,7 @@ window.addEventListener("load", () => {
     ignoreSelector: "[data-is-nav]",
     callbacks: {
       onCompletePjax: () => {
-        imgLoad();
+        imgLoad.update();
         document.documentElement.style.scrollBehavior = "";
         document.querySelector("main").scrollIntoView();
         document.documentElement.style.scrollBehavior = "smooth";
