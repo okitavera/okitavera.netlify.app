@@ -2,6 +2,7 @@ import "@babel/polyfill";
 import "scroll-behavior-polyfill";
 import LazyLoad from "vanilla-lazyload";
 import DisqusLoader from "./DisqusLoader";
+import FetchPjax from "fetch-pjax";
 
 const imgLoad = new LazyLoad({
   elements_selector: ".imlazy"
@@ -78,21 +79,17 @@ window.addEventListener("load", () => {
   document.documentElement.style.scrollBehavior = "smooth";
   document.body.classList.add("page-loaded");
   DisqusLoader(disqusdata.username);
-  if ("fetch" in document) {
-    import("fetch-pjax").then((Fetcher) => {
-      new Fetcher({
-        ignoreSelector: "[data-is-nav]",
-        callbacks: {
-          onCompletePjax: () => {
-            imgLoad();
-            document.documentElement.style.scrollBehavior = "";
-            document.querySelector("main").scrollIntoView();
-            document.documentElement.style.scrollBehavior = "smooth";
-          }
-        }
-      });
-    });
-  }
+  new FetchPjax({
+    ignoreSelector: "[data-is-nav]",
+    callbacks: {
+      onCompletePjax: () => {
+        imgLoad();
+        document.documentElement.style.scrollBehavior = "";
+        document.querySelector("main").scrollIntoView();
+        document.documentElement.style.scrollBehavior = "smooth";
+      }
+    }
+  });
 });
 
 /*!
