@@ -1,42 +1,27 @@
 import "@babel/polyfill";
-import "scroll-behavior-polyfill";
 import LazyLoad from "vanilla-lazyload";
 import DisqusLoader from "./DisqusLoader";
 import FetchPjax from "fetch-pjax";
-
-const imgLoad = new LazyLoad({
-  elements_selector: ".imlazy"
-});
-
-try {
-  imgLoad.update();
-} catch (err) {
-  document.querySelectorAll(".imlazy").forEach((el) => {
-    const datasrc = el.getAttribute("data-src");
-    el.setAttribute("src", datasrc);
-    el.setAttribute("data-lazy", "false");
-    el.classList.add("loaded");
-  });
-}
+import fetchScript from "./FetchScript";
 
 // preserve button color on hover
-document.querySelectorAll(".btn").forEach((btn) => {
-  const color = getComputedStyle(btn).color;
-  btn.addEventListener("mouseover", () => {
+document.querySelectorAll(".btn").forEach(function(btn) {
+  var color = getComputedStyle(btn).color;
+  btn.addEventListener("mouseover", function() {
     btn.style.color = color;
   });
 });
 
 function backToTopButton() {
-  setInterval(() => {
-    const body = document.documentElement || document.body;
+  setInterval(function() {
+    var body = document.documentElement || document.body;
     if (body.scrollTop > body.clientHeight / 4 ? 1 : 0) {
       document.querySelector(".backtotop").classList.add("show");
     } else {
       document.querySelector(".backtotop").classList.remove("show");
     }
   }, 250);
-  document.querySelector(".backtotop").addEventListener("click", (e) => {
+  document.querySelector(".backtotop").addEventListener("click", function(e) {
     e.preventDefault();
     document.body.scrollTop = document.documentElement.scrollTop = 0;
     history.replaceState(null, null, " ");
@@ -44,9 +29,9 @@ function backToTopButton() {
 }
 
 function moveBanner() {
-  const img = document.querySelector("[data-parallax]");
+  var img = document.querySelector("[data-parallax]");
   function moveBackground() {
-    const limit = img.offsetTop + img.offsetHeight;
+    var limit = img.offsetTop + img.offsetHeight;
     if (window.pageYOffset < limit) {
       img.style.backgroundPositionY = `-${window.pageYOffset / 6}px`;
     } else {
@@ -55,7 +40,7 @@ function moveBanner() {
   }
   if (img && window.matchMedia("(min-width: 775px)").matches) {
     if (!window.requestAnimationFrame) {
-      const currAnim = new Date().getTime();
+      var currAnim = new Date().getTime();
       let lastAnim = 0;
       let timeToCall = Math.max(0, 16 - (currAnim - lastAnim));
       setTimeout(moveBackground, timeToCall);
@@ -66,32 +51,36 @@ function moveBanner() {
   }
 }
 
-window.addEventListener(
-  "scroll",
-  () => {
-    backToTopButton();
-    moveBanner();
-  },
-  { passive: true }
-);
+var onscrolling = function() {
+  backToTopButton();
+  moveBanner();
+};
 
-window.addEventListener("load", () => {
+if (!"scroll-behaviour" in document.documentElement.style) {
+  fetchScript("/assets/js/polyfills/ScrollBehaviour.js");
+}
+
+var lazyLazy = new LazyLoad({ elements_selector: ".imlazy" });
+var initialize = function(pjax = false) {
+  lazyLazy.update();
+  if (pjax) lazyLazy.loadAll();
+  document.documentElement.style.scrollBehavior = "";
+  document.body.scrollTop = document.documentElement.scrollTop = 0;
   document.documentElement.style.scrollBehavior = "smooth";
-  document.body.classList.add("page-loaded");
   DisqusLoader(disqusdata.username);
-  new FetchPjax({
-    ignoreSelector: "[data-is-nav]",
-    callbacks: {
-      onCompletePjax: () => {
-        imgLoad.update();
-        document.documentElement.style.scrollBehavior = "";
-        document.querySelector("main").scrollIntoView();
-        document.documentElement.style.scrollBehavior = "smooth";
-        DisqusLoader(disqusdata.username);
-      }
+};
+
+new FetchPjax({
+  ignoreSelector: "[data-is-nav]",
+  callbacks: {
+    onCompletePjax: function() {
+      return initialize(true);
     }
-  });
+  }
 });
+
+window.addEventListener("load", initialize);
+window.addEventListener("scroll", onscrolling, { passive: true });
 
 /*!
  * Copyright (c) 2018 Nanda Okitavera

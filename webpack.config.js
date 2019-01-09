@@ -56,7 +56,8 @@ const external = {
   entry: {
     Okitavera: "./assets/js/Okitavera.js",
     FontLoaderData: "./assets/js/FontLoaderData.js",
-    FontLoaderFallback: "./assets/js/FontLoaderFallback.js"
+    FontLoaderFallback: "./assets/js/FontLoaderFallback.js",
+    ScrollBehaviour: "./assets/js/polyfills/ScrollBehaviour.js"
   },
   output: {
     path: path.resolve(__dirname, `${metadata.site.output}/assets/js`),

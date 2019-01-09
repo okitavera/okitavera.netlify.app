@@ -1,0 +1,1 @@
+import "scroll-behavior-polyfill";
