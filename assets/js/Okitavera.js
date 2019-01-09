@@ -61,21 +61,23 @@ var initialize = function(pjax = false) {
   document.documentElement.style.scrollBehavior = "smooth";
   DisqusLoader(disqusdata.username);
 };
-
-new FetchPjax({
-  ignoreSelector: "[href^='/#'],[href^='#']",
-  callbacks: {
-    onBeforePjax: function() {
-      document.documentElement.style.scrollBehavior = "smooth";
-    },
-    onSuccessPjax: function() {
-      document.body.scrollTop = document.documentElement.scrollTop = 0;
-    },
-    onCompletePjax: function() {
-      return initialize(true);
+var botTest = /bot|google|baidu|bing|msn|duckduckgo|slurp|yandex/i;
+if (botTest.test(navigator.userAgent) == false) {
+  new FetchPjax({
+    ignoreSelector: "[href^='/#'],[href^='#']",
+    callbacks: {
+      onBeforePjax: function() {
+        document.documentElement.style.scrollBehavior = "smooth";
+      },
+      onSuccessPjax: function() {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+      },
+      onCompletePjax: function() {
+        return initialize(true);
+      }
     }
-  }
-});
+  });
+}
 
 window.addEventListener("load", initialize);
 window.addEventListener("scroll", onscrolling, { passive: true });
