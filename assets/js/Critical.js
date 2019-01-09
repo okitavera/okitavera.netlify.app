@@ -8,8 +8,8 @@ document.documentElement.className = document.documentElement.className.replace(
 "serviceWorker" in navigator &&
   navigator.serviceWorker.register(`/service-worker.js?v=${buildstamp}`);
 
-const loadIcons = document.getElementsByTagName("link")[0];
-const IlluminateIcons = document.createElement("link");
+var loadIcons = document.getElementsByTagName("link")[0];
+var IlluminateIcons = document.createElement("link");
 IlluminateIcons.rel = "stylesheet";
 IlluminateIcons.href = "/assets/css/IlluminateIcons.css";
 IlluminateIcons.type = "text/css";

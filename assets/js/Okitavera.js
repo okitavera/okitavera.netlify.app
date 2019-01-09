@@ -59,6 +59,9 @@ var onscrolling = function() {
 if (!"scroll-behaviour" in document.documentElement.style) {
   fetchScript("/assets/js/polyfills/ScrollBehaviour.js");
 }
+if (!"fetch" in window) {
+  fetchScript("/assets/js/polyfills/Fetch.js");
+}
 
 var lazyLazy = new LazyLoad({ elements_selector: ".imlazy" });
 var initialize = function(pjax = false) {

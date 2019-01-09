@@ -55,9 +55,7 @@ const inline = {
 const external = {
   entry: {
     Okitavera: "./assets/js/Okitavera.js",
-    FontLoaderData: "./assets/js/FontLoaderData.js",
-    FontLoaderFallback: "./assets/js/FontLoaderFallback.js",
-    ScrollBehaviour: "./assets/js/polyfills/ScrollBehaviour.js"
+    FontLoaderData: "./assets/js/FontLoaderData.js"
   },
   output: {
     path: path.resolve(__dirname, `${metadata.site.output}/assets/js`),
@@ -65,4 +63,20 @@ const external = {
   }
 };
 
-module.exports = [{ ...config, ...inline }, { ...config, ...external }];
+const polyfills = {
+  entry: {
+    FontLoaderFallback: "./assets/js/polyfills/FontLoaderFallback.js",
+    ScrollBehaviour: "./assets/js/polyfills/ScrollBehaviour.js",
+    Fetch: "./assets/js/polyfills/Fetch.js"
+  },
+  output: {
+    path: path.resolve(__dirname, `${metadata.site.output}/assets/js`),
+    filename: "[name].js"
+  }
+};
+
+module.exports = [
+  { ...config, ...inline },
+  { ...config, ...external },
+  { ...config, ...polyfills }
+];

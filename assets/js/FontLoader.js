@@ -15,8 +15,8 @@ if (typeof window.sessionStorage == "undefined") {
     document.fonts.load(`1em ${Fonts.critical.name}`).then(function() {
       document.documentElement.className += " webfont-stage-1";
 
-      const recipes = [];
-      Fonts.final.variant.forEach((list) => {
+      var recipes = [];
+      Fonts.final.variant.forEach(function(list) {
         let variant = list
           .split(" ")
           .reverse()
@@ -25,7 +25,13 @@ if (typeof window.sessionStorage == "undefined") {
         recipes.push(document.fonts.load(variant + Fonts.final.name));
       });
 
-      Promise.all(recipes.map((font) => font.catch((e) => e))).then(function() {
+      Promise.all(
+        recipes.map(function(font) {
+          return font.catch(function(e) {
+            return e;
+          });
+        })
+      ).then(function() {
         document.documentElement.className += " webfont-stage-2";
         // Optimization for Repeat Views
         sessionStorage.fontsLoadedCriticalFoftPreloadFallback = true;
@@ -35,7 +41,7 @@ if (typeof window.sessionStorage == "undefined") {
     // use fallback
     var ref = document.getElementsByTagName("script")[0];
     var script = document.createElement("script");
-    script.src = "/assets/js/FontLoaderFallback.js";
+    script.src = "/assets/js/polyfills/FontLoaderFallback.js";
     script.type = "text/javascript";
     script.async = true;
     ref.parentNode.insertBefore(script, ref);
