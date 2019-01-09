@@ -66,10 +66,8 @@ if (botTest.test(navigator.userAgent) == false) {
   new FetchPjax({
     ignoreSelector: "[href^='/#'],[href^='#']",
     callbacks: {
-      onBeforePjax: function() {
-        document.documentElement.style.scrollBehavior = "smooth";
-      },
       onSuccessPjax: function() {
+        document.documentElement.style = "";
         document.body.scrollTop = document.documentElement.scrollTop = 0;
       },
       onCompletePjax: function() {
