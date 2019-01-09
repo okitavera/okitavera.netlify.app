@@ -34,6 +34,8 @@
   width 35%
   border-right 1px solid lighten($colorLight[4], 50%)
   background-color white
+  *
+    transition all cubic-bezier(.7, 0, .2, .7) .5s
   .menu
     font-size 1.8rem
   .container
@@ -64,6 +66,25 @@
   .sidebar
     border-right 0
     border-bottom 1px solid lighten($colorLight[4], 50%)
+    .container
+      flex-direction row
+      flex-wrap wrap
+      align-content center
+      .row
+        flex 0 0 auto
+        flex-basis auto
+        align-self center
+        width auto
+        &:last-child
+          flex 0 1 100%
+          .col
+            text-align center
+    .web-title
+      margin 5px
+      font-size 1.8rem
+    .web-desc
+      margin 5px
+      font-size 1rem
   .sidebar,
   .main-content
     width 100%
