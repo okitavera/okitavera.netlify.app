@@ -123,6 +123,22 @@ module.exports = (eleventy) => {
     return content;
   });
 
+  eleventy.addTransform("externalLinks", (content, outputPath) => {
+    const excludes = ["/", "#", metadata.url];
+    if (outputPath && outputPath.endsWith(".html")) {
+      const $ = require("cheerio").load(content);
+      $("a").each((_, elem) => {
+        const href = $(elem).attr("href");
+        if (href && !href.match(`^(${excludes.join("|")}).*`)) {
+          $(elem).attr("rel", "external noopener");
+          $(elem).attr("target", "_blank");
+        }
+      });
+      return $.html();
+    }
+    return content;
+  });
+
   eleventy.setLibrary(
     "md",
     markdownIt({
