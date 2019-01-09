@@ -15,9 +15,10 @@ title: Community
         </p>
         <div class="sp sp-l"></div>
         {% for friend in friendlists.friends | sort(false, false, 'name')%}
-        <a rel="noopener" href="{{ friend.url }}" alt="{{ friend.name }}" aria-label="{{ friend.name }}" target="_blank">
-          {% fallbackImg '/assets/img/avatars/'+ friend.name +'.min.png', 'width="128" height="128" class="circle imlazy"'  %}
-          <span class="overlay"><b>{{ friend.name }}</b></span>
+        <a class="txt-dark2 pad-x1" rel="noopener" href="{{ friend.url }}" alt="{{ friend.name }}" aria-label="{{ friend.name }}" target="_blank">
+          {% fallbackImg '/assets/img/avatars/'+ friend.name +'.min.png', 'width="100" height="100" class="imlazy"'  %}
+          <span class="txt-uppercase">{{ friend.name }}</span>
+          <span>{{ friend.url | replace("https://","") }}</span>
         </a>
         {% endfor %}
       </div>

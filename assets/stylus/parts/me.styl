@@ -134,29 +134,20 @@
       position relative
       display inline-block
       margin 1rem
-      img,
-      span:not(.overlay),
-      .overlay
-        position relative
-        display block
-        width 128px
-        height 128px
-      .overlay
-        position absolute
-        top 0
-        left 0
+      img
+        display inline-block
+        width 100px
+        height 100px
         border-radius 50%
-        background-color rgba($colorDark[0], .5)
-        opacity 0
-        transition .25s ease-out all
-      b
-        position relative
-        top calc(128px / 2 - 1rem)
-        color $colorLight[2]
-        text-transform uppercase
-      &:hover
-        .overlay
-          opacity 1
+        filter grayscale(100%)
+        transition all .5s ease
+        &:hover
+          border-radius 76% 24% 34% 66% / 32% 38% 62% 68%
+          filter grayscale(0)
+          transform scale(1.1)
+      span
+        display block
+        font-size .8rem
 
 .backtotop
   position fixed
