@@ -21,11 +21,6 @@ function backToTopButton() {
       document.querySelector(".backtotop").classList.remove("show");
     }
   }, 250);
-  document.querySelector(".backtotop").addEventListener("click", function(e) {
-    e.preventDefault();
-    document.body.scrollTop = document.documentElement.scrollTop = 0;
-    history.replaceState(null, null, " ");
-  });
 }
 
 function moveBanner() {
@@ -40,11 +35,7 @@ function moveBanner() {
   }
   if (img && window.matchMedia("(min-width: 775px)").matches) {
     if (!window.requestAnimationFrame) {
-      var currAnim = new Date().getTime();
-      let lastAnim = 0;
-      let timeToCall = Math.max(0, 16 - (currAnim - lastAnim));
-      setTimeout(moveBackground, timeToCall);
-      lastAnim = currAnim + timeToCall;
+      moveBackground();
     } else {
       window.requestAnimationFrame(moveBackground);
     }
@@ -67,15 +58,19 @@ var lazyLazy = new LazyLoad({ elements_selector: ".imlazy" });
 var initialize = function(pjax = false) {
   lazyLazy.update();
   if (pjax) lazyLazy.loadAll();
-  document.documentElement.style.scrollBehavior = "";
-  document.body.scrollTop = document.documentElement.scrollTop = 0;
   document.documentElement.style.scrollBehavior = "smooth";
   DisqusLoader(disqusdata.username);
 };
 
 new FetchPjax({
-  ignoreSelector: "[data-is-nav]",
+  ignoreSelector: "[href^='/#'],[href^='#']",
   callbacks: {
+    onBeforePjax: function() {
+      document.documentElement.style.scrollBehavior = "smooth";
+    },
+    onSuccessPjax: function() {
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
+    },
     onCompletePjax: function() {
       return initialize(true);
     }

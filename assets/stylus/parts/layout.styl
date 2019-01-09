@@ -8,22 +8,24 @@
   to
     transform scaleX(0)
 
+@keyframes mainSlide
+  from
+    filter opacity(0)
+    transform translateY(-64px)
+  to
+    filter opacity(1)
+    transform translateY(0)
+
 .main-content
   position relative
   overflow-x hidden
   width 75%
-  .main-cover
-    position fixed
-    top 0
-    right 0
-    z-index 9
-    width calc(100% - 350px)
-    height 100vh
-    background #fff
-    transform scaleX(1)
-    transform-origin right
-    animation growX cubic-bezier(.7, 0, .2, .7) .7s forwards
+  .main-transition
+    filter opacity(0)
+    transform translateY(-64px)
+    animation mainSlide cubic-bezier(.7, 0, .2, .7) .5s forwards
     animation-delay .15s
+    will-change transform, opacity
 
 .sidebar
   z-index 10
