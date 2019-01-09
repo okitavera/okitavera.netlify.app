@@ -87,6 +87,7 @@ window.addEventListener("load", () => {
         document.documentElement.style.scrollBehavior = "";
         document.querySelector("main").scrollIntoView();
         document.documentElement.style.scrollBehavior = "smooth";
+        DisqusLoader(disqusdata.username);
       }
     }
   });
