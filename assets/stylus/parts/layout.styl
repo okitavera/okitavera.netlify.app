@@ -20,12 +20,13 @@
   position relative
   overflow-x hidden
   width 75%
-  .main-transition
-    filter opacity(0)
-    transform translateY(-64px)
-    animation mainSlide cubic-bezier(.7, 0, .2, .7) .5s forwards
-    animation-delay .15s
-    will-change transform, opacity
+
+.main-content > *
+  filter opacity(0)
+  transform translateY(-64px)
+  animation mainSlide cubic-bezier(.7, 0, .2, .7) .5s forwards
+  animation-delay .15s
+  will-change transform, opacity
 
 .sidebar
   z-index 10
