@@ -147,7 +147,7 @@ module.exports = (eleventy) => {
       linkify: true
     }).use(markdownItAnchor, {
       permalink: true,
-      permalinkClass: "direct-link",
+      permalinkClass: "direct-link jumper",
       permalinkSymbol: "#",
       permalinkBefore: false
     })

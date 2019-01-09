@@ -64,7 +64,7 @@ var initialize = function(pjax = false) {
 var botTest = /bot|google|baidu|bing|msn|duckduckgo|slurp|yandex/i;
 if (botTest.test(navigator.userAgent) == false) {
   new FetchPjax({
-    ignoreSelector: "[href^='/#'],[href^='#']",
+    ignoreSelector: ".jumper",
     callbacks: {
       onSuccessPjax: function() {
         document.documentElement.style = "";
