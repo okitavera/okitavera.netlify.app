@@ -41,6 +41,16 @@
   "devDependencies": {
     "gulp-responsive": "^2.11.0"
   },
+  "browserslist": [
+    ">= 1%",
+    "last 1 version",
+    "Chrome >= 58",
+    "Firefox >= 56",
+    "Explorer >= 11",
+    "Safari >= 10.3",
+    "Android >= 4.4",
+    "not dead"
+  ],
   "scripts": {
     "clean": "gulp clean",
     "build": "gulp",
