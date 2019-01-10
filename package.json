@@ -16,7 +16,6 @@
     "cssnano": "^4.1.7",
     "eleventy-plugin-pwa": "^1.0.1",
     "feather-icons": "^4.10.0",
-    "fetch-pjax": "^1.1.1",
     "fontfaceobserver": "^2.1.0",
     "gulp": "^4.0.0",
     "gulp-download2": "^1.0.2",
@@ -35,7 +34,6 @@
     "scroll-behavior-polyfill": "^1.0.2",
     "stylus": "^0.54.5",
     "terser-webpack-plugin": "^1.1.0",
-    "unfetch": "^4.0.1",
     "vanilla-lazyload": "^8.17.0",
     "webpack": "^4.27.1"
   },

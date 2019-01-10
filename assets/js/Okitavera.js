@@ -1,7 +1,6 @@
 import "@babel/polyfill";
 import LazyLoad from "vanilla-lazyload";
 import DisqusLoader from "./DisqusLoader";
-import FetchPjax from "fetch-pjax";
 import fetchScript from "./FetchScript";
 
 // preserve button color on hover
@@ -50,32 +49,13 @@ var onscrolling = function() {
 if (!"scroll-behaviour" in document.documentElement.style) {
   fetchScript("/assets/js/polyfills/ScrollBehaviour.js");
 }
-if (!"fetch" in window) {
-  fetchScript("/assets/js/polyfills/Fetch.js");
-}
 
 var lazyLazy = new LazyLoad({ elements_selector: ".imlazy" });
-var initialize = function(pjax = false) {
+var initialize = function() {
   lazyLazy.update();
-  if (pjax) lazyLazy.loadAll();
   document.documentElement.style.scrollBehavior = "smooth";
   DisqusLoader(disqusdata.username);
 };
-var botTest = /bot|google|baidu|bing|msn|duckduckgo|slurp|yandex/i;
-if (botTest.test(navigator.userAgent) == false) {
-  new FetchPjax({
-    ignoreSelector: ".jumper",
-    callbacks: {
-      onSuccessPjax: function() {
-        document.documentElement.style = "";
-        document.body.scrollTop = document.documentElement.scrollTop = 0;
-      },
-      onCompletePjax: function() {
-        return initialize(true);
-      }
-    }
-  });
-}
 
 window.addEventListener("load", initialize);
 window.addEventListener("scroll", onscrolling, { passive: true });
