@@ -1,6 +1,6 @@
 {
   "name": "Nanda Okitavera",
-  "short_name": "okitavera",
+  "short_name": "okitavera.me",
   "icons": [
     {
       "src": "/assets/img/favicon/192.png",
@@ -15,5 +15,6 @@
   ],
   "theme_color": "#ec407a",
   "background_color": "#ec407a",
-  "display": "standalone"
+  "display": "standalone",
+  "start_url": "/"
 }
