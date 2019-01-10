@@ -5,16 +5,17 @@ export default function PageLoader(loaderDone) {
     links.forEach((a) => {
       var pageURL = a.getAttribute("href");
       if (!isExternal(pageURL) && !pageURL.match(/\/\#/g)) {
-        a.addEventListener("click", function(e) {
+        a.onclick = (e) => {
           e.preventDefault();
           pageFetcher(pageURL);
-        });
+        };
       }
     });
-    window.addEventListener("popstate", function(event) {
-      renderer(event.state);
-    });
   }
+
+  window.addEventListener("popstate", function(event) {
+    renderer(event.state);
+  });
 
   function pageFetcher(url) {
     var parser = new DOMParser();
