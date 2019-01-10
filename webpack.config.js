@@ -4,19 +4,32 @@ const metadata = require("./manifest/metadata.json");
 const TerserPlugin = require("terser-webpack-plugin");
 const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
 
-const config = {
-  mode: "production",
-  module: {
-    rules: [
-      {
-        test: /\.m?js$/,
-        include: path.resolve(__dirname, "assets"),
-        use: {
-          loader: "babel-loader?cacheDirectory"
-        }
-      }
-    ]
+const inline = {
+  entry: {
+    Critical: "./assets/js/Critical.js"
   },
+  output: {
+    path: path.resolve(__dirname, "./modules/partial/generated"),
+    filename: "[name].js"
+  }
+};
+
+const external = {
+  entry: {
+    Okitavera: "./assets/js/Okitavera.js"
+  }
+};
+
+const polyfills = {
+  entry: {
+    "polyfills/FontLoaderFallback":
+      "./assets/js/polyfills/FontLoaderFallback.js",
+    "polyfills/ScrollBehaviour": "./assets/js/polyfills/ScrollBehaviour.js"
+  }
+};
+
+const conf = {
+  mode: "production",
   plugins: [
     new HardSourceWebpackPlugin(),
     new webpack.DefinePlugin({
@@ -42,43 +55,57 @@ const config = {
     ]
   }
 };
-const inline = {
-  entry: {
-    Critical: "./assets/js/Critical.js"
-  },
+
+const esl = {
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        include: path.resolve(__dirname, "assets"),
+        use: {
+          loader: "babel-loader?cacheDirectory",
+          options: {
+            envName: "legacy"
+          }
+        }
+      }
+    ]
+  }
+};
+
+const esm = {
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        include: path.resolve(__dirname, "assets"),
+        use: {
+          loader: "babel-loader?cacheDirectory",
+          options: {
+            envName: "modern"
+          }
+        }
+      }
+    ]
+  }
+};
+const eslDest = {
   output: {
-    path: path.resolve(__dirname, "./modules/partial/generated"),
+    path: path.resolve(__dirname, `${metadata.site.output}/assets/js/`),
     filename: "[name].js"
   }
 };
 
-const external = {
-  entry: {
-    Okitavera: "./assets/js/Okitavera.js",
-    FontLoaderData: "./assets/js/FontLoaderData.js"
-  },
+const esmDest = {
   output: {
-    path: path.resolve(__dirname, `${metadata.site.output}/assets/js`),
-    filename: "[name].js"
-  }
-};
-
-const polyfills = {
-  entry: {
-    FontLoaderFallback: "./assets/js/polyfills/FontLoaderFallback.js",
-    ScrollBehaviour: "./assets/js/polyfills/ScrollBehaviour.js"
-  },
-  output: {
-    path: path.resolve(
-      __dirname,
-      `${metadata.site.output}/assets/js/polyfills/`
-    ),
-    filename: "[name].js"
+    path: path.resolve(__dirname, `${metadata.site.output}/assets/js/`),
+    filename: "[name].mjs"
   }
 };
 
 module.exports = [
-  { ...config, ...inline },
-  { ...config, ...external },
-  { ...config, ...polyfills }
+  { ...conf, ...esl, ...inline },
+  { ...conf, ...esl, ...eslDest, ...external },
+  { ...conf, ...esl, ...eslDest, ...polyfills },
+  { ...conf, ...esm, ...esmDest, ...external }
 ];
