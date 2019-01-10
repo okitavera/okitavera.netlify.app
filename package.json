@@ -23,6 +23,7 @@
     "gulp-stylus": "^2.7.0",
     "hard-source-webpack-plugin": "^0.13.1",
     "html-minifier": "^3.5.21",
+    "is-url-external": "^1.0.3",
     "luxon": "^1.8.0",
     "markdown-it": "^8.4.2",
     "markdown-it-anchor": "^5.0.2",

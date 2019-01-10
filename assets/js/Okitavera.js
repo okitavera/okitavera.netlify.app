@@ -2,6 +2,7 @@ import "@babel/polyfill";
 import LazyLoad from "vanilla-lazyload";
 import DisqusLoader from "./DisqusLoader";
 import fetchScript from "./FetchScript";
+import PageLoader from "./PageLoader";
 
 // preserve button color on hover
 document.querySelectorAll(".btn").forEach(function(btn) {
@@ -56,7 +57,9 @@ var initialize = function() {
   document.documentElement.style.scrollBehavior = "smooth";
   DisqusLoader(disqusdata.username);
 };
-
+if ("fetch" in window) {
+  PageLoader(initialize);
+}
 window.addEventListener("load", initialize);
 window.addEventListener("scroll", onscrolling, { passive: true });
 
