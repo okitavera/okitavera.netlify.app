@@ -1,11 +1,11 @@
-var fetchScript = require("./FetchScript");
+import importSrc from "./importSrc";
 
-module.exports = function(username) {
+const disqusLoader = (username) => {
   function loadDisqus() {
     if (!window.disqusFrame) {
       document.getElementById("btnDQ").style.display = "none";
       window.disqusFrame = true;
-      fetchScript(`https://${username}.disqus.com/embed.js`);
+      importSrc(`https://${username}.disqus.com/embed.js`);
     }
   }
   var dqFrame = "disqus_thread";
@@ -32,3 +32,5 @@ module.exports = function(username) {
     }
   }
 };
+
+export default disqusLoader;

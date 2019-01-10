@@ -1,4 +1,4 @@
-module.exports = {
+const fontLoaderData = {
   critical: {
     name: "LatoCriticalSubset",
     variant: ["400"]
@@ -17,3 +17,4 @@ module.exports = {
     ]
   }
 };
+export default fontLoaderData;

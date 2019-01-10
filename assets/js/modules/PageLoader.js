@@ -1,5 +1,6 @@
 import isExternal from "is-url-external";
-export default function PageLoader(loaderDone) {
+
+const PageLoader = (loaderDone) => {
   function loaderInit() {
     var links = document.querySelectorAll("a:not([href^='#'])");
     links.forEach((a) => {
@@ -54,4 +55,6 @@ export default function PageLoader(loaderDone) {
   }
 
   loaderInit();
-}
+};
+
+export default PageLoader;

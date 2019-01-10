@@ -1,16 +1,8 @@
 import "@babel/polyfill";
 import LazyLoad from "vanilla-lazyload";
-import DisqusLoader from "./DisqusLoader";
-import fetchScript from "./FetchScript";
-import PageLoader from "./PageLoader";
-
-// preserve button color on hover
-document.querySelectorAll(".btn").forEach(function(btn) {
-  var color = getComputedStyle(btn).color;
-  btn.addEventListener("mouseover", function() {
-    btn.style.color = color;
-  });
-});
+import disqusLoader from "./modules/DisqusLoader";
+import importScr from "./modules/importSrc";
+import pageLoader from "./modules/PageLoader";
 
 function backToTopButton() {
   setInterval(function() {
@@ -42,24 +34,31 @@ function moveBanner() {
   }
 }
 
+var lazyLazy = new LazyLoad({ elements_selector: ".imlazy" });
 var onscrolling = function() {
   backToTopButton();
   moveBanner();
 };
-
-if (!"scroll-behaviour" in document.documentElement.style) {
-  fetchScript("/assets/js/polyfills/ScrollBehaviour.js");
-}
-
-var lazyLazy = new LazyLoad({ elements_selector: ".imlazy" });
 var initialize = function() {
   lazyLazy.update();
   document.documentElement.style.scrollBehavior = "smooth";
-  DisqusLoader(disqusdata.username);
+  disqusLoader(disqusdata.username);
+  document.querySelectorAll(".btn").forEach(function(btn) {
+    var color = getComputedStyle(btn).color;
+    btn.addEventListener("mouseover", function() {
+      btn.style.color = color;
+    });
+  });
 };
+
 if ("fetch" in window) {
-  PageLoader(initialize);
+  pageLoader(initialize);
 }
+
+if (!"scroll-behaviour" in document.documentElement.style) {
+  importScr("/assets/js/polyfills/ScrollBehaviour.js");
+}
+
 window.addEventListener("load", initialize);
 window.addEventListener("scroll", onscrolling, { passive: true });
 
