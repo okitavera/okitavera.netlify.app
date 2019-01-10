@@ -18,8 +18,8 @@ module.exports = ({ gulp, fs, metadata }) => {
   gulp.task("js:comments", (done) => {
     const license = fs.readFileSync("./LICENSE", "utf-8");
     const files = [
-      `${metadata.site.output}/assets/js/Okitavera.js`,
-      `./modules/partial/generated/FontLoader.js`
+      `${metadata.site.output}/assets/js/Okitavera.mjs`,
+      `${metadata.site.output}/assets/js/Okitavera.js`
     ];
     files.forEach((file) => fs.appendFileSync(file, `\n/*\n${license}\n*/\n`));
     return done();
