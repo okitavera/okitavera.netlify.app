@@ -1,7 +1,7 @@
 import "@babel/polyfill";
 import LazyLoad from "vanilla-lazyload";
 import disqusLoader from "./modules/DisqusLoader";
-import importScr from "./modules/importSrc";
+import importScr from "./modules/ImportSrc";
 import pageLoader from "./modules/PageLoader";
 
 function backToTopButton() {

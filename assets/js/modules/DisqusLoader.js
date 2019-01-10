@@ -1,4 +1,4 @@
-import importSrc from "./importSrc";
+import importSrc from "./ImportSrc";
 
 const disqusLoader = (username) => {
   function loadDisqus() {
