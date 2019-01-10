@@ -69,7 +69,10 @@ const polyfills = {
     ScrollBehaviour: "./assets/js/polyfills/ScrollBehaviour.js"
   },
   output: {
-    path: path.resolve(__dirname, `${metadata.site.output}/assets/js`),
+    path: path.resolve(
+      __dirname,
+      `${metadata.site.output}/assets/js/polyfills/`
+    ),
     filename: "[name].js"
   }
 };
