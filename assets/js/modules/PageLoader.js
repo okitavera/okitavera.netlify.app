@@ -1,33 +1,31 @@
 import isExternal from "is-url-external";
 
 const PageLoader = (loaderDone) => {
-  function loaderInit() {
+  function linksListener() {
     var links = document.querySelectorAll("a:not([href^='#'])");
     links.forEach((a) => {
-      var pageURL = a.getAttribute("href");
-      if (!isExternal(pageURL) && !pageURL.match(/\/\#/g)) {
+      var url = a.getAttribute("href");
+      if (!isExternal(url) && !url.match(/\/\#/g)) {
         a.onclick = (e) => {
           e.preventDefault();
-          pageFetcher(pageURL);
+          getPage(url);
         };
       }
     });
   }
 
-  window.addEventListener("popstate", function(event) {
-    renderer(event.state);
-  });
-
-  function pageFetcher(url) {
+  function getPage(url) {
     var parser = new DOMParser();
     fetch(url)
       .then((response) => response.text().then((text) => Promise.resolve(text)))
-      .then((html) => renderer(parser.parseFromString(html, "text/html"), url))
-      .then(loaderInit)
+      .then((html) =>
+        renderPage(parser.parseFromString(html, "text/html"), url)
+      )
+      .then(linksListener)
       .then(loaderDone);
   }
 
-  function renderer(page, url = null) {
+  function renderPage(page, url = null) {
     if (page) {
       document.title = page.title;
       document.querySelectorAll("title,main").forEach((el, i) => {
@@ -54,7 +52,10 @@ const PageLoader = (loaderDone) => {
     }
   }
 
-  loaderInit();
+  window.addEventListener("popstate", function(event) {
+    renderPage(event.state);
+  });
+  linksListener();
 };
 
 export default PageLoader;
