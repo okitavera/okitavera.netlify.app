@@ -153,6 +153,8 @@ module.exports = (eleventy) => {
     })
   );
 
+  eleventy.setWatchJavaScriptDependencies(false);
+
   return {
     templateFormats: ["md", "njk"],
     pathPrefix: "/",
