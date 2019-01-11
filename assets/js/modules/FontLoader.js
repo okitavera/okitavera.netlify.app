@@ -4,14 +4,14 @@
  */
 const fontLoader = (fontData) => {
   if (typeof window.sessionStorage == "undefined") {
-    // apply fontData immediate if there is no sessionStorage
+    // apply fonts immediate if there is no sessionStorage
     document.documentElement.className += " webfont-stage-2";
   } else {
     // Optimization for Repeat Views
-    if (sessionStorage.fontDataLoadedCriticalFoftPreloadFallback) {
+    if (sessionStorage.fontsLoadedCriticalFoftPreloadFallback) {
       document.documentElement.className += " webfont-stage-2";
-    } else if ("fontData" in document) {
-      document.fontData.load(`1em ${fontData.critical.name}`).then(function() {
+    } else if ("fonts" in document) {
+      document.fonts.load(`1em ${fontData.critical.name}`).then(function() {
         document.documentElement.className += " webfont-stage-1";
 
         var recipes = [];
@@ -21,7 +21,7 @@ const fontLoader = (fontData) => {
             .reverse()
             .join(" ")
             .concat(" ");
-          recipes.push(document.fontData.load(variant + fontData.final.name));
+          recipes.push(document.fonts.load(variant + fontData.final.name));
         });
 
         Promise.all(
@@ -33,7 +33,7 @@ const fontLoader = (fontData) => {
         ).then(function() {
           document.documentElement.className += " webfont-stage-2";
           // Optimization for Repeat Views
-          sessionStorage.fontDataLoadedCriticalFoftPreloadFallback = true;
+          sessionStorage.fontsLoadedCriticalFoftPreloadFallback = true;
         });
       });
     } else {
