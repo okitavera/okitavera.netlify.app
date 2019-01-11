@@ -8,7 +8,7 @@ document.documentElement.className = document.documentElement.className.replace(
   "has-js"
 );
 
-"serviceWorker" in navigator &&
+if ("serviceWorker" in navigator)
   navigator.serviceWorker.register(`/service-worker.js?v=${buildstamp}`);
 
 var loadIcons = document.getElementsByTagName("link")[0];
