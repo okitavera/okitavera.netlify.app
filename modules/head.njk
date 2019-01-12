@@ -1,16 +1,16 @@
-{% if permalink ==  "/" %}
-{% set title = metadata.title %}
+{% if permalink == "/" %}
+  {% set title = metadata.title %}
 {% else %}
-{% set title = renderData.title or title or metadata.title %}
+  {% set title = renderData.title or title or metadata.title %}
 {% endif %}
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="title" content="{{ title }}">
-  <meta name="description" content="{{ description or metadata.description or (metadata.author.name + '\'s Website') }}" >
+  <meta name="description" content="{{ description or metadata.description or (metadata.author.name + '\'s Website') }}">
   {% include 'partial/metasocial.njk' %}
   <title>{{ title }}</title>
-	<link rel="preload" href="/assets/fonts/Lato-400-CriticalSubset.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/Lato-400-CriticalSubset.woff2" as="font" type="font/woff2" crossorigin="crossorigin">
   <link rel="alternate" type="application/rss+xml" title="{{ metadata.feed.title }}" href="{{ metadata.feed.path | url }}">
   <link rel="manifest" href="/webmanifest.json">
   {% include 'partial/favicon.njk' %}
@@ -23,6 +23,6 @@
   <noscript>
     <link rel="stylesheet" type="text/css" href="/assets/css/IlluminateIcons.css">
   </noscript>
-  <script type="module" src="/assets/js/Okitavera.mjs" async defer></script>
-  <script nomodule type="text/javascript" src="/assets/js/Okitavera.js" async defer></script>
+  <script type="module" src="/assets/js/Okitavera.mjs" async="async" defer="defer"></script>
+  <script nomodule="nomodule" type="text/javascript" src="/assets/js/Okitavera.js" async="async" defer="defer"></script>
 </head>

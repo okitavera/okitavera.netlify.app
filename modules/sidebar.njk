@@ -1,32 +1,40 @@
 <header class="sidebar">
-	<div class="container pad-y2">
-		<div class="row">
-			<div class="col pad-x1">
-        <div class="me">
-          <img
-            height="180"
-            width="180"
-            alt="Prettiest human in the world"
-            src="/assets/img/avatars/me.png"
-          >
-        </div>
-			</div>
+		<div class="container pad-y2">
+				<div class="row">
+						<div class="col pad-x1">
+								<div class="me">
+										<img height="180" width="180" alt="Prettiest human in the world" src="/assets/img/avatars/me.png">
+								</div>
+						</div>
+				</div>
+				<div class="row">
+						<div class="col pad-x1">
+								<h1 class="web-title">Nanda
+										<span class="bg-accentlight-half">Okitavera</span></h1>
+								<h3 class="web-desc">{{ metadata.description }}</h3>
+						</div>
+				</div>
+				<div class="row">
+						<div class="col menu pad-x1">
+								<a aria-label="home" href="/">
+										<i class="fea-home"></i>
+								</a>
+								<a aria-label="article" href="/article/">
+										<i class="fea-book-open"></i>
+								</a>
+								<a aria-label="project" class="jumper" href="/#sideprojects">
+										<i class="fea-star"></i>
+								</a>
+								<a aria-label="about-me" class="jumper" href="/#about">
+										<i class="fea-user"></i>
+								</a>
+								<a aria-label="twitter" href="{{ 'https://twitter.com/' + metadata.author.twitter }}">
+										<i class="fea-twitter"></i>
+								</a>
+								<a aria-label="github" href="{{ metadata.author.github }}">
+										<i class="fea-github"></i>
+								</a>
+						</div>
+				</div>
 		</div>
-		<div class="row">
-			<div class="col pad-x1">
-        <h1 class="web-title">Nanda <span class="bg-accentlight-half">Okitavera</span></h1>
-        <h3 class="web-desc">{{ metadata.description }}</h3>
-      </div>
-    </div>
-		<div class="row">
-			<div class="col menu pad-x1">
-				<a aria-label="home" href="/"><i class="fea-home"></i></a>
-				<a aria-label="article" href="/article/"><i class="fea-book-open"></i></a>
-				<a aria-label="project" class="jumper" href="/#sideprojects"><i class="fea-star"></i></a>
-				<a aria-label="about-me" class="jumper" href="/#about"><i class="fea-user"></i></a>
-				<a aria-label="twitter" href="{{ 'https://twitter.com/' + metadata.author.twitter }}"><i class="fea-twitter"></i></a>
-				<a aria-label="github" href="{{ metadata.author.github }}"><i class="fea-github"></i></a>
-			</div>
-    </div>
-	</div>
 </header>

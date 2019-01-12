@@ -5,21 +5,23 @@ layout: plain.njk
   <header class="row paper paper-title">
     <div class="col">
       <h1>{{ title }}</h1>
-      <time datetime="{{ date | htmlDateString }}"><i class="fea-calendar"></i>&nbsp;&nbsp;{{ date | readableDate }}</time>
+      <time datetime="{{ date | htmlDateString }}">
+        <i class="fea-calendar"></i>&nbsp;&nbsp;{{ date | readableDate }}</time>
       &nbsp;&nbsp;
-      <span><i class="fea-clock"></i>&nbsp;&nbsp;{{ content | getReadingTime("%M minutes to read") }}</span>
+      <span>
+        <i class="fea-clock"></i>&nbsp;&nbsp;{{ content | getReadingTime("%M minutes to read") }}</span>
     </div>
   </header>
   <div class="row paper paper-art">
     <div class="col">
       {% if splash %}
-      <noscript>
-        <figure class="splash imlazy" data-parallax style="background-image: url({{ splash.url }})"></figure>
-      </noscript>
-      <figure class="splash imlazy" data-parallax data-bg="url({{ splash.url }})"></figure>
-      {% if splash.credit %}
-      <div class="splash-credit">{{ splash.credit | urlize | safe }}</div>
-      {% endif %}
+        <noscript>
+          <figure class="splash imlazy" data-parallax="data-parallax" style="background-image: url({{ splash.url }})"></figure>
+        </noscript>
+        <figure class="splash imlazy" data-parallax="data-parallax" data-bg="url({{ splash.url }})"></figure>
+        {% if splash.credit %}
+          <div class="splash-credit">{{ splash.credit | urlize | safe }}</div>
+        {% endif %}
       {% endif %}
     </div>
   </div>
@@ -29,11 +31,11 @@ layout: plain.njk
     {{ content | safe }}
     <br>
     <small>
-    {% for tag in tags %}
-      {%- if tag != "post" -%}
-      <a href="/article/tags/{{ tag }}/" class="btn btn-sm txt-uppercase">{{ tag }}</a>
-      {%- endif -%}
-    {% endfor %}
+      {% for tag in tags %}
+        {%- if tag != "post" -%}
+          <a href="/article/tags/{{ tag }}/" class="btn btn-sm txt-uppercase">{{ tag }}</a>
+        {%- endif -%}
+      {% endfor %}
     </small>
     <div class="sp"></div>
   </article>
@@ -49,9 +51,9 @@ layout: plain.njk
     </footer>
     <div class="sp"></div>
     {% if metadata.disqus.username and metadata.disqus.enable == "true" %}
-    <div id="disqus_thread"></div>
+      <div id="disqus_thread"></div>
     {% endif %}
-  <div class="sp"></div>
+    <div class="sp"></div>
   </article>
 </section>
 <div class="hl-50"></div>

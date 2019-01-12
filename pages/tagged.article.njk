@@ -8,34 +8,38 @@ layout: plain.njk
 renderData:
   title: Tagged “{{ tag }}”
 ---
-{% set articles = collections[ tag ] %}
+{% set articles = collections[tag] %}
 <section class="article-index">
   <div class="container center pad-y0">
     <h1 class="txt-300">TAGGED ARTICLES</h1>
-      {% for _tag in collections.tags %}
-        <a href="/article/tags/{{ _tag }}/" class="btn {% if tag == _tag %}txt-light bg-accent{% endif %} btn-sm txt-uppercase">{{ _tag }}</a>
-      {% endfor %}
+    {% for _tag in collections.tags %}
+      <a href="/article/tags/{{ _tag }}/" class="btn {% if tag == _tag %}txt-light bg-accent{% endif %} btn-sm txt-uppercase">{{ _tag }}</a>
+    {% endfor %}
     <div class="sp"></div>
     <div class="row">
-    {% for post in articles | reverse %}
-    <div class="col-1of3">
-      <div class="card-wrapper"><div class="card">
-      <a href="{{ post.url | url }}">
-        <figure class="card-thumbnail bg-dark0">
-        {% if post.data.splash.url %}
-          {% fallbackImg post.data.splash.url | thumbnailURL, 'class="imlazy"'  %}
-        {% else %}
-          {% fallbackImg '/assets/img/book.svg', 'class="imlazy"'  %}
-        {% endif %}
-        </figure>
-        <div class="card-context">
-          <time class="txt-sm" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
-          <div class="txt-dark2">{{ post.data.title }}</div>
+      {% for post in articles | reverse %}
+        <div class="col-1of3">
+          <div class="card-wrapper">
+            <div class="card">
+              <a href="{{ post.url | url }}">
+                <figure class="card-thumbnail bg-dark0">
+                  {% if post.data.splash.url %}
+                    {% fallbackImg post.data.splash.url | thumbnailURL,
+                    'class="imlazy"' %}
+                  {% else %}
+                    {% fallbackImg '/assets/img/book.svg',
+                    'class="imlazy"' %}
+                  {% endif %}
+                </figure>
+                <div class="card-context">
+                  <time class="txt-sm" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+                  <div class="txt-dark2">{{ post.data.title }}</div>
+                </div>
+              </a>
+            </div>
+          </div>
         </div>
-      </a>
-      </div></div>
-    </div>
-    {% endfor %}
+      {% endfor %}
     </div>
   </div>
   <div class="sp sp-l"></div>

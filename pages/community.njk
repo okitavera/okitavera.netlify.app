@@ -9,20 +9,24 @@ title: Community
       <div class="col">
         <h1 class="txt-300">Community</h1>
         <p>
-          List of website and repository that recognized in <br>
-          <a href="https://t.me/dotfiles_id">DotfilesID</a> and <a href="https://t.me/JAMstackID">JAMstackID</a><br>
+          List of website and repository that recognized in
+          <br>
+          <a href="https://t.me/dotfiles_id">DotfilesID</a>
+          and
+          <a href="https://t.me/JAMstackID">JAMstackID</a><br>
           <small>Disclaimer: both are Indonesian Telegram channel btw</small>
         </p>
         <div class="sp sp-l"></div>
         {% for friend in friendlists.friends | sort(false, false, 'name')%}
-        <a class="txt-dark2 pad-x1" href="{{ friend.url }}" alt="{{ friend.name }}" aria-label="{{ friend.name }}">
-          {% fallbackImg '/assets/img/avatars/'+ friend.name +'.min.png', 'width="100" height="100" class="imlazy"'  %}
-          <span class="txt-uppercase">{{ friend.name }}</span>
-          <span>{{ friend.url | replace("https://","") }}</span>
-        </a>
+          <a class="txt-dark2 pad-x1" href="{{ friend.url }}" alt="{{ friend.name }}" aria-label="{{ friend.name }}">
+            {% fallbackImg '/assets/img/avatars/' + friend.name + '.min.png',
+            'width="100" height="100" class="imlazy"' %}
+            <span class="txt-uppercase">{{ friend.name }}</span>
+            <span>{{ friend.url | replace("https://","") }}</span>
+          </a>
         {% endfor %}
       </div>
-    <div class="sp sp-l"></div>
+      <div class="sp sp-l"></div>
     </div>
   </div>
 </div>
