@@ -1,12 +1,13 @@
-const { readFileSync, readdirSync } = require("fs");
-const metadata = JSON.parse(readFileSync("./manifest/metadata.json"));
+const fs = require("fs");
+const metadata = JSON.parse(fs.readFileSync("./manifest/metadata.json"));
+const ModLoader = require("./modloader");
 
 module.exports = (eleventy) => {
-  ((dir) => {
-    readdirSync(dir).forEach((file) => {
-      require(dir + file)({ eleventy, metadata });
-    });
-  })("./eleventy.d/");
+  new ModLoader().load("./eleventy.d", {
+    eleventy,
+    metadata,
+    fs
+  });
 
   return {
     templateFormats: ["md", "njk"],

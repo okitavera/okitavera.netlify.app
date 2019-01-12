@@ -3,18 +3,15 @@ const fs = require("fs");
 const spawn = require("child_process").spawn;
 const rimraf = require("rimraf");
 const metadata = JSON.parse(fs.readFileSync("./manifest/metadata.json"));
+const ModLoader = require("./modloader");
 
-((dir) => {
-  fs.readdirSync(dir).forEach((file) => {
-    require(dir + file)({
-      gulp: gulp,
-      fs: fs,
-      spawn: spawn,
-      rimraf: rimraf,
-      metadata: metadata
-    });
-  });
-})("./gulp.d/");
+new ModLoader().load("./gulp.d", {
+  gulp: gulp,
+  fs: fs,
+  spawn: spawn,
+  rimraf: rimraf,
+  metadata: metadata
+});
 
 const elv = (options = "") => {
   let cmd = (cb) =>
