@@ -11,7 +11,7 @@
     "github": "https://github.com/okitavera"
   },
   "site": {
-    "output": "./dist",
+    "output": "./.build",
     "google_verification": "google9ab7bf08387cc375"
   },
   "feed": {

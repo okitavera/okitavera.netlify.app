@@ -14,7 +14,7 @@ const metadata = JSON.parse(fs.readFileSync("./manifest/metadata.json"));
       metadata: metadata
     });
   });
-})("./gulp/");
+})("./gulp.d/");
 
 const elv = (options = "") => {
   let cmd = (cb) =>

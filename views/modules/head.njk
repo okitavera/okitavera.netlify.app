@@ -8,17 +8,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="title" content="{{ title }}">
   <meta name="description" content="{{ description or metadata.description or (metadata.author.name + '\'s Website') }}">
-  {% include 'partial/metasocial.njk' %}
+  {% include 'metasocial.njk' %}
   <title>{{ title }}</title>
   <link rel="preload" href="/assets/fonts/Lato-400-CriticalSubset.woff2" as="font" type="font/woff2" crossorigin="crossorigin">
   <link rel="alternate" type="application/rss+xml" title="{{ metadata.feed.title }}" href="{{ metadata.feed.path | url }}">
   <link rel="manifest" href="/webmanifest.json">
-  {% include 'partial/favicon.njk' %}
+  {% include 'favicon.njk' %}
   <style>
-    {% include 'partial/generated/Illuminate.css' %}
+    {% include 'virtual/Illuminate.css' %}
   </style>
   <script>
-    {% include "partial/generated/Critical.js" %}
+    {% include "virtual/Critical.js" %}
   </script>
   <noscript>
     <link rel="stylesheet" type="text/css" href="/assets/css/IlluminateIcons.css">
