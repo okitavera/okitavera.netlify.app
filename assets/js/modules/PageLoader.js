@@ -52,7 +52,11 @@ const PageLoader = (loaderDone) => {
   }
 
   window.addEventListener("popstate", function(ev) {
-    if (ev.state != null) getPage(ev.state.location, STATE_POP);
+    if (ev.state != null) {
+      getPage(ev.state.location, STATE_POP);
+    } else {
+      getPage(window.location.pathname, STATE_POP);
+    }
   });
   linksListener();
 };
