@@ -8,55 +8,62 @@ const PageLoader = (loaderDone) => {
     var links = document.querySelectorAll("a:not([href^='#'])");
     links.forEach((a) => {
       var url = a.getAttribute("href");
-      if (!isExternal(url) && !url.match(/\/\#/g)) {
+      if (
+        typeof a.onclick !== "function" &&
+        !isExternal(url) &&
+        !url.match(/\/\#/g)
+      )
         a.onclick = (e) => {
           e.preventDefault();
           getPage(url, STATE_PUSH);
         };
-      }
     });
   }
 
   function getPage(url, type = STATE_POP) {
-    var parser = new DOMParser();
     fetch(url)
       .then((response) => response.text().then((text) => Promise.resolve(text)))
-      .then((html) =>
-        renderPage(parser.parseFromString(html, "text/html"), url, type)
-      )
+      .then((page) => new DOMParser().parseFromString(page, "text/html"))
+      .then((page) => renderPage(page, url, type))
       .then(linksListener)
       .then(loaderDone);
   }
 
-  function renderPage(page, url = null, type = STATE_POP) {
+  function pushContent(type, dest, src, attr) {
+    if (!dest && !src) return;
+    if (type === "html") dest.innerHTML = src.innerHTML;
+    else if (type === "attr" && attr)
+      dest.setAttribute(attr, src.getAttribute(attr));
+  }
+
+  function renderPage(page, url, type) {
     if (page) {
       document.title = page.title;
-      document.querySelectorAll("title,main").forEach((el, i) => {
-        if (el.innerHTML != null) {
-          var src = page.querySelectorAll("title,main")[i];
-          el.innerHTML = src.innerHTML;
-        }
-      });
-      document.querySelectorAll("meta").forEach((el, i) => {
-        if (el.getAttribute("content") != null) {
-          var src = page.querySelectorAll("meta")[i].getAttribute("content");
-          el.setAttribute("content", src);
-        }
+      pushContent(
+        "html",
+        document.querySelector("title"),
+        page.querySelector("title")
+      );
+      pushContent(
+        "html",
+        document.querySelector("main"),
+        page.querySelector("main")
+      );
+      var metaOrig = document.querySelectorAll("meta");
+      var metaFetch = page.querySelectorAll("meta");
+      metaOrig.forEach((meta, i) => {
+        pushContent("attr", meta, metaFetch[i]);
       });
     }
-    if (url != null && type != STATE_POP) {
-      history.pushState({ location: url }, page.title, url);
-    }
+    if (url && type != STATE_POP)
+      history.pushState({ location: url }, document.title, url);
     document.documentElement.style.scrollBehavior = "unset";
     document.body.scrollTop = document.documentElement.scrollTop = 0;
   }
 
   window.addEventListener("popstate", function(ev) {
-    if (ev.state != null) {
-      getPage(ev.state.location, STATE_POP);
-    } else {
-      getPage(window.location.pathname, STATE_POP);
-    }
+    if (ev.state) getPage(ev.state.location, STATE_POP);
+    else getPage(window.location.pathname, STATE_POP);
   });
   linksListener();
 };
