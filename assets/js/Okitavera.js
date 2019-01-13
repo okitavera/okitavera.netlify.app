@@ -3,6 +3,7 @@ import LazyLoad from "vanilla-lazyload";
 import disqusLoader from "./modules/DisqusLoader";
 import importScr from "./modules/ImportSrc";
 import pageLoader from "./modules/PageLoader";
+import "./modules/AxisCultMessage";
 
 function toggleScrollTopView(button) {
   var CALL_TICK = 250;
