@@ -8,13 +8,11 @@
   to
     transform scaleX(0)
 
-@keyframes mainSlide
+@keyframes fadeIn
   from
     filter opacity(0)
-    transform translateY(-64px)
   to
     filter opacity(1)
-    transform translateY(0)
 
 .main-content
   position relative
@@ -22,9 +20,7 @@
   width 75%
 
 .main-content > *
-  filter opacity(0)
-  transform translateY(-64px)
-  animation mainSlide cubic-bezier(.7, 0, .2, .7) .5s forwards
+  animation fadeIn cubic-bezier(.7, 0, .2, .7) .2s forwards
 
 .sidebar
   z-index 10
