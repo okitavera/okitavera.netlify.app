@@ -6,7 +6,9 @@ module.exports = ({ eleventy }) => {
   eleventy.addPlugin(pluginRss);
   eleventy.addPlugin(pluginSyntaxHighlight);
   eleventy.addPlugin(pluginPWA, {
-    globPatterns: ["**/*.{html,css,js,mjs,jpg,png,gif,webp,svg,woff2,woff}"],
+    globPatterns: [
+      "**/*.{html,css,js,mjs,jpg,png,gif,webp,svg,woff2,woff,json,ico}"
+    ],
     clientsClaim: true,
     skipWaiting: true
   });
