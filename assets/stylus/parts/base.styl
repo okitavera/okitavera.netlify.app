@@ -26,28 +26,14 @@ body
     flex-direction column
 
 blockquote
-  position relative
-  display inline-block
-  margin 0 1rem 1rem 0
-  padding .2rem 3rem
-  background --color-light[0]
-  box-shadow 0 1px 1px rgba(--color-dark[0], .1)
-  font-style italic
-
-blockquote::before
-  position absolute
-  top -10px
-  left 10px
-  color lighten(--color-accent, 30%)
-  content '\201C'
-  font-size 4em
-
-blockquote span
-  display block
-  margin-top .5em
-  color --color-dark[1]
-  text-align right
-  font-size 80%
+  margin .5rem 0
+  padding 0 1em
+  border-left .25em solid #dfe2e5
+  color #6a737d
+  >:first-child
+    margin-top 0
+  >:last-child
+    margin-bottom 0
 
 hr
   margin 1rem 0
