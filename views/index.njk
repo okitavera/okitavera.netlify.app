@@ -23,34 +23,3 @@ permalink: /
   {% include "recentarticle.njk" %}
 </div>
 <div class="hl-80"></div>
-<section class="side-project-title bg-light0" id="sideprojects">
-  <div class="container">
-    <div class="row pad-x1">
-      <div class="col">
-        <h1 class="pad-y0 txt-300">FUN PROJECTS</h1>
-      </div>
-    </div>
-    <div class="row fx-content-mid">
-      {% for project in collections.projects %}
-        <div class="col-1of3">
-          <div class="card-wrapper">
-            <div class="card bg-dark0 txt-light0">
-              <figure class="card-thumbnail">
-                {% fallbackImg project.data.img,
-                'class="imlazy"' %}
-              </figure>
-              <div class="card-context">
-                <h3 class="mgn-y0 txt-uppercase">{{ project.data.name }}</h3>
-                <span class="txt-sm">{{ project.data.desc }}</span>
-              </div>
-              <div class="card-footer">
-                {{ project.templateContent | safe }}
-              </div>
-            </div>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-  </div>
-  <div class="sp"></div>
-</section>

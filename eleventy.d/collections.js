@@ -25,12 +25,4 @@ module.exports = ({ eleventy }) => {
     // returning an array in addCollection works in Eleventy 0.5.3
     return [...tagSet];
   });
-
-  eleventy.addCollection("projects", (collection) => {
-    return collection
-      .getFilteredByGlob(`${INVEN_DIR}/projects/*`)
-      .sort((a, b) => {
-        return a.date - b.date;
-      });
-  });
 };
