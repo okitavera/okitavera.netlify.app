@@ -1,8 +1,7 @@
-/*
 @font-face
   font-assets('LatoCriticalSubset', 'Lato-400-CriticalSubset', '400')
   unicode-range U+21-23, U+25-29, U+2B-3A, U+3D, U+3F, U+41-5A, U+5F, U+61-7A
-*/
+
 for variant in '300' '400' '700' '900' '300i' '400i' '700i' '900i'
   @font-face
     font-assets('LatoLatinSubset', 'Lato-' + variant + '-LatinSubset', variant)
@@ -18,7 +17,6 @@ for variant in '300' '400' '700' '900' '300i' '400i' '700i' '900i'
 // for later usage (custom-classes and prism)
 $font_mono = FiraCode, Menlo, monospace
 
-/*
 .webfont-stage-1 body
   font-family LatoCriticalSubset, sans-serif
 
@@ -27,6 +25,3 @@ $font_mono = FiraCode, Menlo, monospace
 
 body
   font-family sans-serif
-*/
-body
-  font-family LatoLatinSubset, sans-serif
