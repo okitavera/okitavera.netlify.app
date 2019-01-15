@@ -3,15 +3,13 @@
   {% set title = (renderData.title or title) + ' - ' + metadata.title %}
   {% include "head.njk" %}
   <body>
-    <div class="wrapper">
-      {% include "sidebar.njk" %}
-      <main class="main-content">
-        {{ content | safe }}
-        {% include "foot.njk" %}
-      </main>
-      <a href="#" class="btn backtotop jumper">
-        <i class="fea-chevron-up" style="filter:invert(100%)"></i>
-      </a>
-    </div>
+    {% include "sidebar.njk" %}
+    <main class="main-content">
+      {{ content | safe }}
+      {% include "foot.njk" %}
+    </main>
+    <a href="#" class="btn backtotop jumper">
+      <i class="fea-chevron-up" style="filter:invert(100%)"></i>
+    </a>
   </body>
 </html>
