@@ -48,7 +48,10 @@ layout: plain.njk
     </footer>
     <div class="sp"></div>
     {% if metadata.disqus.username and metadata.disqus.enable == "true" %}
-      <div id="disqus_thread"></div>
+
+      <div id="disqus_thread" class="center">
+        <button id="disqus_loader" class="btn bg-transparent txt-accent btn-outline">View Comments</button>
+      </div>
     {% endif %}
     <div class="sp"></div>
   </article>
