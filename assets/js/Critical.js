@@ -31,3 +31,5 @@ document.documentElement.classList.remove("no-js");
     });
   }
 })(document);
+if ("serviceWorker" in navigator)
+  navigator.serviceWorker.register(`/service-worker.js?v=${buildstamp}`);
