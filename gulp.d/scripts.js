@@ -14,6 +14,12 @@ module.exports = ({ gulp, fs, metadata }) => {
       )
   );
 
+  gulp.task("js:disablesw", () =>
+    gulp
+      .src("./assets/js/ServiceWorkerDisabler/service-worker.js")
+      .pipe(gulp.dest(`${metadata.site.output}/`))
+  );
+
   // inject license comments to browser's scripts
   gulp.task("js:comments", (done) => {
     const license = fs.readFileSync("./LICENSE", "utf-8");
