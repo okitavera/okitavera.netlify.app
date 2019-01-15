@@ -14,9 +14,7 @@
     "cheerio": "^1.0.0-rc.2",
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.7",
-    "eleventy-plugin-pwa": "^1.0.1",
     "feather-icons": "^4.10.0",
-    "fontfaceobserver": "^2.1.0",
     "gulp": "^4.0.0",
     "gulp-download2": "^1.0.2",
     "gulp-postcss": "^8.0.0",
@@ -35,7 +33,6 @@
     "scroll-behavior-polyfill": "^2.0.3",
     "stylus": "^0.54.5",
     "terser-webpack-plugin": "^1.1.0",
-    "vanilla-lazyload": "^8.17.0",
     "webpack": "^4.27.1"
   },
   "devDependencies": {
