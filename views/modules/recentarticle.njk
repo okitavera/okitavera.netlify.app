@@ -2,7 +2,11 @@
   <div class="container center">
     <h1 class="left pad-x1 txt-300">RECENT ARTICLES</h1>
     <div class="row fx-content-mid">
-      {% set articles = collections.posts | head(-3) %}
+      {% if permalink == "/" %}
+        {% set articles = collections.posts | head(-6) %}
+      {% else %}
+        {% set articles = collections.posts | head(-3) %}
+      {% endif %}
       {% for post in articles | reverse %}
         <div class="col-1of3">
           <div class="card-wrapper">
