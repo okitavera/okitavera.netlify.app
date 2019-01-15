@@ -22,8 +22,6 @@ const external = {
 
 const polyfills = {
   entry: {
-    "polyfills/FontLoaderFallback":
-      "./assets/js/polyfills/FontLoaderFallback.js",
     "polyfills/ScrollBehaviour": "./assets/js/polyfills/ScrollBehaviour.js"
   }
 };
