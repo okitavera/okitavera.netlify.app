@@ -1,10 +1,7 @@
 module.exports = ({ eleventy }) => {
   eleventy.addShortcode("fallbackImg", (url, attr = "") => {
     const fallbackImg = `
-    <noscript>
-      <img ${attr} src="${url}"/>
-    </noscript>
-    <img ${attr} data-src="${url}"/>
+    <img ${attr} src="${url}"/>
     `;
     return fallbackImg;
   });

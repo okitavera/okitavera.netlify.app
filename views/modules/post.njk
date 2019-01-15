@@ -15,10 +15,7 @@ layout: plain.njk
   <div class="row paper paper-art">
     <div class="col">
       {% if splash %}
-        <noscript>
-          <figure class="splash imlazy" data-parallax="data-parallax" style="background-image: url({{ splash.url }})"></figure>
-        </noscript>
-        <figure class="splash imlazy" data-parallax="data-parallax" data-bg="url({{ splash.url }})"></figure>
+        <figure class="splash" data-parallax="data-parallax" style="background-image:url({{ splash.url }})"></figure>
         {% if splash.credit %}
           <div class="splash-credit">{{ splash.credit | urlize | safe }}</div>
         {% endif %}

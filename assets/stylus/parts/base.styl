@@ -87,18 +87,3 @@ p
   word-wrap break-word
   img
     max-width 100%
-
-// Prevents img without src to appear
-img:not([src])
-  visibility hidden
-
-// fire the IntersectionObserver in EdgeHTML
-img[data-src],
-img[data-srcset]
-  display block
-  min-height 1px
-
-// Fixes Firefox anomaly during image load
-@-moz-document url-prefix()
-  img:-moz-loading
-    visibility hidden

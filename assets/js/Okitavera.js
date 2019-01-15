@@ -1,5 +1,4 @@
 import "@babel/polyfill";
-import LazyLoad from "vanilla-lazyload";
 import disqusLoader from "./modules/DisqusLoader";
 import importScr from "./modules/ImportSrc";
 
@@ -28,8 +27,6 @@ function bannerListener(background) {
   }
 }
 
-var imageLoader = new LazyLoad({ elements_selector: ".imlazy" });
-
 var onPageScroll = function() {
   var banner = document.querySelector("[data-parallax]");
   var button = document.querySelector(".backtotop");
@@ -38,14 +35,7 @@ var onPageScroll = function() {
 };
 
 var onPageLoad = function() {
-  imageLoader.update();
   disqusLoader(disqusdata.username);
-  document.querySelectorAll(".btn").forEach(function(button) {
-    var color = getComputedStyle(button).color;
-    button.addEventListener("mouseover", function() {
-      button.style.color = color;
-    });
-  });
 };
 
 if (!"scroll-behaviour" in document.documentElement.style)

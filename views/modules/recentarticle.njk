@@ -14,8 +14,7 @@
               <a href="{{ post.url | url }}">
                 <figure class="card-thumbnail bg-dark0">
                   {% if post.data.splash.url %}
-                    {% fallbackImg post.data.splash.url | thumbnailURL,
-                    'class="imlazy"' %}
+                    {% fallbackImg post.data.splash.url | thumbnailURL %}
                   {% endif %}
                 </figure>
                 <div class="card-context">
