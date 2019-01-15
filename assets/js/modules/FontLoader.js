@@ -2,28 +2,25 @@
  * Critical FOFT with preload, with a polyfill fallback emulating font-display: optional
  * https://github.com/zachleat/web-font-loading-recipes
  */
-const fontLoader = (fontData) => {
-  if (typeof window.sessionStorage == "undefined") {
-    // apply fonts immediate if there is no sessionStorage
-    document.documentElement.className += " webfont-stage-2";
-  } else {
-    // Optimization for Repeat Views
-    if (sessionStorage.fontsLoadedCriticalFoftPreloadFallback) {
-      document.documentElement.className += " webfont-stage-2";
-    } else if ("fonts" in document) {
-      document.fonts.load(`1em ${fontData.critical.name}`).then(function() {
-        document.documentElement.className += " webfont-stage-1";
-
+const fontLoader = (data) => {
+  var htmlTag = document.documentElement;
+  if (sessionStorage.fontStage == 2) {
+    htmlTag.classList.add("webfont-stage-2");
+    return;
+  } else if ("fonts" in document) {
+    document.fonts
+      .load(`1em ${data.critical.name}`)
+      .then(function() {
+        htmlTag.classList.add("webfont-stage-1");
+        sessionStorage.fontStage = 1;
+      })
+      .then(function() {
         var recipes = [];
-        fontData.final.variant.forEach(function(list) {
-          let variant = list
-            .split(" ")
-            .reverse()
-            .join(" ")
-            .concat(" ");
-          recipes.push(document.fonts.load(variant + fontData.final.name));
+        data.final.variant.forEach(function(variant) {
+          recipes.push(
+            document.fonts.load(`${variant} 1em ${data.final.name}`)
+          );
         });
-
         Promise.all(
           recipes.map(function(font) {
             return font.catch(function(e) {
@@ -31,20 +28,10 @@ const fontLoader = (fontData) => {
             });
           })
         ).then(function() {
-          document.documentElement.className += " webfont-stage-2";
-          // Optimization for Repeat Views
-          sessionStorage.fontsLoadedCriticalFoftPreloadFallback = true;
+          htmlTag.classList.add("webfont-stage-2");
+          sessionStorage.fontStage = 2;
         });
       });
-    } else {
-      // use fallback
-      var ref = document.getElementsByTagName("script")[0];
-      var script = document.createElement("script");
-      script.src = "/assets/js/polyfills/FontLoaderFallback.js";
-      script.type = "text/javascript";
-      script.async = true;
-      ref.parentNode.insertBefore(script, ref);
-    }
   }
 };
 

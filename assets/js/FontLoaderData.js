@@ -10,10 +10,10 @@ const fontLoaderData = {
       "300",
       "700",
       "900",
-      "400 italic",
-      "300 italic",
-      "700 italic",
-      "900 italic"
+      "italic 400",
+      "italic 300",
+      "italic 700",
+      "italic 900"
     ]
   }
 };
