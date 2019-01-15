@@ -7,7 +7,7 @@ const cssNormalize = require("postcss-normalize");
 const cssSVG = require("postcss-inline-svg");
 
 // build main stylesheet with stylus and postcss
-module.exports = ({ gulp, metadata }) => {
+module.exports = ({ gulp }) => {
   const cssNormalizeX = cssNormalize({
     forceImport: true
   });
@@ -30,7 +30,7 @@ module.exports = ({ gulp, metadata }) => {
       .src("./assets/stylus/IlluminateIcons.styl")
       .pipe(stylus())
       .pipe(postcss([cssSVGX, cssEnv, cssNano]))
-      .pipe(gulp.dest(`${metadata.site.output}/assets/css`))
+      .pipe(gulp.dest("./views/modules/virtual"))
   );
 
   // stylesheets watcher
