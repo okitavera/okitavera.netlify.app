@@ -8,19 +8,10 @@
     max-width 1500px
     border-right 1px solid lighten($colorLight[4], 50%)
 
-@keyframes fadeIn
-  from
-    filter opacity(0)
-  to
-    filter opacity(1)
-
 .main-content
   position relative
   overflow-x hidden
   width 75%
-
-.main-content > *
-  animation fadeIn cubic-bezier(.7, 0, .2, .7) .2s forwards
 
 .sidebar
   z-index 10
@@ -28,8 +19,6 @@
   width 35%
   border-right 1px solid lighten($colorLight[4], 50%)
   background-color white
-  *
-    transition all cubic-bezier(.7, 0, .2, .7) .5s
   .menu
     font-size 1.8rem
   .container
