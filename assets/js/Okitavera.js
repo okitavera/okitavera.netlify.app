@@ -2,8 +2,6 @@ import "@babel/polyfill";
 import LazyLoad from "vanilla-lazyload";
 import disqusLoader from "./modules/DisqusLoader";
 import importScr from "./modules/ImportSrc";
-import pageLoader from "./modules/PageLoader";
-import "./modules/AxisCultMessage";
 
 function toggleScrollTopView(button) {
   var CALL_TICK = 250;
@@ -41,7 +39,6 @@ var onPageScroll = function() {
 
 var onPageLoad = function() {
   imageLoader.update();
-  document.documentElement.style.scrollBehavior = "smooth";
   disqusLoader(disqusdata.username);
   document.querySelectorAll(".btn").forEach(function(button) {
     var color = getComputedStyle(button).color;
@@ -50,8 +47,6 @@ var onPageLoad = function() {
     });
   });
 };
-
-if ("fetch" in window) pageLoader(onPageLoad);
 
 if (!"scroll-behaviour" in document.documentElement.style)
   importScr("/assets/js/polyfills/ScrollBehaviour.js");
