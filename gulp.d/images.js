@@ -1,5 +1,6 @@
 const res = require("gulp-responsive");
 const dl = require("gulp-download2");
+const rename = require("gulp-rename");
 
 module.exports = ({ gulp, fs, rimraf }) => {
   // build mini-thumbnails for posts list
@@ -11,8 +12,14 @@ module.exports = ({ gulp, fs, rimraf }) => {
         res({
           "*": {
             width: "320",
-            quality: 80
+            quality: 80,
+            format: "jpeg"
           }
+        })
+      )
+      .pipe(
+        rename({
+          extname: ".jpg"
         })
       )
       .pipe(gulp.dest("./assets/img/thumbnails"));
