@@ -7,10 +7,10 @@ splash:
   url: "/assets/img/banners/kotlin.jpg"
 ---
 
-After learning a kotlin and made some apps with it, I came to the realisation that there are a lot of my code that still not use "the kotlin-ways" to solve a problem.<br>
-And maybe someone will says like "It's okay, as long as your app is works and you can bought a starbucks coffee from it".<br>
+After learning a kotlin and made some apps with it, I came to the realisation that there are a lot of my code that still not use "the kotlin-ways" to solve a problem.
+And maybe someone will says like "It's okay, as long as your app is works and you can bought a starbucks coffee from it".
 
-Yeah that is the another reason why I code, I do this for the cup of coffee, <br>
+Yeah that is the another reason why I code, I do this for the cup of coffee,
 but the another reason is because I like doing it.
 I like making a progress and improving my skills.
 And while that, I think I'll wrote a simple note for it on my web :)
@@ -25,7 +25,7 @@ Anyways, let's just jump into it guys!
 
 # Infix Functions No.1 : apply()
 
-By definition, `apply()` accepts a function, and sets its scope to the object on which apply has been invoked.<br>
+By definition, `apply()` accepts a function, and sets its scope to the object on which apply has been invoked.
 
 Okay, That means we can initialize an object properties without even explicitly referencing the object itself, of course as long as we declare it inside the scope of `apply()` itself
 
@@ -64,7 +64,7 @@ val sticker = ImageView(this).apply{
 # Infix Function No.2 : also()
 
 From the description, it calls the specified function block with `this` value as its argument and returns `this` value.
-It maybe sounds confusing to beginners like me, but in practical it very simple.<br>
+It maybe sounds confusing to beginners like me, but in practical it very simple.
 
 The `also()` itself will invoke the code inside the scope of `also()`, but also it taking a `this` from the parent scope.
 
@@ -83,8 +83,8 @@ val sticker = ImageView(this).apply{
 }
 ```
 
-So, the `setColorFilter()` now are inside the `also()` of `setImageResource()`. <br>
-But the context values are still following the `apply()` of our `ImageView()`.<br>
+So, the `setColorFilter()` now are inside the `also()` of `setImageResource()`.
+But the context values are still following the `apply()` of our `ImageView()`.
 It allow us to chaining multiple functions but still not forgetting that we're still passing our properties to the objects.
 
 <center>...</center>
