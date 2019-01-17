@@ -30,7 +30,6 @@ exports.serve = gulp.series(
   "clean",
   gulp.parallel("css", "css:icons", "js"),
   "js:comments",
-  "js:disablesw",
   gulp.parallel("watch:css", "watch:js", elv("--serve"))
 );
 
@@ -40,6 +39,5 @@ exports.default = gulp.series(
   "clean",
   gulp.parallel("css", "css:icons", "js"),
   "js:comments",
-  "js:disablesw",
   elv()
 );
