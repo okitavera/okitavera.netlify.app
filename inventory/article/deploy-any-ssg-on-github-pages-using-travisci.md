@@ -5,7 +5,7 @@ date: 2018-12-31
 tags:
   - JAMstack
   - Travis
-  - web-development
+  - webdev
 splash:
   url: "/assets/img/banners/unsplash-css-shot.jpg"
   credit: "Image: https://unsplash.com/photos/_yMciiStJyY"

@@ -7,7 +7,7 @@ tags:
   - eleventy
   - JAMstack
   - nodejs
-  - web-development
+  - webdev
 splash:
   url: "/assets/img/banners/eleventy-offline.jpg"
   credit: "an event that happens approximately 66 million years ago, chromiumized"

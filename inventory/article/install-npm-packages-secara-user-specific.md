@@ -4,7 +4,7 @@ date: 2018-12-13
 tags:
   - npm
   - nodejs
-  - web-development
+  - webdev
 splash:
   url: "/assets/img/banners/npm-install-user.jpg"
   credit: "Image: https://unsplash.com/photos/k03ornGON08"

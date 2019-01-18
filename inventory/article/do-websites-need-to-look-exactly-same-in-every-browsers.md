@@ -2,8 +2,8 @@
 title: "Do Websites Need To Look Exactly Same In Every Browsers ?"
 date: 2018-12-11
 tags:
-  - web-development
-  - shitpost
+  - webdev
+  - random
 splash:
   url: "/assets/img/banners/pewds-hmm.jpg"
   credit: "Image is demonetized."
