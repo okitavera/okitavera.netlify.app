@@ -15,7 +15,7 @@ layout: plain.njk
   <div class="row paper paper-art">
     <div class="col">
       {% if splash %}
-        <figure class="splash" data-parallax="data-parallax" style="background-image:url({{ splash.url }})"></figure>
+        <img src="{{ splash.url }}" style="max-width:100%">
         {% if splash.credit %}
           <div class="splash-credit">{{ splash.credit | urlize | safe }}</div>
         {% endif %}

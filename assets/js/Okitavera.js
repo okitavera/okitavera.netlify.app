@@ -12,25 +12,8 @@ function toggleScrollTopView(button) {
   }, CALL_TICK);
 }
 
-function bannerListener(background) {
-  function moveBackgroundPosition() {
-    var limit = background.offsetTop + background.offsetHeight;
-
-    if (window.pageYOffset < limit)
-      background.style.backgroundPositionY = `-${window.pageYOffset / 6}px`;
-    else background.style.backgroundPositionY = `0px`;
-  }
-
-  if (background && window.matchMedia("(min-width: 775px)").matches) {
-    if (!window.requestAnimationFrame) moveBackgroundPosition();
-    else window.requestAnimationFrame(moveBackgroundPosition);
-  }
-}
-
 var onPageScroll = function() {
-  var banner = document.querySelector("[data-parallax]");
   var button = document.querySelector(".backtotop");
-  bannerListener(banner);
   toggleScrollTopView(button);
 };
 
