@@ -1,9 +1,10 @@
-const importSrc = (src) => {
-  var script = document.createElement("script");
-  script.type = "text/javascript";
-  script.src = src;
-  script.async = true;
-  (document.head || document.body).appendChild(script);
-};
+const importSrc = (src) =>
+  (document.head || document.body).appendChild(
+    Object.assign(document.createElement("script"), {
+      type: "text/javascript",
+      src: src,
+      async: true
+    })
+  );
 
 export default importSrc;

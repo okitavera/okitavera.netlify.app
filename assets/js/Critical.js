@@ -5,8 +5,7 @@ document.documentElement.classList.remove("no-js");
     hTag.classList.add("enhanced-webfonts");
     return;
   } else if ("fonts" in d) {
-    let recs = [];
-    let vars = [
+    let variants = [
       "400",
       "300",
       "700",
@@ -16,19 +15,14 @@ document.documentElement.classList.remove("no-js");
       "italic 700",
       "italic 900"
     ];
-    for (var i = 0; i < this.length; ++i) {
-      recs.push(d.fonts.load(vars[i] + " 1em LatoLatinSubset"));
-    }
     Promise.all(
-      recs.map(function(f) {
-        return f.catch(function(e) {
-          return e;
-        });
-      })
-    ).then(function() {
-      hTag.classList.add("enhanced-webfonts");
-      sessionStorage.webfonts = true;
-    });
+      variants.map((it) =>
+        d.fonts.load(it + " 1em LatoLatinSubset").catch((err) => err)
+      )
+    ).then(
+      () => hTag.classList.add("enhanced-webfonts"),
+      (sessionStorage.webfonts = true)
+    );
   }
 })(document);
 if ("serviceWorker" in navigator)
