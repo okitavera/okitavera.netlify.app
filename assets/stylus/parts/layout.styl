@@ -10,11 +10,27 @@ body
 
 .sidebar
   z-index 10
-  min-width 350px
+  min-width 370px
   width 35%
   background-color $altDark[0]
   color $colorLight[0]
-  .menu
+  .container
+    position sticky
+    top 0
+    display flex
+    flex-direction column
+    justify-content center
+    margin 0 0 0 auto
+    padding-top 0
+    padding-bottom 0
+    min-height 100vh
+    max-width 370px
+    .row
+      flex-basis 100%
+      width 100%
+      a
+        margin-right 1rem
+  &__menu
     font-size 1.5rem
     a>i
       margin-right 10px
@@ -22,66 +38,53 @@ body
       color $colorLight[1]
       &:hover
         color $colorAccent
-  .container
-    position sticky
-    top 0
-    display flex
-    flex-direction column
-    justify-content center
-    padding-top 0
-    padding-bottom 0
-    min-height 100vh
-    .row
-      flex-basis 100%
-      width 100%
-      a
-        margin-right 1rem
-
-.web-title
-  text-transform uppercase
-  font-weight 900
-  font-size 2.4rem
-  line-height 1.2
+  &__title
+    text-transform uppercase
+    font-weight 900
+    font-size 2.4rem
+    line-height 1.2
 
 .main-footer
   margin-top auto // push the main footer to the bottom
+  padding-top 2rem
+  text-transform uppercase
+  letter-spacing 2px
+  &__jumps a
+    padding 2px .6rem
   *
     font-size .7rem
 
 @media screen and (max-width: $flexTreshold)
+  body
+    flex-direction column
   .sidebar
+    width 100%
     border-right 0
     border-bottom 1px solid lighten($colorLight[4], 50%)
+    text-align center
+    &__title
+      margin 5px
+      font-size 1.8rem
+    &__desc
+      margin 5px
+      font-size 1rem
+    &__menu
+      a>i
+        display none
+      div
+        display inline
     .container
-      flex-direction row
+      flex-direction column
       flex-wrap wrap
       align-content center
       padding-top 2rem
       padding-bottom 2rem
+      min-height unset
+      max-width unset
       .row
         flex 0 0 auto
         flex-basis auto
         align-self center
         width auto
-        &:last-child
-          flex 0 1 100%
-          .col
-            text-align center
-    .menu
-      a>i
-        display none
-      div
-        display inline
-    .web-title
-      margin 5px
-      font-size 1.8rem
-    .web-desc
-      margin 5px
-      font-size 1rem
-  .sidebar,
   .main-content
     width 100%
-  body
-    flex-direction column
-  .sidebar .container
-    min-height unset

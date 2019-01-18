@@ -21,35 +21,13 @@
   &:hover
     opacity 1
 
-.copyright
-  padding-top 2rem
-  text-transform uppercase
-  letter-spacing 2px
-  .jumps a
-    padding 2px .6rem
-
-.post-credit-wrapper
-  display flex
-  align-items center
-  .post-credit
-    display inline-block
-    padding-left 1em
-    > *
-      clear-gaps()
-    :first-child
-      text-transform uppercase
-      font-weight 700
-    :last-child
-      color $colorDark[1]
-      font-weight 400
-
 .paper
   margin 0
   padding 4rem
-  &.paper-art
+  &__art
     overflow hidden
     padding 0
-    .splash-credit
+    &__credit
       display block
       overflow hidden
       padding 1rem
@@ -60,7 +38,7 @@
       font-size 60%
       a
         color $colorDark[1]
-  &.paper-title
+  &__title
     h1,
     time
       text-transform uppercase
@@ -72,7 +50,7 @@
       line-height 1.2
     time
       padding-left .1em
-  &.paper-article
+  &__article
     overflow-x hidden
     padding-top 0
     padding-bottom 0
@@ -95,10 +73,7 @@
 @media screen and (max-width: $flexTreshold)
   .paper
     padding 1.4rem
-    &.paper-art
-      figure
-        padding-top (9 / 16) * 100%
-    &.paper-title h1
+    &__title h1
       font-size 2rem
 
 .friends
@@ -164,21 +139,21 @@
     bottom 2rem
 
 .progress
-  .progress-name
+  &--name
     display inline-block
     width 50%
-  .progress-percent
+  &--percent
     display inline-block
     width 50%
     text-align right
-  .progress-bar-wrapper
-    height 1rem
-    border-radius 1rem
-    background $colorLight[4]
-  .progress-bar
+  &__bar
     height 1rem
     border-radius 1rem
     background $colorAccent
+    &--wrapper
+      height 1rem
+      border-radius 1rem
+      background $colorLight[4]
 
 .icon-post
   margin-right 1rem

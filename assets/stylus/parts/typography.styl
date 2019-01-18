@@ -42,18 +42,6 @@ a
   &:hover
     color $colorDark[2]
 
-.typo-mono
-  font-family $font_mono
-
-.txt-uppercase
-  text-transform uppercase
-
-.txt-sm
-  font-size 90%
-
-.txt-big
-  font-size 120%
-
 .center
   text-align center
 
@@ -63,18 +51,26 @@ a
 .right
   text-align right
 
+.txt
+  &--upper
+    text-transform uppercase
+  &--small
+    font-size 90%
+  &--big
+    font-size 120%
+  &--accent,
+  &--accent *
+    color $colorAccent
+
 for weight in 300 400 700 900
-  .txt-{weight}
+  .txt--{weight}
     font-weight weight
 
-.txt-accent,
-.txt-accent *
-  color $colorAccent
-
 for i in (0 .. 5)
-  .txt-light{i},
-  .txt-light{i} *
-    color $colorLight[i]
-  .txt-dark{i},
-  .txt-dark{i} *
-    color $colorDark[i]
+  .txt
+    &--light{i},
+    &--light{i} *
+      color $colorLight[i]
+    &--dark{i},
+    &--dark{i} *
+      color $colorDark[i]

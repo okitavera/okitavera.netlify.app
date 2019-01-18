@@ -1,6 +1,5 @@
 .container
-  display block
-  margin 0 auto
+  margin 0 auto 0 0
   padding 1rem
   max-width $containerMaxWidth
   width 100%
@@ -9,27 +8,17 @@
   clear-gaps()
   display flex
   width 100%
-  .col
-    display block
-    flex-grow 1
-    flex-shrink 1
-    flex-basis 0
-  .col-fit
+
+.col
+  display block
+  flex-grow 1
+  flex-shrink 1
+  flex-basis 0
+  &--fit
     flex none
+  &--self-mid
+    align-self center
 
 @media screen and (max-width: $flexTreshold)
-  .row:not(.keep)
+  .row:not(.row--immutable)
     flex-flow column
-
-.self-mid
-  align-self center
-
-.items-mid
-  justify-content center
-  align-items center
-
-.fx-content-mid
-  justify-content center
-
-.items-stretch
-  align-items stretch

@@ -1,21 +1,23 @@
-.bg-accent
-  background-color $colorAccent
+.bg
+  &--accent
+    background-color $colorAccent
+  &--transparent
+    background-color transparent
 
-.bg-accent-half
-  halfground $colorAccent
-
-.bg-accentlight-half
-  halfground lighten($colorAccent, 50%)
-
-.bg-transparent
-  background-color transparent
+.bg-half
+  &--accent
+    halfground $colorAccent
+  &--accentlight
+    halfground lighten($colorAccent, 50%)
 
 for i in (0 .. 4)
-  .bg-light{i}
-    background-color $colorLight[i]
-  .bg-dark{i}
-    background-color $colorDark[i]
-  .bg-light{i}-half
-    halfground $colorLight[i]
-  .bg-dark{i}-half
-    halfground $colorDark[i]
+  .bg
+    &--light-{i}
+      background-color $colorLight[i]
+    &--dark-{i}
+      background-color $colorDark[i]
+  .bg-half
+    &--light-{i}
+      halfground $colorLight[i]
+    &--dark-{i}
+      halfground $colorDark[i]

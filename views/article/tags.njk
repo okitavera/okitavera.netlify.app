@@ -5,10 +5,10 @@ title: Tags
 ---
 <section class="article-index">
   <div class="container center">
-    <h1 class="txt-300">TAGGED ARTICLES</h1>
+    <h1 class="txt--300">TAGGED ARTICLES</h1>
     {% for _tag in collections.tags %}
-      <a href="/article/tags/{{ _tag }}/" class="btn txt-dark3 btn-sm txt-uppercase">{{ _tag }}</a>
+      <a href="/article/tags/{{ _tag }}/" class="btn txt--dark3 btn--sm txt--upper">{{ _tag }}</a>
     {% endfor %}
-    <div class="sp sp-l"></div>
+    <div class="spacer--3"></div>
   </div>
 </section>

@@ -25,16 +25,16 @@ input[type='submit'],
     outline none
     filter brightness(125%)
     color currentColor
-  &.btn-outline
-    border-color $altDark[1]
-  &.btn-outline-light
-    border-color $colorLight[1]
-  &.btn-lg
-    padding .35rem 1.2rem
-    font-size 1.2rem
-  &.btn-sm
-    padding .15rem .8rem
-    font-size .8rem
   &[disabled]
     opacity .5
     cursor default
+
+.btn
+  &--outline
+    border-color $altDark[1]
+  &--lg
+    padding .35rem 1.2rem
+    font-size 1.2rem
+  &--sm
+    padding .15rem .8rem
+    font-size .8rem

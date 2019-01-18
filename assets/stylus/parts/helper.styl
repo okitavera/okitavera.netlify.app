@@ -1,63 +1,51 @@
 .circle
   border-radius 50%
 
-.height-stretch
-  min-height 100vh
-
-for num in 20 30 40 50 60 70 80 90 100
-  div.hl-{num}
-    left 0
-    margin -1px auto 0
-    width unit(num, '%')
-    height 1px
-    background-color lighten($colorLight[4], 50%)
-
 for i in (0 .. 4)
-  .pad-y{i}
-    padding-top i rem
-    padding-bottom i rem
-  .pad-x{i}
-    padding-right i rem
-    padding-left i rem
-  .mgn-y{i}
-    margin-top i rem
-    margin-bottom i rem
-  .mgn-x{i}
-    margin-right i rem
-    margin-left i rem
+  .padding
+    &--y-{i}
+      padding-top i rem
+      padding-bottom i rem
+    &--x-{i}
+      padding-right i rem
+      padding-left i rem
+  .margin
+    &--y-{i}
+      margin-top i rem
+      margin-bottom i rem
+    &--x-{i}
+      margin-right i rem
+      margin-left i rem
 
 @media screen and (max-width: $flexTreshold)
   for i in (1 .. 4)
     m = (i - .5)
-    .pad-y{i}
-      padding-top m rem
-      padding-bottom m rem
-    .pad-x{i}
-      padding-right m rem
-      padding-left m rem
-    .mgn-y{i}
-      margin-top m rem
-      margin-bottom m rem
-    .mgn-x{i}
-      margin-right m rem
-      margin-left m rem
+    .padding
+      &--y-{i}
+        padding-top m rem
+        padding-bottom m rem
+      &--x-{i}
+        padding-right m rem
+        padding-left m rem
+    .margin
+      &--y-{i}
+        margin-top m rem
+        margin-bottom m rem
+      &--x-{i}
+        margin-right m rem
+        margin-left m rem
 
-hr,
-div
-  &.sp
+for i in (1 .. 4)
+  .spacer--{i}
     clear-gaps()
     display block
-    height 2rem
+    height i rem
     border none
-    &.sp-xl
-      height 4rem
-    &.sp-l
-      height 3rem
-    &.sp-m
-      height 2rem
-    &.sp-s
-      height 1rem
-    &.sp-xs
-      height .5rem
-    &.sp-xxs
-      height .25rem
+
+for i in 20 30 40 50 60 70 80 90 100
+  .hline--{i}
+    left 0
+    margin -1px auto 0
+    width unit(i, '%')
+    height 1px
+    background-color lighten($colorLight[4], 50%)
