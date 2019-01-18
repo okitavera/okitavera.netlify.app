@@ -24,9 +24,11 @@ renderData:
               <a href="{{ post.url | url }}">
                 <figure class="card-thumbnail bg-dark0">
                   {% if post.data.splash.url %}
-                    {% fallbackImg post.data.splash.url | thumbnailURL %}
+                    {% fallbackImg post.data.splash.url | thumbnailURL,
+                    'alt="' + post.data.title + '"' %}
                   {% else %}
-                    {% fallbackImg '/assets/img/book.svg' %}
+                    {% fallbackImg '/assets/img/book.svg',
+                    'alt="' + post.data.title + '"' %}
                   {% endif %}
                 </figure>
                 <div class="card-context">
