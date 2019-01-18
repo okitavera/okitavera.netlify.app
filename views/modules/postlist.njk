@@ -3,6 +3,11 @@
 {% endif %}
 {% for post in posts | reverse %}
   <div class="pad-y1 row keep">
+    <div class="col-fit">
+      <div class="icon-post" style="background-color: {% generateColorFrom post.data.title %}">
+        <img src="/assets/img/book.svg" alt="article icon" width="32" height="32">
+      </div>
+    </div>
     <div class="col">
       <a href="{{ post.url | url }}">
         <h2 class="mgn-y0">{{ post.data.title }}</h2>
