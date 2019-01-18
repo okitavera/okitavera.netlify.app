@@ -39,16 +39,17 @@ layout: plain.njk
   <div class="hl-100"></div>
   <article class="paper paper-article">
     <div class="sp"></div>
-    <footer class="post-credit-wrapper pad-y0">
-      <img class="circle" width="64" src="/assets/img/avatars/me.png"/>
-      <div class="post-credit">
-        <h6>written by</h6>
-        <h3>{{ metadata.author.name }}</h3>
+    <div class="row keep">
+      <div class="col-fit">
+        <img class="circle" width="64" src="/assets/img/avatars/me.png"/>
       </div>
-    </footer>
+      <div class="col self-mid">
+        <b class="mgn-y0 pad-x1">WRITTEN BY</b>
+        <h3 class="mgn-y0 pad-x1">{{ metadata.author.name }}</h3>
+      </div>
+    </div>
     <div class="sp"></div>
     {% if metadata.disqus.username and metadata.disqus.enable == "true" %}
-
       <div id="disqus_thread" class="center">
         <button id="disqus_loader" class="btn bg-transparent txt-accent btn-outline">View Comments</button>
       </div>
@@ -60,27 +61,12 @@ layout: plain.njk
 <section class="recent-article" id="recentarticles">
   <div class="container pad-x2">
     <h1 class="left txt-300">Recent Article</h1>
-    {% set articles = collections.posts | head(-3) %}
-    {% for post in articles | reverse %}
-      <a href="{{ post.url | url }}">
-        <div class="row pad-y1">
-          <div class="col">
-            <h2 class="mgn-y0">{{ post.data.title }}</h2>
-            <div class="txt-dark2 txt-sm">
-              <time datetime="{{ date | htmlDateString }}">
-                <i class="fea-calendar"></i>&nbsp;&nbsp;{{ post.date | readableDate }}</time>
-            </div>
-          </div>
-        </a>
-      {% endfor %}
-      <div class="row center">
-        <div class="col">
-          <div class="sp"></div>
-          <a href="/article/" class="btn bg-accent txt-light1">View More</a>
-          <div class="sp"></div>
-        </div>
-      </div>
+    {% set posts = collections.posts | head(-3) %}
+    {% include "postlist.njk" %}
+    <div class="center pad-y2">
+      <a href="/article/" class="btn bg-accent txt-light1">View More</a>
     </div>
-  </section>
+  </div>
+</section>
 </div>
 </section>

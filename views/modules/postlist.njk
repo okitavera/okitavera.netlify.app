@@ -1,0 +1,17 @@
+{% if not posts %}
+  {% set posts = collections.posts %}
+{% endif %}
+{% for post in posts | reverse %}
+  <div class="pad-y1 row keep">
+    <div class="col">
+      <a href="{{ post.url | url }}">
+        <h2 class="mgn-y0">{{ post.data.title }}</h2>
+        <div class="txt-dark2 txt-sm">
+          <time datetime="{{ date | htmlDateString }}">
+            <i class="fea-calendar"></i>&nbsp;&nbsp;{{ post.date | readableDate }}
+          </time>
+        </div>
+      </a>
+    </div>
+  </div>
+{% endfor %}

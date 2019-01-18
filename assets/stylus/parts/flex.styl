@@ -8,31 +8,21 @@
 .row
   clear-gaps()
   display flex
-  flex-direction row
-  flex-wrap wrap
   width 100%
   .col
-    flex 1 1 auto
-  .col-1of3
-    flex-basis (100% / 3)
-    min-width 240px
-    width (100% / 3)
+    display block
+    flex-grow 1
+    flex-shrink 1
+    flex-basis 0
+  .col-fit
+    flex none
 
 @media screen and (max-width: $flexTreshold)
-  .row
+  .row:not(.keep)
     flex-flow column
-    .col,
-    .col-1of3
-      flex-basis 100%
-      width 100%
-    &.ignore-mobile
-      flex-flow row wrap
 
-.fx-nowrap
-  flex-wrap nowrap
-
-.fx-nogrow
-  flex-grow 0
+.self-mid
+  align-self center
 
 .items-mid
   justify-content center
