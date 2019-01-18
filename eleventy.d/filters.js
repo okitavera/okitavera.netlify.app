@@ -22,10 +22,6 @@ module.exports = ({ eleventy }) => {
     return slugify(input, options);
   });
 
-  eleventy.addFilter("thumbnailURL", (path) => {
-    return path.replace("/banners/", "/thumbnails/");
-  });
-
   eleventy.addFilter("getReadingTime", (content, format) => {
     const reader = readingTime(content);
     const options = {

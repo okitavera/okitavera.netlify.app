@@ -8,6 +8,15 @@ fea(name)
     background-size 1em
     background-repeat no-repeat
     opacity .7
+  .fea-{name}-light
+    display inline-block
+    width 1em
+    height 1em
+    background-image svg-load(name + '.svg', 'stroke=#fafafa')
+    background-position center
+    background-size 1em
+    background-repeat no-repeat
+    opacity .7
 
 fea('twitter')
 fea('home')
@@ -18,3 +27,4 @@ fea('github')
 fea('clock')
 fea('calendar')
 fea('chevron-up')
+fea('mail')

@@ -1,28 +1,7 @@
 const res = require("gulp-responsive");
 const dl = require("gulp-download2");
-const rename = require("gulp-rename");
 
-module.exports = ({ gulp, fs, rimraf }) => {
-  // build mini-thumbnails for posts list
-  gulp.task("thumbnails", (done) => {
-    const resOpt = {
-      "*": {
-        width: "320",
-        quality: 80,
-        format: "jpeg"
-      }
-    };
-    const renOpt = {
-      extname: ".jpg"
-    };
-    rimraf("./assets/thumbnails", done);
-    return gulp
-      .src("./assets/img/banners/*.{png,jpg}")
-      .pipe(res(resOpt))
-      .pipe(rename(renOpt))
-      .pipe(gulp.dest("./assets/img/thumbnails"));
-  });
-
+module.exports = ({ gulp, fs }) => {
   // download people's avatars
   const avapath = "./assets/img/avatars";
   gulp.task("ava:fetch", () => {

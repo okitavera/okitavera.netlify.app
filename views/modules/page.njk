@@ -1,0 +1,24 @@
+---
+layout: plain.njk
+---
+<section class="container pad-y0 pad-x0">
+  <header class="row paper paper-title">
+    <div class="col">
+      <h1 style="text-transform:unset" class="mgn-y0">{{ title }}</h1>
+    </div>
+  </header>
+</section>
+<section class="container pad-y0 pad-x0">
+  <article class="paper paper-article">
+    {{ content | safe }}
+    <br>
+    <small>
+      {% for tag in tags %}
+        {%- if tag != "post" -%}
+          <a href="/article/tags/{{ tag }}/" class="btn btn-sm txt-uppercase">{{ tag }}</a>
+        {%- endif -%}
+      {% endfor %}
+    </small>
+    <div class="sp"></div>
+  </article>
+</section>

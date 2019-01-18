@@ -2,24 +2,31 @@
 layout: plain.njk
 permalink: /
 ---
-<section class="about bg-light0" id="about">
-  <div class="container pad-x2 pad-y0" style="max-width:58rem">
-    <div class="row fx-nowrap items-mid">
-      <div class="col">
-        <h1 class="txt-300">Hi!</h1>
-        <p class="txt-big">
-          I am UX Designer and Kotlin-Android Developer from an exotic country called Indonesia.<br>
-          I do code, but as another hobbies afterworks besides watching videos or plays some melodic decadence metal music.<br>
-          Primarily use Kotlin for Android development, but also do a bash and python for scripting.<br>
-          I also mastering of mixing chocolate and coffee.
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="sp"></div>
-</section>
-<div class="hl-100"></div>
 <div class="bg-light0">
-  {% include "recentarticle.njk" %}
-</div>
-<div class="hl-80"></div>
+  <section class="recent-article" id="recentarticles">
+    <div class="container pad-x2">
+      <h1 class="left txt-300">Latest Content</h1>
+      {% set articles = collections.posts | head(-3) %}
+      {% for post in articles | reverse %}
+        <a href="{{ post.url | url }}">
+          <div class="row pad-y1">
+            <div class="col">
+              <h2 class="mgn-y0">{{ post.data.title }}</h2>
+              <div class="txt-dark2 txt-sm">
+                <time datetime="{{ date | htmlDateString }}">
+                  <i class="fea-calendar"></i>&nbsp;&nbsp;{{ post.date | readableDate }}</time>
+              </div>
+            </div>
+          </a>
+        {% endfor %}
+        <div class="row center">
+          <div class="col">
+            <div class="sp"></div>
+            <a href="/article/" class="btn bg-accent txt-light1">View More</a>
+            <div class="sp"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="hl-80"></div>

@@ -22,8 +22,8 @@ const elv = (options = "") => {
   return cmd;
 };
 
-// task for build and resize thumbnails and avatars
-exports.images = gulp.series("thumbnails", "ava:fetch", "ava:normalize");
+// task for build and resize avatars
+exports.images = gulp.series("ava:fetch", "ava:normalize");
 
 // task for build and run those watchers
 exports.serve = gulp.series(
