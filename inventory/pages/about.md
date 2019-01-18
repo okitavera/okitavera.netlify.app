@@ -1,7 +1,7 @@
 ---
 permalink: /about/
 layout: page.njk
-title: I'm Nanda Oktavera and You're Reading About Me
+title: Oh, You're Reading About Me Now
 ---
 
 # Bio
