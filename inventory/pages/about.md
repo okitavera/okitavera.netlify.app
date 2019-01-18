@@ -1,7 +1,7 @@
 ---
 permalink: /about/
 layout: page.njk
-title: Oh, You're Reading About Me Now
+title: About Me
 ---
 
 # Bio
@@ -13,32 +13,19 @@ When I’m not on the text editor, I enjoy playing video games, shopping, watchi
 
 # Skill
 
-<div class="progress">
-  <div class="progress__name">Kotlin</div><div class="progress-percent">70%</div>
-  <div class="progress__bar--wrapper"><div class="progress__bar" style="width:70%"></div></div>
-</div>
+{% progressBar "Kotlin", "60%" %}
 
-<div class="progress">
-  <div class="progress__name">JavaScript</div><div class="progress-percent">20%</div>
-  <div class="progress__bar--wrapper"><div class="progress__bar" style="width:20%"></div></div>
-</div>
+{% progressBar "JavaScript", "20%" %}
 
-<div class="progress">
-  <div class="progress__name">CSS</div><div class="progress-percent">40%</div>
-  <div class="progress__bar--wrapper"><div class="progress__bar" style="width:40%"></div></div>
-</div>
+{% progressBar "CSS", "50%" %}
 
-<div class="progress">
-  <div class="progress__name">Bash</div><div class="progress-percent">80%</div>
-  <div class="progress__bar--wrapper"><div class="progress__bar" style="width:80%"></div></div>
-</div>
+{% progressBar "Bash", "80%" %}
+
+{% progressBar "Linux", "60%" %}
 
 ... And because Gaming is now a skill, so ...
 
-<div class="progress">
-  <div class="progress__name">Gaming</div><div class="progress-percent">90%</div>
-  <div class="progress__bar--wrapper"><div class="progress__bar" style="width:90%"></div></div>
-</div>
+{% progressBar "Gaming", "90%" %}
 
 # Get In Touch
 

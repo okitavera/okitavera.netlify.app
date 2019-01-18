@@ -139,17 +139,22 @@
     bottom 2rem
 
 .progress
-  &--name
+  position relative
+  margin-bottom 1rem
+  &__name
     display inline-block
-    width 50%
-  &--percent
+    width 100%
+  &__percent
+    position absolute
+    top 0
+    left 0
     display inline-block
-    width 50%
+    width 100%
     text-align right
   &__bar
     height 1rem
     border-radius 1rem
-    background $colorAccent
+    background linear-gradient(to right, lighten($colorDark[0], 40%), $colorAccent)
     &--wrapper
       height 1rem
       border-radius 1rem

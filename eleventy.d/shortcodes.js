@@ -6,6 +6,11 @@ module.exports = ({ eleventy }) => {
     return fallbackImg;
   });
 
+  eleventy.addShortcode("progressBar", (title, percent) => {
+    const progressBar = `<div class="progress"><div class="progress__name">${title}</div><div class="progress__percent" style="width:${percent}">${percent}</div><div class="progress__bar--wrapper"><div class="progress__bar" style="width:${percent}"></div></div></div>`;
+    return progressBar;
+  });
+
   eleventy.addShortcode("copyrightYear", (firstYear) => {
     const yrNow = new Date().getFullYear();
     return firstYear.concat("-" + yrNow);
