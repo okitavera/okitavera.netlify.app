@@ -21,13 +21,21 @@ body
   background-color $altDark[0]
   color $colorLight[0]
   .menu
-    font-size 1.8rem
+    font-size 1.5rem
+    a>i
+      margin-right 10px
+    a
+      color $colorLight[1]
+      &:hover
+        color $colorAccent
   .container
     position sticky
     top 0
     display flex
     flex-direction column
     justify-content center
+    padding-top 0
+    padding-bottom 0
     min-height 100vh
     .row
       flex-basis 100%
@@ -54,6 +62,8 @@ body
       flex-direction row
       flex-wrap wrap
       align-content center
+      padding-top 2rem
+      padding-bottom 2rem
       .row
         flex 0 0 auto
         flex-basis auto
@@ -63,6 +73,11 @@ body
           flex 0 1 100%
           .col
             text-align center
+    .menu
+      a>i
+        display none
+      div
+        display inline
     .web-title
       margin 5px
       font-size 1.8rem
