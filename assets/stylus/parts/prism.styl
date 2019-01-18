@@ -21,13 +21,17 @@ pre
 
 :not(pre) > code,
 pre
-  background saturation(darken($colorPurple, 65%), 8%)
+  border-radius 7px
+  background darken($altDark[0], 30%)
+  box-shadow 0 1px 1px gray
   color $colorLight[2]
 
 /* Inline code */
 :not(pre) > code
   padding 3px 6px
-  background $colorLight[1]
+  border-radius 2px
+  background $colorLight[2]
+  box-shadow none
   color inherit
   white-space normal
 
