@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const gulp = require("gulp");
 const fs = require("fs");
 const spawn = require("child_process").spawn;
@@ -39,5 +41,6 @@ exports.default = gulp.series(
   "clean",
   gulp.parallel("css", "css:icons", "js"),
   "js:comments",
+  "twitter",
   elv()
 );

@@ -12,12 +12,33 @@ function toggleScrollTopView(button) {
   }, CALL_TICK);
 }
 
+function parseTwitterDate(tdate) {
+  let system_date = new Date(Date.parse(tdate));
+  let user_date = new Date();
+  if (navigator.userAgent.match(/MSIE\s([^;]*)/))
+    system_date = Date.parse(tdate.replace(/( \+)/, " UTC$1"));
+  let diff = Math.floor((user_date - system_date) / 1000);
+  if (diff <= 1) return "just now";
+  if (diff < 60) return diff + "s";
+  if (diff <= 60) return "1m";
+  if (diff <= 3540) return Math.round(diff / 60) + "m";
+  if (diff <= 5400) return "1h";
+  if (diff <= 86400) return Math.round(diff / 3600) + "h";
+  if (diff <= 129600) return "1d";
+  if (diff < 604800) return Math.round(diff / 86400) + "d";
+  if (diff <= 777600) return "1w";
+  return "on " + system_date;
+}
+
 var onPageScroll = function() {
   var button = document.querySelector(".backtotop");
   toggleScrollTopView(button);
 };
 
 var onPageLoad = function() {
+  document.querySelectorAll(".twitter-date").forEach((date) => {
+    date.innerHTML = parseTwitterDate(date.getAttribute("data-date"));
+  });
   disqusLoader(disqusdata.username);
 };
 
