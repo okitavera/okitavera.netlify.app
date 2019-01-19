@@ -1,0 +1,57 @@
+.paper
+  margin 0
+  padding 4rem
+  &__art
+    overflow hidden
+    padding 0
+    &__credit
+      display block
+      overflow hidden
+      padding 1rem
+      text-align right
+      text-overflow ellipsis
+      white-space pre
+      letter-spacing 1px
+      font-size 60%
+      a
+        color $colorDark[1]
+  &__title
+    h1,
+    time
+      text-transform uppercase
+      font-weight 700
+    h1
+      max-width 90%
+      font-weight 900
+      font-size 3rem
+      line-height 1.2
+    time
+      padding-left .1em
+  &__article
+    overflow-x hidden
+    padding-top 0
+    padding-bottom 0
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6
+      font-weight 700
+      .direct-link
+        position relative
+        top -.2em
+        visibility hidden
+        color lighten($colorAccent, 30%)
+        font-size .8em
+      &:hover > .direct-link
+        visibility visible
+
+@media screen and (max-width: --flexbox-breakpoint)
+  .paper
+    padding 1.4rem
+    &__art
+      overflow hidden
+      padding 0
+    &__title h1
+      font-size 2rem

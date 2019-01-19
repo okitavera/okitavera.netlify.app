@@ -4,20 +4,16 @@
  * License under MIT
  * Source available at: https://github.com/okitavera/okitavera.me.git
  */
-$flexTreshold = 775px
-$paperMaxWidth = 950px
-$containerMaxWidth = 1100px
+--flexbox-breakpoint = 775px
+--container-maxwidth = 1100px
+--sidebar-maxwidth = 370px
 
 @import 'parts/functions'
 @import 'parts/fonts'
 @import 'parts/colors'
 @import 'parts/base'
-@import 'parts/button'
-@import 'parts/typography'
-@import 'parts/flex'
-@import 'parts/layout'
-@import 'parts/background'
-@import 'parts/helper'
-@import 'parts/me'
-@import 'parts/prism'
+@import 'parts/utils/*'
+@import 'parts/layout/*'
+@import 'parts/modifiers'
 @import 'parts/fallback'
+@import 'parts/prism'

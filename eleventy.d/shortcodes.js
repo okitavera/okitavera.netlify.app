@@ -7,7 +7,7 @@ module.exports = ({ eleventy }) => {
   });
 
   eleventy.addShortcode("progressBar", (title, percent) => {
-    const progressBar = `<div class="progress"><div class="progress__name">${title}</div><div class="progress__percent" style="width:${percent}">${percent}</div><div class="progress__bar--wrapper"><div class="progress__bar" style="width:${percent}"></div></div></div>`;
+    const progressBar = `<div class="progress"><div class="progress__name">${title}</div><div class="progress__percent" style="width:${percent}">${percent}</div><div class="progress__bar"><div class="progress__bar__loaded" style="width:${percent}"></div></div></div>`;
     return progressBar;
   });
 
@@ -17,6 +17,7 @@ module.exports = ({ eleventy }) => {
   });
 
   eleventy.addShortcode("generateColorFrom", (title) => {
+    if (!title) title = "eleventy is cute";
     var hash = title
       .split("")
       .reduce((prev, curr) => ((prev << 5) - prev + curr.charCodeAt(0)) | 0, 0);

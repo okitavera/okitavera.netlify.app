@@ -25,7 +25,7 @@ module.exports = ({ eleventy }) => {
   eleventy.addFilter("getReadingTime", (content, format) => {
     const reader = readingTime(content);
     const options = {
-      "%M": reader.minutes,
+      "%M": Math.round(reader.minutes),
       "%W": reader.words
     };
     return format.replace(/%M|%W/gi, (match) => {

@@ -3,30 +3,28 @@ permalink: /community/
 layout: plain.njk
 title: Community
 ---
-<div class="bg--light-0">
-  <div class="container center friends">
-    <div class="row">
-      <div class="col">
-        <h1 class="txt--300">Community</h1>
-        <p>
+<div class="container center friends">
+  <div class="row">
+    <div class="col">
+      <h1 class="txt--300">Community</h1>
+      <p>
           List of website and repository that recognized in
           <br>
-          <a href="https://t.me/dotfiles_id">DotfilesID</a>
+        <a href="https://t.me/dotfiles_id">DotfilesID</a>
           and
           <a href="https://t.me/JAMstackID">JAMstackID</a><br>
-          <small>Disclaimer: both are Indonesian Telegram channel btw</small>
-        </p>
-        <div class="spacer--3"></div>
-        {% for friend in friendlists.friends | sort(false, false, 'name')%}
-          <a class="txt--dark2 padding--x-1" href="{{ friend.url }}" alt="{{ friend.name }}" aria-label="{{ friend.name }}">
-            {% fallbackImg '/assets/img/avatars/' + friend.name + '.min.png',
-            'alt="' + friend.name + '" width="100" height="100"' %}
-            <span class="txt--upper">{{ friend.name }}</span>
-            <span>{{ friend.url | replace("https://","") }}</span>
-          </a>
-        {% endfor %}
-      </div>
+        <small>Disclaimer: both are Indonesian Telegram channel btw</small>
+      </p>
       <div class="spacer--3"></div>
+      {% for friend in friendlists.friends | sort(false, false, 'name')%}
+        <a class="txt--dark2 padding--x-1" href="{{ friend.url }}" alt="{{ friend.name }}" aria-label="{{ friend.name }}">
+          {% fallbackImg '/assets/img/avatars/' + friend.name + '.min.png',
+          'alt="' + friend.name + '" width="100" height="100"' %}
+          <span class="txt--upper">{{ friend.name }}</span>
+          <span>{{ friend.url | replace("https://","") }}</span>
+        </a>
+      {% endfor %}
     </div>
+    <div class="spacer--3"></div>
   </div>
 </div>

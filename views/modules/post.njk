@@ -2,25 +2,21 @@
 layout: plain.njk
 ---
 <section class="container padding--y-0 padding--x-0">
-  <header class="row paper paper__title">
-    <div class="col">
-      <h1>{{ title }}</h1>
-      <time datetime="{{ date | htmlDateString }}">
-        <i class="fea-calendar"></i>&nbsp;&nbsp;{{ date | readableDate }}</time>
+  <header class="paper paper__title">
+    <h1>{{ title }}</h1>
+    <time datetime="{{ date | htmlDateString }}">
+      <i class="fea-calendar"></i>&nbsp;&nbsp;{{ date | readableDate }}</time>
       &nbsp;&nbsp;
       <span>
-        <i class="fea-clock"></i>&nbsp;&nbsp;{{ content | getReadingTime("%M minutes to read") }}</span>
-    </div>
+      <i class="fea-clock"></i>&nbsp;&nbsp;{{ content | getReadingTime("%M minutes to read") }}</span>
   </header>
-  <div class="row paper paper__art">
-    <div class="col">
-      {% if splash %}
-        <img src="{{ splash.url }}" style="max-width:100%">
-        {% if splash.credit %}
-          <div class="paper__art__credit">{{ splash.credit | urlize | safe }}</div>
-        {% endif %}
+  <div class="paper paper__art">
+    {% if splash %}
+      <img src="{{ splash.url }}" style="max-width:100%">
+      {% if splash.credit %}
+        <div class="paper__art__credit">{{ splash.credit | urlize | safe }}</div>
       {% endif %}
-    </div>
+    {% endif %}
   </div>
 </section>
 <section class="container padding--y-0 padding--x-0">
@@ -36,7 +32,7 @@ layout: plain.njk
     </small>
     <div class="spacer--2"></div>
   </article>
-  <div class="hline--100"></div>
+  <div class="hline"></div>
   <article class="paper paper__article">
     <div class="spacer--2"></div>
     <div class="row row--immutable">
@@ -57,16 +53,12 @@ layout: plain.njk
     <div class="spacer--2"></div>
   </article>
 </section>
-<div class="hline--50"></div>
-<section class="recent-article" id="recentarticles">
-  <div class="container padding--x-2">
-    <h1 class="left txt--300">Recent Article</h1>
-    {% set posts = collections.posts | head(-3) %}
-    {% include "postlist.njk" %}
-    <div class="center padding--y-2">
-      <a href="/article/" class="btn bg--accent txt--light1">View More</a>
-    </div>
+<div class="hline"></div>
+<section class="container padding--x-2">
+  <h1 class="left txt--300">Latest Content</h1>
+  {% set posts = collections.posts | head(-3) %}
+  {% include "postlist.njk" %}
+  <div class="center padding--y-2">
+    <a href="/article/" class="btn bg--accent txt--light1">View More</a>
   </div>
-</section>
-</div>
 </section>

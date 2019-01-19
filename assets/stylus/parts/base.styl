@@ -4,19 +4,26 @@
   box-sizing inherit
   font-family inherit // fix fonts still not using webfonts
 
-html,
-body
+html
   clear-gaps()
-  display flex
-  flex-direction column
   box-sizing border-box
-  min-height 100vh
-  background-color white
-  color $colorDark[2]
   font-weight 400
   font-size 14px
   line-height unit((@font-size / 8), '')
   scroll-behavior smooth
+
+body
+  clear-gaps()
+  display flex
+  flex 1
+  flex-direction row
+  min-height 100vh
+  background-color white
+  color $colorDark[2]
+
+@media screen and (max-width: --flexbox-breakpoint)
+  body
+    flex-direction column
 
 blockquote
   position relative
@@ -87,3 +94,56 @@ p
   word-wrap break-word
   img
     max-width 100%
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+  display block
+  vertical-align middle
+  font-weight normal
+
+h1
+  margin .67em 0
+  font-size 2em
+
+h2
+  margin .83em 0
+  font-size 1.5em
+
+h3
+  margin 1em 0
+  font-size 1.17em
+
+h4
+  margin 1.33em 0
+  font-size 1em
+
+h5
+  margin 1.67em 0
+  font-size .83em
+
+h6
+  margin 2.33em 0
+  font-size .7em
+
+small
+  font-size .8em
+
+a
+  color $colorAccent
+  text-decoration none
+  &:focus,
+  &:hover
+    color $colorDark[2]
+
+[class^='fea-']
+  display inline-block
+  width 1em
+  height 1em
+  background-position center
+  background-size 1em
+  background-repeat no-repeat
+  opacity .7

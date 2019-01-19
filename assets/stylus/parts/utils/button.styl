@@ -38,3 +38,34 @@ input[type='submit'],
   &--sm
     padding .15rem .8rem
     font-size .8rem
+
+.backtotop
+  position fixed
+  right 5rem
+  bottom 5rem
+  display flex
+  visibility hidden
+  justify-content center
+  align-items center
+  width 3rem
+  height 3rem
+  border-radius 50%
+  background-color $colorAccent
+  box-shadow 0 0 10px 0 rgba(0, 0, 0, .11)
+  transition .25s ease-out all
+  transform scale(0)
+  i
+    font-size 2rem
+  &:hover
+    background $colorDark[2]
+  &:active,
+  &:focus
+    outline none
+  &.show
+    visibility visible
+    transform scale(1)
+
+@media screen and (max-width: --flexbox-breakpoint)
+  .backtotop
+    right 2rem
+    bottom 2rem

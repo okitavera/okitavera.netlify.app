@@ -4,12 +4,11 @@
   {% include "head.njk" %}
   <body>
     {% include "sidebar.njk" %}
-    <main class="main-content">
-      {{ content | safe }}
+    <div class="content">
+      <main class="content__wrapper">
+        {{ content | safe }}
+      </main>
       {% include "foot.njk" %}
-    </main>
-    <a href="#" class="btn backtotop jumper">
-      <i class="fea-chevron-up" style="filter:invert(100%)"></i>
-    </a>
+    </div>
   </body>
 </html>

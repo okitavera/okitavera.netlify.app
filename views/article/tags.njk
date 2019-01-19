@@ -3,12 +3,12 @@ permalink: /article/tags/
 layout: plain.njk
 title: Tags
 ---
-<section class="article-index">
-  <div class="container center">
-    <h1 class="txt--300">TAGGED ARTICLES</h1>
-    {% for _tag in collections.tags %}
-      <a href="/article/tags/{{ _tag }}/" class="btn txt--dark3 btn--sm txt--upper">{{ _tag }}</a>
-    {% endfor %}
-    <div class="spacer--3"></div>
-  </div>
+
+{% set articles = collections[tag] %}
+<section class="container padding--x-2 padding--y-0">
+  <h1 class="txt--300">Tagged Article</h1>
+  {% for _tag in collections.tags %}
+    <a href="/article/tags/{{ _tag }}/" class="btn {% if tag == _tag %}txt--light bg--accent{% endif %} btn--sm txt--upper">{{ _tag }}</a>
+  {% endfor %}
+  <div class="spacer--3"></div>
 </section>

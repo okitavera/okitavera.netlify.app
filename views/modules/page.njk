@@ -1,24 +1,8 @@
 ---
 layout: plain.njk
 ---
-<section class="container padding--y-0 padding--x-0">
-  <header class="row paper paper__title">
-    <div class="col">
-      <h1 style="text-transform:unset" class="margin--y-0">{{ title }}</h1>
-    </div>
-  </header>
-</section>
-<section class="container padding--y-0 padding--x-0">
-  <article class="paper paper__article">
-    {{ content | safe }}
-    <br>
-    <small>
-      {% for tag in tags %}
-        {%- if tag != "post" -%}
-          <a href="/article/tags/{{ tag }}/" class="btn btn--sm txt--upper">{{ tag }}</a>
-        {%- endif -%}
-      {% endfor %}
-    </small>
-    <div class="spacer--2"></div>
-  </article>
+<section class="container padding--x-2 padding--y-0">
+  <h1 class="txt--300">{{ title }}</h1>
+  <p>{{ content | safe }}</p>
+  <div class="spacer--2"></div>
 </section>

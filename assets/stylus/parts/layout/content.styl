@@ -1,0 +1,27 @@
+.content
+  position relative
+  display flex
+  flex-direction column
+  overflow-x hidden
+  min-height 100vh
+  width 75%
+  &__wrapper
+    flex 1
+  .icon-post
+    margin-right 1rem
+    padding 1rem
+    background $altDark[1]
+    line-height 1
+    clip-path polygon(50% 0, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%)
+
+@supports not (clip-path: circle(1px at 1px 1px))
+  .icon-post
+    border-radius 50%
+
+@media screen and (max-width: --flexbox-breakpoint)
+  .content
+    width 100%
+    .icon-post
+      margin-right .5rem
+      margin-left -.5rem
+      transform scale(.8)

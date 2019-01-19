@@ -3,10 +3,8 @@ layout: plain.njk
 permalink: /article/
 title: Article Index
 ---
-<section class="article-index">
-  <div class="container padding--x-2">
-    <h1 class="left txt--300">All Article</h1>
-    {% set posts = collections.posts %}
-    {% include "postlist.njk" %}
-  </div>
+<section class="container padding--x-2">
+  <h1 class="left txt--300">All Article</h1>
+  {% set posts = collections.posts %}
+  {% include "postlist.njk" %}
 </section>

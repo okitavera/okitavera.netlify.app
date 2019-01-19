@@ -9,26 +9,13 @@ renderData:
   title: Tagged “{{ tag }}”
 ---
 {% set articles = collections[tag] %}
-<section class="article-index">
-  <div class="container padding--x-2 padding--y-0">
-    <h1 class="txt--300">Tagged Article</h1>
-    {% for _tag in collections.tags %}
-      <a href="/article/tags/{{ _tag }}/" class="btn {% if tag == _tag %}txt--light bg--accent{% endif %} btn--sm txt--upper">{{ _tag }}</a>
-    {% endfor %}
-    <div class="spacer--2"></div>
-    {% for post in articles | reverse %}
-      <a href="{{ post.url | url }}">
-        <div class="row padding--y-1">
-          <div class="col">
-            <h2 class="margin--y-0">{{ post.data.title }}</h2>
-            <div class="txt--dark2 txt--small">
-              <time datetime="{{ date | htmlDateString }}">
-                <i class="fea-calendar"></i>&nbsp;&nbsp;{{ post.date | readableDate }}</time>
-            </div>
-          </div>
-        </div>
-      </a>
-    {% endfor %}
-  </div>
+<section class="container padding--x-2 padding--y-0">
+  <h1 class="txt--300">Tagged Article</h1>
+  {% for _tag in collections.tags %}
+    <a href="/article/tags/{{ _tag }}/" class="btn {% if tag == _tag %}txt--light bg--accent{% endif %} btn--sm txt--upper">{{ _tag }}</a>
+  {% endfor %}
+  <div class="spacer--2"></div>
+  {% set posts = collections[tag] %}
+  {% include "postlist.njk" %}
   <div class="spacer--3"></div>
 </section>
