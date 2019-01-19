@@ -13,7 +13,7 @@ module.exports = ({ gulp, fs }) => {
       .get("statuses/user_timeline", params)
       .then((response) =>
         response
-          .filter((it) => !it.text.match(/^(@|RT\ @).*/g))
+          .filter((it) => !it.text.match(/^@.*/g) && !it.in_reply_to_user_id)
           .map((it) => ({
             name: it.user.name,
             username: it.user.screen_name,
