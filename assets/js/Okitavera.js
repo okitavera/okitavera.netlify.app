@@ -48,6 +48,17 @@ if (!"scroll-behaviour" in document.documentElement.style)
 window.addEventListener("load", onPageLoad);
 window.addEventListener("scroll", onPageScroll, { passive: true });
 
+document.querySelector(".sidebar__mobile-menu").onclick = () => {
+  let menu = document.querySelector(".mobile-menu__wrapper");
+  let state = "state--active";
+  if (menu.classList.contains(state)) {
+    menu.classList.replace(state, "state--inactive");
+  } else if (menu.classList.contains("state--inactive")) {
+    menu.classList.replace("state--inactive", state);
+  } else {
+    menu.classList.add(state);
+  }
+};
 /*!
  * Copyright (c) 2018 Nanda Okitavera
  * MIT License

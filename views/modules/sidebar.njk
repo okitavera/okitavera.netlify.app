@@ -1,32 +1,48 @@
+<nav class="mobile-menu__wrapper">
+  <a class="link" aria-label="home" href="/">Home</a>
+  <a class="link" aria-label="article" href="/article/">Articles</a>
+  <a class="link" aria-label="about-me" href="/about">About Me</a>
+</nav>
 <header class="sidebar">
   <div class="sidebar__wrapper container">
     <div class="row">
       <div class="col padding--x-1">
         <div class="me">
-          <img height="180" width="180" alt="Prettiest human in the world" src="/assets/img/avatars/me.png">
+          <a aria-label="home" href="/">
+            <img height="180" width="180" alt="Prettiest human in the world" src="/assets/img/avatars/me.png">
+          </a>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col padding--x-1">
-        <h1 class="sidebar__title">Nanda Okitavera</h1>
-        <h3 class="sidebar__desc">{{ metadata.description }}</h3>
+      <div class="col padding--x-1 sidebar__identity">
+        <div class="sidebar__title">
+          <a aria-label="home" href="/">
+            <span>Nanda</span>
+            <span>Okitavera</span>
+          </a>
+        </div>
+        <div class="sidebar__desc">{{ metadata.description }}</div>
       </div>
     </div>
-    <div class="row">
+    <div class="row sidebar__menu__wrapper">
       <div class="col padding--x-1 sidebar__menu">
         <div>
-          <a aria-label="home" href="/">
-            <i class="fea-home--light"></i>Home</a>
+          <a aria-label="home" href="/">Home</a>
         </div>
         <div>
-          <a aria-label="article" href="/article/">
-            <i class="fea-book-open--light"></i>Articles</a>
+          <a aria-label="article" href="/article/">Articles</a>
         </div>
         <div>
-          <a aria-label="about-me" class="jumper" href="/about">
-            <i class="fea-user--light"></i>About Me</a>
+          <a aria-label="about-me" class="jumper" href="/about">About Me</a>
         </div>
+      </div>
+    </div>
+    <div class="row sidebar__mobile-menu__wrapper">
+      <div class="col padding--x-1 sidebar__mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </div>
   </div>
