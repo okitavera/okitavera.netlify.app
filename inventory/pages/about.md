@@ -34,7 +34,7 @@ Android and Web Developer
 codeharuka.yusa@gmail.com
 
 <h1>
-<a aria-label="twitter" href="{{ metadata.author.twitter }}"><i class="fea-twitter"></i></a>
-&nbsp;<a aria-label="github" href="{{ metadata.author.github }}"><i class="fea-github"></i></a>
+<a aria-label="twitter" href="https://twitter.com/{{ metadata.author.twitter }}"><i class="fea-twitter"></i></a>
+&nbsp;<a aria-label="github" href="https://github.com/{{ metadata.author.github }}"><i class="fea-github"></i></a>
 &nbsp;<a aria-label="email" href="mailto:{{ metadata.author.email }}"><i class="fea-mail"></i></a>
 </h1>
