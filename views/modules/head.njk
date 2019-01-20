@@ -9,9 +9,6 @@
   <meta name="title" content="{{ title }}">
   <meta name="description" content="{{ description or metadata.description or (metadata.author.name + '\'s Website') }}">
   <link rel="prefetch" href="/assets/img/avatars/me.png" as="image" type="image/png" crossorigin="anonymous">
-  <link rel="preload" href="/assets/fonts/Lato-400-LatinSubset.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="/assets/fonts/Lato-900-LatinSubset.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="/assets/fonts/Lato-300-LatinSubset.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="alternate" type="application/rss+xml" title="{{ metadata.feed.title }}" href="{{ metadata.feed.path | url }}">
   <link rel="manifest" href="/webmanifest.json">
   {% include 'metasocial.njk' %}
