@@ -7,21 +7,25 @@
   width 75%
   &__wrapper
     flex 1
-  .icon-post
+  .post__icon
     margin-right 1rem
     padding 1rem
     background $altDark[1]
     line-height 1
     clip-path polygon(50% 0, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%)
+  .post__title
+    font-size 1.3rem
 
 @supports not (clip-path: circle(1px at 1px 1px))
-  .icon-post
+  .post__icon
     border-radius 50%
 
 @media screen and (max-width: --flexbox-breakpoint)
   .content
     width 100%
-    .icon-post
-      margin-right .5rem
+    .post__icon
+      margin-right 5px
       margin-left -.5rem
       transform scale(.8)
+    .post__title
+      font-size 1.2rem

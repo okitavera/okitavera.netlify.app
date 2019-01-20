@@ -4,20 +4,21 @@
 {% for post in posts | reverse %}
   <div class="row row--immutable padding--y-1">
     <div class="col--fit">
-      <div class="icon-post" style="background-color: {% generateColorFrom post.data.title %}">
+      <div class="post__icon" style="background-color: {% generateColorFrom post.data.title %}">
         <img src="/assets/img/book.svg" alt="article icon" width="32" height="32">
       </div>
     </div>
     <div class="col">
       <a href="{{ post.url | url }}">
-        <h2 class="margin--y-0">{{ post.data.title }}</h2>
+        <div class="post__title margin--y-0">{{ post.data.title }}</div>
         <div class="txt--small">
           <time class="txt--dark2" datetime="{{ date | htmlDateString }}">
             <i class="fea-calendar"></i>&nbsp;&nbsp;{{ post.date | readableDate }}
           </time>
           {% for tag in post.data.tags %}
             {%- if tag != "post" -%}
-            <span class="txt--dark3">&nbsp;&nbsp;<i>#{{ tag }}</i></span>
+              <span class="txt--dark3">&nbsp;&nbsp;<i>#{{ tag }}</i>
+              </span>
             {%- endif -%}
           {% endfor %}
         </div>

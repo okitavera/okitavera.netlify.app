@@ -1,7 +1,7 @@
 {% for tweets in twitter | head(3) %}
   <div class="row row--immutable padding--y-1">
     <div class="col--fit">
-      <div class="icon-post" style="background-color: #38A1F3">
+      <div class="post__icon" style="background-color: #38A1F3">
         <a href="https://twitter.com/{{ tweets.username }}/status/{{ tweets.id }}">
           <img src="/assets/img/twitter.svg" alt="article icon" width="32" height="32">
         </a>
@@ -13,7 +13,9 @@
         <span class="txt--dark2">@{{ tweets.username }}</span>
          · <span class="txt--dark2 twitter-date" data-date="{{ tweets.date }}">{{ tweets.date }}</span>
       </a>
-      <p class="margin--y-0"><i>{{ tweets.text | nl2br | urlize | safe }}</i></p>
+      <p class="margin--y-0">
+        <i>{{ tweets.text | nl2br | urlize | safe }}</i>
+      </p>
     </div>
   </div>
 {% endfor %}
