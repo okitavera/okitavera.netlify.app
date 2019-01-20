@@ -54,8 +54,8 @@ layout: plain.njk
   </article>
 </section>
 <div class="hline"></div>
-<section class="container padding--x-2">
-  <h1 class="left txt--300">Latest Content</h1>
+<section class="container padding--x-2 padding--y-0">
+  <h1 class="txt--300">Latest Content</h1>
   {% set posts = collections.posts | head(-3) %}
   {% include "postlist.njk" %}
   <div class="center padding--y-2">
