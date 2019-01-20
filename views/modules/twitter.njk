@@ -1,8 +1,10 @@
-{% for tweets in twitter | head(4) %}
+{% for tweets in twitter | head(3) %}
   <div class="row row--immutable padding--y-1">
     <div class="col--fit">
       <div class="icon-post" style="background-color: #38A1F3">
-        <img src="/assets/img/twitter.svg" alt="article icon" width="32" height="32">
+        <a href="https://twitter.com/{{ tweets.username }}/status/{{ tweets.id }}">
+          <img src="/assets/img/twitter.svg" alt="article icon" width="32" height="32">
+        </a>
       </div>
     </div>
     <div class="col">
