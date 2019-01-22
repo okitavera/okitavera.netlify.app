@@ -1,7 +1,23 @@
 <nav class="mobile-menu__wrapper">
-  <a class="link" aria-label="home" href="/">Home</a>
-  <a class="link" aria-label="article" href="/article/">Articles</a>
-  <a class="link" aria-label="about-me" href="/about">About Me</a>
+  <div class="mobile-menu">
+    <a class="link" aria-label="home" href="/">Home</a>
+    <a class="link" aria-label="article" href="/article/">Articles</a>
+    <a class="link" aria-label="about-me" href="/about">About</a>
+  </div>
+  <div class="sidebar__social">
+    <a aria-label="twitter" href="https://twitter.com/{{ metadata.author.twitter }}">
+      <i class="fea-twitter--light"></i>
+    </a>
+    <a aria-label="github" href="https://github.com/{{ metadata.author.github }}">
+      <i class="fea-github--light"></i>
+    </a>
+    <a aria-label="email" href="mailto:{{ metadata.author.email }}">
+      <i class="fea-mail--light"></i>
+    </a>
+    <a aria-label="rss" href="{{ metadata.feed.path }}">
+      <i class="fea-rss--light"></i>
+    </a>
+  </div>
 </nav>
 <header class="sidebar">
   <div class="sidebar__wrapper container">
@@ -9,7 +25,7 @@
       <div class="col padding--x-1">
         <div class="me">
           <a aria-label="home" href="/">
-            <img height="180" width="180" alt="Prettiest human in the world" src="/assets/img/avatars/me.png">
+            <img height="128" width="128" alt="Prettiest human in the world" src="/assets/img/avatars/me.png">
           </a>
         </div>
       </div>
@@ -34,7 +50,21 @@
           <a aria-label="article" href="/article/">Articles</a>
         </div>
         <div>
-          <a aria-label="about-me" class="jumper" href="/about">About Me</a>
+          <a aria-label="about-me" class="jumper" href="/about">About</a>
+        </div>
+        <div class="sidebar__social">
+          <a aria-label="twitter" href="https://twitter.com/{{ metadata.author.twitter }}">
+            <i class="fea-twitter--light"></i>
+          </a>
+          <a aria-label="github" href="https://github.com/{{ metadata.author.github }}">
+            <i class="fea-github--light"></i>
+          </a>
+          <a aria-label="email" href="mailto:{{ metadata.author.email }}">
+            <i class="fea-mail--light"></i>
+          </a>
+          <a aria-label="rss" href="{{ metadata.feed.path }}">
+            <i class="fea-rss--light"></i>
+          </a>
         </div>
       </div>
     </div>
