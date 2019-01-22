@@ -15,7 +15,7 @@ layout: plain.njk
 {% if splash %}
   <img src="{{ splash.url }}" style="max-width:100%">
   {% if splash.credit %}
-    <div>{{ splash.credit | urlize | safe }}</div>
+    <div class="right txt--small padding--x-2">{{ splash.credit | urlize | safe }}</div>
   {% endif %}
 {% endif %}
 <article class="container padding--x-2">
