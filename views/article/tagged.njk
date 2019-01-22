@@ -12,7 +12,7 @@ renderData:
 <section class="container padding--x-2 padding--y-0">
   <h1 class="txt--300">Tagged Article</h1>
   {% for _tag in collections.tags %}
-    <a href="/article/tags/{{ _tag }}/" class="btn {% if tag == _tag %}txt--light bg--accent{% endif %} btn--sm txt--upper">{{ _tag }}</a>
+    <a href="/article/tags/{{ _tag }}/" class="btn {% if tag == _tag %}bg--accent{% endif %} btn--sm txt--upper">{{ _tag }}</a>
   {% endfor %}
   <div class="spacer--2"></div>
   {% set posts = collections[tag] %}

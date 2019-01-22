@@ -1,3 +1,7 @@
+--sidebar-bg = #f5f5f5
+--sidebar-text-primary = --color-dark-alt
+--sidebar-text-secondary = #6e6e6e
+
 @keyframes slideIn
   from
     z-index -1
@@ -12,9 +16,11 @@
 
 @keyframes fadeOut
   from
-    background $altDark[0]
+    border-color darken(--sidebar-bg, 5)
+    background --sidebar-bg
   to
-    background rgba(0, 0, 0, 0)
+    border-color transparent
+    background transparent
 
 @keyframes slideOut
   from
@@ -30,16 +36,18 @@
 
 @keyframes fadeIn
   from
-    background rgba(0, 0, 0, 0)
+    border-color transparent
+    background transparent
   to
-    background $altDark[0]
+    border-color darken(--sidebar-bg, 5)
+    background --sidebar-bg
 
 .sidebar
   z-index 10
   min-width --sidebar-maxwidth
   width 35%
-  background-color $altDark[0]
-  color $colorLight[0]
+  background --sidebar-bg
+  color --color-dark[0]
   &__wrapper
     position sticky
     top 0
@@ -56,14 +64,13 @@
       flex-basis 100%
       width 100%
   &__menu
-    font-weight 700
     font-size 1.3rem
     &>div
       padding .5rem
   a
-    color $colorLight[1]
+    color --sidebar-text-primary
     &:hover
-      color $colorAccent
+      color --color-accent
   &__mobile-menu__wrapper
     display none
   &__mobile-menu
@@ -73,7 +80,7 @@
       margin-bottom 3px
       width 17px
       height 2px
-      background $colorLight[0]
+      background --sidebar-text-primary
       transition transform .5s
   &__identity
     padding 2rem
@@ -83,8 +90,10 @@
     font-weight 900
     font-size 2.4rem
     line-height 1.2
-  &__desc
-    color $colorLight[2]
+  &__desc,
+  &__menu a
+    color --sidebar-text-secondary
+    font-weight 700
   &__social
     margin-top 2rem
     font-size 2rem
@@ -95,6 +104,7 @@
 .me
   position relative
   display inline-block
+  border 15px solid rgba(--color-light[0], .8)
   border-radius 50%
   line-height 1
   img
@@ -109,7 +119,7 @@
   margin-top -25px
   .link
     display block
-    color $colorLight[1]
+    color --sidebar-text-primary
     text-transform capitalize
     letter-spacing 1px
     font-weight 300
@@ -117,9 +127,9 @@
     line-height 2.3
     transition .5s
     &:hover
-      color $colorAccent
+      color --color-accent
       text-decoration line-through
-      text-decoration-color $colorAccent
+      text-decoration-color --color-accent
   &__wrapper
     position fixed
     z-index -1
@@ -131,7 +141,7 @@
     align-items center
     width 100%
     height 100vh
-    background rgba($altDark[0], .95)
+    background rgba(--sidebar-bg, .95)
 
 @media screen and (max-width: --flexbox-breakpoint)
   .sidebar
@@ -139,6 +149,7 @@
     top 0
     min-width unset
     width 100%
+    border-bottom 2px solid darken(--sidebar-bg, 5)
     &__wrapper
       position relative
       flex-direction row
@@ -158,11 +169,8 @@
       text-transform capitalize
       font-size 1.5rem
       &:after
-        color $colorAccent
+        color --color-accent
         content '.'
-      span
-        &:first-child
-          display none
     &__desc
       display none
     &__menu__wrapper
@@ -176,6 +184,7 @@
       width auto
   .me
     display block
+    border none
     img
       width 32px
       height 32px

@@ -1,3 +1,15 @@
+--color-navy = #001f3f
+--color-blue = #0074d9
+--color-teal = #39cccc
+--color-olive = #3d9970
+--color-green = #2ecc40
+--color-yellow = #ffdc00
+--color-orange = #ff851b
+--color-red = #ff4136
+--color-pink = #ec407a
+--color-maroon = #85144b
+--color-purple = #b10dc9
+
 code,
 pre
   text-align left
@@ -22,15 +34,15 @@ pre
 :not(pre) > code,
 pre
   border-radius 7px
-  background darken($altDark[0], 30%)
+  background darken(--color-dark-alt, 30%)
   box-shadow 0 1px 1px gray
-  color $colorLight[2]
+  color --color-light[2]
 
 /* Inline code */
 :not(pre) > code
   padding 3px 6px
   border-radius 2px
-  background $colorLight[2]
+  background --color-light[2]
   box-shadow none
   color inherit
   white-space normal
@@ -42,27 +54,27 @@ pre
   font-style italic
 
 .token.comment
-  color darken($colorLight[4], 25%)
+  color darken(--color-light[4], 25%)
 
 .token.prolog,
 .token.doctype,
 .token.cdata
-  color $colorLight[4]
+  color --color-light[4]
 
 .token.punctuation:last-child
-  color $colorLight[2]
+  color --color-light[2]
 
 .token.property,
 .token.tag,
 .token.constant,
 .token.symbol,
 .token.deleted
-  color lighten($colorOrange, 40%)
+  color lighten(--color-orange, 40%)
 
 .token.operator,
 .token.boolean,
 .token.number
-  color lighten($colorYellow, 40%)
+  color lighten(--color-yellow, 40%)
 
 .token.selector,
 .token.attr-name,
@@ -70,22 +82,22 @@ pre
 .token.char,
 .token.builtin,
 .token.inserted
-  color lighten($colorGreen, 40%)
+  color lighten(--color-green, 40%)
 
 .token.entity,
 .token.url,
 .token.variable
-  color $colorLight[2]
+  color --color-light[2]
 
 .token.atrule,
 .token.attr-value,
 .token.function
-  color lighten($colorPink, 40%)
+  color lighten(--color-pink, 40%)
 
 .token.keyword
-  color lighten($colorBlue, 40%)
+  color lighten(--color-blue, 40%)
 
 .token.regex,
 .token.important,
 .token.punctuation
-  color lighten($colorPurple, 40%)
+  color lighten(--color-purple, 40%)

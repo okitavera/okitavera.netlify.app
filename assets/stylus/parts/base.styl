@@ -19,7 +19,7 @@ body
   flex-direction row
   min-height 100vh
   background-color white
-  color $colorDark[2]
+  color --color-dark[2]
 
 @media screen and (max-width: --flexbox-breakpoint)
   body
@@ -30,29 +30,29 @@ blockquote
   display inline-block
   margin 0 1rem 1rem 0
   padding .2rem 3rem
-  background $colorLight[0]
-  box-shadow 0 1px 1px rgba($colorDark[0], .1)
+  background --color-light[0]
+  box-shadow 0 1px 1px rgba(--color-dark[0], .1)
   font-style italic
 
 blockquote::before
   position absolute
   top -10px
   left 10px
-  color lighten($colorAccent, 30%)
+  color lighten(--color-accent, 30%)
   content '\201C'
   font-size 4em
 
 blockquote span
   display block
   margin-top .5em
-  color $colorDark[1]
+  color --color-dark[1]
   text-align right
   font-size 80%
 
 hr
   margin 1rem 0
   border none
-  border-top 1px solid $colorLight[3]
+  border-top 1px solid --color-light[3]
 
 dl,
 ol,
@@ -133,11 +133,11 @@ small
   font-size .8em
 
 a
-  color $colorAccent
+  color --color-accent
   text-decoration none
   &:focus,
   &:hover
-    color $colorDark[2]
+    color --color-dark[2]
 
 [class^='fea-']
   display inline-block
