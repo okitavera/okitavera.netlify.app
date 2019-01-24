@@ -1,5 +1,5 @@
 ---
-title: "Kotlinize my code Pt.1: infix Apply and Also"
+title: "Kotlin: infix Apply and Also"
 date: 2019-01-17
 tags:
   - Kotlin

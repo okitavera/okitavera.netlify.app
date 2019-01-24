@@ -1,5 +1,5 @@
 ---
-title: "Bash #1: Shebang consistency"
+title: "Bash: Shebang consistency"
 date: 2018-11-28
 tags:
   - bash

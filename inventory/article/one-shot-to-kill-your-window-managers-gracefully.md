@@ -1,5 +1,5 @@
 ---
-title: "One-shot To Kill Any Window Managers - Gracefully"
+title: "Shortcut to Stop Any Window Managers - Gracefully"
 date: 2018-12-08
 tags:
   - bash

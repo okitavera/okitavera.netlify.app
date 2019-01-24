@@ -1,5 +1,5 @@
 ---
-title: "Turn Your Eleventy-powered Site into Offline-First Progressive Web Apps"
+title: "Turn Your Eleventy into Offline-First PWA"
 description: "In this post, Okitavera explaining step-by-step how to use eleventy-plugin-pwa to make an Offline-First PWA Eleventy-powered website"
 date: 2019-01-07
 tags:
