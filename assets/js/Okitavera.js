@@ -30,6 +30,23 @@ function parseTwitterDate(tdate) {
   return "on " + system_date;
 }
 
+function themeSwitcher() {
+  let components = `
+  <div class="eggg__body">
+    <div class="eggg__container">
+      <span class="eggg__wave"></span>
+      <span class="eggg__wave"></span>
+      <span class="eggg__shaker"></span>
+      <img class="eggg" src="/assets/img/avatars/ssi.jpg">
+      <div class="eggg__msg">Hello there!</div>
+    </div>
+  </div>`.trim();
+
+  document.querySelector(".easter-egg__container").innerHTML = components;
+  setTimeout(function() {
+    document.querySelector(".easter-egg__container").innerHTML = "";
+  }, 2500);
+}
 var onPageScroll = function() {
   var button = document.querySelector(".backtotop");
   toggleScrollTopView(button);
@@ -47,6 +64,8 @@ if (!"scroll-behaviour" in document.documentElement.style)
 
 window.addEventListener("load", onPageLoad);
 window.addEventListener("scroll", onPageScroll, { passive: true });
+
+document.querySelector(".owo").onclick = themeSwitcher;
 
 document.querySelector(".sidebar__mobile-menu").onclick = () => {
   let menu = document.querySelector(".mobile-menu__wrapper");

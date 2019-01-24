@@ -1,0 +1,84 @@
+@keyframes waveIt
+  0%
+    transform scale(0)
+  100%
+    transform scale(10)
+
+@keyframes profilePic
+  0%
+    opacity 0
+    transform scale(0)
+  5%
+    opacity .5
+    transform scale(.5)
+  100%
+    transform scale(1)
+
+@keyframes slideUpText
+  0%
+    opacity 0
+    transform scale(0)
+    transform translateY(30px)
+  5%
+    opacity .5
+    transform scale(.5)
+    transform translateY(25px)
+  100%
+    opacity 1
+    transform translateY(0)
+
+.eggg
+  position relative
+  top 0
+  left 0
+  width 180px
+  height auto
+  border-radius 50%
+  transform scale(0)
+  animation profilePic cubic-bezier(0, .8, 1, 1) .8s forwards
+  animation-delay .7s
+  &__shaker
+    animation shake cubic-bezier(0, .8, 1, 1) .8s forwards
+    animation-delay 1.4s
+  &__msg
+    position relative
+    padding 1rem
+    text-align center
+    font-weight 400
+    font-size 1.5rem
+    opacity 0
+    animation slideUpText cubic-bezier(0, .8, 1, 1) .8s forwards
+    animation-delay 1.2s
+  &__body
+    position fixed
+    top 0
+    left 0
+    z-index 30
+    display flex
+    flex-direction row
+    justify-content center
+    align-items center
+    width 100%
+    height 100vh
+    background-color --color-light[2]
+  &__container
+    position relative
+    left 0
+    width 180px
+    height auto
+    border-radius 50%
+  &__wave
+    position absolute
+    top 0
+    left 0
+    width 180px
+    height 180px
+    border-radius 50%
+    transform scale(0)
+    animation waveIt cubic-bezier(.36, .35, .65, .99) 1.5s forwards
+    &:nth-child(1)
+      border 1rem solid --color-dark-alt
+      background-color --color-accent
+    &:nth-child(2)
+      background-color --color-light[2]
+      animation-delay .5s
