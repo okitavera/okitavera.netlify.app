@@ -22,6 +22,6 @@ module.exports = ({ eleventy }) => {
       .split("")
       .reduce((prev, curr) => ((prev << 5) - prev + curr.charCodeAt(0)) | 0, 0);
     var hue = hash % 360;
-    return `hsl(${hue}, 36%, 63%)`;
+    return `hsl(${hue}, 51%, 46%)`;
   });
 };
