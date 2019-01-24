@@ -74,6 +74,8 @@
   &__mobile-menu__wrapper
     display none
   &__mobile-menu
+    padding 10px 0
+    transition transform .5s
     span
       display block
       margin-top 3px
@@ -194,6 +196,7 @@
       &~ .sidebar
         animation fadeOut .5s ease forwards
         .sidebar__mobile-menu
+          transform rotate(90deg)
           span:first-child
             transform scaleX(.7) translateY(0) translateX(-4px) rotate(-31deg)
           span:last-child
