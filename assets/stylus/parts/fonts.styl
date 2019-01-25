@@ -1,15 +1,11 @@
-// FiraCode for Code stuff
 @font-face
-  font-assets('FiraCode', 'FiraCode-Medium', '400')
+  font-weight 400
+  font-family FiraCode
+  src url('/assets/fonts/FiraCode-Medium.woff2') format('woff2'), url('/assets/fonts/FiraCode-Medium.woff') format('woff')
   font-display swap
-  font-feature-settings 'calt' 1 // the cool-stuff from FiraCode
-
-// for later usage (custom-classes and prism)
-$font_mono = FiraCode, Menlo, monospace
-$font_emoji = 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'
-$font_system = Ubuntu, 'Noto Sans', -apple-system, BlinkMacSystemFont, Cantarell, 'Segoe UI', Oxygen-Sans, Roboto, 'Helvetica Neue'
+  font-feature-settings 'calt' 1 /* the cool-stuff from FiraCode */
 
 body
-  font-family $font_system, sans-serif, $font_emoji
+  font-family Ubuntu, 'Noto Sans', -apple-system, BlinkMacSystemFont, Cantarell, 'Segoe UI', Oxygen-Sans, Roboto, 'Helvetica Neue', sans-serif, 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
