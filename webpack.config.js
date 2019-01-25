@@ -16,7 +16,7 @@ const inline = {
 
 const external = {
   entry: {
-    Okitavera: "./assets/js/Okitavera.js"
+    okitavera: "./assets/js/Okitavera.js"
   }
 };
 

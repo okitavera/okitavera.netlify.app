@@ -18,13 +18,13 @@
   }
   &__percent {
     position: absolute;
-    top: .2em;
+    top: 0.2em;
     left: 0;
     display: inline-block;
     min-width: 10rem;
     width: 100%;
     text-align: right;
-    font-size: .8em;
+    font-size: 0.8em;
     transform-origin: left;
     animation: progressLoad 1s ease;
   }
@@ -33,11 +33,15 @@
     border-radius: 1rem;
     background: var(--color-light-fade);
     transform-origin: left;
-    animation: progressLoad .5s ease;
+    animation: progressLoad 0.5s ease;
     &__loaded {
       height: 1rem;
       border-radius: 1rem;
-      background: linear-gradient(to right, var(--color-dark-fade), var(--color-accent));
+      background: linear-gradient(
+        to right,
+        var(--color-dark-fade),
+        var(--color-accent)
+      );
       transform-origin: left;
       animation: progressLoad 1s ease;
     }

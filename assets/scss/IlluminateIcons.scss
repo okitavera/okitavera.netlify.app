@@ -1,51 +1,51 @@
-[class^='fea-'] {
+[class^="fea-"] {
   display: inline-block;
   width: 1em;
   height: 1em;
   background-position: bottom center;
-  background-size: .8em;
+  background-size: 0.8em;
   background-repeat: no-repeat;
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .fea {
   &-twitter {
-    background-image: svg-load('twitter.svg');
+    background-image: svg-load("twitter.svg");
   }
   &-home {
-    background-image: svg-load('home.svg');
+    background-image: svg-load("home.svg");
   }
   &-book-open {
-    background-image: svg-load('book-open.svg');
+    background-image: svg-load("book-open.svg");
   }
   &-star {
-    background-image: svg-load('star.svg');
+    background-image: svg-load("star.svg");
   }
   &-user {
-    background-image: svg-load('user.svg');
+    background-image: svg-load("user.svg");
   }
   &-github {
-    background-image: svg-load('github.svg');
+    background-image: svg-load("github.svg");
   }
   &-clock {
-    background-image: svg-load('clock.svg');
+    background-image: svg-load("clock.svg");
   }
   &-calendar {
-    background-image: svg-load('calendar.svg');
+    background-image: svg-load("calendar.svg");
   }
   &-chevron-up {
-    background-image: svg-load('chevron-up.svg');
+    background-image: svg-load("chevron-up.svg");
   }
   &-mail {
-    background-image: svg-load('mail.svg');
+    background-image: svg-load("mail.svg");
   }
   &-rss {
-    background-image: svg-load('rss.svg');
+    background-image: svg-load("rss.svg");
   }
   &-moon {
-    background-image: svg-load('moon.svg');
+    background-image: svg-load("moon.svg");
   }
   &-sun {
-    background-image: svg-load('sun.svg');
+    background-image: svg-load("sun.svg");
   }
 }

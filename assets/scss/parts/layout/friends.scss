@@ -11,7 +11,7 @@
         height: 100px;
         border-radius: 50%;
         filter: grayscale(100%);
-        transition: all .5s ease;
+        transition: all 0.5s ease;
         &:hover {
           border-radius: 76% 24% 34% 66% / 32% 38% 62% 68%;
           filter: grayscale(0);
@@ -20,7 +20,7 @@
       }
       span {
         display: block;
-        font-size: .8rem;
+        font-size: 0.8rem;
       }
     }
   }

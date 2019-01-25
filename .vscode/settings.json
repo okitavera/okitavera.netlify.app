@@ -1,4 +1,5 @@
 {
+  "nunjucksFormat.textpreserve": false,
   "editor.formatOnSave": true,
   "files.insertFinalNewline": true
 }
