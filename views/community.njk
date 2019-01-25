@@ -17,7 +17,7 @@ title: Community
       </p>
       <div class="spacer--3"></div>
       {% for friend in friendlists.friends | sort(false, false, 'name')%}
-        <a class="txt--dark2 padding--x-1" href="{{ friend.url }}" alt="{{ friend.name }}" aria-label="{{ friend.name }}">
+        <a class="txt--dark-fade padding--x-1" href="{{ friend.url }}" alt="{{ friend.name }}" aria-label="{{ friend.name }}">
           {% fallbackImg '/assets/img/avatars/' + friend.name + '.min.png',
           'alt="' + friend.name + '" width="100" height="100"' %}
           <span class="txt--upper">{{ friend.name }}</span>

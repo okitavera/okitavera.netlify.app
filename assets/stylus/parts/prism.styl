@@ -1,103 +1,112 @@
---color-navy = #001f3f
---color-blue = #0074d9
---color-teal = #39cccc
---color-olive = #3d9970
---color-green = #2ecc40
---color-yellow = #ffdc00
---color-orange = #ff851b
---color-red = #ff4136
---color-pink = #ec407a
---color-maroon = #85144b
---color-purple = #b10dc9
-
 code,
-pre
-  text-align left
-  white-space pre
-  word-spacing normal
-  word-wrap normal
-  word-break normal
-  tab-size 1
-  hyphens none
-  letter-spacing 1px
-  font-size 12px
-  font-family $font_mono
-  line-height 1.5
-  cursor text
+pre {
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-wrap: normal;
+  word-break: normal;
+  tab-size: 1;
+  hyphens: none;
+  letter-spacing: 1px;
+  font-size: 12px;
+  font-family: FiraCode, Menlo, monospace;
+  line-height: 1.5;
+  cursor: text;
+  --prism-blue: #75beff;
+  --prism-green: #abff6b;
+  --prism-yellow: #ffdf6b;
+  --prism-orange: #ffb06b;
+  --prism-pink: #fd9fab;
+  --prism-purple: #c799d0;
+  --prism-dark: #1c1c25;
+  --prism-light: #fafafa;
+  --prism-light-fade: #eeeeee;
+}
 
 /* Code blocks */
-pre
-  overflow auto
-  margin .5em 0
-  padding 2em 3em
+pre {
+  overflow: auto;
+  margin: 0.5em 0;
+  padding: 2em 3em;
+}
 
 :not(pre) > code,
-pre
-  border-radius 7px
-  background darken(--color-dark-alt, 30%)
-  box-shadow 0 1px 1px gray
-  color --color-light[2]
+pre {
+  border-radius: 7px;
+  background: var(--prism-dark);
+  box-shadow: 0 1px 1px gray;
+  color: var(--prism-light);
+}
 
 /* Inline code */
-:not(pre) > code
-  padding 3px 6px
-  border-radius 2px
-  background --color-light[2]
-  box-shadow none
-  color inherit
-  white-space normal
+:not(pre) > code {
+  padding: 3px 6px;
+  border-radius: 2px;
+  background: var(--color-light-fade);
+  box-shadow: none;
+  color: inherit;
+  white-space: normal;
+}
 
-.token.bold
-  font-weight bold
+.token.bold {
+  font-weight: bold;
+}
 
-.token.italic
-  font-style italic
+.token.italic {
+  font-style: italic;
+}
 
-.token.comment
-  color darken(--color-light[4], 25%)
+.token.comment {
+  color: var(--prism-light-fade);
+}
 
 .token.prolog,
 .token.doctype,
-.token.cdata
-  color --color-light[4]
-
-.token.punctuation:last-child
-  color --color-light[2]
+.token.cdata {
+  color: var(--prism-light-fade);
+}
 
 .token.property,
 .token.tag,
 .token.constant,
 .token.symbol,
-.token.deleted
-  color lighten(--color-orange, 40%)
+.token.deleted {
+  color: var(--prism-orange);
+}
 
 .token.operator,
 .token.boolean,
-.token.number
-  color lighten(--color-yellow, 40%)
+.token.number {
+  color: var(--prism-yellow);
+}
 
 .token.selector,
 .token.attr-name,
 .token.string,
 .token.char,
 .token.builtin,
-.token.inserted
-  color lighten(--color-green, 40%)
+.token.inserted {
+  color: var(--prism-green);
+}
 
 .token.entity,
 .token.url,
-.token.variable
-  color --color-light[2]
+.token.variable {
+  color: var(--prism-light-fade);
+}
 
 .token.atrule,
 .token.attr-value,
-.token.function
-  color lighten(--color-pink, 40%)
+.token.function {
+  color: var(--prism-pink);
+}
 
-.token.keyword
-  color lighten(--color-blue, 40%)
+.token.keyword {
+  color: var(--prism-blue);
+}
 
 .token.regex,
 .token.important,
-.token.punctuation
-  color lighten(--color-purple, 40%)
+.token.punctuation {
+  color: var(--prism-purple);
+}

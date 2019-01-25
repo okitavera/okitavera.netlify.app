@@ -31,21 +31,28 @@ function parseTwitterDate(tdate) {
 }
 
 function themeSwitcher() {
-  let components = `
-  <div class="eggg__body">
-    <div class="eggg__container">
-      <span class="eggg__wave"></span>
-      <span class="eggg__wave"></span>
-      <span class="eggg__shaker"></span>
-      <img class="eggg" src="/assets/img/avatars/ssi.jpg">
-      <div class="eggg__msg">Hello there!</div>
+  let body = document.querySelector("body");
+  let splashContainer = document.querySelector(".easter-egg__container");
+  let status = body.classList.contains("dank") ? "Deactivating" : "Activating";
+  splashContainer.innerHTML = `
+  <div class="dank-splash__body">
+    <div class="dank-splash__container">
+      <span class="dank-splash__wave"></span>
+      <span class="dank-splash__wave"></span>
+      <span class="dank-splash__overlay"></span>
+      <img class="dank-splash" src="/assets/img/avatars/me.png">
+      <div class="dank-splash__msg">${status} Dank mode</div>
     </div>
   </div>`.trim();
 
-  document.querySelector(".easter-egg__container").innerHTML = components;
-  setTimeout(function() {
-    document.querySelector(".easter-egg__container").innerHTML = "";
-  }, 2500);
+  setTimeout(() => {
+    document.querySelector(".dank-splash__body").classList.add("dismiss");
+    body.classList.toggle("dank");
+    sessionStorage.dankMode = body.classList.contains("dank");
+    //setTimeout(() => {
+    //  splashContainer.innerHTML = null;
+    //}, 500);
+  }, 2000);
 }
 var onPageScroll = function() {
   var button = document.querySelector(".backtotop");
@@ -65,7 +72,9 @@ if (!"scroll-behaviour" in document.documentElement.style)
 window.addEventListener("load", onPageLoad);
 window.addEventListener("scroll", onPageScroll, { passive: true });
 
-document.querySelector(".owo").onclick = themeSwitcher;
+document
+  .querySelectorAll("button.dank")
+  .forEach((b) => (b.onclick = themeSwitcher));
 
 document.querySelector(".sidebar__mobile-menu").onclick = () => {
   let menu = document.querySelector(".mobile-menu__wrapper");

@@ -7,8 +7,8 @@ input[type='submit'],
   padding .25rem 1rem
   border 1px solid transparent
   border-radius 3px
-  background-color lighten(--color-dark-alt, 10)
-  color --color-light[1]
+  background-color var(--color-dark)
+  color var(--color-light)
   vertical-align middle
   text-align center
   text-decoration none
@@ -23,14 +23,15 @@ input[type='submit'],
   &:hover
     outline none
     filter saturate(10%)
-    color --color-light[1]
+    color var(--color-light)
   &[disabled]
     opacity .5
     cursor default
 
 .btn
   &--outline
-    border-color lighten(--color-dark-alt, 10)
+    border-color var(--color-dark)
+    background transparent
   &--lg
     padding .35rem 1.2rem
     font-size 1.2rem
@@ -49,17 +50,18 @@ input[type='submit'],
   width 3rem
   height 3rem
   border-radius 50%
-  background-color --color-accent
+  background-color var(--color-accent)
   box-shadow 0 0 10px 0 rgba(0, 0, 0, .11)
   transition .25s ease-out all
   transform scale(0)
   i
     font-size 2rem
   &:hover
-    background --color-dark[2]
+    background-color var(--color-dark)
   &:active,
   &:focus
     outline none
+    background-color var(--color-accent)
   &.show
     visibility visible
     transform scale(1)

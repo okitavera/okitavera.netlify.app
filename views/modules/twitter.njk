@@ -10,8 +10,8 @@
     <div class="col">
       <a href="https://twitter.com/{{ tweets.username }}">
         <b>{{ tweets.name }}</b>
-        <span class="txt--dark2">@{{ tweets.username }}</span>
-         · <span class="txt--dark2 twitter-date" data-date="{{ tweets.date }}">{{ tweets.date }}</span>
+        <span class="txt--dark-fade">@{{ tweets.username }}</span>
+         · <span class="txt--dark-fade twitter-date" data-date="{{ tweets.date }}">{{ tweets.date }}</span>
       </a>
       <p class="margin--y-0">
         {{ tweets.text | nl2br | urlize | safe }}

@@ -1,95 +1,103 @@
-body // needed to make modifiers stronger
-  .center
-    text-align center
-  .left
-    text-align left
-  .right
-    text-align right
-  .txt
-    &--upper
-      text-transform uppercase
-    &--small
-      font-size 90%
-    &--big
-      font-size 120%
-    &--accent,
-    &--accent *
-      color --color-accent
-  for weight in 300 400 700 900
-    .txt--{weight}
-      font-weight weight
-  for i in (0 .. 5)
-    .txt
-      &--light{i},
-      &--light{i} *
-        color --color-light[i]
-      &--dark{i},
-      &--dark{i} *
-        color --color-dark[i]
-  .circle
-    border-radius 50%
-  for i in (0 .. 4)
+.center
+  text-align center
+
+.left
+  text-align left
+
+.right
+  text-align right
+
+*.txt
+  &--upper
+    text-transform uppercase
+  &--small
+    font-size 90%
+  &--big
+    font-size 120%
+  &--accent
+    color var(--color-accent)
+  &--light
+    color var(--color-light)
+  &--light-fade
+    color var(--color-light-fade)
+  &--dark
+    color var(--color-dark)
+  &--dark-fade
+    color var(--color-dark-fade)
+
+for weight in 300 400 700 900
+  &--{weight}
+    font-weight weight
+
+.circle
+  border-radius 50%
+
+for i in (0 .. 4)
+  .padding
+    &--y-{i}
+      padding-top i rem
+      padding-bottom i rem
+    &--x-{i}
+      padding-right i rem
+      padding-left i rem
+  .margin
+    &--y-{i}
+      margin-top i rem
+      margin-bottom i rem
+    &--x-{i}
+      margin-right i rem
+      margin-left i rem
+
+@media screen and (max-width: --flexbox-breakpoint)
+  for i in (1 .. 4)
+    m = (i - .5)
     .padding
       &--y-{i}
-        padding-top i rem
-        padding-bottom i rem
+        padding-top m rem
+        padding-bottom m rem
       &--x-{i}
-        padding-right i rem
-        padding-left i rem
+        padding-right m rem
+        padding-left m rem
     .margin
       &--y-{i}
-        margin-top i rem
-        margin-bottom i rem
+        margin-top m rem
+        margin-bottom m rem
       &--x-{i}
-        margin-right i rem
-        margin-left i rem
-  @media screen and (max-width: --flexbox-breakpoint)
-    for i in (1 .. 4)
-      m = (i - .5)
-      .padding
-        &--y-{i}
-          padding-top m rem
-          padding-bottom m rem
-        &--x-{i}
-          padding-right m rem
-          padding-left m rem
-      .margin
-        &--y-{i}
-          margin-top m rem
-          margin-bottom m rem
-        &--x-{i}
-          margin-right m rem
-          margin-left m rem
-  for i in (1 .. 4)
-    .spacer--{i}
-      clear-gaps()
-      display block
-      height i rem
-      border none
-  .hline
-    left 0
-    margin -1px auto 0
-    width 100%
-    height 1px
-    background-color lighten(--color-light[4], 50%)
+        margin-right m rem
+        margin-left m rem
+
+for i in (1 .. 4)
+  .spacer--{i}
+    clear-gaps()
+    display block
+    height i rem
+    border none
+
+.hline
+  left 0
+  margin -1px auto 0
+  width 100%
+  height 1px
+  background-color var(--color-light-fade)
+
+.bg
+  &--accent
+    background-color var(--color-accent)
+  &--transparent
+    background-color transparent
+
+.bg-half
+  &--accent
+    background linear-gradient(to top, var(--color-accent) 15%, var(--color-accent) 40%, transparent 40.1%, transparent 100%)
+
+for i in (0 .. 4)
   .bg
-    &--accent
-      background-color --color-accent
-    &--transparent
-      background-color transparent
+    &--light
+      background-color var(--color-light)
+    &--dark
+      background-color var(--color-dark)
   .bg-half
-    &--accent
-      halfground --color-accent
-    &--accentlight
-      halfground lighten(--color-accent, 50%)
-  for i in (0 .. 4)
-    .bg
-      &--light-{i}
-        background-color --color-light[i]
-      &--dark-{i}
-        background-color --color-dark[i]
-    .bg-half
-      &--light-{i}
-        halfground --color-light[i]
-      &--dark-{i}
-        halfground --color-dark[i]
+    &--light
+      background linear-gradient(to top, var(--color-light-fade) 15%, var(--color-light-fade) 40%, transparent 40.1%, transparent 100%)
+    &--dark
+      background linear-gradient(to top, var(--color-dark-fade) 15%, var(--color-dark-fade) 40%, transparent 40.1%, transparent 100%)

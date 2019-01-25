@@ -19,7 +19,7 @@ body
   flex-direction row
   min-height 100vh
   background-color white
-  color --color-dark[2]
+  color var(--color-dark)
 
 @media screen and (max-width: --flexbox-breakpoint)
   body
@@ -38,7 +38,7 @@ blockquote
 hr
   margin 1rem 0
   border none
-  border-top 1px solid --color-light[3]
+  border-top 1px solid var(--color-light-fade)
 
 dl,
 ol,
@@ -119,11 +119,11 @@ small
   font-size .8em
 
 a
-  color --color-accent
+  color var(--color-accent)
   text-decoration none
   &:focus,
   &:hover
-    color --color-dark[2]
+    color var(--color-dark)
 
 [class^='fea-']
   display inline-block
