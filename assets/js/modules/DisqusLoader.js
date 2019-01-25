@@ -1,9 +1,9 @@
 import importSrc from "./ImportSrc";
 
 const disqusLoader = (username) => {
-  var dqFrame = "disqus_thread";
-  var dqButton = "disqus_loader";
-  var botName = /bot|google|baidu|bing|msn|duckduckgo|slurp|yandex/i;
+  const dqFrame = "disqus_thread";
+  const dqButton = "disqus_loader";
+  const botName = /bot|google|baidu|bing|msn|duckduckgo|slurp|yandex/i;
 
   function loadDisqus() {
     document.getElementById(dqButton).style.display = "none";

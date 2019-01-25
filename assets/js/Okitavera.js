@@ -2,14 +2,14 @@ import "@babel/polyfill";
 import disqusLoader from "./modules/DisqusLoader";
 import importScr from "./modules/ImportSrc";
 
+const html = document.documentElement || document.body;
+const body = document.querySelector("body");
+
 function toggleScrollTopView(button) {
-  var CALL_TICK = 250;
   setInterval(() => {
-    var body = document.documentElement || document.body;
-    var treshold = body.scrollTop > body.clientHeight / 4 ? 1 : 0;
-    if (treshold) button.classList.add("show");
-    else button.classList.remove("show");
-  }, CALL_TICK);
+    const treshold = html.scrollTop > html.clientHeight / 4 ? 1 : 0;
+    button.classList.toggle("show", treshold);
+  }, 250);
 }
 
 function parseTwitterDate(tdate) {
@@ -31,10 +31,8 @@ function parseTwitterDate(tdate) {
 }
 
 function themeSwitcher() {
-  let body = document.querySelector("body");
-  let splashContainer = document.querySelector(".easter-egg__container");
   let status = body.classList.contains("dank") ? "Deactivating" : "Activating";
-  splashContainer.innerHTML = `
+  let splash = `
   <div class="dank-splash__body">
     <div class="dank-splash__container">
       <span class="dank-splash__wave"></span>
@@ -44,22 +42,21 @@ function themeSwitcher() {
       <div class="dank-splash__msg">${status} Dank mode</div>
     </div>
   </div>`.trim();
-
+  body.insertAdjacentHTML("beforeend", splash);
   setTimeout(() => {
-    document.querySelector(".dank-splash__body").classList.add("dismiss");
+    const dank = document.querySelector(".dank-splash__body");
+    dank.classList.add("dismiss");
     body.classList.toggle("dank");
     sessionStorage.dankMode = body.classList.contains("dank");
-    //setTimeout(() => {
-    //  splashContainer.innerHTML = null;
-    //}, 500);
+    setTimeout(() => body.removeChild(dank), 300);
   }, 2000);
 }
-var onPageScroll = function() {
-  var button = document.querySelector(".backtotop");
-  toggleScrollTopView(button);
+
+let onPageScroll = function() {
+  toggleScrollTopView(document.querySelector(".backtotop"));
 };
 
-var onPageLoad = function() {
+let onPageLoad = function() {
   document.querySelectorAll(".twitter-date").forEach((date) => {
     date.innerHTML = parseTwitterDate(date.getAttribute("data-date"));
   });
