@@ -1,0 +1,86 @@
+button,
+input[type="button"],
+input[type="submit"],
+.btn {
+  display: inline-block;
+  margin: 4px 2px;
+  padding: 0.25rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: inherit;
+  cursor: pointer;
+  transition: filter 0.5s ease;
+  user-select: none;
+  &:focus,
+  &:hover {
+    outline: none;
+    filter: saturate(10%);
+    color: var(--color-light);
+  }
+  &[disabled] {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
+
+.btn {
+  &--outline {
+    border-color: var(--color-dark);
+    background: transparent;
+  }
+  &--lg {
+    padding: 0.35rem 1.2rem;
+    font-size: 1.2rem;
+  }
+  &--sm {
+    padding: 0.15rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
+.backtotop {
+  position: fixed;
+  right: 5rem;
+  bottom: 5rem;
+  display: flex;
+  visibility: hidden;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.11);
+  transition: 0.25s ease-out all;
+  transform: scale(0);
+  i {
+    font-size: 2rem;
+  }
+  &:hover {
+    background-color: var(--color-dark);
+  }
+  &:active,
+  &:focus {
+    outline: none;
+    background-color: var(--color-accent);
+  }
+  &.show {
+    visibility: visible;
+    transform: scale(1);
+  }
+}
+
+@media screen and (max-width: $flexbox-breakpoint) {
+  .backtotop {
+    right: 2rem;
+    bottom: 2rem;
+  }
+}

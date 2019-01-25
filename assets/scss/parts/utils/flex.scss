@@ -1,0 +1,32 @@
+.container {
+  margin: 0 auto 0 0;
+  padding: 1rem;
+  max-width: $container-maxwidth;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.col {
+  display: block;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  &--fit {
+    flex: none;
+  }
+  &--self-mid {
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: $flexbox-breakpoint) {
+  .row:not(.row--immutable) {
+    flex-flow: column;
+  }
+}

@@ -5,6 +5,8 @@ const cssNano = require("cssnano");
 const cssPacker = require("css-mqpacker");
 const cssNormalize = require("postcss-normalize");
 const cssSVG = require("postcss-inline-svg");
+const sass = require("gulp-sass");
+const sassGlob = require("gulp-sass-glob");
 
 // build main stylesheet with stylus and postcss
 module.exports = ({ gulp }) => {
@@ -18,8 +20,9 @@ module.exports = ({ gulp }) => {
 
   gulp.task("css", () =>
     gulp
-      .src("./assets/stylus/Illuminate.styl")
-      .pipe(stylus())
+      .src("./assets/scss/Illuminate.scss")
+      .pipe(sassGlob())
+      .pipe(sass().on("error", sass.logError))
       .pipe(postcss([cssNormalizeX, cssPacker, cssEnv, cssNano]))
       .pipe(gulp.dest("./views/modules/virtual"))
   );
@@ -27,14 +30,14 @@ module.exports = ({ gulp }) => {
   // build stylesheet for feather-icons
   gulp.task("css:icons", () =>
     gulp
-      .src("./assets/stylus/IlluminateIcons.styl")
-      .pipe(stylus())
+      .src("./assets/scss/IlluminateIcons.scss")
+      .pipe(sass().on("error", sass.logError))
       .pipe(postcss([cssSVGX, cssEnv, cssNano]))
       .pipe(gulp.dest("./views/modules/virtual"))
   );
 
   // stylesheets watcher
   gulp.task("watch:css", () =>
-    gulp.watch("./assets/stylus/**", gulp.series("css", "css:icons"))
+    gulp.watch("./assets/scss/**", gulp.series("css", "css:icons"))
   );
 };

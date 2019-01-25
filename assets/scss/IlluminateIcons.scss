@@ -1,0 +1,51 @@
+[class^='fea-'] {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-position: bottom center;
+  background-size: .8em;
+  background-repeat: no-repeat;
+  opacity: .7;
+}
+
+.fea {
+  &-twitter {
+    background-image: svg-load('twitter.svg');
+  }
+  &-home {
+    background-image: svg-load('home.svg');
+  }
+  &-book-open {
+    background-image: svg-load('book-open.svg');
+  }
+  &-star {
+    background-image: svg-load('star.svg');
+  }
+  &-user {
+    background-image: svg-load('user.svg');
+  }
+  &-github {
+    background-image: svg-load('github.svg');
+  }
+  &-clock {
+    background-image: svg-load('clock.svg');
+  }
+  &-calendar {
+    background-image: svg-load('calendar.svg');
+  }
+  &-chevron-up {
+    background-image: svg-load('chevron-up.svg');
+  }
+  &-mail {
+    background-image: svg-load('mail.svg');
+  }
+  &-rss {
+    background-image: svg-load('rss.svg');
+  }
+  &-moon {
+    background-image: svg-load('moon.svg');
+  }
+  &-sun {
+    background-image: svg-load('sun.svg');
+  }
+}

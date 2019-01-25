@@ -1,0 +1,27 @@
+.friends {
+  .col {
+    text-align: center;
+    a {
+      position: relative;
+      display: inline-block;
+      margin: 1rem;
+      img {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        filter: grayscale(100%);
+        transition: all .5s ease;
+        &:hover {
+          border-radius: 76% 24% 34% 66% / 32% 38% 62% 68%;
+          filter: grayscale(0);
+          transform: scale(1.1);
+        }
+      }
+      span {
+        display: block;
+        font-size: .8rem;
+      }
+    }
+  }
+}
