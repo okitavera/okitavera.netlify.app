@@ -1,14 +1,4 @@
 {
   "editor.formatOnSave": true,
-  "files.insertFinalNewline": true,
-  "stylusSupremacy.alwaysUseNoneOverZero": true,
-  "stylusSupremacy.alwaysUseZeroWithoutUnit": true,
-  "stylusSupremacy.insertBraces": false,
-  "stylusSupremacy.insertColons": false,
-  "stylusSupremacy.insertLeadingZeroBeforeFraction": false,
-  "stylusSupremacy.insertNewLineBetweenSelectors": true,
-  "stylusSupremacy.insertSemicolons": false,
-  "stylusSupremacy.reduceMarginAndPaddingValues": true,
-  "stylusSupremacy.insertNewLineAroundBlocks": "root",
-  "stylusSupremacy.sortProperties": "grouped"
+  "files.insertFinalNewline": true
 }

@@ -1,6 +1,6 @@
 {
   "name": "okitavera.me",
-  "version": "1.0.0",
+  "version": "2.0",
   "description": "My personal pages - powered by eleventy",
   "homepage": "https://okitavera.me",
   "dependencies": {
@@ -23,7 +23,6 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-sass-glob": "^1.0.9",
-    "gulp-stylus": "^2.7.0",
     "hard-source-webpack-plugin": "^0.13.1",
     "html-minifier": "^3.5.21",
     "is-url-external": "^1.0.3",
@@ -37,7 +36,6 @@
     "reading-time": "^1.1.3",
     "rimraf": "^2.6.2",
     "scroll-behavior-polyfill": "^2.0.3",
-    "stylus": "^0.54.5",
     "terser-webpack-plugin": "^1.1.0",
     "twitter": "^1.7.1",
     "webpack": "^4.27.1"

@@ -1,4 +1,3 @@
-const stylus = require("gulp-stylus");
 const postcss = require("gulp-postcss");
 const cssEnv = require("postcss-preset-env");
 const cssNano = require("cssnano");
@@ -8,7 +7,7 @@ const cssSVG = require("postcss-inline-svg");
 const sass = require("gulp-sass");
 const sassGlob = require("gulp-sass-glob");
 
-// build main stylesheet with stylus and postcss
+// build main stylesheet
 module.exports = ({ gulp }) => {
   const cssNormalizeX = cssNormalize({
     forceImport: true
