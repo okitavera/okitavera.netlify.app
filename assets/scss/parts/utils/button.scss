@@ -24,8 +24,12 @@ input[type="submit"],
     box-shadow: inset 0px -4px 0px 0px rgba(0, 0, 0, 0.56);
     color: var(--color-light);
   }
+  &:focus {
+    color: var(--color-light);
+  }
   &:active {
     box-shadow: inset 0px -200px 0px 0px rgba(0, 0, 0, 0.2);
+    color: var(--color-light);
   }
   &[disabled] {
     opacity: 0.5;
@@ -35,8 +39,14 @@ input[type="submit"],
 
 .btn {
   &--outline {
-    border: 1px solid var(--color-dark);
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
     background: transparent;
+    transition: box-shadow 0.5s ease, color 0.5s ease;
+    &:hover {
+      color: var(--color-light);
+      box-shadow: inset 0px -3em 0px 0px var(--color-accent);
+    }
   }
   &--lg {
     padding: 0.35rem 1.2rem;
