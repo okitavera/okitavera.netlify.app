@@ -31,7 +31,6 @@ function parseTwitterDate(tdate) {
 }
 
 function themeSwitcher() {
-  let status = body.classList.contains("dank") ? "Deactivating" : "Activating";
   let splash = `
   <div class="dank-splash__body">
     <div class="dank-splash__container">
@@ -39,10 +38,12 @@ function themeSwitcher() {
       <span class="dank-splash__wave"></span>
       <span class="dank-splash__overlay"></span>
       <img class="dank-splash" src="/assets/img/avatars/me.png">
-      <div class="dank-splash__msg">${status} Dank mode</div>
+      <div class="dank-splash__msg">${
+        body.classList.contains("dank") ? "Deactivating" : "Activating"
+      } Dank mode</div>
     </div>
-  </div>`.trim();
-  body.insertAdjacentHTML("beforeend", splash);
+  </div>`;
+  body.insertAdjacentHTML("beforeend", splash.trim());
   setTimeout(() => {
     const dank = document.querySelector(".dank-splash__body");
     dank.classList.add("dismiss");
@@ -52,16 +53,27 @@ function themeSwitcher() {
   }, 2000);
 }
 
-let onPageScroll = function() {
+function onPageScroll() {
   toggleScrollTopView(document.querySelector(".backtotop"));
-};
+}
 
-let onPageLoad = function() {
+function onPageLoad() {
+  document
+    .querySelectorAll("button.dank")
+    .forEach((b) => (b.onclick = themeSwitcher));
+
+  document.querySelector(".sidebar__mobile-menu").onclick = () => {
+    const mc = document.querySelector(".mobile-menu__wrapper").classList;
+    if (mc.contains("state--active") || mc.contains("state--inactive"))
+      mc.toggle("state--inactive");
+    mc.toggle("state--active");
+  };
+
   document.querySelectorAll(".twitter-date").forEach((date) => {
     date.innerHTML = parseTwitterDate(date.getAttribute("data-date"));
   });
   disqusLoader(disqusdata.username);
-};
+}
 
 if (!"scroll-behaviour" in document.documentElement.style)
   importScr("/assets/js/polyfills/ScrollBehaviour.js");
@@ -69,21 +81,6 @@ if (!"scroll-behaviour" in document.documentElement.style)
 window.addEventListener("load", onPageLoad);
 window.addEventListener("scroll", onPageScroll, { passive: true });
 
-document
-  .querySelectorAll("button.dank")
-  .forEach((b) => (b.onclick = themeSwitcher));
-
-document.querySelector(".sidebar__mobile-menu").onclick = () => {
-  let menu = document.querySelector(".mobile-menu__wrapper");
-  let state = "state--active";
-  if (menu.classList.contains(state)) {
-    menu.classList.replace(state, "state--inactive");
-  } else if (menu.classList.contains("state--inactive")) {
-    menu.classList.replace("state--inactive", state);
-  } else {
-    menu.classList.add(state);
-  }
-};
 /*!
  * Copyright (c) 2018 Nanda Okitavera
  * MIT License
