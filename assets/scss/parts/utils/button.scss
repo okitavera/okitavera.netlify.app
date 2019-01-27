@@ -4,9 +4,9 @@ input[type="submit"],
 .btn {
   display: inline-block;
   margin: 4px 2px;
-  padding: 0.25rem 1rem;
-  border: 1px solid transparent;
-  border-radius: 3px;
+  padding: 0.35em 0.75em;
+  border: none;
+  border-radius: 0;
   background-color: var(--color-dark);
   color: var(--color-light);
   vertical-align: middle;
@@ -17,13 +17,15 @@ input[type="submit"],
   font-size: 1rem;
   line-height: inherit;
   cursor: pointer;
-  transition: filter 0.5s ease;
+  transition: box-shadow 0.5s ease;
   user-select: none;
-  &:focus,
   &:hover {
     outline: none;
-    filter: saturate(10%);
+    box-shadow: inset 0px -4px 0px 0px rgba(0, 0, 0, 0.56);
     color: var(--color-light);
+  }
+  &:active {
+    box-shadow: inset 0px -200px 0px 0px rgba(0, 0, 0, 0.2);
   }
   &[disabled] {
     opacity: 0.5;
@@ -33,7 +35,7 @@ input[type="submit"],
 
 .btn {
   &--outline {
-    border-color: var(--color-dark);
+    border: 1px solid var(--color-dark);
     background: transparent;
   }
   &--lg {
@@ -65,11 +67,12 @@ input[type="submit"],
     font-size: 2rem;
   }
   &:hover {
+    outline: none;
     background-color: var(--color-dark);
   }
   &:active,
+  &:visited,
   &:focus {
-    outline: none;
     background-color: var(--color-accent);
   }
   &.show {
