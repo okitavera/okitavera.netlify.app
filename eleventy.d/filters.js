@@ -33,6 +33,12 @@ module.exports = ({ eleventy }) => {
     });
   });
 
+  eleventy.addFilter("twitterize", (content) =>
+    content
+      .replace(/#(\w+)/g, '<a href="https://twitter.com/hashtag/$1">#$1</a>')
+      .replace(/@(\w+)/g, '<a href="https://twitter.com/$1">@$1</a>')
+  );
+
   eleventy.addFilter("head", (array, n) => {
     if (n < 0) {
       return array.slice(n);
