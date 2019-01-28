@@ -44,13 +44,17 @@ function themeSwitcher() {
     </div>
   </div>`;
   body.insertAdjacentHTML("beforeend", splash.trim());
+  const timeTo = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ? { paint: 0, remove: 0 }
+    : { paint: 2000, remove: 300 };
+
   setTimeout(() => {
     const dank = document.querySelector(".dank-splash__body");
     dank.classList.add("dismiss");
     body.classList.toggle("dank");
     sessionStorage.dankMode = body.classList.contains("dank");
-    setTimeout(() => body.removeChild(dank), 300);
-  }, 2000);
+    setTimeout(() => body.removeChild(dank), timeTo.remove);
+  }, timeTo.paint);
 }
 
 function onPageScroll() {
