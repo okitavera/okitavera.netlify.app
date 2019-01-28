@@ -912,9 +912,9 @@ ajv-errors@^1.0.0:
   integrity sha512-DCRfO/4nQ+89p/RK43i8Ezd41EqdGIU4ld7nGF8OQ14oc/we5rEntLCUa7+jrn3nn83BosfwZA0wb4pon2o8iQ==
 
 ajv-keywords@^3.1.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-3.2.0.tgz#e86b819c602cf8821ad637413698f1dec021847a"
-  integrity sha1-6GuBnGAs+IIa1jdBNpjx3sAhhHo=
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-3.3.0.tgz#cb6499da9b83177af8bc1732b2f0a1a1a3aacf8c"
+  integrity sha512-CMzN9S62ZOO4sA/mJZIO4S++ZM7KFWzH3PPWkveLhy4OZ9i1/VatgwWMD46w/XbGCBy7Ye0gCk+Za6mmyfKK7g==
 
 ajv@^6.1.0, ajv@^6.5.5:
   version "6.7.0"
@@ -2975,10 +2975,10 @@ electron-to-chromium@^1.3.103:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.108.tgz#2e79a6fcaa4b3e7c75abf871505bda8e268c910e"
   integrity sha512-/QI4hMpAh48a1Sea6PALGv+kuVne9A2EWGd8HrWHMdYhIzGtbhVVHh6heL5fAzGaDnZuPyrlWJRl8WPm4RyiQQ==
 
-eleventy-plugin-pwa@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/eleventy-plugin-pwa/-/eleventy-plugin-pwa-1.0.5.tgz#bc7d687f850f7646d6f086d4178e9f084e0ec8f4"
-  integrity sha512-lqfIOP5jaFkkvPc3xHc0gYYjPcu/7CLuPYU43kQrk23S31W+euUmdURYU7nXnvafDGnSlTc6rK0b3ctnMbCpUA==
+eleventy-plugin-pwa@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/eleventy-plugin-pwa/-/eleventy-plugin-pwa-1.0.6.tgz#12a9b91508ed9d029eb34d7674c72c9a5972860b"
+  integrity sha512-JQT9fQAJUsiCJWKiYjSEAeqiLz+MrsEf9ShGD+c76BJeaKHHTTi7UOXrCBJEtl27pVJf3NRmKEnnAIhPWRI29A==
   dependencies:
     shimmer "^1.2.1"
     workbox-build "^3.6.3"
@@ -3380,10 +3380,10 @@ fast-levenshtein@~2.0.4:
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
   integrity sha1-PYpcZog6FqMMqGQ+hR8Zuqd5eRc=
 
-feather-icons@^4.10.0:
-  version "4.12.0"
-  resolved "https://registry.yarnpkg.com/feather-icons/-/feather-icons-4.12.0.tgz#534bd6ab58a6120b3ac56d44724e516ec47ce5ba"
-  integrity sha512-D25fdV9gHE1bjrivhO7pxTkn6rbrBILtpYcLY8PLK3YuCtot9HwMbozjB4OrSzd1ZJaAOmMCZG0qcaE0UKKJ9A==
+feather-icons@^4.12.1:
+  version "4.12.1"
+  resolved "https://registry.yarnpkg.com/feather-icons/-/feather-icons-4.12.1.tgz#2b07799683003448c050f384b930b14096400b95"
+  integrity sha512-OQKOvA/dC9D1x50GHvUoosc62nJFs7/n+LjmeYKUwjz5Al7h4T0j4yFNVrxpGHwnGJrpIJ9CVOflkdyStPehFA==
   dependencies:
     classnames "^2.2.5"
     core-js "^2.5.3"
@@ -5118,9 +5118,9 @@ linkify-it@^2.0.0:
     uc.micro "^1.0.1"
 
 liquidjs@^6.2.0:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/liquidjs/-/liquidjs-6.3.0.tgz#0aba52f15649dca594eff947768722f9f19cff80"
-  integrity sha512-ib/Qfqf/L/tJK80pZsJgdix7fbYJeulnXBtcKJQ2Iclz24EVJpzLmwQvtxqa8YwS7rB5MCSo4oBYK4zjRPWZ+g==
+  version "6.4.2"
+  resolved "https://registry.yarnpkg.com/liquidjs/-/liquidjs-6.4.2.tgz#f42aedea8ab91858d348efb5c2f080ca348b9788"
+  integrity sha512-/UAYamjmuAWEP3FoLH+XZSGxZekeMaUzWaloGDjudIuclgGPMIvQro0XDEEmYQJZuD8DheUzeMDIOqtlhGlnpg==
 
 list-to-array@^1.1.0:
   version "1.1.0"
@@ -5798,9 +5798,9 @@ no-case@^2.2.0:
     lower-case "^1.1.1"
 
 node-abi@^2.2.0:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/node-abi/-/node-abi-2.5.1.tgz#bb17288fc3b2f68fea0ed9897c66979fd754ed47"
-  integrity sha512-oDbFc7vCFx0RWWCweTer3hFm1u+e60N5FtGnmRV6QqvgATGFH/XRR6vqWIeBVosCYCqt6YdIr2L0exLZuEdVcQ==
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/node-abi/-/node-abi-2.6.0.tgz#3adc69b28b334a0556fbadca378c7d18b8c82397"
+  integrity sha512-kCnEh6af6Z6DB7RFI/7LHNwqRjvJW7rgrv3lhIFoQ/+XhLPI/lJYwsk5vzvkldPWWgqnAMcuPF5S8/jj56kVOA==
   dependencies:
     semver "^5.4.1"
 
@@ -5873,9 +5873,9 @@ node-pre-gyp@^0.10.0:
     tar "^4"
 
 node-releases@^1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.3.tgz#aad9ce0dcb98129c753f772c0aa01360fb90fbd2"
-  integrity sha512-6VrvH7z6jqqNFY200kdB6HdzkgM96Oaj9v3dqGfgp6mF+cHmU4wyQKZ2/WPDRVoR0Jz9KqbamaBN0ZhdUaysUQ==
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.5.tgz#1dbee1380742125fe99e0476c456670bf3590b89"
+  integrity sha512-6C2K0x1QlYTz9wCueMN/DVZFcBVg/qsj2k9iV5gV/+OvG4KNrl7Nu7TWbWFQ3/Z2V10qVFQWtj5Xa+VBodcI6g==
   dependencies:
     semver "^5.3.0"
 
