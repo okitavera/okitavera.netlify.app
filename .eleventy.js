@@ -3,7 +3,7 @@ const metadata = JSON.parse(fs.readFileSync("./manifest/metadata.json"));
 const ModLoader = require("./modloader");
 
 module.exports = (eleventy) => {
-  new ModLoader().load("./eleventy.d", {
+  ModLoader("./eleventy.d", {
     eleventy,
     metadata,
     fs

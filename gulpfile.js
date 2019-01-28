@@ -7,7 +7,7 @@ const rimraf = require("rimraf");
 const metadata = JSON.parse(fs.readFileSync("./manifest/metadata.json"));
 const ModLoader = require("./modloader");
 
-new ModLoader().load("./gulp.d", {
+ModLoader("./gulp.d", {
   gulp: gulp,
   fs: fs,
   spawn: spawn,
