@@ -99,6 +99,8 @@ Also don't forget to mention that file inside your header
 
 ## Registering Service Worker
 
+<del>
+
 Now the tricky part is registering service worker.
 Because we need our website updated everytime the we had a new content, we need to cache-bust the service worker file.
 
@@ -125,6 +127,27 @@ And finally, we put a simple javascript into our header/footer to register the s
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker
       .register("{{ '/service-worker.js' | cacheBust }}")
+      .then(function() {
+        console.log("ServiceWorker has been registered!");
+      })
+      .catch(console.error);
+  }
+</script>
+{% endraw %}
+```
+
+</del>
+
+### Update
+
+Since `eleventy-plugin-pwa` now use `staleWhileRevalidate` method by default, now we can just put our registration scripts without cache-busting tricks.
+
+```html
+{% raw %}
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker
+      .register("/service-worker.js")
       .then(function() {
         console.log("ServiceWorker has been registered!");
       })
