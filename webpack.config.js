@@ -31,8 +31,7 @@ const conf = {
   plugins: [
     new HardSourceWebpackPlugin(),
     new webpack.DefinePlugin({
-      disqusdata: JSON.stringify(metadata.disqus),
-      buildstamp: JSON.stringify(Date.now())
+      disqusdata: JSON.stringify(metadata.disqus)
     })
   ],
   output: {
