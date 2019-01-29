@@ -10,7 +10,7 @@
   text-align: right;
 }
 
-*.txt {
+.txt {
   &--upper {
     text-transform: uppercase;
   }
@@ -20,32 +20,10 @@
   &--big {
     font-size: 120%;
   }
-  &--accent {
-    color: var(--color-accent);
-  }
-  &--light {
-    color: var(--color-light);
-  }
-  &--light-fade {
-    color: var(--color-light-fade);
-  }
-  &--dark {
-    color: var(--color-dark);
-  }
-  &--dark-fade {
-    color: var(--color-dark-fade);
-  }
-  &--300 {
-    font-weight: weight;
-  }
-  &--400 {
-    font-weight: weight;
-  }
-  &--700 {
-    font-weight: weight;
-  }
-  &--900 {
-    font-weight: weight;
+  @each $num in 300, 400, 700, 900 {
+    &--#{$num} {
+      font-weight: $num;
+    }
   }
 }
 
@@ -53,95 +31,25 @@
   border-radius: 50%;
 }
 
-.padding {
-  &--y-1 {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-  &--x-1 {
-    padding-right: 0;
-    padding-left: 0;
-  }
-  &--y-1 {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-  &--x-1 {
-    padding-right: 1rem;
-    padding-left: 1rem;
-  }
-  &--y-2 {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-  &--x-2 {
-    padding-right: 2rem;
-    padding-left: 2rem;
-  }
-}
-
-.margin {
-  &--y-0 {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  &--x-0 {
-    margin-right: 0;
-    margin-left: 0;
-  }
-  &--y-1 {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-  &--x-1 {
-    margin-right: 1rem;
-    margin-left: 1rem;
-  }
-  &--y-2 {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
-  &--x-2 {
-    margin-right: 2rem;
-    margin-left: 2rem;
-  }
-}
-
-@media screen and (max-width: $flexbox-breakpoint) {
+@each $num in 0, 1, 2 {
   .padding {
-    &--y-1 {
-      padding-top: 1rem;
-      padding-bottom: 1rem;
+    &--y-#{$num} {
+      padding-top: #{$num}rem;
+      padding-bottom: #{$num}rem;
     }
-    &--x-1 {
-      padding-right: 1rem;
-      padding-left: 1rem;
-    }
-    &--y-2 {
-      padding-top: 2rem;
-      padding-bottom: 2rem;
-    }
-    &--x-2 {
-      padding-right: 2rem;
-      padding-left: 2rem;
+    &--x-#{$num} {
+      padding-right: #{$num}rem;
+      padding-left: #{$num}rem;
     }
   }
   .margin {
-    &--y-1 {
-      margin-top: 1rem;
-      margin-bottom: 1rem;
+    &--y-#{$num} {
+      margin-top: #{$num}rem;
+      margin-bottom: #{$num}rem;
     }
-    &--x-1 {
-      margin-right: 1rem;
-      margin-left: 1rem;
-    }
-    &--y-2 {
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-    }
-    &--x-2 {
-      margin-right: 2rem;
-      margin-left: 2rem;
+    &--x-#{$num} {
+      margin-right: #{$num}rem;
+      margin-left: #{$num}rem;
     }
   }
 }
@@ -153,16 +61,10 @@
   border: none;
 }
 
-.spacer--1 {
-  height: 1rem;
-}
-
-.spacer--2 {
-  height: 2rem;
-}
-
-.spacer--3 {
-  height: 3rem;
+@each $num in 1, 2, 3 {
+  .spacer--#{$num} {
+    height: #{$num}rem;
+  }
 }
 
 .hline {
@@ -173,45 +75,24 @@
   background-color: var(--color-light-fade);
 }
 
-.bg {
-  &--accent {
-    background-color: var(--color-accent);
-  }
-  &--transparent {
-    background-color: transparent;
-  }
-  &--light {
-    background-color: var(--color-light);
-  }
-  &--dark {
-    background-color: var(--color-dark);
-  }
+.bg--transparent {
+  background-color: transparent;
 }
 
-.bg-half {
-  &--light {
-    background: linear-gradient(
-      to top,
-      var(--color-light-fade) 15%,
-      var(--color-light-fade) 40%,
-      transparent 40.1%,
-      transparent 100%
-    );
+$colorVariants: "light", "dark", "accent", "light-fade", "dark-fade";
+
+@each $c in $colorVariants {
+  .txt--#{$c} {
+    color: var(--color-#{$c});
   }
-  &--dark {
-    background: linear-gradient(
-      to top,
-      var(--color-dark-fade) 15%,
-      var(--color-dark-fade) 40%,
-      transparent 40.1%,
-      transparent 100%
-    );
+  .bg--#{$c} {
+    background-color: var(--color-#{$c});
   }
-  &--accent {
+  .bg-half--#{$c} {
     background: linear-gradient(
       to top,
-      var(--color-accent) 15%,
-      var(--color-accent) 40%,
+      var(--color-#{$c}) 15%,
+      var(--color-#{$c}) 40%,
       transparent 40.1%,
       transparent 100%
     );
