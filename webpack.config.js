@@ -4,28 +4,6 @@ const metadata = require("./manifest/metadata.json");
 const TerserPlugin = require("terser-webpack-plugin");
 const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
 
-const inline = {
-  entry: {
-    Critical: "./assets/js/Critical.js"
-  },
-  output: {
-    path: path.resolve(__dirname, "./views/modules/virtual"),
-    filename: "[name].js"
-  }
-};
-
-const external = {
-  entry: {
-    okitavera: "./assets/js/Okitavera.js"
-  }
-};
-
-const polyfills = {
-  entry: {
-    "polyfills/ScrollBehaviour": "./assets/js/polyfills/ScrollBehaviour.js"
-  }
-};
-
 const conf = {
   mode: "production",
   plugins: [
@@ -34,6 +12,7 @@ const conf = {
       disqusdata: JSON.stringify(metadata.disqus)
     })
   ],
+  stats: "none",
   output: {
     pathinfo: false
   },
@@ -50,15 +29,22 @@ const conf = {
         }
       })
     ]
-  }
-};
-
-const esl = {
+  },
   module: {
     rules: [
       {
         test: /\.m?js$/,
-        include: path.resolve(__dirname, "assets"),
+        include: path.resolve(__dirname, "assets")
+      }
+    ]
+  }
+};
+
+const inline = {
+  ...conf,
+  module: {
+    rules: [
+      {
         use: {
           loader: "babel-loader?cacheDirectory",
           options: {
@@ -67,15 +53,45 @@ const esl = {
         }
       }
     ]
+  },
+  entry: {
+    Critical: "./assets/js/Critical.js"
+  },
+  output: {
+    path: path.resolve(__dirname, "./views/modules/virtual"),
+    filename: "[name].js"
   }
 };
 
-const esm = {
+const internal = {
+  ...conf,
   module: {
     rules: [
       {
-        test: /\.m?js$/,
-        include: path.resolve(__dirname, "assets"),
+        use: {
+          loader: "babel-loader?cacheDirectory",
+          options: {
+            envName: "legacy"
+          }
+        }
+      }
+    ]
+  },
+  output: {
+    path: path.resolve(__dirname, `${metadata.site.output}/assets/js/`),
+    filename: "[name].js"
+  },
+  entry: {
+    Okitavera: "./assets/js/Okitavera.js",
+    "polyfills/ScrollBehaviour": "./assets/js/polyfills/ScrollBehaviour.js"
+  }
+};
+
+const mInternal = {
+  ...conf,
+  module: {
+    rules: [
+      {
         use: {
           loader: "babel-loader?cacheDirectory",
           options: {
@@ -84,25 +100,14 @@ const esm = {
         }
       }
     ]
-  }
-};
-const eslDest = {
-  output: {
-    path: path.resolve(__dirname, `${metadata.site.output}/assets/js/`),
-    filename: "[name].js"
-  }
-};
-
-const esmDest = {
+  },
   output: {
     path: path.resolve(__dirname, `${metadata.site.output}/assets/js/`),
     filename: "[name].mjs"
+  },
+  entry: {
+    Okitavera: "./assets/js/Okitavera.js"
   }
 };
 
-module.exports = [
-  { ...conf, ...esl, ...inline },
-  { ...conf, ...esl, ...eslDest, ...external },
-  { ...conf, ...esl, ...eslDest, ...polyfills },
-  { ...conf, ...esm, ...esmDest, ...external }
-];
+module.exports = [{ ...inline }, { ...internal }, { ...mInternal }];

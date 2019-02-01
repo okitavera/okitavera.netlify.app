@@ -4,14 +4,7 @@ module.exports = ({ gulp, fs, metadata }) => {
   // transpile and bundle scripts for browser
   gulp.task(
     "js",
-    () =>
-      new Promise((done) =>
-        webpack(require("../webpack.config.js"), (err, stats) => {
-          if (err) console.log("Webpack", err);
-          console.log(stats.toString());
-          done();
-        })
-      )
+    () => new Promise((done) => webpack(require("../webpack.config.js"), done))
   );
 
   // inject license comments to browser's scripts
