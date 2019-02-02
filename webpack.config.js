@@ -4,18 +4,18 @@ const metadata = require("./manifest/metadata.json");
 const TerserPlugin = require("terser-webpack-plugin");
 const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
 
-const conf = {
+const JSConfig = {
   mode: "production",
+  stats: "none",
+  output: {
+    pathinfo: false
+  },
   plugins: [
     new HardSourceWebpackPlugin(),
     new webpack.DefinePlugin({
       disqusdata: JSON.stringify(metadata.disqus)
     })
   ],
-  stats: "none",
-  output: {
-    pathinfo: false
-  },
   optimization: {
     minimizer: [
       new TerserPlugin({
@@ -29,31 +29,29 @@ const conf = {
         }
       })
     ]
-  },
+  }
+};
+
+const babelEnv = (envName) => ({
   module: {
     rules: [
       {
         test: /\.m?js$/,
-        include: path.resolve(__dirname, "assets")
-      }
-    ]
-  }
-};
-
-const inline = {
-  ...conf,
-  module: {
-    rules: [
-      {
+        include: path.resolve(__dirname, "assets"),
         use: {
           loader: "babel-loader?cacheDirectory",
           options: {
-            envName: "legacy"
+            envName
           }
         }
       }
     ]
-  },
+  }
+});
+
+const inline = {
+  ...JSConfig,
+  ...babelEnv("legacy"),
   entry: {
     Critical: "./assets/js/Critical.js"
   },
@@ -64,50 +62,28 @@ const inline = {
 };
 
 const internal = {
-  ...conf,
-  module: {
-    rules: [
-      {
-        use: {
-          loader: "babel-loader?cacheDirectory",
-          options: {
-            envName: "legacy"
-          }
-        }
-      }
-    ]
+  ...JSConfig,
+  ...babelEnv("legacy"),
+  entry: {
+    Okitavera: "./assets/js/Okitavera.js",
+    "polyfills/ScrollBehaviour": "./assets/js/polyfills/ScrollBehaviour.js"
   },
   output: {
     path: path.resolve(__dirname, `${metadata.site.output}/assets/js/`),
     filename: "[name].js"
-  },
-  entry: {
-    Okitavera: "./assets/js/Okitavera.js",
-    "polyfills/ScrollBehaviour": "./assets/js/polyfills/ScrollBehaviour.js"
   }
 };
 
 const mInternal = {
-  ...conf,
-  module: {
-    rules: [
-      {
-        use: {
-          loader: "babel-loader?cacheDirectory",
-          options: {
-            envName: "modern"
-          }
-        }
-      }
-    ]
+  ...JSConfig,
+  ...babelEnv("modern"),
+  entry: {
+    Okitavera: "./assets/js/Okitavera.js"
   },
   output: {
     path: path.resolve(__dirname, `${metadata.site.output}/assets/js/`),
     filename: "[name].mjs"
-  },
-  entry: {
-    Okitavera: "./assets/js/Okitavera.js"
   }
 };
 
-module.exports = [{ ...inline }, { ...internal }, { ...mInternal }];
+module.exports = [inline, internal, mInternal];
