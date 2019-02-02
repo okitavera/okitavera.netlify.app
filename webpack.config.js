@@ -11,7 +11,6 @@ const JSConfig = {
     pathinfo: false
   },
   plugins: [
-    new HardSourceWebpackPlugin(),
     new webpack.DefinePlugin({
       disqusdata: JSON.stringify(metadata.disqus)
     })
@@ -31,6 +30,9 @@ const JSConfig = {
     ]
   }
 };
+
+if (process.env.NODE_ENV !== "production")
+  JSConfig.plugins.push(new HardSourceWebpackPlugin());
 
 const babelEnv = (envName) => ({
   module: {
