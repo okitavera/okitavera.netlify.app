@@ -2,6 +2,14 @@
   {% set posts = collections.posts %}
 {% endif %}
 {% for post in posts | reverse %}
+  {% if (loop.index != 1) and (postYear != post.date | parseDate("yyyy") - 1) %}
+    <div class="row">
+      <div class="col">
+        <h1>{{ postYear or post.date | parseDate("yyyy") }}</h1>
+      </div>
+    </div>
+  {% endif %}
+  {% set postYear = post.date | parseDate("yyyy") - 1 %}
   <div class="row row--immutable padding--y-1">
     <div class="col--fit">
       <div class="post__icon" style="background-color: {% generateColorFrom post.data.title %}">
@@ -12,8 +20,8 @@
       <a href="{{ post.url | url }}">
         <div class="post__title margin--y-0 txt--dark-fade txt--700">{{ post.data.title }}</div>
         <div class="txt--small">
-          <time class="txt--dark-fade" datetime="{{ date | htmlDateString }}">
-            <i class="fea-calendar"></i>&nbsp;&nbsp;{{ post.date | readableDate }}
+          <time class="txt--dark-fade" datetime="{{ date | parseDate("yyyy-LL-dd") }}">
+            <i class="fea-calendar"></i>&nbsp;&nbsp;{{ post.date | parseDate }}
           </time>
           {% for tag in post.data.tags %}
             {%- if tag != "post" -%}

@@ -3,14 +3,8 @@ const readingTime = require("reading-time");
 const slugify = require("slugify");
 
 module.exports = ({ eleventy }) => {
-  eleventy.addFilter("readableDate", (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
-      "LLLL dd, yyyy"
-    );
-  });
-
-  eleventy.addFilter("htmlDateString", (dateObj) => {
-    return DateTime.fromJSDate(dateObj).toFormat("yyyy-LL-dd");
+  eleventy.addFilter("parseDate", (it, format = "LLLL dd, yyyy") => {
+    return DateTime.fromJSDate(it, { zone: "utc" }).toFormat(format);
   });
 
   eleventy.addFilter("slug", (input) => {

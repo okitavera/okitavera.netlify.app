@@ -9,7 +9,7 @@ excludeFromSitemap: true
       {% set absoluteUrl %}{{ page.url | url | absoluteUrl(metadata.url) }}{% endset %}
       <url>
         <loc>{{ absoluteUrl }}</loc>
-        <lastmod>{{ page.date | htmlDateString }}</lastmod>
+        <lastmod>{{ page.date | parseDate("yyyy-LL-dd") }}</lastmod>
       </url>
     {%- endif %}
   {%- endfor %}
