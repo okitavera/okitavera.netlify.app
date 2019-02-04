@@ -1,6 +1,6 @@
 ---
 title: "Turn Your Eleventy into Offline-First PWA"
-description: "In this post, Okitavera explaining step-by-step how to use eleventy-plugin-pwa to make an Offline-First PWA Eleventy-powered website"
+desc: "How to use eleventy-plugin-pwa to add PWA functionality on Eleventy-powered website"
 date: 2019-01-07
 tags:
   - eleventy

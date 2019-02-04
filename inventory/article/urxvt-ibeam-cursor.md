@@ -1,5 +1,6 @@
 ---
 title: "Use I-beam cursor in rxvt-unicode"
+desc: "How to change the urxvt cursor shape into I-beam shape with a simple perl script"
 date: 2018-12-23
 tags:
   - rxvt-unicode

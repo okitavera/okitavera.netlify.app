@@ -1,5 +1,6 @@
 ---
 title: Arch Linux, Windows, and Ryzen Problems
+desc: "A little notes about my problems with Ryzen Mobile on a several operating system"
 date: 2018-11-25
 tags:
   - archlinux

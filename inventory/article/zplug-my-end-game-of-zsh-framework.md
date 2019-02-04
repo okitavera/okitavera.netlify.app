@@ -1,5 +1,6 @@
 ---
 title: "Zplug: My endgame of zsh framework"
+desc: "A version of mine about my story of the fastest zsh-framework called Zplug"
 date: 2018-12-03
 tags:
   - zsh

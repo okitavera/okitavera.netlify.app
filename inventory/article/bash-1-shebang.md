@@ -1,5 +1,6 @@
 ---
 title: "Bash: Shebang consistency"
+desc: "How to write a cross-platform bash script with a better compatibility"
 date: 2018-11-28
 tags:
   - bash

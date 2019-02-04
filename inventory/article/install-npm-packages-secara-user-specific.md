@@ -1,5 +1,6 @@
 ---
 title: "Install npm packages di user-level"
+desc: "Mengkonfigurasi lokasi global npm packages untuk user-level instalasi"
 date: 2018-12-13
 tags:
   - npm

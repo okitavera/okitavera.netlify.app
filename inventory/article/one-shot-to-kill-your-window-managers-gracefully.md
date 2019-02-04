@@ -1,5 +1,6 @@
 ---
 title: "Shortcut to Stop Any Window Managers - Gracefully"
+desc: "How to create a simple logout script for multiple desktop environment"
 date: 2018-12-08
 tags:
   - bash
