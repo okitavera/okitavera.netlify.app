@@ -26,7 +26,9 @@
         </div>
         <div class="post__title margin--y-0 txt--dark-fade txt--700">{{ post.data.title }}</div>
         <div class="post__desc margin--y-0 txt--dark-fade ">
-          {{ post.data.desc }}.
+          {% if post.data.desc %}
+            {{ post.data.desc }}.
+          {% endif %}
           <span class="post__props">
             {% for tag in post.data.tags %}
               {%- if tag != "post" -%}
