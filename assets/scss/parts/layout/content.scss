@@ -9,15 +9,24 @@
   &__wrapper {
     flex: 1;
   }
-  .post__icon {
-    margin-right: 1rem;
-    padding: 1rem;
-    background: var(--color-dark);
-    line-height: 1;
-    clip-path: polygon(50% 0, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
-  }
-  .post__title {
-    font-size: 1.3rem;
+  .post {
+    &__icon {
+      margin-right: 1rem;
+      padding: 1rem;
+      background: var(--color-dark);
+      line-height: 1;
+      clip-path: polygon(50% 0, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+    }
+    &__title {
+      font-size: 1.4rem;
+    }
+    &__props {
+      font-size: 0.95rem;
+      opacity: 0.8;
+    }
+    &__desc {
+      font-size: 1.2rem;
+    }
   }
 }
 article {
