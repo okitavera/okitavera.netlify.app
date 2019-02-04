@@ -18,17 +18,24 @@
     </div>
     <div class="col">
       <a href="{{ post.url | url }}">
-        <div class="post__title margin--y-0 txt--dark-fade txt--700">{{ post.data.title }}</div>
-        <div class="txt--small">
+        <div class="post__props">
           <time class="txt--dark-fade" datetime="{{ date | parseDate("yyyy-LL-dd") }}">
-            <i class="fea-calendar"></i>&nbsp;&nbsp;{{ post.date | parseDate }}
+            Written on
+            {{ post.date | parseDate("LLLL dd") }}
           </time>
-          {% for tag in post.data.tags %}
-            {%- if tag != "post" -%}
-              <span class="txt--dark-fade">&nbsp;&nbsp;<i>#{{ tag }}</i>
-              </span>
-            {%- endif -%}
-          {% endfor %}
+        </div>
+        <div class="post__title margin--y-0 txt--dark-fade txt--700">{{ post.data.title }}</div>
+        <div class="post__desc margin--y-0 txt--dark-fade ">
+          {{ post.data.desc }}.
+          <span class="post__props">
+            {% for tag in post.data.tags %}
+              {%- if tag != "post" -%}
+                <span class="txt--dark-fade">
+                  <i>#{{ tag }}</i>
+                </span>
+              {%- endif -%}
+            {% endfor %}
+          </span>
         </div>
       </a>
     </div>
