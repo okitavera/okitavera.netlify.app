@@ -14,16 +14,33 @@
   }
   .post {
     &__icon {
-      margin-right: 1rem;
+      margin: 0 1rem 0 0;
       padding: 1rem;
       background: var(--color-dark);
-      line-height: 1;
-      clip-path: polygon(50% 0, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+      line-height: 0;
       width: 60px;
       height: 60px;
       text-align: center;
       font-size: 2rem;
       color: white;
+      border-radius: 3px;
+    }
+    &__date {
+      padding: 0 1rem 0 0;
+      text-align: center;
+      &_month {
+        background: var(--color-light-fade);
+        padding: 2px;
+        font-size: 0.9rem;
+        border-radius: 3px 3px 0 0;
+      }
+      &_day {
+        min-width: 60px;
+        color: white;
+        padding: 0.2rem 0.8rem;
+        font-size: 1.5rem;
+        font-feature-settings: "onum" 1;
+      }
     }
     &__title {
       font-size: 1.4rem;
@@ -54,12 +71,6 @@ article {
   }
 }
 
-@supports not (clip-path: circle(1px at 1px 1px)) {
-  .post__icon {
-    border-radius: 50%;
-  }
-}
-
 @media screen and (max-width: $flexbox-breakpoint) {
   .content {
     &__shrink {
@@ -69,13 +80,18 @@ article {
       padding: unset;
     }
     width: 100%;
-    .post__icon {
-      margin-right: 5px;
-      margin-left: -0.5rem;
-      transform: scale(0.8);
-    }
-    .post__title {
-      font-size: 1.2rem;
+    .post {
+      &__icon {
+        padding: 0.8rem;
+        width: 40px;
+        height: 40px;
+      }
+      &__date_day {
+        min-width: 30px;
+      }
+      &__title {
+        font-size: 1.2rem;
+      }
     }
   }
 }

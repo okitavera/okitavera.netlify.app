@@ -3,24 +3,24 @@
 {% endif %}
 {% for post in posts | reverse %}
   {% if (loop.index != 1) and (postYear != post.date | parseDate("yyyy") - 1) %}
-    <h1 class="txt--300">{{ postYear or post.date | parseDate("yyyy") }}</h1>
+    <h1 class="txt--300" style="font-feature-settings: onum 1">{{ postYear or post.date | parseDate("yyyy") }}</h1>
   {% endif %}
   {% set postYear = post.date | parseDate("yyyy") - 1 %}
-  <div class="row row--immutable padding--y-1">
+  <div class="row row--immutable padding--y-2">
     <div class="col--fit">
-      <div class="post__icon" style="background-color: {% generateColorFrom post.data.title %}">
-        {{ post.data.title | truncate(1, true,"") }}
+      <div class="post__date">
+        <div class="post__date_month">
+          {{ post.date | parseDate("LLL") }}
+        </div>
+        <div class="post__date_day" style="background-color: {% generateColorFrom post.data.title %}">
+          {{ post.date | parseDate("dd") }}
+        </div>
       </div>
     </div>
     <div class="col">
       <a href="{{ post.url | url }}">
-        <div class="post__props">
-          <time class="txt--dark-fade" datetime="{{ date | parseDate("yyyy-LL-dd") }}">
-            Written on
-            {{ post.date | parseDate("LLLL dd") }}
-          </time>
-        </div>
         <div class="post__title margin--y-0 txt--dark-fade txt--700">{{ post.data.title }}</div>
+        <div class="post__props"></div>
         <div class="post__desc margin--y-0 txt--dark-fade ">
           {% if post.data.desc %}
             {{ post.data.desc }}.
