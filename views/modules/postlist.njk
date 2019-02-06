@@ -3,17 +3,13 @@
 {% endif %}
 {% for post in posts | reverse %}
   {% if (loop.index != 1) and (postYear != post.date | parseDate("yyyy") - 1) %}
-    <div class="row">
-      <div class="col">
-        <h1>{{ postYear or post.date | parseDate("yyyy") }}</h1>
-      </div>
-    </div>
+    <h1 class="txt--300">{{ postYear or post.date | parseDate("yyyy") }}</h1>
   {% endif %}
   {% set postYear = post.date | parseDate("yyyy") - 1 %}
   <div class="row row--immutable padding--y-1">
     <div class="col--fit">
       <div class="post__icon" style="background-color: {% generateColorFrom post.data.title %}">
-        <img src="/assets/img/book.svg" alt="article icon" width="32" height="32">
+        {{ post.data.title | truncate(1, true,"") }}
       </div>
     </div>
     <div class="col">

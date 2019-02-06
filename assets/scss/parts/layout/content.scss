@@ -19,6 +19,11 @@
       background: var(--color-dark);
       line-height: 1;
       clip-path: polygon(50% 0, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+      width: 60px;
+      height: 60px;
+      text-align: center;
+      font-size: 2rem;
+      color: white;
     }
     &__title {
       font-size: 1.4rem;

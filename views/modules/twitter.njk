@@ -1,11 +1,11 @@
 {% for tweets in twitter | head(3) %}
   <div class="row row--immutable padding--y-1">
     <div class="col--fit">
-      <div class="post__icon" style="background-color: #38A1F3">
-        <a href="https://twitter.com/{{ tweets.username }}/status/{{ tweets.id }}">
-          <img src="/assets/img/twitter.svg" alt="article icon" width="32" height="32">
-        </a>
-      </div>
+      <a href="https://twitter.com/{{ tweets.username }}/status/{{ tweets.id }}">
+        <div class="post__icon" style="background-color: #38A1F3">
+          <i class="fea-twitter" style="filter: invert(1);opacity:1"></i>
+        </div>
+      </a>
     </div>
     <div class="col">
       <a href="https://twitter.com/{{ tweets.username }}">
