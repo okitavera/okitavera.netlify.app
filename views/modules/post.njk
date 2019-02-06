@@ -1,7 +1,7 @@
 ---
 layout: plain.njk
 ---
-<header class="container padding--x-2 center">
+<header class="container content__shrink center">
   <h1 class="txt--700">{{ title }}</h1>
   <time datetime="{{ date | parseDate("yyyy-LL-dd") }}">
     <i class="fea-calendar"></i>&nbsp;&nbsp;{{ date | parseDate }}
@@ -10,7 +10,6 @@ layout: plain.njk
   <span>
     <i class="fea-clock"></i>&nbsp;&nbsp;{{ content | getReadingTime("%M minutes to read") }}
   </span>
-  <div class="spacer--1"></div>
 </header>
 {% if splash %}
   <img src="{{ splash.url }}" style="max-width:100%">
@@ -18,7 +17,7 @@ layout: plain.njk
     <div class="right txt--small padding--x-2">{{ splash.credit | urlize | safe }}</div>
   {% endif %}
 {% endif %}
-<article class="container padding--x-2">
+<article class="container content__shrink">
   {{ content | safe }}
   <br>
   <small>
@@ -28,11 +27,9 @@ layout: plain.njk
       {%- endif -%}
     {% endfor %}
   </small>
-  <div class="spacer--2"></div>
 </article>
 <div class="hline"></div>
-<section class="container padding--x-2">
-  <div class="spacer--2"></div>
+<section class="container content__shrink">
   <div class="row row--immutable">
     <div class="col--fit">
       <img class="circle" width="64" src="/assets/img/avatars/me.png"/>
@@ -48,10 +45,9 @@ layout: plain.njk
       <button id="disqus_loader" class="btn btn--outline bg--transparent txt--accent">View Comments</button>
     </div>
   {% endif %}
-  <div class="spacer--2"></div>
 </section>
 <div class="hline"></div>
-<section class="container padding--x-2 padding--y-0">
+<section class="container content__shrink">
   <h1 class="txt--300">Latest Content</h1>
   {% set posts = collections.posts | head(-3) %}
   {% include "postlist.njk" %}

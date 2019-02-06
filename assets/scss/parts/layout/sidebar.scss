@@ -52,8 +52,7 @@
 
 .sidebar {
   z-index: 10;
-  min-width: $sidebar-maxwidth;
-  width: 35%;
+  width: $sidebar-width;
   background: var(--sidebar-bg);
   color: var(--color-dark);
   &__wrapper {
@@ -66,7 +65,6 @@
     padding-top: 0;
     padding-bottom: 0;
     min-height: 100vh;
-    max-width: $sidebar-maxwidth;
     text-align: center;
     .row {
       flex-basis: 100%;
@@ -111,17 +109,23 @@
     font-size: 2.4rem;
     line-height: 1.2;
   }
+  &__desc {
+    text-transform: uppercase;
+    opacity: 0.85;
+    letter-spacing: 2px;
+  }
   &__desc,
   &__menu a {
     color: var(--sidebar-text-secondary);
     font-weight: 700;
   }
   &__social {
+    opacity: 0.8;
     margin-top: 2rem;
-    font-size: 2rem;
+    font-size: 1.8rem;
     a {
-      margin-right: 3px;
-      margin-left: 3px;
+      margin-right: 5px;
+      margin-left: 5px;
     }
   }
 }

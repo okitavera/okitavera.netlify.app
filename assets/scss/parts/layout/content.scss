@@ -4,10 +4,13 @@
   flex-direction: column;
   overflow-x: hidden;
   min-height: 100vh;
-  width: 75%;
+  width: calc(100% - #{$sidebar-width});
   background: var(--color-light);
   &__wrapper {
     flex: 1;
+  }
+  &__shrink {
+    padding: 3rem 4rem;
   }
   .post {
     &__icon {
@@ -54,6 +57,12 @@ article {
 
 @media screen and (max-width: $flexbox-breakpoint) {
   .content {
+    &__shrink {
+      padding: 2rem;
+    }
+    &__wrapper {
+      padding: unset;
+    }
     width: 100%;
     .post__icon {
       margin-right: 5px;

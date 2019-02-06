@@ -2,13 +2,16 @@
 layout: plain.njk
 permalink: /
 ---
-<section class="container padding--x-2 padding--y-0">
+<section class="container content__shrink">
   <h1 class="txt--300">Latest Content</h1>
   {% set posts = collections.posts | head(-5) %}
   {% include "postlist.njk" %}
   <div class="center padding--y-2">
     <a href="/article/" class="btn bg--accent">View More</a>
   </div>
+</section>
+<div class="hline"></div>
+<section class="container content__shrink">
   <h1 class="txt--300">Recent Tweets</h1>
   {% include "twitter.njk" %}
   <div class="center padding--y-2">
