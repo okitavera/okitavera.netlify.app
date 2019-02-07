@@ -1,7 +1,7 @@
 {% for tweets in twitter | head(3) %}
   <div class="row row--immutable padding--y-1">
     <div class="col--fit">
-      <a href="https://twitter.com/{{ tweets.username }}/status/{{ tweets.id }}">
+      <a href="https://twitter.com/{{ tweets.username }}/status/{{ tweets.id }}" aria-label="last-tweet no.{{ loop.index }}">
         <div class="post__icon" style="background-color: #38A1F3">
           <i class="fea-twitter" style="filter: invert(1);opacity:1"></i>
         </div>
