@@ -32,9 +32,8 @@ pre {
 
 :not(pre) > code,
 pre {
-  border-radius: 7px;
+  border-radius: 3px;
   background: var(--prism-dark);
-  box-shadow: 0 1px 1px gray;
   color: var(--prism-light);
 }
 
