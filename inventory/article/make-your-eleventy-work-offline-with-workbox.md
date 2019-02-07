@@ -99,6 +99,7 @@ Also don't forget to mention that file inside your header
 
 ## Registering Service Worker
 
+<div style="opacity:0.5">
 <del>
 
 Now the tricky part is registering service worker.
@@ -137,6 +138,7 @@ And finally, we put a simple javascript into our header/footer to register the s
 ```
 
 </del>
+</div>
 
 ### Update
 
