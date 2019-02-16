@@ -6,21 +6,11 @@ module.exports = ({ eleventy }) => {
       .sort((a, b) => a.date - b.date)
   );
 
-  eleventy.addCollection("tags", (collection) => {
-    let tagSet = new Set();
-    collection.getAllSorted().forEach((item) => {
-      if ("tags" in item.data) {
-        let tags = item.data.tags;
-        if (typeof tags === "string") {
-          tags = [tags];
-        }
-
-        for (const tag of tags) {
-          tagSet.add(tag);
-        }
-      }
-    });
-    // returning an array in addCollection works in Eleventy 0.5.3
-    return [...tagSet];
-  });
+  eleventy.addCollection("tags", (collection) =>
+    collection
+      .getAll()
+      .flatMap((d) => d.data.tags)
+      .filter((d, i, R) => typeof d === "string" && R.indexOf(d) == i)
+      .sort((a, b) => a.localeCompare(b))
+  );
 };
