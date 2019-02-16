@@ -3,18 +3,17 @@ const readingTime = require("reading-time");
 const slugify = require("slugify");
 
 module.exports = ({ eleventy }) => {
-  eleventy.addFilter("parseDate", (it, format = "LLLL dd, yyyy") => {
-    return DateTime.fromJSDate(it, { zone: "utc" }).toFormat(format);
-  });
+  eleventy.addFilter("parseDate", (it, format = "LLLL dd, yyyy") =>
+    DateTime.fromJSDate(it, { zone: "utc" }).toFormat(format)
+  );
 
-  eleventy.addFilter("slug", (input) => {
-    const options = {
+  eleventy.addFilter("slug", (input) =>
+    slugify(input, {
       replacement: "-",
       remove: /[&,+()#$~%.'":*?<>{}]/g,
       lower: true
-    };
-    return slugify(input, options);
-  });
+    })
+  );
 
   eleventy.addFilter("getReadingTime", (content, format) => {
     const reader = readingTime(content);

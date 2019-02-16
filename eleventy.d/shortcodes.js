@@ -1,20 +1,18 @@
 module.exports = ({ eleventy }) => {
-  eleventy.addShortcode("fallbackImg", (url, attr = "") => {
-    const fallbackImg = `
-    <img ${attr} src="${url}"/>
-    `;
-    return fallbackImg;
-  });
+  eleventy.addShortcode(
+    "fallbackImg",
+    (url, attr = "") => `<img ${attr} src="${url}"/>`
+  );
 
-  eleventy.addShortcode("progressBar", (title, percent) => {
-    const progressBar = `<div class="progress"><div class="progress__name">${title}</div><div class="progress__percent" style="width:${percent}">${percent}</div><div class="progress__bar"><div class="progress__bar__loaded" style="width:${percent}"></div></div></div>`;
-    return progressBar;
-  });
+  eleventy.addShortcode(
+    "progressBar",
+    (title, percent) =>
+      `<div class="progress"><div class="progress__name">${title}</div><div class="progress__percent" style="width:${percent}">${percent}</div><div class="progress__bar"><div class="progress__bar__loaded" style="width:${percent}"></div></div></div>`
+  );
 
-  eleventy.addShortcode("copyrightYear", (firstYear) => {
-    const yrNow = new Date().getFullYear();
-    return firstYear.concat("-" + yrNow);
-  });
+  eleventy.addShortcode("copyrightYear", (firstYear) =>
+    firstYear.concat("-" + new Date().getFullYear())
+  );
 
   eleventy.addShortcode("generateColorFrom", (title) => {
     if (!title) title = "eleventy is cute";
