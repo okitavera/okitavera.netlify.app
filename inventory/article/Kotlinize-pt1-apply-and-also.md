@@ -1,12 +1,13 @@
 ---
-title: "Kotlin std-function: apply() and also()"
-desc: "A little notes about apply() and also() function on kotlin"
-date: 2019-01-17
+title: 'Kotlin std-function: apply() and also()'
+date: 2019-01-17T00:00:00.000Z
+desc: A little notes about apply() and also() function on kotlin
 tags:
   - Kotlin
   - android
 splash:
-  url: "/assets/img/contents/kotlin.jpg"
+  credit: pacman-like Kotlin logo
+  url: /assets/img/contents/kotlin.jpg
 ---
 
 After learning a kotlin and made some apps with it, I came to the realisation that there are a lot of my code that still not use "the kotlin-ways" to solve a problem.
