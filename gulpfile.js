@@ -22,9 +22,6 @@ const eleventy = (options = "") => (cb) =>
 
 const switchTo = (mode) => (cb) => ((process.env.NODE_ENV = mode), cb());
 
-// task for build and resize avatars
-exports.images = gulp.series("ava:fetch", "ava:normalize");
-
 // task for build and run those watchers
 exports.serve = gulp.series(
   switchTo("development"),

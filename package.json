@@ -18,7 +18,6 @@
     "eleventy-plugin-pwa": "^1.0.6",
     "feather-icons": "^4.12.1",
     "gulp": "^4.0.0",
-    "gulp-download2": "^1.0.2",
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
@@ -40,9 +39,7 @@
     "twitter": "^1.7.1",
     "webpack": "^4.27.1"
   },
-  "devDependencies": {
-    "gulp-responsive": "^2.11.0"
-  },
+  "devDependencies": {},
   "browserslist": [
     ">= 1%",
     "last 1 version",

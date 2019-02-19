@@ -37,7 +37,7 @@ function themeSwitcher() {
       <span class="dank-splash__wave"></span>
       <span class="dank-splash__wave"></span>
       <span class="dank-splash__overlay"></span>
-      <img class="dank-splash" src="/assets/img/avatars/me.png">
+      <img class="dank-splash" src="/assets/img/me.png">
       <div class="dank-splash__msg">${
         body.classList.contains("dank") ? "Deactivating" : "Activating"
       } Dank mode</div>

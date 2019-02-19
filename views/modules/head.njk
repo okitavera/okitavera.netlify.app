@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="title" content="{{ title }}">
   <meta name="description" content="{{ description or metadata.description or (metadata.author.name + '\'s website') }}">
-  <link rel="prefetch" href="/assets/img/avatars/me.png" as="image" type="image/png" crossorigin="anonymous">
+  <link rel="prefetch" href="/assets/img/me.png" as="image" type="image/png" crossorigin="anonymous">
   <link rel="alternate" type="application/rss+xml" title="{{ metadata.feed.title }}" href="{{ metadata.feed.path | url }}">
   <link rel="manifest" href="/webmanifest.json">
   {% include 'metasocial.njk' %}

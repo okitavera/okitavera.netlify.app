@@ -21,20 +21,12 @@ $ yarn install
 
 ```
 $ gulp clean # cleanup destination directory
-$ gulp images # generate images (download avatars, build compressed images, etc)
 $ gulp serve # generate, watch, and served to http://localhost:8080
 ```
 
 ### Next run
 
 ```
-$ gulp serve
-```
-
-### Update images and run
-
-```
-$ gulp images
 $ gulp serve
 ```
 
