@@ -1,0 +1,41 @@
+backend:
+  name: git-gateway
+  branch: master
+
+media_folder: "assets/img/contents"
+
+collections:
+  - label: "Article"
+    name: "article"
+    folder: "inventory/article"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Date"
+        name: "date"
+        widget: "datetime"
+      - label: "Description"
+        name: "desc"
+        widget: "text"
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+      - label: "Splash"
+        name: "splash"
+        widget: "object"
+        required: false
+        fields:
+          - label: "Image URL"
+            name: "url"
+            widget: "image"
+            required: false
+          - label: "Image Caption"
+            name: "credit"
+            widget: string
+            required: false
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
