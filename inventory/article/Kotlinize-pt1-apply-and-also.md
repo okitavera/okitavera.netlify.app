@@ -1,5 +1,5 @@
 ---
-title: "Kotlin: infix Apply and Also"
+title: "Kotlin std-function: apply() and also()"
 desc: "A little notes about apply() and also() function on kotlin"
 date: 2019-01-17
 tags:
