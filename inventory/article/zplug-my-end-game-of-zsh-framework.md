@@ -6,7 +6,7 @@ tags:
   - zsh
   - linux
 splash:
-  url: "/assets/img/banners/zplug.jpg"
+  url: "/assets/img/contents/zplug.jpg"
   credit: "Background from: https://unsplash.com/photos/7P8p1NBk37U"
 ---
 
@@ -45,7 +45,7 @@ After an hours of finding some stuff like plugins and themes, my shell is finall
 
 <center>
 
-![zplug on my terminal emulator](/assets/img/articles/zplug-on-terminal-emulator.png)
+![zplug on my terminal emulator](/assets/img/contents/zplug-on-terminal-emulator.png)
 
 </center>
 
@@ -56,7 +56,7 @@ Oh by the ways, here is the speed of zplug and with those plugins and themes:
 
 <center>
 
-![zplug on my terminal emulator - speed](/assets/img/articles/zplug-on-terminal-emulator-speed.png)
+![zplug on my terminal emulator - speed](/assets/img/contents/zplug-on-terminal-emulator-speed.png)
 
 </center>
 

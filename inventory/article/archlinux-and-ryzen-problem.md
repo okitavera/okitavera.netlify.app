@@ -7,7 +7,7 @@ tags:
   - linux
   - ryzen
 splash:
-  url: "/assets/img/banners/arch-ryzen.jpg"
+  url: "/assets/img/contents/arch-ryzen.jpg"
   credit: "Image: AMD Ryzen and Arch Linux logo"
 ---
 

@@ -6,7 +6,7 @@ tags:
   - bash
   - linux
 splash:
-  url: "/assets/img/banners/shebang.jpg"
+  url: "/assets/img/contents/shebang.jpg"
 ---
 
 The `/bin/sh` is usually a symlink to the system default shell.

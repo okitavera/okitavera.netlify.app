@@ -7,7 +7,7 @@ tags:
   - nodejs
   - webdev
 splash:
-  url: "/assets/img/banners/npm-install-user.jpg"
+  url: "/assets/img/contents/npm-install-user.jpg"
   credit: "Image: https://unsplash.com/photos/k03ornGON08"
 ---
 

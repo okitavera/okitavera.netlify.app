@@ -7,7 +7,7 @@ tags:
   - linux
   - windowmanager
 splash:
-  url: "/assets/img/banners/logout-ui-reorr.jpg"
+  url: "/assets/img/contents/logout-ui-reorr.jpg"
   credit: "Image Credit : https://www.deviantart.com/reorr/art/mek-oes-mohave-768247044"
 ---
 
@@ -66,7 +66,7 @@ Since for now we only care about that, lets just jump into it :
 $ wmctrl -m
 ```
 
-![wmctrl-m](/assets/img/articles/wmctrl-m.png)
+![wmctrl-m](/assets/img/contents/wmctrl-m.png)
 
 Huuray!
 we got the name, so lets put that things into our script before.

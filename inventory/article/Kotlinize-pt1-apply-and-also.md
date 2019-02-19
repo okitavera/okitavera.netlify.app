@@ -6,7 +6,7 @@ tags:
   - Kotlin
   - android
 splash:
-  url: "/assets/img/banners/kotlin.jpg"
+  url: "/assets/img/contents/kotlin.jpg"
 ---
 
 After learning a kotlin and made some apps with it, I came to the realisation that there are a lot of my code that still not use "the kotlin-ways" to solve a problem.
@@ -21,7 +21,7 @@ Anyways, let's just jump into it guys!
 
 <center>
 
-![lets-just-jump-into-it](/assets/img/articles/lets-just-jump-into-it.gif)
+![lets-just-jump-into-it](/assets/img/contents/lets-just-jump-into-it.gif)
 
 </center>
 

@@ -6,7 +6,7 @@ tags:
   - rxvt-unicode
   - linux
 splash:
-  url: "/assets/img/banners/urxvt.jpg"
+  url: "/assets/img/contents/urxvt.jpg"
 ---
 
 I've been so many years with this terminal emulator, maybe the first time I use rxvt-unicode (or urxvt - for short) is maybe 2 or 3 months after my first touch with the linux desktop world.
@@ -21,7 +21,7 @@ One of the options that urxvt has is the customizable cursor, you can either cho
 
 <center>
 
-![](/assets/img/articles/urxvt-cursor-default.png)
+![](/assets/img/contents/urxvt-cursor-default.png)
 <small>default cursor options</small>
 
 </center>
@@ -40,7 +40,7 @@ printf '\033[5 q\r'
 
 <center>
 
-![](/assets/img/articles/urxvt-cursor-ibeam.png)
+![](/assets/img/contents/urxvt-cursor-ibeam.png)
 <small>well, that's easy</small>
 
 </center>

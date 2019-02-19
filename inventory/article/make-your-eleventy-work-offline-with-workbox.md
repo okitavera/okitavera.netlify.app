@@ -7,7 +7,7 @@ tags:
   - JAMstack
   - webdev
 splash:
-  url: "/assets/img/banners/eleventy-offline.jpg"
+  url: "/assets/img/contents/eleventy-offline.jpg"
   credit: "an event that happens approximately 66 million years ago, chromiumized"
 ---
 
@@ -163,7 +163,7 @@ Since `eleventy-plugin-pwa` now use `staleWhileRevalidate` method by default, no
 
 Okay, it's time to test our 5 minutes work.
 
-![pwa-chrome-console](/assets/img/articles/pwa-chrome-console.png)
+![pwa-chrome-console](/assets/img/contents/pwa-chrome-console.png)
 
 Lighthouse benchmark:
-![pwa-chrome-lighthouse](/assets/img/articles/pwa-chrome-bench.png)
+![pwa-chrome-lighthouse](/assets/img/contents/pwa-chrome-bench.png)

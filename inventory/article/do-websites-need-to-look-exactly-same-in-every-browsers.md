@@ -5,7 +5,7 @@ tags:
   - webdev
   - random
 splash:
-  url: "/assets/img/banners/pewds-hmm.jpg"
+  url: "/assets/img/contents/pewds-hmm.jpg"
   credit: "Image is demonetized."
 ---
 
