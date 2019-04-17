@@ -6,6 +6,7 @@
           "@babel/preset-env",
           {
             "useBuiltIns": "entry",
+            "corejs": 2,
             "targets": {
               "esmodules": false
             }
@@ -19,6 +20,7 @@
           "@babel/preset-env",
           {
             "useBuiltIns": "entry",
+            "corejs": 2,
             "targets": {
               "esmodules": true
             }

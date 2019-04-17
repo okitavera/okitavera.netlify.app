@@ -12,6 +12,7 @@
     "@babel/preset-env": "^7.4.3",
     "babel-loader": "^8.0.4",
     "cheerio": "^1.0.0-rc.3",
+    "core-js": "2",
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.10",
     "dotenv": "^7.0.0",
