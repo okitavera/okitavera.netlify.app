@@ -15,7 +15,7 @@
         <span class="txt--dark-fade twitter-date" data-date="{{ tweets.date }}">{{ tweets.date }}</span>
       </a>
       <p class="margin--y-0">
-        {{ tweets.text | nl2br | urlize | twitterize | safe }}
+        {{ tweets.text | urlize | twitterize | nl2br | safe }}
       </p>
     </div>
   </div>
