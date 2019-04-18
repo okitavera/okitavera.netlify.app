@@ -43,6 +43,7 @@ const babelEnv = (envName) => ({
         use: {
           loader: "babel-loader?cacheDirectory",
           options: {
+            cacheDirectory: false,
             envName
           }
         }

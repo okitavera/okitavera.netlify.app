@@ -1,4 +1,6 @@
-import "@babel/polyfill";
+import "core-js/es";
+import "regenerator-runtime/runtime";
+
 import disqusLoader from "./modules/DisqusLoader";
 import importScr from "./modules/ImportSrc";
 
@@ -39,8 +41,8 @@ function themeSwitcher() {
       <span class="dank-splash__overlay"></span>
       <img class="dank-splash" src="/assets/img/me.png">
       <div class="dank-splash__msg">${
-        body.classList.contains("dank") ? "Deactivating" : "Activating"
-      } Dank mode</div>
+    body.classList.contains("dank") ? "Deactivating" : "Activating"
+    } Dank mode</div>
     </div>
   </div>`;
   body.insertAdjacentHTML("beforeend", splash.trim());
