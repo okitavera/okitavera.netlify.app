@@ -14,7 +14,7 @@ module.exports = ({ gulp }) => {
   });
 
   const cssSVGX = cssSVG({
-    path: "./node_modules/feather-icons/dist/icons"
+    paths: ["./node_modules/feather-icons/dist/icons"]
   });
 
   gulp.task("css", () =>
