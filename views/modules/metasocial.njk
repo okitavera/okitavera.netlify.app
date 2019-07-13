@@ -1,6 +1,6 @@
 {% set metathumbs = metadata.url + (splash.url or '/assets/img/me.png')or metadata.author.photo %}
 {% set metatitle = renderData.title or title or metadata.title %}
-{% set metadesc = description or metadata.description or (metadata.author.name + Website') %}
+{% set metadesc = desc or metadata.description or (metadata.author.name + Website') %}
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="{{ ('@' + metadata.author.twitter) or metadata.author.name }}">
 <meta name="twitter:title" content="{{ metatitle }}">
