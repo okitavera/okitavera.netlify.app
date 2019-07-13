@@ -1,7 +1,7 @@
 ---
 title: Easy Kernel Firmware Extraction with csplitb
 desc: "A quick tutorial about extracting the in-built kernel firmware"
-date: 2019-06-20
+date: 2019-07-13
 tags:
   - android
   - linux
