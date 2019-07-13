@@ -104,10 +104,15 @@
   }
   &__title {
     padding-bottom: 1rem;
-    text-transform: uppercase;
-    font-weight: 900;
+    font-weight: 300;
     font-size: 2.4rem;
     line-height: 1.2;
+    a:first-child {
+      display: inline;
+    }
+    a:last-child {
+      display: none;
+    }
   }
   &__desc {
     text-transform: uppercase;
@@ -201,6 +206,7 @@
       padding: 0;
     }
     &__title {
+      font-weight: 800;
       margin: 5px;
       padding: 0;
       text-transform: capitalize;
@@ -208,6 +214,12 @@
       &:after {
         color: var(--color-accent);
         content: ".";
+      }
+      a:first-child {
+        display: none;
+      }
+      a:last-child {
+        display: inline;
       }
     }
     &__desc {
