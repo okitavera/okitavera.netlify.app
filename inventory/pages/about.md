@@ -29,7 +29,7 @@ When I’m not on the text editor, I enjoy playing video games, shopping, watchi
 
 # Get In Touch
 
-Nanda Okitavera
+Nanda Oktavera
 Android and Web Developer
 codeharuka.yusa@gmail.com
 

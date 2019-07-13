@@ -88,7 +88,7 @@ window.addEventListener("load", onPageLoad);
 window.addEventListener("scroll", onPageScroll, { passive: true });
 
 /*!
- * Copyright (c) 2018 Nanda Okitavera
+ * Copyright (c) 2018 Nanda Oktavera
  * MIT License
  * https://github.com/okitavera/okitavera.me
  */
