@@ -36,7 +36,7 @@ exports.serve = gulp.series(
 exports.default = gulp.series(
   switchTo("production"),
   "clean",
-  gulp.parallel("css", "css:icons", "js"),
+  gulp.parallel("css", "css:icons", "js", "fetch-avatar"),
   "js:comments",
   "twitter",
   eleventy()
