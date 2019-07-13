@@ -3,6 +3,7 @@ layout: plain.njk
 ---
 <header class="container content__shrink center">
   <h1 class="txt--700">{{ title }}</h1>
+  <h3 class="txt--300">{{ desc }}</h3>
   <time datetime="{{ date | parseDate("yyyy-LL-dd") }}">
     <i class="fea-calendar"></i>&nbsp;&nbsp;{{ date | parseDate }}
   </time>
