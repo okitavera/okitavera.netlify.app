@@ -1,120 +1,3 @@
-@keyframes waveIt {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(10);
-  }
-}
-
-@keyframes profilePic {
-  0% {
-    opacity: 0;
-    transform: scale(0);
-  }
-  5% {
-    opacity: 0.5;
-    transform: scale(0.5);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes slideUpText {
-  0% {
-    opacity: 0;
-    transform: scale(0);
-    transform: translateY(30px);
-  }
-  5% {
-    opacity: 0.5;
-    transform: scale(0.5);
-    transform: translateY(25px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes dismissIt {
-  0% {
-    opacity: 1;
-  }
-  90% {
-    z-index: 30;
-  }
-  100% {
-    z-index: -1;
-    opacity: 0;
-  }
-}
-
-.dank-splash {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 180px;
-  height: auto;
-  border-radius: 50%;
-  transform: scale(0);
-  animation: profilePic cubic-bezier(0, 0.8, 1, 1) 0.8s forwards;
-  animation-delay: 0.7s;
-  &__msg {
-    position: relative;
-    padding: 1rem;
-    text-align: center;
-    font-weight: 400;
-    font-size: 1.5rem;
-    opacity: 0;
-    animation: slideUpText cubic-bezier(0, 0.8, 1, 1) 0.8s forwards;
-    animation-delay: 1.2s;
-  }
-  &__body {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 30;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    width: 100%;
-    height: 100vh;
-    &.dismiss {
-      animation: dismissIt cubic-bezier(0, 0.8, 1, 1) 0.3s forwards;
-    }
-  }
-  &__container {
-    position: relative;
-    left: 0;
-    width: 180px;
-    height: auto;
-    border-radius: 50%;
-  }
-  &__wave {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    transform: scale(0);
-    animation: waveIt cubic-bezier(0.36, 0.35, 0.65, 0.99) 1.5s forwards;
-    &:nth-child(1) {
-      border: 1rem solid var(--color-dark);
-      background-color: #ec407a;
-    }
-    &:nth-child(2) {
-      background-color: var(--color-light-fade);
-      animation-delay: 0.5s;
-    }
-  }
-}
-
 body {
   button.dank {
     position: absolute;
@@ -157,4 +40,10 @@ body {
     display: inline-block;
     left: unset;
   }
+}
+
+.dankfx {
+  transition: background 0.25s ease-in,
+              color 0.25s ease-in,
+              border 0.25s ease-in;
 }

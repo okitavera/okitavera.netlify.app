@@ -5,7 +5,6 @@ import disqusLoader from "./modules/DisqusLoader";
 import importScr from "./modules/ImportSrc";
 
 const html = document.documentElement || document.body;
-const body = document.querySelector("body");
 
 function toggleScrollTopView(button) {
   setInterval(() => {
@@ -33,30 +32,8 @@ function parseTwitterDate(tdate) {
 }
 
 function themeSwitcher() {
-  let splash = `
-  <div class="dank-splash__body">
-    <div class="dank-splash__container">
-      <span class="dank-splash__wave"></span>
-      <span class="dank-splash__wave"></span>
-      <span class="dank-splash__overlay"></span>
-      <img class="dank-splash" src="/assets/img/me.png">
-      <div class="dank-splash__msg">${
-    body.classList.contains("dank") ? "Deactivating" : "Activating"
-    } Dank mode</div>
-    </div>
-  </div>`;
-  body.insertAdjacentHTML("beforeend", splash.trim());
-  const timeTo = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ? { paint: 0, remove: 0 }
-    : { paint: 2000, remove: 300 };
-
-  setTimeout(() => {
-    const dank = document.querySelector(".dank-splash__body");
-    dank.classList.add("dismiss");
-    body.classList.toggle("dank");
-    sessionStorage.dankMode = body.classList.contains("dank");
-    setTimeout(() => body.removeChild(dank), timeTo.remove);
-  }, timeTo.paint);
+  html.classList.toggle("dank");
+  sessionStorage.dankMode = html.classList.contains("dank");
 }
 
 function onPageScroll() {
@@ -79,6 +56,11 @@ function onPageLoad() {
     date.innerHTML = parseTwitterDate(date.getAttribute("data-date"));
   });
   disqusLoader(disqusdata.username);
+
+  document
+    .querySelectorAll(".mobile-menu__wrapper, .sidebar, .content")
+    .forEach((el) => el.classList.add("dankfx"));
+
 }
 
 if (!"scroll-behaviour" in document.documentElement.style)
