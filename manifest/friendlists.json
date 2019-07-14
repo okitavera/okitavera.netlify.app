@@ -36,8 +36,8 @@
       "img": "https://a.deviantart.net/avatars-big/a/f/aflasio.jpg"
     },
     {
-      "name": "habibmustofa",
-      "url": "https://habib-mustofa.com",
+      "name": "mustofa-id",
+      "url": "https://mustofa.id/",
       "img": "https://github.com/mustofa-id.png?size=128"
     },
     {
@@ -51,9 +51,14 @@
       "img": "https://github.com/drzaln.png?size=128"
     },
     {
-      "name": "galihx11",
-      "url": "https://linuxisekai.github.io",
+      "name": "linuxisekai",
+      "url": "https://www.linuxisekai.site",
       "img": "https://github.com/linuxisekai.png?size=128"
+    },
+    {
+      "name": "illvart",
+      "url": "https://illvart.com",
+      "img": "https://github.com/illvart.png?size=128"
     }
   ]
 }
