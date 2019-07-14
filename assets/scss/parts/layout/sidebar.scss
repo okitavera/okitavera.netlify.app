@@ -141,6 +141,7 @@
   border: 15px solid var(--color-light);
   border-radius: 50%;
   line-height: 0;
+  margin-top: 3rem;
   img {
     display: inline;
     border-radius: 50%;
@@ -241,6 +242,7 @@
   .me {
     display: block;
     border: none;
+    margin-top: 0;
     img {
       width: 32px;
       height: 32px;
