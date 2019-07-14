@@ -55,6 +55,7 @@
   width: $sidebar-width;
   background: var(--sidebar-bg);
   color: var(--color-dark);
+  border-right: 1px solid var(--color-light-fade);
   &__wrapper {
     position: sticky;
     top: 0;
@@ -190,6 +191,7 @@
     top: 0;
     min-width: unset;
     width: 100%;
+    border-right: none;
     border-bottom: 2px solid var(--color-light-fade);
     &__wrapper {
       position: relative;
