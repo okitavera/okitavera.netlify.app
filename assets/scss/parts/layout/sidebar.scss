@@ -74,6 +74,7 @@
   }
   &__menu {
     font-size: 1.3rem;
+    padding-top: 1rem;
     & > div {
       padding: 0.5rem;
     }
@@ -102,6 +103,7 @@
   }
   &__identity {
     padding: 2rem;
+    padding-bottom:1rem;
   }
   &__title {
     padding-bottom: 1rem;
@@ -127,7 +129,6 @@
   }
   &__social {
     opacity: 0.8;
-    margin-top: 2rem;
     font-size: 1.8rem;
     a {
       margin-right: 5px;
