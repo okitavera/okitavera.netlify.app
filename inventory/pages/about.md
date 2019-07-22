@@ -27,6 +27,13 @@ When I’m not on the text editor, I enjoy playing video games, shopping, watchi
 
 {% progressBar "Gaming", "90%" %}
 
+## Donate
+If you like about my several projects and what I'm doing on the net,
+you can consider buying me a coffee (or chocolate), Thank you!
+
+* https://www.buymeacoffee.com/okitavera
+* https://www.paypal.me/okitavera
+
 # Get In Touch
 
 Nanda Oktavera
