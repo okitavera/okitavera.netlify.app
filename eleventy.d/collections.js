@@ -13,4 +13,10 @@ module.exports = ({ eleventy }) => {
       .filter((d, i, R) => typeof d === "string" && R.indexOf(d) == i)
       .sort((a, b) => a.localeCompare(b))
   );
+
+  eleventy.addCollection("kernel", (collection) =>
+    collection
+      .getFilteredByGlob(`${INVEN_DIR}/misc/okita-kernel-mi9se/*.md`)
+      .sort((a, b) => b.inputPath.localeCompare(a.inputPath))
+  );
 };
