@@ -2,6 +2,7 @@
 permalink: /okita-kernel-mi9se/
 layout: page.njk
 title: Okita Kernel For Xiaomi Mi 9 SE
+desc: A Custom Kernel for Xiaomi Mi 9 SE to enhance performance and battery-life
 ---
 
 > Discussion Thread : [xda-developers](https://forum.xda-developers.com/mi-9-se/development/kernel-okitakernel-v1-0-mi-9-se-27-2019-t3934029)
