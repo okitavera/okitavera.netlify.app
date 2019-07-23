@@ -55,16 +55,15 @@ function onPageLoad() {
   document.querySelectorAll(".twitter-date").forEach((date) => {
     date.innerHTML = parseTwitterDate(date.getAttribute("data-date"));
   });
-  disqusLoader(disqusdata.username);
 
   document
     .querySelectorAll(".mobile-menu__wrapper, .sidebar, .content")
     .forEach((el) => el.classList.add("dankfx"));
 
+  disqusLoader(disqusdata.username);
+  if (!"scroll-behaviour" in document.documentElement.style)
+    importScr("/assets/js/polyfills/ScrollBehaviour.js");
 }
-
-if (!"scroll-behaviour" in document.documentElement.style)
-  importScr("/assets/js/polyfills/ScrollBehaviour.js");
 
 window.addEventListener("load", onPageLoad);
 window.addEventListener("scroll", onPageScroll, { passive: true });
