@@ -48,6 +48,12 @@
     "images": "gulp images",
     "serve": "gulp serve"
   },
+  "browserslist": [
+    ">= 1%",
+    "last 2 version",
+    "android >= 5.0",
+    "not dead"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/okitavera/okitavera.me.git"
