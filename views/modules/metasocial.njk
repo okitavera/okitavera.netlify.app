@@ -1,7 +1,7 @@
 {% if permalink == "/" %}
   {% set metatitle = metadata.title %}
 {% else %}
-  {% set metatitle = renderData.title or title or metadata.title %}
+  {% set metatitle = (renderData.title or title) + ' - ' + metadata.title %}
 {% endif %}
 {% set metathumbs = metadata.url + (splash.url or '/assets/img/me.png')or metadata.author.photo %}
 {% set metadesc = desc or metadata.description or (metadata.author.name + Website') %}
@@ -18,3 +18,4 @@
 <meta property="og:description" content="{{ metadesc }}">
 <meta property="og:image" content="{{ metathumbs }}" >
 <meta property="og:type" content="website">
+<title>{{ metatitle }}</title>
