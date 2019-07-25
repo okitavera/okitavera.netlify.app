@@ -1,34 +1,36 @@
 # okitavera.me
-
-> everybody loves source code, isn't it ?
+> The source tree for my personal website
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/2693ef39-e7b6-4c20-b375-0d7ac3619925/deploy-status)](https://app.netlify.com/sites/okitavera/deploys)
 [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![eleventy](https://img.shields.io/badge/staticgen-eleventy-%23707070.svg)](https://11ty.io)
 
-## Local Install
 
-Clone, and Install with your _package-manager-of-choice_
+## Install
 
-```
-$ yarn install
-```
-
-## Workflow
-
-### First run
-
-```
-$ gulp clean # cleanup destination directory
-$ gulp serve # generate, watch, and served to http://localhost:8080
+Just like any other node packages :
+```sh
+yarn # or npm i
 ```
 
-### Next run
+## Usage
 
+### Build the source into .build/ folder
+
+```sh
+yarn build
 ```
-$ gulp serve
+
+### Run local web server for testing
+
+```sh
+yarn serve
 ```
+
+### Fetching twitter feeds
+1. create `.env` file and add your twitter token and information to it, you can look at the [`.env-sample`](.env-sample) for the references.
+2. run build script again (`yarn build`) to fetch and generate the source
 
 ## License
 
