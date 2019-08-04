@@ -47,3 +47,14 @@ body {
               color 0.25s ease-in,
               border 0.25s ease-in;
 }
+
+/* several individual fixes for night mode */
+.night {
+  blockquote {
+    border-left: 0.25em solid #4f4245;
+    color: #9aa3ad;
+  }
+  .sidebar{
+    border-right: none;
+  }
+}
