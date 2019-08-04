@@ -71,10 +71,32 @@ article {
   }
 }
 
+.splash{
+  &__container {
+  max-height: 50vh;
+  overflow: hidden;
+  position: relative;
+}
+  &__desc {
+    position: absolute;
+    bottom: 0px;
+    background: var(--color-light);
+    width: 100%;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    opacity: 0.8;
+  }
+}
+header.article{
+ h1 {
+   margin: 0 0 .65rem 0;
+ }
+}
+
 @media screen and (max-width: $flexbox-breakpoint) {
   .content {
     &__shrink {
-      padding: 2rem;
+      padding: 1rem 2rem;
     }
     &__wrapper {
       padding: unset;

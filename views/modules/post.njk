@@ -1,23 +1,25 @@
 ---
 layout: plain.njk
 ---
-<header class="container content__shrink center">
+{% if splash %}
+<div class="splash__container">
+  <img src="{{ splash.url }}" style="max-width:100%">
+  {% if splash.credit %}
+    <div class="splash__desc right txt--xsmall padding--x-2">{{ splash.credit | urlize | safe }}</div>
+  {% endif %}
+</div>
+{% endif %}
+<header class="container content__shrink center article">
   <h1 class="txt--700">{{ title }}</h1>
-  <h3 class="txt--300">{{ desc }}</h3>
-  <time datetime="{{ date | parseDate("yyyy-LL-dd") }}">
+  <h3 class="txt--300"><i>{{ desc }}</i></h3>
+  <time class="txt--small" datetime="{{ date | parseDate("yyyy-LL-dd") }}">
     <i class="fea-calendar"></i>&nbsp;&nbsp;{{ date | parseDate }}
   </time>
   &nbsp;&nbsp;
-  <span>
+  <span class="txt--small">
     <i class="fea-clock"></i>&nbsp;&nbsp;{{ content | getReadingTime("%M minutes to read") }}
   </span>
 </header>
-{% if splash %}
-  <img src="{{ splash.url }}" style="max-width:100%">
-  {% if splash.credit %}
-    <div class="right txt--small padding--x-2">{{ splash.credit | urlize | safe }}</div>
-  {% endif %}
-{% endif %}
 <article class="container content__shrink">
   {{ content | safe }}
   <br>
