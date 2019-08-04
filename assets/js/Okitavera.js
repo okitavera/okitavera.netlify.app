@@ -32,8 +32,12 @@ function parseTwitterDate(tdate) {
 }
 
 function themeSwitcher() {
-  html.classList.toggle("dank");
-  sessionStorage.dankMode = html.classList.contains("dank");
+  html.classList.toggle("night");
+  if (html.classList.contains("night")) {
+    sessionStorage.themeMode = 'night'
+  } else {
+    sessionStorage.themeMode = 'day'
+  }
 }
 
 function onPageScroll() {
@@ -42,7 +46,7 @@ function onPageScroll() {
 
 function onPageLoad() {
   document
-    .querySelectorAll("button.dank")
+    .querySelectorAll("button#themeswitch")
     .forEach((b) => (b.onclick = themeSwitcher));
 
   document.querySelector(".sidebar__mobile-menu").onclick = () => {
@@ -58,7 +62,7 @@ function onPageLoad() {
 
   document
     .querySelectorAll(".mobile-menu__wrapper, .sidebar, .content")
-    .forEach((el) => el.classList.add("dankfx"));
+    .forEach((el) => el.classList.add("nightfx"));
 
   disqusLoader(disqusdata.username);
   if (!"scroll-behaviour" in document.documentElement.style)

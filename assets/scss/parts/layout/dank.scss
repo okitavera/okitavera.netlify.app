@@ -1,5 +1,5 @@
 body {
-  button.dank {
+  button#themeswitch {
     position: absolute;
     top: 1rem;
     left: 1rem;
@@ -16,8 +16,8 @@ body {
       display: inline-block;
     }
   }
-  &:not(.dank) {
-    button.dank {
+  &:not(.night) {
+    button#themeswitch {
       .fea-moon {
         display: inline-block;
       }
@@ -26,23 +26,23 @@ body {
       }
     }
   }
-  footer button.dank {
+  footer button#themeswitch {
     position: relative;
     display: none;
   }
 }
 
 @media screen and (max-width: $flexbox-breakpoint) {
-  .sidebar .dank {
+  .sidebar button#themeswitch {
     display: none;
   }
-  body footer button.dank {
+  body footer button#themeswitch {
     display: inline-block;
     left: unset;
   }
 }
 
-.dankfx {
+.nightfx {
   transition: background 0.25s ease-in,
               color 0.25s ease-in,
               border 0.25s ease-in;
