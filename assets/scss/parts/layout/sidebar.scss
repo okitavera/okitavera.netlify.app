@@ -235,6 +235,11 @@
     &__mobile-menu__wrapper {
       display: block;
     }
+    &__social {
+      display: block;
+      position: absolute;
+      bottom: 3rem;
+    }
     .row {
       flex: 0 0 auto;
       flex-basis: auto;
