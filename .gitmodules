@@ -1,0 +1,3 @@
+[submodule "inventory/misc"]
+	path = inventory/misc
+	url = https://github.com/okitavera/okitavera.me-misc
