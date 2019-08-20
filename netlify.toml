@@ -1,6 +1,6 @@
 [build]
   publish = ".build"
-  command = "gulp default"
+  command = "git submodule update --init --force --remote; gulp default"
 
 [[headers]]
   for = "/*"
