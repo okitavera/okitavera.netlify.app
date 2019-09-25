@@ -1,7 +1,6 @@
 const postcss = require("gulp-postcss");
 const cssEnv = require("postcss-preset-env");
 const cssNano = require("cssnano");
-const cssPacker = require("css-mqpacker");
 const cssNormalize = require("postcss-normalize");
 const cssSVG = require("postcss-inline-svg");
 const sass = require("gulp-sass");
@@ -22,7 +21,7 @@ module.exports = ({ gulp }) => {
       .src("./assets/scss/Illuminate.scss")
       .pipe(sassGlob())
       .pipe(sass().on("error", sass.logError))
-      .pipe(postcss([cssNormalizeX, cssPacker, cssEnv, cssNano]))
+      .pipe(postcss([cssNormalizeX, cssEnv, cssNano]))
       .pipe(gulp.dest("./views/modules/virtual"))
   );
 
