@@ -40,6 +40,15 @@ function themeSwitcher() {
   }
 }
 
+function mobileMenuOffsetHelper() {
+  const addrHeight = screen.availHeight - window.innerHeight;
+
+  if (document.querySelector(".mobile-menu__wrapper").classList.contains("state--active")) {
+    document.querySelector(".mobile-menu").style.paddingBottom = addrHeight + "px";
+    document.querySelector(".sidebar__social").style.paddingBottom = addrHeight + "px";
+  }
+}
+
 function onPageScroll() {
   toggleScrollTopView(document.querySelector(".backtotop"));
 }
@@ -54,6 +63,7 @@ function onPageLoad() {
     if (mc.contains("state--active") || mc.contains("state--inactive"))
       mc.toggle("state--inactive");
     mc.toggle("state--active");
+    mobileMenuOffsetHelper();
   };
 
   document.querySelectorAll(".twitter-date").forEach((date) => {
@@ -71,6 +81,7 @@ function onPageLoad() {
 
 window.addEventListener("load", onPageLoad);
 window.addEventListener("scroll", onPageScroll, { passive: true });
+window.addEventListener('resize', mobileMenuOffsetHelper);
 
 /*!
  * Copyright (c) 2018 Nanda Oktavera
