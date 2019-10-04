@@ -5,5 +5,11 @@ const pluginPWA = require("eleventy-plugin-pwa");
 module.exports = ({ eleventy }) => {
   eleventy.addPlugin(pluginRss);
   eleventy.addPlugin(pluginSyntaxHighlight);
-  eleventy.addPlugin(pluginPWA);
+  eleventy.addPlugin(pluginPWA, {
+    runtimeCaching: [{
+      urlPattern: new RegExp('^https://github\.com/.*\.png.*'),
+      handler: 'StaleWhileRevalidate'
+    }]
+  });
+
 };
