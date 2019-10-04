@@ -13,21 +13,22 @@ When I’m not on the text editor, I enjoy playing video games, shopping, watchi
 
 # Skill
 
-{% progressBar "Kotlin", "60%" %}
+{% progressBar "Bash", "70%" %}
 
-{% progressBar "JavaScript", "20%" %}
+{% progressBar "C", "17%" %}
 
-{% progressBar "CSS", "50%" %}
+{% progressBar "CSS/HTML", "55%" %}
 
-{% progressBar "Bash", "80%" %}
+{% progressBar "Gaming :)", "90%" %}
 
-{% progressBar "Linux", "60%" %}
+{% progressBar "JavaScript", "30%" %}
 
-... And because Gaming is now a skill, so ...
+{% progressBar "Linux", "80%" %}
 
-{% progressBar "Gaming", "90%" %}
+{% progressBar "Kotlin", "45%" %}
 
-## Donate
+# Donate
+
 If you like about my several projects and what I'm doing on the net,
 you can consider buying me a coffee (or chocolate), Thank you!
 
