@@ -4,9 +4,9 @@ input[type="submit"],
 .btn {
   display: inline-block;
   margin: 4px 2px;
-  padding: 0.35em 0.75em;
+  padding: 0.4em 0.8em;
   border: none;
-  border-radius: 0;
+  border-radius: 3px;
   background-color: var(--color-dark);
   color: var(--color-light);
   vertical-align: middle;
@@ -75,6 +75,7 @@ input[type="submit"],
   transform: scale(0);
   i {
     font-size: 2rem;
+    margin-bottom: 0.4rem;
   }
   &:hover {
     outline: none;
@@ -83,6 +84,7 @@ input[type="submit"],
   &:active,
   &:visited,
   &:focus {
+    outline: none;
     background-color: var(--color-accent);
   }
   &.show {
