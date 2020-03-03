@@ -28,24 +28,30 @@ function parseTwitterDate(tdate) {
   if (diff <= 129600) return "1d";
   if (diff < 604800) return Math.round(diff / 86400) + "d";
   if (diff <= 777600) return "1w";
-  return "on " + system_date;
+  return "on " + system_date.toDateString();
 }
 
 function themeSwitcher() {
   html.classList.toggle("night");
   if (html.classList.contains("night")) {
-    sessionStorage.themeMode = 'night'
+    sessionStorage.themeMode = "night";
   } else {
-    sessionStorage.themeMode = 'day'
+    sessionStorage.themeMode = "day";
   }
 }
 
 function mobileMenuOffsetHelper() {
   const addrHeight = screen.availHeight - window.innerHeight;
 
-  if (document.querySelector(".mobile-menu__wrapper").classList.contains("state--active")) {
-    document.querySelector(".mobile-menu").style.paddingBottom = addrHeight + "px";
-    document.querySelector(".sidebar__social").style.paddingBottom = addrHeight + "px";
+  if (
+    document
+      .querySelector(".mobile-menu__wrapper")
+      .classList.contains("state--active")
+  ) {
+    document.querySelector(".mobile-menu").style.paddingBottom =
+      addrHeight + "px";
+    document.querySelector(".sidebar__social").style.paddingBottom =
+      addrHeight + "px";
   }
 }
 
@@ -81,7 +87,7 @@ function onPageLoad() {
 
 window.addEventListener("load", onPageLoad);
 window.addEventListener("scroll", onPageScroll, { passive: true });
-window.addEventListener('resize', mobileMenuOffsetHelper);
+window.addEventListener("resize", mobileMenuOffsetHelper);
 
 /*!
  * Copyright (c) 2018 Nanda Oktavera
