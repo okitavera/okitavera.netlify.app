@@ -29,7 +29,7 @@
     "markdown-it": "^10.0.0",
     "markdown-it-anchor": "^5.2.4",
     "network-avatar-picker": "^1.4.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "postcss-inline-svg": "^4.1.0",
     "postcss-normalize": "^8.0.1",
     "postcss-preset-env": "^6.7.0",
